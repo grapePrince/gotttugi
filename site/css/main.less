@@ -3,12 +3,17 @@
 @typo_sans_serif: 'Noto Serif';
 @typo_sans: 'Noto Sans';
 @typo_light: 300;
+@typo_lh_typo_title: 1.227em;
+@typo_lh_typo_title_small: 1.273em;
+@typo_lh_typo_content_title: 1.44em;
+@typo_lh_typo_content_title_small: 1.5em;
+@typo_lh_typo_content: 1.688em;
+@typo_lh_typo_content_small: 1.929em;
 
 .typo_title {
     font-family: @typo_sans_serif;
     font-weight: @typo_light;
     font-size: 44px;
-    line-height: 1.227em;
     letter-spacing: -0.05em;
 }
 
@@ -16,7 +21,6 @@
     font-family: @typo_sans_serif;
     font-weight: @typo_light;
     font-size: 33px;
-    line-height: 1.273em;
     letter-spacing: -0.05em;
 }
 
@@ -24,7 +28,6 @@
     font-family: @typo_sans_serif;
     font-weight: @typo_light;
     font-size: 25px;
-    line-height: 1.44em;
     letter-spacing: -0.05em;
 }
 
@@ -32,7 +35,6 @@
     font-family: @typo_sans_serif;
     font-weight: @typo_light;
     font-size: 18px;
-    line-height: 1.5em;
     letter-spacing: -0.04em;
 }
 
@@ -40,7 +42,6 @@
     font-family: @typo_sans;
     font-weight: @typo_light;
     font-size: 16px;
-    line-height: 1.688em;
     letter-spacing: -0.02em;
 }
 
@@ -48,18 +49,12 @@
     font-family: @typo_sans;
     font-weight: @typo_light;
     font-size: 14px;
-    line-height: 1.929em;
     letter-spacing: -0.01em;
 }
 
 
 body {
     .typo_content();
-    color: @color_black;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    .typo_title_small();
     color: @color_black;
 }
 
@@ -107,15 +102,33 @@ a {
 }
 
 .sprites {
+    display: inline-block;
     background: url(../images/sprite.png) no-repeat;
+    text-indent: -9999em;
+    outline: none;
+
+    &.logo { width: 125px; height: 120px; background-position: -150px -0px; }
+    &.shoplink { width: 130px; height: 140px; background-position: 0px -0px; }
+
+    &.locale { width: 17px; height: 19px; background-position: -300px -0px; }
+    &.help { width: 18px; height: 19px; background-position: -330px -0px; }
+    &.search { width: 18px; height: 19px; background-position: -360px -0px; }
+    &.menu { width: 16px; height: 12px; background-position: -390px -0px; }
+    &.option { width: 16px; height: 15px; background-position: -420px -0px; }
+
 }
 
-/* ---------- HEADER  ---------- */
+/* ---------- HEADER - LAYOUT  ---------- */
 
-header {
-    a {
-        width: 100px;
-        height: 100px;
-    }
-}
+// header {
+//     a {
+//         width: 100px;
+//         height: 100px;
+//     }
+// }
 
+/* ---------- HEADER - DECORATION  ---------- */
+
+// header {
+    
+// }

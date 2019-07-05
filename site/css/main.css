@@ -3,84 +3,105 @@
   font-family: 'Noto Serif';
   font-weight: 300;
   font-size: 44px;
-  line-height: 1.227em;
   letter-spacing: -0.05em;
 }
 .typo_title_small {
   font-family: 'Noto Serif';
   font-weight: 300;
   font-size: 33px;
-  line-height: 1.273em;
   letter-spacing: -0.05em;
 }
 .typo_content_title {
   font-family: 'Noto Serif';
   font-weight: 300;
   font-size: 25px;
-  line-height: 1.44em;
   letter-spacing: -0.05em;
 }
 .typo_content_title_small {
   font-family: 'Noto Serif';
   font-weight: 300;
   font-size: 18px;
-  line-height: 1.5em;
   letter-spacing: -0.04em;
 }
 .typo_content {
   font-family: 'Noto Sans';
   font-weight: 300;
   font-size: 16px;
-  line-height: 1.688em;
   letter-spacing: -0.02em;
 }
 .typo_content_small {
   font-family: 'Noto Sans';
   font-weight: 300;
   font-size: 14px;
-  line-height: 1.929em;
   letter-spacing: -0.01em;
 }
 body {
   font-family: 'Noto Sans';
   font-weight: 300;
   font-size: 16px;
-  line-height: 1.688em;
   letter-spacing: -0.02em;
-  color: #333333;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Noto Serif';
-  font-weight: 300;
-  font-size: 33px;
-  line-height: 1.273em;
-  letter-spacing: -0.05em;
   color: #333333;
 }
 a {
   font-family: 'Noto Sans';
   font-weight: 300;
   font-size: 16px;
-  line-height: 1.688em;
   letter-spacing: -0.02em;
   color: #333333;
   text-decoration: none;
 }
 /* --------- COLOR ------------ */
 /* ---------- LAYOUT  ---------- */
+.container {
+  width: 1110px;
+  margin: 0 auto;
+}
 /* ---------- COMMON  ---------- */
 .hidden_text {
   display: inline-block;
   text-indent: -9999em;
   outline: none;
 }
-/* ---------- HEADER  ---------- */
-header a {
-  width: 100px;
-  height: 100px;
+.sprites {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
 }
+.sprites.logo {
+  width: 125px;
+  height: 120px;
+  background-position: -150px 0px;
+}
+.sprites.shoplink {
+  width: 130px;
+  height: 140px;
+  background-position: 0px 0px;
+}
+.sprites.locale {
+  width: 17px;
+  height: 19px;
+  background-position: -300px 0px;
+}
+.sprites.help {
+  width: 18px;
+  height: 19px;
+  background-position: -330px 0px;
+}
+.sprites.search {
+  width: 18px;
+  height: 19px;
+  background-position: -360px 0px;
+}
+.sprites.menu {
+  width: 16px;
+  height: 12px;
+  background-position: -390px 0px;
+}
+.sprites.option {
+  width: 16px;
+  height: 15px;
+  background-position: -420px 0px;
+}
+/* ---------- HEADER - LAYOUT  ---------- */
+/* ---------- HEADER - DECORATION  ---------- */
