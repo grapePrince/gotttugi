@@ -148,21 +148,21 @@ header .option_content {
 header .option {
   order: 4;
 }
-header .menu {
-  display: none;
-}
-header .option {
-  display: none;
-}
-header .search {
-  display: none;
-}
 header .option_content {
   letter-spacing: -7px;
 }
 header .option_content span {
   margin-left: 10px;
   display: inline-block;
+}
+header .menu {
+  display: none;
+}
+header .option {
+  display: none;
+}
+header .option_content .search {
+  display: none;
 }
 header .circle_icon:hover a {
   background-position-y: -30px;
