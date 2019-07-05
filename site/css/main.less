@@ -111,17 +111,16 @@ a {
     background: url(../images/sprite.png) no-repeat;
     text-indent: -9999em;
     outline: none;
-
-    &.logo { width: 125px; height: 120px; background-position: -150px -0px; }
-    &.shoplink { width: 130px; height: 40px; background-position: 0px -0px; }
-
-    &.locale { width: 17px; height: 19px; background-position: -300px -0px; }
-    &.help { width: 18px; height: 19px; background-position: -330px -0px; }
-    &.search { width: 18px; height: 19px; background-position: -360px -0px; }
-    &.menu { width: 16px; height: 12px; background-position: -390px -0px; }
-    &.option { width: 16px; height: 15px; background-position: -420px -0px; }
-
 }
+
+.sprites.shoplink  { width: 130px; height: 40px; background-position: 0px -0px; }
+.sprites.logo { width: 125px; height: 120px; background-position: -150px -0px; }
+.menu a { width: 16px; height: 12px; background-position: -390px -0px;  }
+.option a { width: 16px; height: 15px; background-position: -420px -0px; }
+.locale a  { width: 17px; height: 19px; background-position: -300px -0px; }
+.help a { width: 18px; height: 19px; background-position: -330px -0px; }
+.sprites.search  { width: 18px; height: 19px; background-position: -360px -0px; }
+
 
 .circle_icon {
     display: block;
@@ -150,14 +149,50 @@ header {
 /* ---------- HEADER - DECORATION  ---------- */
 
 header {
-    .circle_icon {
-
+    .circle_icon:hover a {
+        background-position-y: -30px;
     }
     
+    .menu { display: none; }
+    .option { display: none; }
+    .search { display: none; }
+
 }
 
 
 
+/* ----------- Sub Page ---------------- */
+
+.sub header {
+    .search { display: block; }
+}
+
+
+/* ----------- TABLET ----------------- */
+
+
+@media all and (max-width: 1200px) {
+    .container {
+        width: 100%;
+        margin: auto;
+    }
+}
+
+/* ----------- MOBILE ----------------- */
+
+@media all and (max-width: 576px) {
+
+    header {
+        .menu { display: block; }
+        .option { display: block; }
+        .option_content { display: none; }
+    }
+
+}
+
+
+
+/* ------------ FLEX 지원 안할 때 대체 CSS ----------- */
 .no-flexbox {
 
 }
