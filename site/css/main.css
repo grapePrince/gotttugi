@@ -104,10 +104,15 @@ a {
   height: 19px;
   background-position: -330px 0px;
 }
-.sprites.search {
+.search a {
   width: 18px;
   height: 19px;
   background-position: -360px 0px;
+}
+.sub header .sprites.logo {
+  width: 114px;
+  height: 44px;
+  background-position: -450px 0px;
 }
 .circle_icon {
   display: block;
@@ -125,12 +130,11 @@ a {
   transform: translate(-50%, -50%);
 }
 /* ---------- HEADER - LAYOUT  ---------- */
-header {
-  padding: 54px 0 0;
-}
 header .upper_nav {
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid #e3e3e3;
+  padding: 54px 0 20px;
 }
 header .shoplink {
   order: 1;
@@ -160,13 +164,22 @@ header .option_content span {
   margin-left: 10px;
   display: inline-block;
 }
-/* ---------- HEADER - DECORATION  ---------- */
 header .circle_icon:hover a {
   background-position-y: -30px;
 }
 /* ----------- Sub Page ---------------- */
-.sub header .search {
-  display: block;
+.sub header .upper_nav {
+  position: relative;
+  padding: 20px 0;
+  align-items: center;
+}
+.sub header .upper_nav .search {
+  display: inline-block;
+}
+.sub header .upper_nav .shoplink {
+  position: absolute;
+  top: 100%;
+  right: 0;
 }
 /* ----------- TABLET ----------------- */
 @media all and (max-width: 1110px) {

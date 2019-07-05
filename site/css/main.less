@@ -123,7 +123,9 @@ a {
 .option a { width: 16px; height: 15px; background-position: -420px -0px; }
 .locale a  { width: 17px; height: 19px; background-position: -300px -0px; }
 .help a { width: 18px; height: 19px; background-position: -330px -0px; }
-.sprites.search  { width: 18px; height: 19px; background-position: -360px -0px; }
+.search a { width: 18px; height: 19px; background-position: -360px -0px; }
+
+.sub header .sprites.logo { width: 114px; height: 44px; background-position: -450px -0px; }
 
 
 .circle_icon {
@@ -143,11 +145,12 @@ a {
 /* ---------- HEADER - LAYOUT  ---------- */
 
 header {
-    padding: @line_2line 0 0;
-
     .upper_nav {
         display: flex;
         justify-content: space-between;
+
+        border-bottom: 1px solid @color_grey;
+        padding: @line_2line 0 20px;
     }
     .shoplink { order: 1; }
     h1 { order: 2; }
@@ -165,13 +168,7 @@ header {
             display: inline-block;
         }
     }
-}
 
-
-
-/* ---------- HEADER - DECORATION  ---------- */
-
-header {
     .circle_icon:hover a {
         background-position-y: -30px;
     }
@@ -179,10 +176,23 @@ header {
 
 
 
+
 /* ----------- Sub Page ---------------- */
 
 .sub header {
-    .search { display: block; }
+    .upper_nav {
+        position: relative;
+        padding: 20px 0;
+        align-items: center;
+
+        .search { display: inline-block; }
+        .shoplink {
+            position: absolute;
+            top: 100%;
+            right: 0;
+        }
+    }
+
 }
 
 
