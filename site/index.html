@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class="">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,6 +45,8 @@
     <script src="js/jquery-ui-1.12.1.min.js"></script>
     <script src="js/jquery-bxslider-4.2.12.min.js"></script>
     
+    <script src="js/main.js"></script>
+    <script src="js/modernizr-custom.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
 
 </head>
@@ -53,14 +55,14 @@
 <header class="container">
     <div class="upper_nav">        
         <h1><a href="" class="sprites logo" data-locale="header.logo">로고</a></h1>
-        <a href="" class="sprites menu" data-locale="header.menu">메뉴</a>
-        <a href="" class="sprites option" data-locale="header.option">환경설정</a>
+        <span class="circle_icon"><a href="" class="sprites menu" data-locale="header.menu">메뉴</a></span>
+        <span class="circle_icon"><a href="" class="sprites option" data-locale="header.option">환경설정</a></span>
         <div class="option_content">
-            <a href="" class="sprites help" data-locale="header.help">고객센터</a>
-            <a href="" class="sprites locale" data-locale="header.locale">언어변경</a>
+            <span class="circle_icon"><a href="" class="sprites help" data-locale="header.help">고객센터</a></span>
+            <span class="circle_icon"><a href="" class="sprites locale" data-locale="header.locale">언어변경</a></span>
         </div>
         <a href="" class="sprites search" data-locale="header.search">검색</a>
-        <a href="" class="sprites shoplink"><span data-locale="header.goto_mall">오뚜기 몰로 가기</span></a>
+        <a href="" class="sprites shoplink" data-locale="header.goto_mall">오뚜기 몰로 가기</a>
     </div>    
     <nav>
         <ul>
@@ -152,7 +154,6 @@
     <a class="back_to_top" href="" data-locale="footer.back_to_top">맨위로</a>
 </footer>
 
-<script src="js/main.js"></script>
 <script>
     WebFont.load({
         google: {

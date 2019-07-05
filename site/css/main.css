@@ -56,6 +56,12 @@ a {
   width: 1110px;
   margin: 0 auto;
 }
+.center_center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 /* ---------- COMMON  ---------- */
 .hidden_text {
   display: inline-block;
@@ -75,7 +81,7 @@ a {
 }
 .sprites.shoplink {
   width: 130px;
-  height: 140px;
+  height: 40px;
   background-position: 0px 0px;
 }
 .sprites.locale {
@@ -103,5 +109,23 @@ a {
   height: 15px;
   background-position: -420px 0px;
 }
+.circle_icon {
+  display: block;
+  position: relative;
+  width: 34px;
+  height: 34px;
+  background: #fff;
+  border: 1px solid #e3e3e3;
+  border-radius: 100%;
+}
+.circle_icon a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 /* ---------- HEADER - LAYOUT  ---------- */
+header .upper_nav {
+  display: flex;
+}
 /* ---------- HEADER - DECORATION  ---------- */

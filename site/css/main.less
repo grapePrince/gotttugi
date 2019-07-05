@@ -92,6 +92,11 @@ a {
     margin: 0 auto;
 }
 
+.center_center {
+    position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+}
+
 
 /* ---------- COMMON  ---------- */
 
@@ -108,7 +113,7 @@ a {
     outline: none;
 
     &.logo { width: 125px; height: 120px; background-position: -150px -0px; }
-    &.shoplink { width: 130px; height: 140px; background-position: 0px -0px; }
+    &.shoplink { width: 130px; height: 40px; background-position: 0px -0px; }
 
     &.locale { width: 17px; height: 19px; background-position: -300px -0px; }
     &.help { width: 18px; height: 19px; background-position: -330px -0px; }
@@ -118,17 +123,41 @@ a {
 
 }
 
+.circle_icon {
+    display: block;
+    position: relative;
+    width: 34px;
+    height: 34px;
+    background: @color_white;
+    border: 1px solid @color_grey;
+    border-radius: 100%;
+}
+
+.circle_icon a {
+    .center_center();
+}
+
 /* ---------- HEADER - LAYOUT  ---------- */
 
-// header {
-//     a {
-//         width: 100px;
-//         height: 100px;
-//     }
-// }
+header {
+    .upper_nav {
+        display: flex;
+    }
+}
+
+
 
 /* ---------- HEADER - DECORATION  ---------- */
 
-// header {
+header {
+    .circle_icon {
+
+    }
     
-// }
+}
+
+
+
+.no-flexbox {
+
+}
