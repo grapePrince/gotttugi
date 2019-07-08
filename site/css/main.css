@@ -109,6 +109,11 @@ a {
   height: 19px;
   background-position: -360px 0px;
 }
+.sprites.search_button {
+  width: 18px;
+  height: 19px;
+  background-position: -360px 0px;
+}
 .sub header .sprites.logo {
   width: 114px;
   height: 44px;
@@ -121,7 +126,9 @@ a {
   height: 34px;
   background: #fff;
   border: 1px solid #e3e3e3;
-  border-radius: 100%;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  transition: width 0.5s;
 }
 .circle_icon a {
   position: absolute;
@@ -129,51 +136,112 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.circle_icon span {
+  display: none;
+}
 /* ---------- HEADER - LAYOUT  ---------- */
 header .upper_nav {
+  position: relative;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #e3e3e3;
-  padding: 54px 0 20px;
+  padding: 27px 0;
+  /* 순서 및 보이고 안보이고 조정 */
 }
-header .shoplink {
+header .upper_nav .shoplink {
   order: 1;
 }
-header h1 {
+header .upper_nav h1 {
   order: 2;
 }
-header .option_content {
+header .upper_nav .option_content {
   order: 3;
 }
-header .option {
+header .upper_nav .option {
   order: 4;
 }
-header .option_content {
-  letter-spacing: -7px;
+header .upper_nav .menu {
+  display: none;
 }
-header .option_content span {
+header .upper_nav .option {
+  display: none;
+}
+header .upper_nav .option_content .search {
+  display: none;
+}
+header .upper_nav .option_content {
+  display: flex;
+}
+header .upper_nav .option_content > span {
   margin-left: 10px;
-  display: inline-block;
 }
-header .menu {
-  display: none;
+header .upper_nav .circle_icon:hover {
+  width: 100px;
+  padding: 5px 15px;
 }
-header .option {
-  display: none;
-}
-header .option_content .search {
-  display: none;
-}
-header .circle_icon:hover a {
+header .upper_nav .circle_icon:hover a {
   background-position-y: -30px;
+  position: static;
+  top: auto;
+  left: auto;
+  transform: none;
+}
+header .upper_nav .circle_icon:hover span {
+  display: inline;
+}
+header .upper_nav .search_input {
+  position: absolute;
+  right: 0;
+  bottom: 27px;
+  width: 250px;
+  height: 30px;
+}
+header .upper_nav .search_input input[type="text"] {
+  border: none;
+  outline: none;
+  width: 220px;
+  height: 30px;
+  padding: 4px;
+  box-sizing: border-box;
+  font-family: 'Noto Serif';
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: -0.04em;
+}
+header .upper_nav .search_input .search_button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translate(-7px, -7px);
+  border: none;
+}
+header .upper_nav .search_input input[type="text"]:focus ~ .search_button {
+  background-position-y: -30px;
+}
+header .upper_nav .search_input span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  bottom: 27px;
+  width: 250px;
+  height: 30px;
+  border-bottom: 1px solid #e3e3e3;
+}
+header .upper_nav .search_input input[type="text"]:focus ~ span {
+  border-bottom: 2px solid #fef100;
 }
 /* ----------- Sub Page ---------------- */
 .sub header .upper_nav {
   position: relative;
   padding: 20px 0;
   align-items: center;
+  /* 순서 및 보이고 안보이고 조정 */
 }
-.sub header .upper_nav .search {
+.sub header .upper_nav .search_input {
+  display: none;
+}
+.sub header .upper_nav .option_content .search {
   display: inline-block;
 }
 .sub header .upper_nav .shoplink {
@@ -187,26 +255,37 @@ header .circle_icon:hover a {
     width: 100%;
     margin: auto;
   }
-  header {
-    padding: 27px 0 0;
+  header .upper_nav {
+    padding: 20px 15px;
+    /* 순서 및 보이고 안보이고 조정 */
+  }
+  header .upper_nav .option_content .search {
+    display: inline-block;
+  }
+  header .upper_nav .search_input {
+    display: none;
   }
 }
 /* ----------- MOBILE ----------------- */
 @media all and (max-width: 576px) {
-  header {
-    padding: 15px 15px 0;
+  header .upper_nav {
+    padding: 15px;
+    /* 순서 및 보이고 안보이고 조정 */
   }
-  header .menu {
+  header .upper_nav .menu {
     display: block;
   }
-  header .option {
+  header .upper_nav .option {
     display: block;
   }
-  header .option_content {
+  header .upper_nav .option_content {
     display: none;
   }
-  header .shoplink {
+  header .upper_nav .shoplink {
     display: none;
+  }
+  .sub header .upper_nav {
+    padding: 15px;
   }
 }
 /* ------------ FLEX 지원 안할 때 대체 CSS ----------- */

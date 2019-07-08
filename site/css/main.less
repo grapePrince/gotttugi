@@ -124,6 +124,7 @@ a {
 .locale a  { width: 17px; height: 19px; background-position: -300px -0px; }
 .help a { width: 18px; height: 19px; background-position: -330px -0px; }
 .search a { width: 18px; height: 19px; background-position: -360px -0px; }
+.sprites.search_button { width: 18px; height: 19px; background-position: -360px -0px; }
 
 .sub header .sprites.logo { width: 114px; height: 44px; background-position: -450px -0px; }
 
@@ -135,44 +136,106 @@ a {
     height: 34px;
     background: @color_white;
     border: 1px solid @color_grey;
-    border-radius: 100%;
+    border-radius: 9999px;
+    box-sizing: border-box;
+    transition: width 0.5s;
 }
 
 .circle_icon a {
     .center_center();
 }
 
+    
+.circle_icon span {
+    display: none;
+}
+
 /* ---------- HEADER - LAYOUT  ---------- */
 
 header {
     .upper_nav {
+        position: relative;
         display: flex;
         justify-content: space-between;
 
         border-bottom: 1px solid @color_grey;
-        padding: @line_2line 0 20px;
-    }
-    .shoplink { order: 1; }
-    h1 { order: 2; }
-    .option_content { order: 3; }
-    .option { order: 4; }
+        padding: @line_1line 0;
 
+        /* 순서 및 보이고 안보이고 조정 */
+        .shoplink { order: 1; }
+        h1 { order: 2; }
+        .option_content { order: 3; }
+        .option { order: 4; }
 
-    .option_content {
-        letter-spacing: -7px;
-        span {
-            margin-left: 10px;
-            display: inline-block;
+        .menu { display: none; }
+        .option { display: none; }
+        .option_content .search { display: none; }
+    
+    
+        .option_content {
+            display: flex;
+            & > span {
+                margin-left: 10px;
+            }
+        }
+    
+        .circle_icon:hover {
+            width: 100px;
+            padding: 5px 15px;
+        }
+
+        .circle_icon:hover a {
+            background-position-y: -30px;
+            position: static; top: auto; left: auto; transform: none;
+        }
+
+        .circle_icon:hover span {
+            display: inline;
+        }       
+
+        .search_input {
+            position: absolute;
+            right: 0;
+            bottom: @line_1line;
+            width: 250px;
+            height: 30px;
+
+            input[type="text"] {                
+                border: none;
+                outline: none;
+                width:  220px;
+                height: 30px;
+                padding: 4px;
+                box-sizing: border-box;
+                .typo_content_title_small();  
+            }
+
+            .search_button {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                transform: translate(-7px, -7px);
+                border: none;
+            }
+
+            input[type="text"]:focus ~ .search_button {
+                background-position-y: -30px;
+            }
+
+            span {
+                position: absolute; left: 0; top: 0; z-index: -1;
+                bottom: @line_1line;
+                width: 250px;
+                height: 30px;
+                border-bottom: 1px solid @color_grey;
+            }
+
+            input[type="text"]:focus ~ span {
+                border-bottom: 2px solid @color_yellow;
+            }
         }
     }
 
-    .menu { display: none; }
-    .option { display: none; }
-    .option_content .search { display: none; }
-
-    .circle_icon:hover a {
-        background-position-y: -30px;
-    }
 }
 
 
@@ -186,7 +249,10 @@ header {
         padding: 20px 0;
         align-items: center;
 
-        .search { display: inline-block; }
+        /* 순서 및 보이고 안보이고 조정 */
+        .search_input { display: none; }
+        .option_content .search { display: inline-block; }
+
         .shoplink {
             position: absolute;
             top: 100%;
@@ -207,7 +273,12 @@ header {
     }
 
     header {
-        padding: @line_1line 0 0;
+        .upper_nav {
+            padding: 20px 15px;
+            /* 순서 및 보이고 안보이고 조정 */
+            .option_content .search { display: inline-block; }
+            .search_input { display: none; }
+        }       
     }
 }
 
@@ -215,11 +286,21 @@ header {
 
 @media all and (max-width: 576px) {
     header {
-        padding: 15px 15px 0;
-        .menu { display: block; }
-        .option { display: block; }
-        .option_content { display: none; }
-        .shoplink { display: none; }
+        .upper_nav {
+            padding: 15px;
+
+            /* 순서 및 보이고 안보이고 조정 */
+            .menu { display: block; }
+            .option { display: block; }
+            .option_content { display: none; }
+            .shoplink { display: none; }
+        }
+    }
+
+    .sub header {
+        .upper_nav {
+            padding: 15px;
+        }
     }
 }
 
