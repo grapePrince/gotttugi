@@ -110,6 +110,10 @@ a {
     outline: none;
 }
 
+.shadow {
+    box-shadow: 3px 3px 3px rgba(227,227,227, 0.25);
+}
+
 .sprites {
     display: inline-block;
     background: url(../images/sprite.png) no-repeat;
@@ -130,7 +134,8 @@ a {
 
 
 .circle_icon {
-    display: block;
+    display: flex;    
+    align-items: center;
     position: relative;
     width: 34px;
     height: 34px;
@@ -138,7 +143,9 @@ a {
     border: 1px solid @color_grey;
     border-radius: 9999px;
     box-sizing: border-box;
+    cursor: pointer;
     transition: width 0.5s;
+    overflow: hidden;
 }
 
 .circle_icon a {
@@ -146,8 +153,13 @@ a {
 }
 
     
-.circle_icon span {
-    display: none;
+.circle_icon span {    
+    position: absolute;
+    right: -100px;
+    transition-property: right;
+    transition-duration: 0.5s;
+    transition-delay: 0.1s;
+    opacity: 0;
 }
 
 /* ---------- HEADER - LAYOUT  ---------- */
@@ -160,6 +172,7 @@ header {
 
         border-bottom: 1px solid @color_grey;
         padding: @line_1line 0;
+        height: 120px;
 
         /* 순서 및 보이고 안보이고 조정 */
         .shoplink { order: 1; }
@@ -171,28 +184,38 @@ header {
         .option { display: none; }
         .option_content .search { display: none; }
     
-    
+
+        h1 {
+            .center_center();
+        }
+
         .option_content {
             display: flex;
             & > span {
                 margin-left: 10px;
             }
+
+            .circle_icon:hover {
+                width: 120px;
+                padding: 5px 15px;
+                border: 1px solid @color_yellow;
+                .shadow();
+            }
+    
+            .circle_icon:hover a {
+                background-position-y: -30px;
+                position: static; top: auto; left: auto; transform: none;
+            }
+    
+            .circle_icon:hover span {
+                right: 15px;
+                margin-left: 7px;
+                opacity: 1;
+            }       
+    
         }
     
-        .circle_icon:hover {
-            width: 100px;
-            padding: 5px 15px;
-        }
-
-        .circle_icon:hover a {
-            background-position-y: -30px;
-            position: static; top: auto; left: auto; transform: none;
-        }
-
-        .circle_icon:hover span {
-            display: inline;
-        }       
-
+        
         .search_input {
             position: absolute;
             right: 0;
@@ -223,15 +246,15 @@ header {
             }
 
             span {
-                position: absolute; left: 0; top: 0; z-index: -1;
-                bottom: @line_1line;
+                position: absolute; left: 0;  z-index: 1;
+                bottom: 0;
                 width: 250px;
-                height: 30px;
                 border-bottom: 1px solid @color_grey;
             }
 
             input[type="text"]:focus ~ span {
-                border-bottom: 2px solid @color_yellow;
+                border-bottom: 1px solid @color_yellow;
+                .shadow();
             }
         }
     }
@@ -251,7 +274,7 @@ header {
 
         /* 순서 및 보이고 안보이고 조정 */
         .search_input { display: none; }
-        .option_content .search { display: inline-block; }
+        .option_content .search { display: flex; }
 
         .shoplink {
             position: absolute;
@@ -276,7 +299,7 @@ header {
         .upper_nav {
             padding: 20px 15px;
             /* 순서 및 보이고 안보이고 조정 */
-            .option_content .search { display: inline-block; }
+            .option_content .search { display: flex; }
             .search_input { display: none; }
         }       
     }

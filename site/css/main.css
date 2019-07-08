@@ -68,6 +68,9 @@ a {
   text-indent: -9999em;
   outline: none;
 }
+.shadow {
+  box-shadow: 3px 3px 3px rgba(227, 227, 227, 0.25);
+}
 .sprites {
   display: inline-block;
   background: url(../images/sprite.png) no-repeat;
@@ -120,7 +123,8 @@ a {
   background-position: -450px 0px;
 }
 .circle_icon {
-  display: block;
+  display: flex;
+  align-items: center;
   position: relative;
   width: 34px;
   height: 34px;
@@ -128,7 +132,9 @@ a {
   border: 1px solid #e3e3e3;
   border-radius: 9999px;
   box-sizing: border-box;
+  cursor: pointer;
   transition: width 0.5s;
+  overflow: hidden;
 }
 .circle_icon a {
   position: absolute;
@@ -137,7 +143,12 @@ a {
   transform: translate(-50%, -50%);
 }
 .circle_icon span {
-  display: none;
+  position: absolute;
+  right: -100px;
+  transition-property: right;
+  transition-duration: 0.5s;
+  transition-delay: 0.1s;
+  opacity: 0;
 }
 /* ---------- HEADER - LAYOUT  ---------- */
 header .upper_nav {
@@ -146,6 +157,7 @@ header .upper_nav {
   justify-content: space-between;
   border-bottom: 1px solid #e3e3e3;
   padding: 27px 0;
+  height: 120px;
   /* 순서 및 보이고 안보이고 조정 */
 }
 header .upper_nav .shoplink {
@@ -169,25 +181,35 @@ header .upper_nav .option {
 header .upper_nav .option_content .search {
   display: none;
 }
+header .upper_nav h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 header .upper_nav .option_content {
   display: flex;
 }
 header .upper_nav .option_content > span {
   margin-left: 10px;
 }
-header .upper_nav .circle_icon:hover {
-  width: 100px;
+header .upper_nav .option_content .circle_icon:hover {
+  width: 120px;
   padding: 5px 15px;
+  border: 1px solid #fef100;
+  box-shadow: 3px 3px 3px rgba(227, 227, 227, 0.25);
 }
-header .upper_nav .circle_icon:hover a {
+header .upper_nav .option_content .circle_icon:hover a {
   background-position-y: -30px;
   position: static;
   top: auto;
   left: auto;
   transform: none;
 }
-header .upper_nav .circle_icon:hover span {
-  display: inline;
+header .upper_nav .option_content .circle_icon:hover span {
+  right: 15px;
+  margin-left: 7px;
+  opacity: 1;
 }
 header .upper_nav .search_input {
   position: absolute;
@@ -221,15 +243,14 @@ header .upper_nav .search_input input[type="text"]:focus ~ .search_button {
 header .upper_nav .search_input span {
   position: absolute;
   left: 0;
-  top: 0;
-  z-index: -1;
-  bottom: 27px;
+  z-index: 1;
+  bottom: 0;
   width: 250px;
-  height: 30px;
   border-bottom: 1px solid #e3e3e3;
 }
 header .upper_nav .search_input input[type="text"]:focus ~ span {
-  border-bottom: 2px solid #fef100;
+  border-bottom: 1px solid #fef100;
+  box-shadow: 3px 3px 3px rgba(227, 227, 227, 0.25);
 }
 /* ----------- Sub Page ---------------- */
 .sub header .upper_nav {
@@ -242,7 +263,7 @@ header .upper_nav .search_input input[type="text"]:focus ~ span {
   display: none;
 }
 .sub header .upper_nav .option_content .search {
-  display: inline-block;
+  display: flex;
 }
 .sub header .upper_nav .shoplink {
   position: absolute;
@@ -260,7 +281,7 @@ header .upper_nav .search_input input[type="text"]:focus ~ span {
     /* 순서 및 보이고 안보이고 조정 */
   }
   header .upper_nav .option_content .search {
-    display: inline-block;
+    display: flex;
   }
   header .upper_nav .search_input {
     display: none;
