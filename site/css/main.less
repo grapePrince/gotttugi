@@ -13,21 +13,21 @@
 .typo_title {
     font-family: @typo_sans_serif;
     font-weight: @typo_light;
-    font-size: 44px;
+    font-size: 43px;
     letter-spacing: -0.05em;
 }
 
 .typo_title_small {
     font-family: @typo_sans_serif;
     font-weight: @typo_light;
-    font-size: 33px;
+    font-size: 34px;
     letter-spacing: -0.05em;
 }
 
 .typo_content_title {
     font-family: @typo_sans_serif;
     font-weight: @typo_light;
-    font-size: 25px;
+    font-size: 26px;
     letter-spacing: -0.05em;
 }
 
@@ -92,6 +92,12 @@ a {
 .container {
     width: 1110px;
     margin: 0 auto;
+}
+
+.clearfix:after {
+    content: "";
+    clear: both;
+    display: block;
 }
 
 
@@ -195,7 +201,6 @@ a {
     }
 }
 
-
 .circle_icon.dropdown_menu {
     overflow: visible;
     .window {
@@ -249,11 +254,13 @@ a {
 
 
 
-
-
 /* ---------- HEADER - LAYOUT  ---------- */
 
 header {
+    background: #fff;
+    transition: height 0.5s;
+    overflow: hidden;
+
     .upper_nav {
         position: relative;
         display: flex;
@@ -329,11 +336,33 @@ header {
     }
 
     nav {
-        ul  ul {
-            display:none;   
-        }
+        position: relative;
+        border-bottom: 1px solid @color_grey;
+        ul {
+            display:flex;
+            justify-content: space-between;
+            padding: @line_1line 200px;
+
+            li {
+                a {
+                    .typo_content_title();
+                    font-weight: 600;
+                }
+                ul {
+                    display:none;   
+                }
+            }            
+        }    
+        img {
+            position: absolute;
+            display:none;
+        }      
     }
 
+}
+
+header.open_sub {
+    height: 650px;
 }
 
 

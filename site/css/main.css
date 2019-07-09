@@ -2,19 +2,19 @@
 .typo_title {
   font-family: 'Noto Serif KR';
   font-weight: 300;
-  font-size: 44px;
+  font-size: 43px;
   letter-spacing: -0.05em;
 }
 .typo_title_small {
   font-family: 'Noto Serif KR';
   font-weight: 300;
-  font-size: 33px;
+  font-size: 34px;
   letter-spacing: -0.05em;
 }
 .typo_content_title {
   font-family: 'Noto Serif KR';
   font-weight: 300;
-  font-size: 25px;
+  font-size: 26px;
   letter-spacing: -0.05em;
 }
 .typo_content_title_small {
@@ -55,6 +55,11 @@ a {
 .container {
   width: 1110px;
   margin: 0 auto;
+}
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
 }
 /* ---------- COMMON  ---------- */
 .hidden_text {
@@ -238,6 +243,11 @@ a {
   color: #cccccc;
 }
 /* ---------- HEADER - LAYOUT  ---------- */
+header {
+  background: #fff;
+  transition: height 0.5s;
+  overflow: hidden;
+}
 header .upper_nav {
   position: relative;
   display: flex;
@@ -321,8 +331,31 @@ header .upper_nav .search_input input[type="text"]:focus ~ span {
   border-bottom: 1px solid #fef100;
   box-shadow: 3px 3px 3px rgba(227, 227, 227, 0.25);
 }
-header nav ul ul {
+header nav {
+  position: relative;
+  border-bottom: 1px solid #e3e3e3;
+}
+header nav ul {
+  display: flex;
+  justify-content: space-between;
+  padding: 27px 200px;
+}
+header nav ul li a {
+  font-family: 'Noto Serif KR';
+  font-weight: 300;
+  font-size: 26px;
+  letter-spacing: -0.05em;
+  font-weight: 600;
+}
+header nav ul li ul {
   display: none;
+}
+header nav img {
+  position: absolute;
+  display: none;
+}
+header.open_sub {
+  height: 650px;
 }
 /* ----------- Sub Page ---------------- */
 .sub header .upper_nav {
