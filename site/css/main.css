@@ -1,49 +1,49 @@
 /* ---------- TYPOGRAPHY  ---------- */
 .typo_title {
-  font-family: 'Noto Serif';
+  font-family: 'Noto Serif KR';
   font-weight: 300;
   font-size: 44px;
   letter-spacing: -0.05em;
 }
 .typo_title_small {
-  font-family: 'Noto Serif';
+  font-family: 'Noto Serif KR';
   font-weight: 300;
   font-size: 33px;
   letter-spacing: -0.05em;
 }
 .typo_content_title {
-  font-family: 'Noto Serif';
+  font-family: 'Noto Serif KR';
   font-weight: 300;
   font-size: 25px;
   letter-spacing: -0.05em;
 }
 .typo_content_title_small {
-  font-family: 'Noto Serif';
+  font-family: 'Noto Serif KR';
   font-weight: 300;
   font-size: 18px;
   letter-spacing: -0.04em;
 }
 .typo_content {
-  font-family: 'Noto Sans';
+  font-family: 'Noto Sans KR';
   font-weight: 300;
   font-size: 16px;
   letter-spacing: -0.02em;
 }
 .typo_content_small {
-  font-family: 'Noto Sans';
+  font-family: 'Noto Sans KR';
   font-weight: 300;
   font-size: 14px;
   letter-spacing: -0.01em;
 }
 body {
-  font-family: 'Noto Sans';
+  font-family: 'Noto Sans KR';
   font-weight: 300;
   font-size: 16px;
   letter-spacing: -0.02em;
   color: #333333;
 }
 a {
-  font-family: 'Noto Sans';
+  font-family: 'Noto Sans KR';
   font-weight: 300;
   font-size: 16px;
   letter-spacing: -0.02em;
@@ -56,12 +56,6 @@ a {
   width: 1110px;
   margin: 0 auto;
 }
-.center_center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 /* ---------- COMMON  ---------- */
 .hidden_text {
   display: inline-block;
@@ -70,6 +64,22 @@ a {
 }
 .shadow {
   box-shadow: 3px 3px 3px rgba(227, 227, 227, 0.25);
+}
+.no_shadow {
+  box-shadow: none;
+}
+.center_center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.fill_parent {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 .sprites {
   display: inline-block;
@@ -87,27 +97,27 @@ a {
   height: 120px;
   background-position: -150px 0px;
 }
-.menu a {
+.menu .icon {
   width: 16px;
   height: 12px;
   background-position: -390px 0px;
 }
-.option a {
+.option .icon {
   width: 16px;
   height: 15px;
   background-position: -420px 0px;
 }
-.locale a {
+.locale .icon {
   width: 17px;
   height: 19px;
   background-position: -300px 0px;
 }
-.help a {
+.help .icon {
   width: 18px;
   height: 19px;
   background-position: -330px 0px;
 }
-.search a {
+.search .icon {
   width: 18px;
   height: 19px;
   background-position: -360px 0px;
@@ -136,19 +146,96 @@ a {
   transition: width 0.5s;
   overflow: hidden;
 }
-.circle_icon a {
+.circle_icon .icon {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.circle_icon span {
+.circle_icon .text,
+.circle_icon .arrow {
   position: absolute;
   right: -100px;
   transition-property: right;
   transition-duration: 0.5s;
   transition-delay: 0.1s;
   opacity: 0;
+  font-family: 'Noto Sans KR';
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  font-family: 'Noto Serif KR';
+  color: #999999;
+}
+.circle_icon:hover {
+  width: 120px;
+  padding: 5px 15px;
+  border: 1px solid #fef100;
+  box-shadow: 3px 3px 3px rgba(227, 227, 227, 0.25);
+}
+.circle_icon:hover .icon {
+  background-position-y: -30px;
+  position: static;
+  top: auto;
+  left: auto;
+  transform: none;
+}
+.circle_icon:hover .text,
+.circle_icon:hover .arrow {
+  right: 15px;
+  margin-left: 7px;
+  opacity: 1;
+}
+.circle_icon:active {
+  box-shadow: none;
+  background: #f8f8f8;
+}
+.circle_icon.dropdown_menu {
+  overflow: visible;
+}
+.circle_icon.dropdown_menu .window {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: inherit;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.circle_icon.dropdown_menu .dropdown_content {
+  display: none;
+  position: absolute;
+  text-align: center;
+  top: calc(100% + 1px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: inherit;
+  border: 1px solid #fef100;
+  box-shadow: 3px 3px 3px rgba(227, 227, 227, 0.25);
+  z-index: 3;
+  padding: 20px 0;
+  background: #fff;
+}
+.circle_icon.dropdown_menu .dropdown_content li {
+  height: 30px;
+  line-height: 30px;
+}
+.circle_icon.dropdown_menu .dropdown_content li:hover {
+  background: #f1f1f1;
+}
+.circle_icon.dropdown_menu.active .dropdown_content {
+  display: block;
+}
+.circle_icon.dropdown_menu:hover {
+  width: 130px;
+}
+.circle_icon.dropdown_menu:hover .text {
+  right: 30px;
+}
+.circle_icon.dropdown_menu:hover .arrow {
+  color: #cccccc;
 }
 /* ---------- HEADER - LAYOUT  ---------- */
 header .upper_nav {
@@ -193,24 +280,6 @@ header .upper_nav .option_content {
 header .upper_nav .option_content > span {
   margin-left: 10px;
 }
-header .upper_nav .option_content .circle_icon:hover {
-  width: 120px;
-  padding: 5px 15px;
-  border: 1px solid #fef100;
-  box-shadow: 3px 3px 3px rgba(227, 227, 227, 0.25);
-}
-header .upper_nav .option_content .circle_icon:hover a {
-  background-position-y: -30px;
-  position: static;
-  top: auto;
-  left: auto;
-  transform: none;
-}
-header .upper_nav .option_content .circle_icon:hover span {
-  right: 15px;
-  margin-left: 7px;
-  opacity: 1;
-}
 header .upper_nav .search_input {
   position: absolute;
   right: 0;
@@ -225,7 +294,7 @@ header .upper_nav .search_input input[type="text"] {
   height: 30px;
   padding: 4px;
   box-sizing: border-box;
-  font-family: 'Noto Serif';
+  font-family: 'Noto Serif KR';
   font-weight: 300;
   font-size: 18px;
   letter-spacing: -0.04em;
@@ -251,6 +320,9 @@ header .upper_nav .search_input span {
 header .upper_nav .search_input input[type="text"]:focus ~ span {
   border-bottom: 1px solid #fef100;
   box-shadow: 3px 3px 3px rgba(227, 227, 227, 0.25);
+}
+header nav ul ul {
+  display: none;
 }
 /* ----------- Sub Page ---------------- */
 .sub header .upper_nav {

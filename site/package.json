@@ -1,0 +1,28 @@
+{
+  "name": "gotttugi",
+  "version": "1.0.0",
+  "description": "갓뚜기 사이트 리뉴얼",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp build",
+    "watch": "gulp",
+    "deploy": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grapePrince/gotttugi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grapePrince/gotttugi/issues"
+  },
+  "homepage": "https://github.com/grapePrince/gotttugi#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-less": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.5"
+  }
+}

@@ -42,8 +42,9 @@
 
     <!-- js library -->
     <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/jquery-ui-1.12.1.min.js"></script>
+    <!-- <script src="js/jquery-ui-1.12.1.min.js"></script> -->
     <script src="js/jquery-bxslider-4.2.12.min.js"></script>
+    <script src="js/all.min.js"></script>
     
     <script src="js/main.js"></script>
     <script src="js/modernizr-custom.js"></script>
@@ -56,23 +57,30 @@
     <div class="upper_nav">        
         <h1><a href="" class="sprites logo" data-locale="header.logo">로고</a></h1>
         <span class="circle_icon menu">
-            <a href="" class="sprites" data-locale="header.menu">메뉴</a>
+            <span href="" class="sprites icon" data-locale="header.menu">메뉴</span>
         </span>
         <span class="circle_icon option">
-            <a href="" class="sprites" data-locale="header.option">환경설정</a>
+            <span href="" class="sprites icon" data-locale="header.option">환경설정</span>
         </span>
         <div class="option_content">
             <span class="circle_icon search">
-                <a href="" class="sprites" data-locale="header.search">검색</a>
-                <span>검색하기</span>
+                <span href="" class="sprites icon" data-locale="header.search">검색</span>
+                <span class="text">검색하기</span>
             </span>
             <span class="circle_icon help">
-                <a href="" class="sprites" data-locale="header.help">고객센터</a>
-                <span>고객센터</span>
+                <span href="" class="sprites icon" data-locale="header.help">고객센터</span>
+                <span class="text">고객센터</span>
             </span>
-            <span class="circle_icon locale">
-                <a href="" class="sprites" data-locale="header.locale">언어변경</a>
-                <span>언어변경</span>
+            <span class="circle_icon locale dropdown_menu">
+                <span href="#" class="sprites icon" data-locale="header.locale">언어변경</span>
+                <span class="window">
+                    <span class="text">언어변경</span>
+                </span>
+                <span class="arrow"><i class="fas fa-sort"></i></span>
+                <ul class="dropdown_content">
+                    <li>한글</li>
+                    <li>ENG</li>
+                </ul>
             </span>
         </div>
         <a href="" class="sprites shoplink" data-locale="header.goto_mall">오뚜기 몰로 가기</a>
@@ -115,12 +123,12 @@
                     <li><a href="" data-locale="nav.media.media_main">미디어속오뚜기</a></li>
                     <li><a href="" data-locale="nav.media.symposium">국제심포지엄</a></li>
                     <li><a href="" data-locale="nav.media.excursion">공장견학신청</a></li>
-                </ul>
-                <img src="images/header_corporation.png" alt="header_corporation">
-                <img src="images/header_products.png" alt="header_products">
-                <img src="images/header_media.png" alt="header_media">
+                </ul>                
             </li>
         </ul>
+        <img src="images/header_corporation.png" alt="header_corporation">
+        <img src="images/header_products.png" alt="header_products">
+        <img src="images/header_media.png" alt="header_media">
         
     </nav>
 </header>
