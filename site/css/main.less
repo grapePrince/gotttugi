@@ -88,6 +88,7 @@ a {
 /* ---------- LAYOUT  ---------- */
 @line_1line: 27px;
 @line_2line: 54px;
+@line_3line: 81px;
 
 .container {
     width: 1110px;
@@ -121,6 +122,12 @@ a {
 .center_center {
     position: absolute;
     top: 50%; left: 50%; transform: translate(-50%, -50%);
+}
+
+.center_horizontal { 
+    position: absolute;
+    left: 50%; 
+    transform: translateX(-50%); 
 }
 
 
@@ -212,12 +219,12 @@ a {
     }
     .dropdown_content {
         display: none;
-        position: absolute;
+        .center_horizontal();
         text-align: center;
         top: calc(100% + 1px);
-        left: 50%; transform: translateX(-50%);
         width: inherit;
         border: 1px solid @color_yellow;
+        box-sizing: border-box; 
         .shadow();
         z-index: 3;
         padding: 20px 0;
@@ -259,7 +266,6 @@ a {
 header {
     background: #fff;
     transition: height 0.5s;
-    overflow: hidden;
 
     .upper_nav {
         position: relative;
@@ -337,32 +343,86 @@ header {
 
     nav {
         position: relative;
-        border-bottom: 1px solid @color_grey;
-        ul {
+        & > ul {
             display:flex;
             justify-content: space-between;
             padding: @line_1line 200px;
 
-            li {
-                a {
+            > li {
+                text-align: center;
+                width: 300px;
+                position: relative;
+                > a {
+                    position: relative;
                     .typo_content_title();
                     font-weight: 600;
+                    &:after {
+                        content: '';
+                        .center_horizontal(); 
+                        bottom: -7px;
+                        width: 0%;
+                        transition: width 0.5s;
+                    }
                 }
                 ul {
+                    .center_horizontal();
+                    width: 100%;
+                    top: @line_3line;
+                    z-index: 3;
                     display:none;   
+
+                    li  {                        
+                        a {
+                            .typo_content();                    
+                            font-family: @typo_sans_serif;
+                        }
+
+                        &:not(:first-child) {
+                            margin-top: 12px;
+                        }
+                    }
                 }
             }            
         }    
         img {
             position: absolute;
             display:none;
-        }      
+        }
+        
+        &:after {
+            content:'';
+            position: absolute; 
+            width: 100%;
+            height: 0px;
+            z-index:2;
+            border-top: 1px solid @color_grey;
+            background:#fff;
+            transition: 0.5s;
+        }
+
     }
+
 
 }
 
 header.open_sub {
-    height: 650px;
+    nav {
+        & > ul {
+            ul {
+                display: block;
+            }    
+            > li {
+                &:hover > a:after {
+                    width: 100%;
+                    border: 1px solid @color_red;
+                }
+            }            
+        }
+
+        &:after {
+            height: 650px;
+        }
+    }
 }
 
 

@@ -79,6 +79,11 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.center_horizontal {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
 .fill_parent {
   position: absolute;
   top: 0;
@@ -212,12 +217,13 @@ a {
 .circle_icon.dropdown_menu .dropdown_content {
   display: none;
   position: absolute;
-  text-align: center;
-  top: calc(100% + 1px);
   left: 50%;
   transform: translateX(-50%);
+  text-align: center;
+  top: calc(100% + 1px);
   width: inherit;
   border: 1px solid #fef100;
+  box-sizing: border-box;
   box-shadow: 3px 3px 3px rgba(227, 227, 227, 0.25);
   z-index: 3;
   padding: 20px 0;
@@ -246,7 +252,6 @@ a {
 header {
   background: #fff;
   transition: height 0.5s;
-  overflow: hidden;
 }
 header .upper_nav {
   position: relative;
@@ -333,28 +338,75 @@ header .upper_nav .search_input input[type="text"]:focus ~ span {
 }
 header nav {
   position: relative;
-  border-bottom: 1px solid #e3e3e3;
 }
-header nav ul {
+header nav > ul {
   display: flex;
   justify-content: space-between;
   padding: 27px 200px;
 }
-header nav ul li a {
+header nav > ul > li {
+  text-align: center;
+  width: 300px;
+  position: relative;
+}
+header nav > ul > li > a {
+  position: relative;
   font-family: 'Noto Serif KR';
   font-weight: 300;
   font-size: 26px;
   letter-spacing: -0.05em;
   font-weight: 600;
 }
-header nav ul li ul {
+header nav > ul > li > a:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -7px;
+  width: 0%;
+  transition: width 0.5s;
+}
+header nav > ul > li ul {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  top: 81px;
+  z-index: 3;
   display: none;
+}
+header nav > ul > li ul li a {
+  font-family: 'Noto Sans KR';
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  font-family: 'Noto Serif KR';
+}
+header nav > ul > li ul li:not(:first-child) {
+  margin-top: 12px;
 }
 header nav img {
   position: absolute;
   display: none;
 }
-header.open_sub {
+header nav:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 0px;
+  z-index: 2;
+  border-top: 1px solid #e3e3e3;
+  background: #fff;
+  transition: 0.5s;
+}
+header.open_sub nav > ul ul {
+  display: block;
+}
+header.open_sub nav > ul > li:hover > a:after {
+  width: 100%;
+  border: 1px solid #e0393d;
+}
+header.open_sub nav:after {
   height: 650px;
 }
 /* ----------- Sub Page ---------------- */
