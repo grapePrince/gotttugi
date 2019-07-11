@@ -53,7 +53,7 @@
 </head>
 <body class="main">
     
-<header class="container open_sub">
+<header class="container open_search">
     <div class="upper_nav">        
         <h1><a href="" class="sprites logo" data-locale="header.logo">로고</a></h1>
         <span class="circle_icon menu">
@@ -92,7 +92,7 @@
     </div>    
     <nav>
         <ul class="clearfix">
-            <li>
+            <li data-class="corporation">
                 <a href="" data-locale="nav.introduce">오뚜기소개</a>
                 <ul>
                     <li><a href="" data-locale="nav.introduce.ottugi">(주)오뚜기</a></li>
@@ -101,7 +101,7 @@
                     <li><a href="" data-locale="nav.introduce.ottugi">찾아오시는길</a></li>
                 </ul>
             </li>
-            <li>
+            <li data-class="products">
                 <a href="" data-locale="nav.products">제품정보</a>
                 <ul>
                     <li><a href="" data-locale="nav.products.source">소스류</a></li>
@@ -116,8 +116,8 @@
                     <li><a href="" data-locale="nav.products.cereal">곡류가공</a></li>
                 </ul>
             </li>
-            <li><a href="" data-locale="nav.recipe">요리마당</a></li>
-            <li>
+            <li data-class="recipe"><a href="" data-locale="nav.recipe">요리마당</a></li>
+            <li data-class="media">
                 <a href="" data-locale="nav.media">알리미</a>
                 <ul>
                     <li><a href="" data-locale="nav.media.media_main">미디어속오뚜기</a></li>
@@ -125,10 +125,12 @@
                 </ul>                
             </li>
         </ul>
-        <img class="corporation" src="images/header_corporation.png" alt="header_corporation">
-        <img class="products" src="images/header_products.png" alt="header_products">
-        <img class="media" src="images/header_media.png" alt="header_media">        
-    </nav>
+        <div class="background">
+            <img class="corporation" src="images/header_corporation.png" alt="header_corporation">
+            <img class="products" src="images/header_products.png" alt="header_products">
+            <img class="media" src="images/header_media.png" alt="header_media">            
+        </div>
+        </nav>
 </header>
 <main>
     <section class="banner">

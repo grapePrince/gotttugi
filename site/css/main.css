@@ -366,7 +366,7 @@ header nav > ul > li > a:after {
   width: 0%;
   transition: width 0.5s;
 }
-header nav > ul > li ul {
+header nav > ul > li > ul {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -375,22 +375,42 @@ header nav > ul > li ul {
   z-index: 3;
   display: none;
 }
-header nav > ul > li ul li a {
+header nav > ul > li > ul > li a {
   font-family: 'Noto Sans KR';
   font-weight: 300;
   font-size: 16px;
   letter-spacing: -0.02em;
   font-family: 'Noto Serif KR';
 }
-header nav > ul > li ul li:not(:first-child) {
+header nav > ul > li > ul > li:not(:first-child) {
   margin-top: 12px;
+}
+header nav > ul > li > ul > li:hover a {
+  font-weight: 600;
 }
 header nav img {
   position: absolute;
-  display: none;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s;
+  transition-delay: 0.5s;
 }
-header nav:after {
-  content: '';
+header nav img.corporation {
+  bottom: 50px;
+  margin-left: -230px;
+}
+header nav img.products {
+  bottom: 50px;
+  margin-left: 150px;
+}
+header nav img.media {
+  bottom: 50px;
+  margin-left: 150px;
+}
+header nav .background {
   position: absolute;
   width: 100%;
   height: 0px;
@@ -399,6 +419,18 @@ header nav:after {
   background: #fff;
   transition: 0.5s;
 }
+header.corporation .corporation {
+  visibility: visible;
+  opacity: 1;
+}
+header.products .products {
+  visibility: visible;
+  opacity: 1;
+}
+header.media .media {
+  visibility: visible;
+  opacity: 1;
+}
 header.open_sub nav > ul ul {
   display: block;
 }
@@ -406,8 +438,8 @@ header.open_sub nav > ul > li:hover > a:after {
   width: 100%;
   border: 1px solid #e0393d;
 }
-header.open_sub nav:after {
-  height: 650px;
+header.open_sub nav .background {
+  height: 450px;
 }
 /* ----------- Sub Page ---------------- */
 .sub header .upper_nav {
@@ -433,6 +465,14 @@ header.open_sub nav:after {
     width: 100%;
     margin: auto;
   }
+  header nav > ul {
+    padding: 27px 0px;
+  }
+  header nav img.corporation {
+    left: 0;
+    margin-left: 20px;
+    transform: none;
+  }
   header .upper_nav {
     padding: 20px 15px;
     /* 순서 및 보이고 안보이고 조정 */
@@ -445,7 +485,7 @@ header.open_sub nav:after {
   }
 }
 /* ----------- MOBILE ----------------- */
-@media all and (max-width: 576px) {
+@media all and (max-width: 600px) {
   header .upper_nav {
     padding: 15px;
     /* 순서 및 보이고 안보이고 조정 */
