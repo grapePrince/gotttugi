@@ -3,11 +3,11 @@ $(function() {
     var $nav = $('nav');
     var $searchBtn = $('header .upper_nav .search');
     var $header = $('header');
+    var $navCloseBtn = $('nav .background .close');
 
     $('.sliderWrap').bxSlider();
 
     addEventListener();
-
 
     function addEventListener() {
         $('.dropdown_menu').on('click', dropDownMenuClicked);
@@ -18,7 +18,9 @@ $(function() {
 
         $menuList.on('mouseenter', gnbListMouseEntered)
                  .on('mouseleave', gnbListMouseLeaved); 
-        $searchBtn.on('click', searchBtnClicked);            
+
+        $searchBtn.on('click', searchBtnClicked);  
+        $navCloseBtn.on('click', navCloseBtnClicked);          
     }
 
     function dropDownMenuClicked() {
@@ -30,7 +32,9 @@ $(function() {
     }
 
     function navMouseEntered() {
-        $header.addClass('open_sub');
+        if (!$header.hasClass('open_search')) { // 검색창을 열어놓은 경우에는 서브메뉴가 열리지 않는다. 
+            $header.addClass('open_sub');
+        }
     }
 
     function navMouseLeaved() {
@@ -38,16 +42,25 @@ $(function() {
     }
 
     function gnbListMouseEntered() {
-        var className = $(this).attr('data-class');
-        $header.addClass(className);
+        if ($header.hasClass('open_sub')) { // 서브메뉴가 열려있는 동안만 이미지를 보여준다. 
+            var className = $(this).attr('data-class');
+            var $img = $('header nav .background img').filter('.' + className);
+            $img.stop().delay(200).fadeIn();
+        }
     }
 
     function gnbListMouseLeaved() {
-        $header.removeClass('corporation products recipe media');
+        var className = $(this).attr('data-class');
+        var $img = $('header nav .background img').filter('.' + className);
+        $img.stop().hide();
     }
 
     function searchBtnClicked() {
-        
+        $header.toggleClass('open_search');
+    }
+
+    function navCloseBtnClicked() {
+        $header.removeClass('open_search');
     }
 
 }); // end of file
