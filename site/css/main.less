@@ -104,6 +104,16 @@ a {
 
 /* ---------- COMMON  ---------- */
 
+.z_index_back {
+    z-index: -1;
+}
+.z_index_low {
+    z-index: 1;
+}
+.z_index_high {
+    z-index: 3;
+}
+
 .hidden_text {
     display: inline-block;
     text-indent: -9999em;
@@ -232,7 +242,7 @@ a {
         border: 1px solid @color_yellow;
         box-sizing: border-box; 
         .shadow();
-        z-index: 3;
+        .z_index_high();
         padding: 20px 0;
         background: #fff;
 
@@ -338,7 +348,7 @@ header {
             }
 
             span {
-                position: absolute; left: 0;  z-index: 1;
+                position: absolute; left: 0;
                 bottom: 0;
                 width: 250px;
                 border-bottom: 1px solid @color_grey;
@@ -380,7 +390,7 @@ header {
                     .center_horizontal();
                     width: 100%;
                     top: @line_3line;
-                    z-index: 3;
+                    .z_index_high();
                     display:none;   
 
                     > li  {                        
@@ -402,7 +412,7 @@ header {
         }    
         img {
             .center_horizontal();
-            z-index: 4;
+            .z_index_high();
             display: none;
         }
 
@@ -425,7 +435,7 @@ header {
             position: absolute; 
             width: 100%;
             height: 0px;
-            z-index:2;
+            .z_index_low();
             border-top: 1px solid @color_grey;
             background:#fff;
             transition: 0.5s;
@@ -521,7 +531,7 @@ header.open_sub {
                 opacity: 1; 
                 visibility: visible;
                 transform: translateX(-50%);
-                z-index: 5;
+                .z_index_high();
                 left: 50%;
                 top: 280px;
                 width: 400px;
@@ -577,69 +587,156 @@ header.open_sub {
 /* ----------- MOBILE ----------------- */
 
 @media all and (max-width: 600px) {
-    header {
-        .upper_nav {
-            padding: 15px;
-
-            /* 순서 및 보이고 안보이고 조정 */
-            .menu { display: block; }
-            .option { display: block; }
-            .option_content { display: none; }
-            .shoplink { display: none; }
-
-            .circle_icon {
-                &:hover {
-                    width: 34px;
-                    padding: 0;
-                    border: 1px solid @color_grey;
-                    .no_shadow();
-                
-                    .icon {
-                        background-position-y: 0px;
-                        .center_center();
-                    }
-                    .text, .arrow {
-                        opacity: 0;
-                    }                
-                }
-            }          
-
+    .circle_icon {
+        &:hover {
+            width: 34px;
+            padding: 0;
+            border: 1px solid @color_grey;
+            .no_shadow();
+        
+            .icon {
+                background-position-y: 0px;
+                .center_center();
+            }
+            .text, .arrow {
+                opacity: 0;
+            }                
         }
     }
 
-    header.open_setting {
+    .circle_icon.dropdown_menu {
+        overflow: visible;
+        .window {
+            .fill_parent();
+            padding: inherit;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .dropdown_content {
+            width: 150px;
+            right: 0;
+            left: auto;
+            transform: none;
+            top: calc(100% - 1px);
+            li {
+                height: 30px;
+                line-height: 30px;
+    
+                &:hover {
+                    background: @color_grey50;
+                }
+            }
+        }
+
+        &:hover {
+            width: 34px;
+        }
+    }
+
+    .circle_icon.dropdown_menu.active {
+        border: 1px solid @color_yellow;
+        .icon {
+            background-position-y: -30px;
+        }
+ 
+    }
+
+    header .upper_nav {
+        padding: 15px;
+
+        /* 순서 및 보이고 안보이고 조정 */
+        .menu { display: block; }
+        .option { display: block; }
+        .option_content { display: none; }
+        .shoplink { display: none; }           
+        
         .option_content {
             display: block;
             position: absolute;
             right: 15px;
-            top: 65px;
+            top: 65px;   
+            .z_index_high();                          
 
             > span.circle_icon {
                 margin-bottom: 5px;
-                padding: 5px 15px;
-                border: 1px solid @color_grey;
-                .shadow();
                 overflow: visible;
-            
-                .icon {
-                    background-position-y: 0px;
-                }
-            
+                transform: translateX(150px);   
+                transition: 0.5s;              
                 .text {
                     right: 40px;
                     opacity: 1;
                     white-space: nowrap;
+                    color: @color_black75;
                 }
 
-                .arrow {
-                    right: 15px;
-                    margin-left: 7px;
-                    opacity: 1;
+                .window {overflow: visible; }
+                .arrow {display: none;}
+            }
+            > span.circle_icon.locale {
+                transition-delay: 0.2s;
+            }
+            .search {
+                display:none;
+            }
+        }
+    }
+
+
+    header nav {
+        display: none;        
+    }
+
+    header.open_sub nav{
+        display: block;
+        > ul {
+            flex-direction: column;
+            justify-content: center;
+
+            > li {
+                width: 100%;                       
+                > ul {
+                    display:none;
                 }
             }
 
-            .search {
-                display:none;
+            >li.active {
+                > a:after {
+                    width: 100%;
+                    border: 1px solid @color_red;
+                }
+                > ul {
+                    display: block;
+                    position: static;
+                    transform: none;
+                    margin-top: @line_1line;
+                }
+            }
+
+            > li:not(:last-child) {
+                margin-bottom: 20px;
+            }
+        }
+
+        .background {
+            display: none;
+        }
+    }
+
+
+
+    header.open_setting {        
+        .circle_icon.option {
+            border: 1px solid @color_yellow;
+            .icon {            
+                background-position-y: -30px;
+            }
+        }        
+        .upper_nav .option_content {
+            right: 15px;
+            .circle_icon {
+                transform: translateX(0px);  
             }
         }
     }

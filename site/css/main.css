@@ -62,6 +62,15 @@ a {
   display: block;
 }
 /* ---------- COMMON  ---------- */
+.z_index_back {
+  z-index: -1;
+}
+.z_index_low {
+  z-index: 1;
+}
+.z_index_high {
+  z-index: 3;
+}
 .hidden_text {
   display: inline-block;
   text-indent: -9999em;
@@ -339,7 +348,6 @@ header .upper_nav .search_input input[type="text"]:focus ~ .search_button {
 header .upper_nav .search_input span {
   position: absolute;
   left: 0;
-  z-index: 1;
   bottom: 0;
   width: 250px;
   border-bottom: 1px solid #e3e3e3;
@@ -405,7 +413,7 @@ header nav img {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 4;
+  z-index: 3;
   display: none;
 }
 header nav img.corporation {
@@ -424,7 +432,7 @@ header nav .background {
   position: absolute;
   width: 100%;
   height: 0px;
-  z-index: 2;
+  z-index: 1;
   border-top: 1px solid #e3e3e3;
   background: #fff;
   transition: 0.5s;
@@ -491,7 +499,7 @@ header.open_sub nav .background {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%);
-    z-index: 5;
+    z-index: 3;
     left: 50%;
     top: 280px;
     width: 400px;
@@ -537,6 +545,60 @@ header.open_sub nav .background {
 }
 /* ----------- MOBILE ----------------- */
 @media all and (max-width: 600px) {
+  .circle_icon:hover {
+    width: 34px;
+    padding: 0;
+    border: 1px solid #e3e3e3;
+    box-shadow: none;
+  }
+  .circle_icon:hover .icon {
+    background-position-y: 0px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .circle_icon:hover .text,
+  .circle_icon:hover .arrow {
+    opacity: 0;
+  }
+  .circle_icon.dropdown_menu {
+    overflow: visible;
+  }
+  .circle_icon.dropdown_menu .window {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: inherit;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .circle_icon.dropdown_menu .dropdown_content {
+    width: 150px;
+    right: 0;
+    left: auto;
+    transform: none;
+    top: calc(100% - 1px);
+  }
+  .circle_icon.dropdown_menu .dropdown_content li {
+    height: 30px;
+    line-height: 30px;
+  }
+  .circle_icon.dropdown_menu .dropdown_content li:hover {
+    background: #f1f1f1;
+  }
+  .circle_icon.dropdown_menu:hover {
+    width: 34px;
+  }
+  .circle_icon.dropdown_menu.active {
+    border: 1px solid #fef100;
+  }
+  .circle_icon.dropdown_menu.active .icon {
+    background-position-y: -30px;
+  }
   header .upper_nav {
     padding: 15px;
     /* 순서 및 보이고 안보이고 조정 */
@@ -553,51 +615,80 @@ header.open_sub nav .background {
   header .upper_nav .shoplink {
     display: none;
   }
-  header .upper_nav .circle_icon:hover {
-    width: 34px;
-    padding: 0;
-    border: 1px solid #e3e3e3;
-    box-shadow: none;
-  }
-  header .upper_nav .circle_icon:hover .icon {
-    background-position-y: 0px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  header .upper_nav .circle_icon:hover .text,
-  header .upper_nav .circle_icon:hover .arrow {
-    opacity: 0;
-  }
-  header.open_setting .option_content {
+  header .upper_nav .option_content {
     display: block;
     position: absolute;
     right: 15px;
     top: 65px;
+    z-index: 3;
   }
-  header.open_setting .option_content > span.circle_icon {
+  header .upper_nav .option_content > span.circle_icon {
     margin-bottom: 5px;
-    padding: 5px 15px;
-    border: 1px solid #e3e3e3;
-    box-shadow: 3px 3px 3px rgba(227, 227, 227, 0.25);
     overflow: visible;
+    transform: translateX(150px);
+    transition: 0.5s;
   }
-  header.open_setting .option_content > span.circle_icon .icon {
-    background-position-y: 0px;
-  }
-  header.open_setting .option_content > span.circle_icon .text {
+  header .upper_nav .option_content > span.circle_icon .text {
     right: 40px;
     opacity: 1;
     white-space: nowrap;
+    color: #666666;
   }
-  header.open_setting .option_content > span.circle_icon .arrow {
-    right: 15px;
-    margin-left: 7px;
-    opacity: 1;
+  header .upper_nav .option_content > span.circle_icon .window {
+    overflow: visible;
   }
-  header.open_setting .option_content .search {
+  header .upper_nav .option_content > span.circle_icon .arrow {
     display: none;
+  }
+  header .upper_nav .option_content > span.circle_icon.locale {
+    transition-delay: 0.2s;
+  }
+  header .upper_nav .option_content .search {
+    display: none;
+  }
+  header nav {
+    display: none;
+  }
+  header.open_sub nav {
+    display: block;
+  }
+  header.open_sub nav > ul {
+    flex-direction: column;
+    justify-content: center;
+  }
+  header.open_sub nav > ul > li {
+    width: 100%;
+  }
+  header.open_sub nav > ul > li > ul {
+    display: none;
+  }
+  header.open_sub nav > ul > li.active > a:after {
+    width: 100%;
+    border: 1px solid #e0393d;
+  }
+  header.open_sub nav > ul > li.active > ul {
+    display: block;
+    position: static;
+    transform: none;
+    margin-top: 27px;
+  }
+  header.open_sub nav > ul > li:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  header.open_sub nav .background {
+    display: none;
+  }
+  header.open_setting .circle_icon.option {
+    border: 1px solid #fef100;
+  }
+  header.open_setting .circle_icon.option .icon {
+    background-position-y: -30px;
+  }
+  header.open_setting .upper_nav .option_content {
+    right: 15px;
+  }
+  header.open_setting .upper_nav .option_content .circle_icon {
+    transform: translateX(0px);
   }
   .sub header .upper_nav {
     padding: 15px;
