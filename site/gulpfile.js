@@ -6,7 +6,7 @@ const browserSync = require('browser-sync').create();
 
 const SRC = {
     JS: 'js/*',
-    CSS: 'css/*.less',
+    CSS: 'css/app.less',
     HTML: '*.html'
 };
 

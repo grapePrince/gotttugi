@@ -10,7 +10,11 @@ $(function() {
     var CLASS_SETTING_OPENED = 'open_setting';
     var CLASS_ACTIVE = 'active';
 
-    $('.sliderWrap').bxSlider();
+    $('.sliderWrap').bxSlider({
+        pager: false,
+        prevSelector: '.banner .left',
+        nextSelector: '.banner .right'
+    });
 
     addEventListener();
     isMobile = ($(window).outerWidth() <= 600) ? true : false;

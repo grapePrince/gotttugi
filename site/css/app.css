@@ -1,49 +1,49 @@
 /* ---------- TYPOGRAPHY  ---------- */
 .typo_title {
-  font-family: 'Noto Serif KR';
+  font-family: 'Noto Serif KR', serif;
   font-weight: 300;
   font-size: 43px;
   letter-spacing: -0.05em;
 }
 .typo_title_small {
-  font-family: 'Noto Serif KR';
+  font-family: 'Noto Serif KR', serif;
   font-weight: 300;
   font-size: 34px;
   letter-spacing: -0.05em;
 }
 .typo_content_title {
-  font-family: 'Noto Serif KR';
+  font-family: 'Noto Serif KR', serif;
   font-weight: 300;
   font-size: 26px;
   letter-spacing: -0.05em;
 }
 .typo_content_title_small {
-  font-family: 'Noto Serif KR';
+  font-family: 'Noto Serif KR', serif;
   font-weight: 300;
   font-size: 18px;
   letter-spacing: -0.04em;
 }
 .typo_content {
-  font-family: 'Noto Sans KR';
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 300;
   font-size: 16px;
   letter-spacing: -0.02em;
 }
 .typo_content_small {
-  font-family: 'Noto Sans KR';
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 300;
   font-size: 14px;
   letter-spacing: -0.01em;
 }
 body {
-  font-family: 'Noto Sans KR';
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 300;
   font-size: 16px;
   letter-spacing: -0.02em;
   color: #333333;
 }
 a {
-  font-family: 'Noto Sans KR';
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 300;
   font-size: 16px;
   letter-spacing: -0.02em;
@@ -92,6 +92,11 @@ a {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+}
+.center_vertical {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .fill_parent {
   position: absolute;
@@ -151,6 +156,86 @@ a {
   height: 15px;
   background-position: -450px -80px;
 }
+.banner .left a {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 38px;
+  height: 63px;
+  background-position: -50px -300px;
+}
+.banner .right a {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 38px;
+  height: 63px;
+  background-position: -90px -300px;
+}
+.corporation .item .quality .icon {
+  width: 150px;
+  height: 150px;
+  background-position: 0px -150px;
+}
+.corporation .item .nutrition .icon {
+  width: 150px;
+  height: 150px;
+  background-position: -150px -150px;
+}
+.corporation .item .products .icon {
+  width: 150px;
+  height: 150px;
+  background-position: -300px -150px;
+}
+.corporation .item .society .icon {
+  width: 150px;
+  height: 150px;
+  background-position: -450px -150px;
+}
+.corporation .item .environment .icon {
+  width: 150px;
+  height: 150px;
+  background-position: -600px -150px;
+}
+.corporation .item .ethic .icon {
+  width: 150px;
+  height: 150px;
+  background-position: -750px -150px;
+}
+@media all and (max-width: 600px) {
+  .corporation .item .quality .icon {
+    width: 130px;
+    height: 130px;
+    background-position: -150px -300px;
+  }
+  .corporation .item .nutrition .icon {
+    width: 130px;
+    height: 130px;
+    background-position: -280px -300px;
+  }
+  .corporation .item .products .icon {
+    width: 130px;
+    height: 130px;
+    background-position: -410px -300px;
+  }
+  .corporation .item .society .icon {
+    width: 130px;
+    height: 130px;
+    background-position: -540px -300px;
+  }
+  .corporation .item .environment .icon {
+    width: 130px;
+    height: 130px;
+    background-position: -670px -300px;
+  }
+  .corporation .item .ethic .icon {
+    width: 130px;
+    height: 130px;
+    background-position: -800px -300px;
+  }
+}
 .sub header .sprites.logo {
   width: 114px;
   height: 44px;
@@ -184,11 +269,11 @@ a {
   transition-duration: 0.5s;
   transition-delay: 0.1s;
   opacity: 0;
-  font-family: 'Noto Sans KR';
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 300;
   font-size: 16px;
   letter-spacing: -0.02em;
-  font-family: 'Noto Serif KR';
+  font-family: 'Noto Serif KR', serif;
   color: #999999;
 }
 .circle_icon:hover {
@@ -268,6 +353,69 @@ a {
 .circle_icon.dropdown_menu:hover .arrow {
   color: #cccccc;
 }
+@media all and (max-width: 1110px) {
+  .container {
+    width: 100%;
+    margin: auto;
+  }
+}
+@media all and (max-width: 600px) {
+  .circle_icon:hover {
+    width: 34px;
+    padding: 0;
+    border: 1px solid #e3e3e3;
+    box-shadow: none;
+  }
+  .circle_icon:hover .icon {
+    background-position-y: 0px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .circle_icon:hover .text,
+  .circle_icon:hover .arrow {
+    opacity: 0;
+  }
+  .circle_icon.dropdown_menu {
+    overflow: visible;
+  }
+  .circle_icon.dropdown_menu .window {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: inherit;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .circle_icon.dropdown_menu .dropdown_content {
+    width: 150px;
+    right: 0;
+    left: auto;
+    transform: none;
+    top: calc(100% - 1px);
+  }
+  .circle_icon.dropdown_menu .dropdown_content li {
+    height: 30px;
+    line-height: 30px;
+  }
+  .circle_icon.dropdown_menu .dropdown_content li:hover {
+    background: #f1f1f1;
+  }
+  .circle_icon.dropdown_menu:hover {
+    width: 34px;
+  }
+  .circle_icon.dropdown_menu.active {
+    border: 1px solid #fef100;
+  }
+  .circle_icon.dropdown_menu.active .icon {
+    background-position-y: -30px;
+  }
+}
+/* ------------ FLEX 지원 안할 때 대체 CSS ----------- */
 /* ---------- HEADER - LAYOUT  ---------- */
 header {
   background: #fff;
@@ -329,7 +477,7 @@ header .upper_nav .search_input input[type="text"] {
   height: 30px;
   padding: 4px;
   box-sizing: border-box;
-  font-family: 'Noto Serif KR';
+  font-family: 'Noto Serif KR', serif;
   font-weight: 300;
   font-size: 18px;
   letter-spacing: -0.04em;
@@ -372,7 +520,7 @@ header nav > ul > li {
 }
 header nav > ul > li > a {
   position: relative;
-  font-family: 'Noto Serif KR';
+  font-family: 'Noto Serif KR', serif;
   font-weight: 300;
   font-size: 26px;
   letter-spacing: -0.05em;
@@ -397,11 +545,11 @@ header nav > ul > li > ul {
   display: none;
 }
 header nav > ul > li > ul > li a {
-  font-family: 'Noto Sans KR';
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 300;
   font-size: 16px;
   letter-spacing: -0.02em;
-  font-family: 'Noto Serif KR';
+  font-family: 'Noto Serif KR', serif;
 }
 header nav > ul > li > ul > li:not(:first-child) {
   margin-top: 12px;
@@ -470,10 +618,6 @@ header.open_sub nav .background {
 }
 /* ----------- TABLET ----------------- */
 @media all and (max-width: 1110px) {
-  .container {
-    width: 100%;
-    margin: auto;
-  }
   header .upper_nav {
     padding: 20px 15px;
     /* 순서 및 보이고 안보이고 조정 */
@@ -545,60 +689,6 @@ header.open_sub nav .background {
 }
 /* ----------- MOBILE ----------------- */
 @media all and (max-width: 600px) {
-  .circle_icon:hover {
-    width: 34px;
-    padding: 0;
-    border: 1px solid #e3e3e3;
-    box-shadow: none;
-  }
-  .circle_icon:hover .icon {
-    background-position-y: 0px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .circle_icon:hover .text,
-  .circle_icon:hover .arrow {
-    opacity: 0;
-  }
-  .circle_icon.dropdown_menu {
-    overflow: visible;
-  }
-  .circle_icon.dropdown_menu .window {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: inherit;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-  }
-  .circle_icon.dropdown_menu .dropdown_content {
-    width: 150px;
-    right: 0;
-    left: auto;
-    transform: none;
-    top: calc(100% - 1px);
-  }
-  .circle_icon.dropdown_menu .dropdown_content li {
-    height: 30px;
-    line-height: 30px;
-  }
-  .circle_icon.dropdown_menu .dropdown_content li:hover {
-    background: #f1f1f1;
-  }
-  .circle_icon.dropdown_menu:hover {
-    width: 34px;
-  }
-  .circle_icon.dropdown_menu.active {
-    border: 1px solid #fef100;
-  }
-  .circle_icon.dropdown_menu.active .icon {
-    background-position-y: -30px;
-  }
   header .upper_nav {
     padding: 15px;
     /* 순서 및 보이고 안보이고 조정 */
@@ -694,4 +784,164 @@ header.open_sub nav .background {
     padding: 15px;
   }
 }
-/* ------------ FLEX 지원 안할 때 대체 CSS ----------- */
+/* ---------- BANNER  ---------- */
+.banner {
+  position: relative;
+}
+.banner .left a {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50px;
+  box-shadow: 3px 3px 3px rgba(227, 227, 227, 0.25);
+}
+.banner .right a {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 50px;
+  box-shadow: 3px 3px 3px rgba(227, 227, 227, 0.25);
+}
+/* ---------- CORPORATION  ---------- */
+.corporation {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.corporation video {
+  position: relative;
+  z-index: -1;
+  width: 100%;
+}
+.corporation:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #333333;
+  opacity: 0.7;
+  z-index: 1;
+}
+.corporation .contents {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 200%;
+  display: flex;
+  z-index: 3;
+}
+.corporation .contents .item {
+  position: relative;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+}
+.corporation .contents .item h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 300;
+  font-size: 43px;
+  letter-spacing: -0.05em;
+  margin-bottom: 50px;
+}
+.corporation .contents .item p {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 300;
+  font-size: 26px;
+  letter-spacing: -0.05em;
+  margin-bottom: 120px;
+}
+.corporation .contents .item p em {
+  color: #fef100;
+}
+.corporation .contents .item ul {
+  display: flex;
+  justify-content: center;
+}
+.corporation .contents .item ul li {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 300;
+  font-size: 26px;
+  letter-spacing: -0.05em;
+}
+.corporation .contents .item ul li .icon {
+  margin-bottom: 40px;
+}
+.corporation .contents .item ul li:before {
+  content: "";
+}
+.corporation .contents .item ul li:not(:last-child) {
+  margin-right: 250px;
+}
+@media all and (max-width: 1110px) {
+  .corporation .contents .item h2 {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 300;
+    font-size: 34px;
+    letter-spacing: -0.05em;
+    margin-bottom: 20px;
+  }
+  .corporation .contents .item p {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: -0.04em;
+    margin-bottom: 30px;
+  }
+  .corporation .contents .item ul li .icon {
+    margin-bottom: 10px;
+  }
+  .corporation .contents .item ul li .text {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: -0.04em;
+  }
+  .corporation .contents .item ul li:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+@media all and (max-width: 600px) {
+  .banner .left a {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+  }
+  .banner .right a {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+  }
+  .corporation .contents .item h2 {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 300;
+    font-size: 26px;
+    letter-spacing: -0.05em;
+    margin-bottom: 20px;
+  }
+  .corporation .contents .item p {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .corporation .contents .item ul li .icon {
+    margin-bottom: 10px;
+  }
+  .corporation .contents .item ul li .text {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+    font-family: 'Noto Serif KR', serif;
+  }
+  .corporation .contents .item ul li:not(:last-child) {
+    margin-right: 30px;
+  }
+}

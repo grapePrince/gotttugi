@@ -38,7 +38,7 @@
 
     <!-- css library -->
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/app.css">
 
     <!-- js library -->
     <script src="js/jquery-3.4.1.min.js"></script>
@@ -141,33 +141,59 @@
             <img src="images/banner_3.jpg" alt="세상 어떤 맛보다 카레의 기억은 길다. 오뚜기 카레가 50년이 되었습니다.">
             <img src="images/banner_4.jpg" alt="요즘- 이정도는 먹어주잖아. 오뚜기 컵밥, 맛 좀 아는 우리의 EAT템">
         </div>
+        <div class="left"></div>
+        <div class="right"></div>
     </section>
     <section class="corporation">
-        <video controls autoplay muted poster="images/corporation_thumnail.jpg">
+        <video autoplay muted loop poster="images/corporation_thumnail.jpg">
             <source src="videos/corporation.ogv" type="video/ogv">
             <source src="videos/corporation.mp4" type="video/mp4">
             <source src="videos/corporation.webm" type="video/webm">
             <span>이 브라우저는 video요소를 지원하지 않습니다.</span>
         </video>
-        <div class="operation">
-            <h2>지속가능경영</h2>
-            <p>오뚜기는 <em>사회와</em> 더불어 발전하고 <em>사람과</em> 함께 성장하는 기업입니다.</p>
-            <div>
-                <ul>
-                    <li data-locale="corporation.operation.society">사회공헌</li>
-                    <li data-locale="corporation.operation.environment">환경경영</li>
-                    <li data-locale="corporation.operation.ethic">윤리경영</li>
-                </ul>
+        <div class="contents">
+            <div class="item operation">
+                <div class="center_center">
+                    <h2>지속가능경영</h2>
+                    <p>오뚜기는 <em>사회와</em> 더불어 발전하고 <em>사람과</em> 함께 성장하는 기업입니다.</p>
+                    <div>
+                        <ul>
+                            <li class="society" data-locale="corporation.operation.society">
+                                <div class="icon sprites">아이콘</div>
+                                <div class="text">사회공헌</div>                            
+                            </li>
+                            <li class="environment" data-locale="corporation.operation.environment">
+                                <div class="icon sprites">아이콘</div>
+                                <div class="text">환경경영</div>                             
+                            </li>
+                            <li class="ethic" data-locale="corporation.operation.ethic">
+                                <div class="icon sprites">아이콘</div>
+                                <div class="text">윤리경영</div>                               
+                            </li>
+                        </ul>
+                    </div>
+                </div>                
+            </div>      
+            <div class="item ideology">
+                <div class="center_center">
+                    <h2>오뚜기이념</h2>
+                    <p>오뚜기는 <em>기쁨</em>과 <em>만족</em>으로 인류 식생활에 이바지합니다.</p>
+                    <ul>
+                        <li class="quality" data-locale="corporation.operation.quality">
+                            <div class="icon sprites">아이콘</div>
+                            <div class="text">좋은품질</div>                         
+                        </li>
+                        <li class="nutrition" data-locale="corporation.operation.nutrition">
+                            <div class="icon sprites">아이콘</div>
+                            <div class="text">높은영양</div>
+                        </li>
+                        <li class="products" data-locale="corporation.operation.products">
+                            <div class="icon sprites">아이콘</div>
+                            <div class="text">앞선식품</div> 
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>      
-        <div class="ideology">
-            <h2>오뚜기이념</h2>
-            <p>오뚜기는 <em>기쁨</em>과 <em>만족</em>으로 인류 식생활에 이바지합니다.</p>
-            <ul>
-                <li data-locale="corporation.operation.quality">좋은품질</li>
-                <li data-locale="corporation.operation.nutrition">높은영양</li>
-                <li data-locale="corporation.operation.products">앞선식품</li>
-            </ul>
         </div>   
     </section>
     <section></section>
@@ -178,12 +204,6 @@
     <a class="back_to_top" href="" data-locale="footer.back_to_top">맨위로</a>
 </footer>
 
-<script>
-    WebFont.load({
-        google: {
-        families: ['Noto Sans KR:300,700', 'Noto Serif KR:300,600']
-        }
-    });
-</script>
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,700|Noto+Serif+KR:200,600&display=swap" rel="stylesheet">
 </body>
 </html>

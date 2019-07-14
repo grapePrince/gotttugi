@@ -6,7 +6,7 @@
         {
             "label": "Less Compile",
             "type": "shell",
-            "command": "lessc site/css/main.less site/css/main.css",
+            "command": "lessc site/css/app.less site/css/app.css",
             "group": "build",
             "problemMatcher": [
                 "$lessc"
