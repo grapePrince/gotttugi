@@ -3,18 +3,15 @@
 @typo_sans_serif: 'Noto Serif KR', serif;
 @typo_sans: 'Noto Sans KR', sans-serif;
 @typo_light: 300;
-@typo_lh_typo_title: 1.227em;
-@typo_lh_typo_title_small: 1.273em;
-@typo_lh_typo_content_title: 1.44em;
-@typo_lh_typo_content_title_small: 1.5em;
-@typo_lh_typo_content: 1.688em;
-@typo_lh_typo_content_small: 1.929em;
 
 .typo_title {
     font-family: @typo_sans_serif;
     font-weight: @typo_light;
     font-size: 43px;
     letter-spacing: -0.05em;
+}
+.typo_title__lh {
+    line-height: 1.227em;
 }
 
 .typo_title_small {
@@ -23,12 +20,18 @@
     font-size: 34px;
     letter-spacing: -0.05em;
 }
+.typo_title_small__lh {
+    line-height: 1.273em;
+}
 
 .typo_content_title {
     font-family: @typo_sans_serif;
     font-weight: @typo_light;
     font-size: 26px;
     letter-spacing: -0.05em;
+}
+.typo_content_title__lh {
+    line-height: 1.44em;
 }
 
 .typo_content_title_small {
@@ -37,6 +40,9 @@
     font-size: 18px;
     letter-spacing: -0.04em;
 }
+.typo_content_title_small__lh {
+    line-height: 1.5em;
+}
 
 .typo_content {
     font-family: @typo_sans;
@@ -44,12 +50,18 @@
     font-size: 16px;
     letter-spacing: -0.02em;
 }
+.typo_content__lh {
+    line-height: 1.688em;
+}
 
 .typo_content_small {
     font-family: @typo_sans;
     font-weight: @typo_light;
     font-size: 14px;
     letter-spacing: -0.01em;
+}
+.typo_content_small__lh {
+    line-height: 1.929em;
 }
 
 
@@ -73,16 +85,21 @@ a {
 @color_grey50: rgb(241,241,241);
 @color_grey25: rgb(248,248,248);
 @color_black: #333333;
-@color_black75: rgb(102,102,102);
-@color_black50: rgb(153,153,153);
-@color_black25: rgb(204,204,204);
-@color_black_light:  rgb(68,68,68);
+@color_black75: rgb(102,102,102); // #666666
+@color_black50: rgb(153,153,153); // #999999
+@color_black25: rgb(204,204,204); // #cccccc
+@color_black_light:  rgb(68,68,68); // #444444
 @color_red: #e0393d;
 @color_red_dark: #9a0000;
 @color_yellow: #fef100;
 @color_yellow_dark: #d6cc10;
 @color_blue: #004796;
 @color_blue_dark: #083262;
+
+
+.type--light {
+    color: @color_black75;
+}
 
 
 /* ---------- LAYOUT  ---------- */
@@ -178,6 +195,8 @@ a {
 .corporation .item .environment .icon {  width: 150px; height: 150px; background-position: -600px -150px; }
 .corporation .item .ethic .icon {  width: 150px; height: 150px; background-position: -750px -150px; }
 
+.sprites__shoplink--small { width: 20px; height: 19px; background-position: -450px 0px; }
+  
 
 @media all and (max-width: 600px) {
     .corporation .item .quality .icon {  width: 130px; height: 130px; background-position: -150px -300px; }
