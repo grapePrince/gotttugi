@@ -20,13 +20,8 @@ $(function() {
 
     isMobile = ($(window).outerWidth() <= 600) ? true : false;
 
-    var $horizontal = $('.horizontal_slide');
-    var scrollOffset = $horizontal.offset().top - $horizontal.height()/6; 
-
-
     function addEventListener() {
         $window.on('resize', resizeHandler);
-        $window.on('scroll', scrollHandler);
 
         $('nav')
         .on('mouseenter', navMouseEntered)
@@ -133,18 +128,6 @@ $(function() {
         var className = $(this).attr('data-class');
         var $img = $('header nav .background img').filter('.' + className);
         $img.stop().hide();
-    }
-
-    function scrollHandler() {
-      var top = $horizontal.offset().top;
-      if($window.scrollTop() > scrollOffset) {
-        $horizontal.css('top', $horizontal.offset().top);
-        $horizontal.css('position', 'fixed');
-        console.log(true);
-      }
-      else {
-        console.log(false);
-      }
     }
 
 }); // end of file

@@ -1,6 +1,6 @@
 /* ---------- TYPOGRAPHY  ---------- */
 .typo_title {
-  font-family: 'Noto Serif KR', serif;
+  font-family: "Noto Serif KR", serif;
   font-weight: 300;
   font-size: 43px;
   letter-spacing: -0.05em;
@@ -9,7 +9,7 @@
   line-height: 1.227em;
 }
 .typo_title_small {
-  font-family: 'Noto Serif KR', serif;
+  font-family: "Noto Serif KR", serif;
   font-weight: 300;
   font-size: 34px;
   letter-spacing: -0.05em;
@@ -18,7 +18,7 @@
   line-height: 1.273em;
 }
 .typo_content_title {
-  font-family: 'Noto Serif KR', serif;
+  font-family: "Noto Serif KR", serif;
   font-weight: 300;
   font-size: 26px;
   letter-spacing: -0.05em;
@@ -27,7 +27,7 @@
   line-height: 1.44em;
 }
 .typo_content_title_small {
-  font-family: 'Noto Serif KR', serif;
+  font-family: "Noto Serif KR", serif;
   font-weight: 300;
   font-size: 18px;
   letter-spacing: -0.04em;
@@ -36,7 +36,7 @@
   line-height: 1.5em;
 }
 .typo_content {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-weight: 300;
   font-size: 16px;
   letter-spacing: -0.02em;
@@ -45,7 +45,7 @@
   line-height: 1.688em;
 }
 .typo_content_small {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-weight: 300;
   font-size: 14px;
   letter-spacing: -0.01em;
@@ -54,14 +54,14 @@
   line-height: 1.929em;
 }
 body {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-weight: 300;
   font-size: 16px;
   letter-spacing: -0.02em;
   color: #333333;
 }
 a {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-weight: 300;
   font-size: 16px;
   letter-spacing: -0.02em;
@@ -262,7 +262,8 @@ a {
     background-position: -650px -300px;
   }
 }
-.sub header .sprites.logo {
+.sub header .sprites.logo,
+.sprites--logo--text {
   width: 114px;
   height: 44px;
   background-position: -300px -80px;
@@ -295,11 +296,11 @@ a {
   transition-duration: 0.5s;
   transition-delay: 0.1s;
   opacity: 0;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-weight: 300;
   font-size: 16px;
   letter-spacing: -0.02em;
-  font-family: 'Noto Serif KR', serif;
+  font-family: "Noto Serif KR", serif;
   color: #999999;
 }
 .circle_icon:hover {
@@ -503,7 +504,7 @@ header .upper_nav .search_input input[type="text"] {
   height: 30px;
   padding: 4px;
   box-sizing: border-box;
-  font-family: 'Noto Serif KR', serif;
+  font-family: "Noto Serif KR", serif;
   font-weight: 300;
   font-size: 18px;
   letter-spacing: -0.04em;
@@ -546,7 +547,7 @@ header nav > ul > li {
 }
 header nav > ul > li > a {
   position: relative;
-  font-family: 'Noto Serif KR', serif;
+  font-family: "Noto Serif KR", serif;
   font-weight: 300;
   font-size: 26px;
   letter-spacing: -0.05em;
@@ -571,11 +572,11 @@ header nav > ul > li > ul {
   display: none;
 }
 header nav > ul > li > ul > li a {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-weight: 300;
   font-size: 16px;
   letter-spacing: -0.02em;
-  font-family: 'Noto Serif KR', serif;
+  font-family: "Noto Serif KR", serif;
 }
 header nav > ul > li > ul > li:not(:first-child) {
   margin-top: 12px;
@@ -732,12 +733,15 @@ header.open_sub nav .background {
     display: none;
   }
   header .upper_nav .option_content {
-    display: block;
     position: absolute;
-    right: 15px;
     top: 65px;
     z-index: 3;
     overflow: hidden;
+    width: 100px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
   }
   header .upper_nav .option_content > span.circle_icon {
     margin-bottom: 5px;
@@ -871,14 +875,14 @@ header.open_sub nav .background {
   text-align: center;
 }
 .section--corporation .contents .item h2 {
-  font-family: 'Noto Serif KR', serif;
+  font-family: "Noto Serif KR", serif;
   font-weight: 300;
   font-size: 43px;
   letter-spacing: -0.05em;
   margin-bottom: 50px;
 }
 .section--corporation .contents .item p {
-  font-family: 'Noto Serif KR', serif;
+  font-family: "Noto Serif KR", serif;
   font-weight: 300;
   font-size: 26px;
   letter-spacing: -0.05em;
@@ -892,7 +896,7 @@ header.open_sub nav .background {
   justify-content: center;
 }
 .section--corporation .contents .item ul li {
-  font-family: 'Noto Serif KR', serif;
+  font-family: "Noto Serif KR", serif;
   font-weight: 300;
   font-size: 26px;
   letter-spacing: -0.05em;
@@ -915,14 +919,14 @@ header.open_sub nav .background {
     justify-content: space-between;
   }
   .section--corporation .contents .item .center_center h2 {
-    font-family: 'Noto Serif KR', serif;
+    font-family: "Noto Serif KR", serif;
     font-weight: 300;
     font-size: 34px;
     letter-spacing: -0.05em;
     margin-bottom: 10px;
   }
   .section--corporation .contents .item .center_center p {
-    font-family: 'Noto Serif KR', serif;
+    font-family: "Noto Serif KR", serif;
     font-weight: 300;
     font-size: 18px;
     letter-spacing: -0.04em;
@@ -935,7 +939,7 @@ header.open_sub nav .background {
     margin-bottom: 10px;
   }
   .section--corporation .contents .item .center_center ul li .text {
-    font-family: 'Noto Serif KR', serif;
+    font-family: "Noto Serif KR", serif;
     font-weight: 300;
     font-size: 18px;
     letter-spacing: -0.04em;
@@ -963,30 +967,33 @@ header.open_sub nav .background {
     align-items: center;
   }
   .section--corporation .contents .item .center_center h2 {
-    font-family: 'Noto Serif KR', serif;
+    font-family: "Noto Serif KR", serif;
     font-weight: 300;
     font-size: 26px;
     letter-spacing: -0.05em;
     margin-bottom: 10px;
   }
   .section--corporation .contents .item .center_center p {
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
     font-weight: 300;
     font-size: 16px;
     letter-spacing: -0.02em;
     line-height: 1.688em;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     width: 80%;
   }
+  .section--corporation .contents .item .center_center ul {
+    margin-top: -10px;
+  }
   .section--corporation .contents .item .center_center ul li .icon {
-    margin-bottom: 10px;
+    margin-bottom: -10px;
   }
   .section--corporation .contents .item .center_center ul li .text {
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
     font-weight: 300;
     font-size: 16px;
     letter-spacing: -0.02em;
-    font-family: 'Noto Serif KR', serif;
+    font-family: "Noto Serif KR", serif;
   }
   .section--corporation .contents .item .center_center ul li:not(:last-child) {
     margin-right: 30px;
@@ -1036,7 +1043,7 @@ header.open_sub nav .background {
   border: 1px solid #cccccc;
   text-align: center;
   line-height: 40px;
-  font-family: 'Noto Serif KR', serif;
+  font-family: "Noto Serif KR", serif;
   font-weight: 300;
   font-size: 18px;
   letter-spacing: -0.04em;
@@ -1055,20 +1062,21 @@ header.open_sub nav .background {
 .detail .btn--square {
   margin-bottom: 10px;
 }
-.box--item_fit {
-  position: relative;
+.gallery--item_fit {
+  display: table;
+  width: 1%;
+  text-align: center;
 }
-.box--item_fit .box--item_fit__others {
-  position: absolute;
-  padding: 40px;
-  width: 100%;
-  box-sizing: border-box;
+.gallery--item_fit .gallery--item_fit__text {
+  padding: 15px;
+  margin-bottom: 40px;
+  font-family: "Noto Sans KR", sans-serif;
 }
-.box--item_fit .box--item_fit__keyitem {
-  margin-top: 220px;
+.gallery--item_fit .gallery--item_fit__image {
+  display: block;
 }
 blockquote {
-  text-align: center;
+  position: relative;
 }
 blockquote:before {
   content: "";
@@ -1095,14 +1103,13 @@ blockquote:after {
   left: calc(100% - 40px);
 }
 .line_background:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100vw;
-  height: 270px;
+  height: 220px;
   background: #cccccc;
   z-index: -1;
   left: 0;
-  bottom: 800px;
 }
 .layout--5column .layout--5column__col {
   width: 25%;
@@ -1111,25 +1118,17 @@ blockquote:after {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  padding: 15px;
-  box-sizing: border-box;
   background: #cccccc;
+  padding: 20px;
+  box-sizing: border-box;
 }
 .layout--5column .layout--5column__title {
-  font-family: 'Noto Serif KR', serif;
+  font-family: "Noto Serif KR", serif;
   font-weight: 300;
   font-size: 26px;
   letter-spacing: -0.05em;
   width: 130px;
-}
-.new_product {
-  position: relative;
-}
-.new_product .new_product_section {
-  margin-bottom: 100px;
-}
-.new_product .box--item_fit:last-child {
-  margin-top: 250px;
+  text-align: right;
 }
 .layout-square {
   position: relative;
@@ -1143,4 +1142,39 @@ blockquote:after {
   content: "";
   display: block;
   padding-bottom: 100%;
+}
+.thumnail_item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e3e3e3;
+  margin-left: -1px;
+}
+.thumnail_item .thumnail_item--title {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  font-family: "Noto Serif KR", serif;
+  font-weight: 700;
+  margin-top: 15px;
+}
+.new_product {
+  position: relative;
+}
+.new_product .new_product_section {
+  margin-bottom: 100px;
+}
+.new_product .new_product_section--more {
+  margin-top: 200px;
+}
+.new_product .gallery--item_fit:first-child {
+  margin-top: 100px;
+}
+.new_product .gallery--item_fit:last-child {
+  margin-top: 400px;
+}
+.new_product .line_background:after {
+  bottom: 780px;
 }
