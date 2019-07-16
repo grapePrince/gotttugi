@@ -195,32 +195,32 @@ a {
   height: 63px;
   background-position: -90px -300px;
 }
-.corporation .item .quality .icon {
+.section--corporation .item .quality .icon {
   width: 150px;
   height: 150px;
   background-position: 0px -150px;
 }
-.corporation .item .nutrition .icon {
+.section--corporation .item .nutrition .icon {
   width: 150px;
   height: 150px;
   background-position: -150px -150px;
 }
-.corporation .item .products .icon {
+.section--corporation .item .products .icon {
   width: 150px;
   height: 150px;
   background-position: -300px -150px;
 }
-.corporation .item .society .icon {
+.section--corporation .item .society .icon {
   width: 150px;
   height: 150px;
   background-position: -450px -150px;
 }
-.corporation .item .environment .icon {
+.section--corporation .item .environment .icon {
   width: 150px;
   height: 150px;
   background-position: -600px -150px;
 }
-.corporation .item .ethic .icon {
+.section--corporation .item .ethic .icon {
   width: 150px;
   height: 150px;
   background-position: -750px -150px;
@@ -231,35 +231,35 @@ a {
   background-position: -450px 0px;
 }
 @media all and (max-width: 600px) {
-  .corporation .item .quality .icon {
-    width: 130px;
-    height: 130px;
+  .section--corporation .item .quality .icon {
+    width: 100px;
+    height: 100px;
     background-position: -150px -300px;
   }
-  .corporation .item .nutrition .icon {
-    width: 130px;
-    height: 130px;
-    background-position: -280px -300px;
+  .section--corporation .item .nutrition .icon {
+    width: 100px;
+    height: 100px;
+    background-position: -250px -300px;
   }
-  .corporation .item .products .icon {
-    width: 130px;
-    height: 130px;
-    background-position: -410px -300px;
+  .section--corporation .item .products .icon {
+    width: 100px;
+    height: 100px;
+    background-position: -350px -300px;
   }
-  .corporation .item .society .icon {
-    width: 130px;
-    height: 130px;
-    background-position: -540px -300px;
+  .section--corporation .item .society .icon {
+    width: 100px;
+    height: 100px;
+    background-position: -450px -300px;
   }
-  .corporation .item .environment .icon {
-    width: 130px;
-    height: 130px;
-    background-position: -670px -300px;
+  .section--corporation .item .environment .icon {
+    width: 100px;
+    height: 100px;
+    background-position: -550px -300px;
   }
-  .corporation .item .ethic .icon {
-    width: 130px;
-    height: 130px;
-    background-position: -800px -300px;
+  .section--corporation .item .ethic .icon {
+    width: 100px;
+    height: 100px;
+    background-position: -650px -300px;
   }
 }
 .sub header .sprites.logo {
@@ -737,6 +737,7 @@ header.open_sub nav .background {
     right: 15px;
     top: 65px;
     z-index: 3;
+    overflow: hidden;
   }
   header .upper_nav .option_content > span.circle_icon {
     margin-bottom: 5px;
@@ -829,17 +830,20 @@ header.open_sub nav .background {
   box-shadow: 3px 3px 3px rgba(227, 227, 227, 0.25);
 }
 /* ---------- CORPORATION  ---------- */
-.corporation {
+.horizontal_slide.active {
+  position: fixed;
+}
+.section--corporation {
   position: relative;
   width: 100%;
   overflow: hidden;
 }
-.corporation video {
+.section--corporation video {
   position: relative;
   z-index: -1;
   width: 100%;
 }
-.corporation:after {
+.section--corporation:after {
   content: "";
   position: absolute;
   top: 0;
@@ -850,7 +854,7 @@ header.open_sub nav .background {
   opacity: 0.7;
   z-index: 1;
 }
-.corporation .contents {
+.section--corporation .contents {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -860,74 +864,84 @@ header.open_sub nav .background {
   display: flex;
   z-index: 3;
 }
-.corporation .contents .item {
+.section--corporation .contents .item {
   position: relative;
   width: 100%;
   color: #fff;
   text-align: center;
 }
-.corporation .contents .item h2 {
+.section--corporation .contents .item h2 {
   font-family: 'Noto Serif KR', serif;
   font-weight: 300;
   font-size: 43px;
   letter-spacing: -0.05em;
   margin-bottom: 50px;
 }
-.corporation .contents .item p {
+.section--corporation .contents .item p {
   font-family: 'Noto Serif KR', serif;
   font-weight: 300;
   font-size: 26px;
   letter-spacing: -0.05em;
   margin-bottom: 120px;
 }
-.corporation .contents .item p em {
+.section--corporation .contents .item p em {
   color: #fef100;
 }
-.corporation .contents .item ul {
+.section--corporation .contents .item ul {
   display: flex;
   justify-content: center;
 }
-.corporation .contents .item ul li {
+.section--corporation .contents .item ul li {
   font-family: 'Noto Serif KR', serif;
   font-weight: 300;
   font-size: 26px;
   letter-spacing: -0.05em;
 }
-.corporation .contents .item ul li .icon {
+.section--corporation .contents .item ul li .icon {
   margin-bottom: 40px;
 }
-.corporation .contents .item ul li:before {
+.section--corporation .contents .item ul li:before {
   content: "";
 }
-.corporation .contents .item ul li:not(:last-child) {
+.section--corporation .contents .item ul li:not(:last-child) {
   margin-right: 250px;
 }
 @media all and (max-width: 1110px) {
-  .corporation .contents .item h2 {
+  .section--corporation .contents .item .center_center {
+    width: 90%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .section--corporation .contents .item .center_center h2 {
     font-family: 'Noto Serif KR', serif;
     font-weight: 300;
     font-size: 34px;
     letter-spacing: -0.05em;
-    margin-bottom: 20px;
-  }
-  .corporation .contents .item p {
-    font-family: 'Noto Serif KR', serif;
-    font-weight: 300;
-    font-size: 18px;
-    letter-spacing: -0.04em;
-    margin-bottom: 30px;
-  }
-  .corporation .contents .item ul li .icon {
     margin-bottom: 10px;
   }
-  .corporation .contents .item ul li .text {
+  .section--corporation .contents .item .center_center p {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: -0.04em;
+    margin-bottom: 20px;
+  }
+  .section--corporation .contents .item .center_center ul {
+    justify-content: space-between;
+  }
+  .section--corporation .contents .item .center_center ul li .icon {
+    margin-bottom: 10px;
+  }
+  .section--corporation .contents .item .center_center ul li .text {
     font-family: 'Noto Serif KR', serif;
     font-weight: 300;
     font-size: 18px;
     letter-spacing: -0.04em;
   }
-  .corporation .contents .item ul li:not(:last-child) {
-    margin-right: 30px;
+  .section--corporation .contents .item .center_center ul li:not(:last-child) {
+    margin-right: 0px;
   }
 }
 @media all and (max-width: 600px) {
@@ -943,31 +957,38 @@ header.open_sub nav .background {
     transform: translateY(-50%);
     right: 20px;
   }
-  .corporation .contents .item h2 {
+  .section--corporation .contents .item .center_center {
+    width: 95%;
+    height: 90%;
+    align-items: center;
+  }
+  .section--corporation .contents .item .center_center h2 {
     font-family: 'Noto Serif KR', serif;
     font-weight: 300;
     font-size: 26px;
     letter-spacing: -0.05em;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
-  .corporation .contents .item p {
+  .section--corporation .contents .item .center_center p {
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 300;
     font-size: 16px;
     letter-spacing: -0.02em;
-    margin-bottom: 20px;
+    line-height: 1.688em;
+    margin-bottom: 10px;
+    width: 80%;
   }
-  .corporation .contents .item ul li .icon {
+  .section--corporation .contents .item .center_center ul li .icon {
     margin-bottom: 10px;
   }
-  .corporation .contents .item ul li .text {
+  .section--corporation .contents .item .center_center ul li .text {
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 300;
     font-size: 16px;
     letter-spacing: -0.02em;
     font-family: 'Noto Serif KR', serif;
   }
-  .corporation .contents .item ul li:not(:last-child) {
+  .section--corporation .contents .item .center_center ul li:not(:last-child) {
     margin-right: 30px;
   }
 }
@@ -1109,4 +1130,17 @@ blockquote:after {
 }
 .new_product .box--item_fit:last-child {
   margin-top: 250px;
+}
+.layout-square {
+  position: relative;
+}
+.layout-square .layout-square--content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.layout-square:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
 }

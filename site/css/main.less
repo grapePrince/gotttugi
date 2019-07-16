@@ -11,7 +11,11 @@
 
 /* ---------- CORPORATION  ---------- */
 
-.corporation {
+.horizontal_slide.active {
+  position:fixed;
+}
+
+.section--corporation {
     position: relative;
     width: 100%;
     overflow: hidden;
@@ -76,33 +80,40 @@
     }
 }
 
-
-
 @media all and (max-width: 1110px) {
-    .corporation .contents .item {
+    .section--corporation .contents .item {
+      .center_center {
+        width: 90%;
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
         h2 {
             .typo_title_small();    
-            margin-bottom: 20px;   
+            margin-bottom: 10px;   
         }
         p {
             .typo_content_title_small();
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
-        ul li {
+        ul {
+          justify-content: space-between;
+          li {
             .icon {
                 margin-bottom: 10px;
             }
             .text {
                 .typo_content_title_small();
             }
-        }
-        ul li:not(:last-child) {
-            margin-right: 30px;
-        }
+          }
+          li:not(:last-child) {
+            margin-right: 0px;
+          }
+        } 
+      }        
     }
-
 }
-
 
 
 @media all and (max-width: 600px) {
@@ -111,14 +122,21 @@
         .right a { .center_vertical(); right: 20px; }
     }
 
-    .corporation .contents .item {
+    .section--corporation .contents .item {
+      .center_center {
+        width: 95%;
+        height: 90%;
+        align-items: center;
+
         h2 {
-            .typo_content_title();                
-            margin-bottom: 20px;   
+          .typo_content_title();                
+          margin-bottom: 10px;   
         }
         p {
             .typo_content();
-            margin-bottom: 20px;
+            .typo_content__lh();
+            margin-bottom: 10px;
+            width: 80%;
         }
         ul li {
             .icon {
@@ -132,6 +150,8 @@
         ul li:not(:last-child) {
             margin-right: 30px;
         }
+      }
+        
     }   
 
 }
@@ -258,6 +278,7 @@ blockquote {
     }
 }
 
+
 .layout--5column {
     .layout--5column__col {
         width: 25%;
@@ -284,4 +305,20 @@ blockquote {
     .box--item_fit:last-child {
         margin-top: 250px;
     }
+}
+
+.layout-square {
+  position:relative;
+
+  .layout-square--content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
 }
