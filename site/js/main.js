@@ -1,10 +1,12 @@
-$(function() {
+$( document ).ready(function() {
     var $window = $(window);    
     var $header = $('header');
     var $gnbMenuList = $('header nav > ul > li');
     var $menuBtn = $('header .upper_nav .menu');
 
     var isMobile = false;
+    var corporationSlideNum = 0;
+
     var CLASS_SEARCH_OPENED = 'open_search';
     var CLASS_SUB_OPENED = 'open_sub';
     var CLASS_SETTING_OPENED = 'open_setting';
@@ -14,6 +16,36 @@ $(function() {
         pager: false,
         prevSelector: '.banner .left',
         nextSelector: '.banner .right'
+    });
+
+    $('.slider__wrapper--news').bxSlider({
+      pager: true,
+      controls: false,
+      pagerSelector: '.slider__controls--news' 
+    });
+
+    $('#fullpage').fullpage({
+      //options here
+      autoScrolling:true,
+      scrollHorizontally: true,
+      scrollOverflow: true,
+      responsiveWidth: 600,
+      onLeave: function(origin, destination, direction){
+        if(!isMobile && origin.index === 0 && direction ==='down'){
+          if (corporationSlideNum === 0) {
+            $('.section--corporation .contents').css('left', '-100%');
+            corporationSlideNum = 1;
+            return false;
+          }
+        }
+      },
+      afterLoad: function(origin, destination, direction) {
+        if (!isMobile && destination.index === 0 && direction === "up") {
+          $('.section--corporation .contents').css('left', '0');
+            corporationSlideNum = 0;
+            return false;
+        }
+      }
     });
 
     addEventListener();

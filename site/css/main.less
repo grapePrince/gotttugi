@@ -16,10 +16,6 @@
 
 /* ---------- CORPORATION  ---------- */
 
-.horizontal_slide.active {
-  position: fixed;
-}
-
 .section--corporation {
   position: relative;
   width: 100%;
@@ -44,6 +40,7 @@
     width: 200%;
     display: flex;
     .z_index_high();
+    transition: left 0.5s;
 
     .item {
       position: relative;
@@ -357,4 +354,33 @@ blockquote {
   .line_background:after {
     bottom: 780px;
   }
+}
+
+
+/* ------------ NEWS ---------- */
+
+.layout--news {
+  text-align: center;
+  background: #FFEC48;
+  padding: 50px 0;
+  .layout--news__title {
+    margin-bottom: 15px;
+  }
+  .layout--news__title--sub {
+    font-weight: 700;
+    font-family: @typo_sans_serif;
+    margin-bottom: 20px;
+  }
+}
+
+.slider__wrapper {
+  height: 310px;
+  .slider__wrapper__slide {
+    display:flex;
+    justify-content: center;
+    .slider__wrapper__slide__container {
+      width:600px;
+      .shadow();
+    }
+  }    
 }
