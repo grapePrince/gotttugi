@@ -1,0 +1,155 @@
+
+/* ---------- CORPORATION  ---------- */
+
+.section--corporation {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  video {
+    position: relative;
+    .z_index_back();
+    width: 100%;
+  }
+
+  &:after {
+    content: "";
+    .fill_parent();
+    background: @color_black;
+    opacity: 0.7;
+    .z_index_low();
+  }
+
+  .contents {
+    .fill_parent();
+    display: flex;
+    .z_index_high();
+    transition: left 0.5s;
+
+    .item {
+      position: relative;
+      width: 100%;
+      color: @color_white;
+      text-align: center;
+
+      h2 {
+        .typo_title();
+        margin-bottom: 50px;
+      }
+
+      p {
+        .typo_content_title();
+        margin-bottom: 120px;
+        em {
+          color: @color_yellow;
+        }
+      }
+
+      ul {
+        display: flex;
+        justify-content: center;
+        li {
+          .icon {
+            margin-bottom: 40px;
+          }
+          &:before {
+            content: "";
+          }
+          .typo_content_title();
+        }
+        li:not(:last-child) {
+          margin-right: 250px;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1110px) {
+  .section--corporation .contents .item {
+    .center_center {
+      width: 90%;
+      height: 70%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      h2 {
+        .typo_title_small();
+        margin-bottom: 10px;
+      }
+      p {
+        .typo_content_title_small();
+        margin-bottom: 20px;
+      }
+      ul {
+        justify-content: space-between;
+        li {
+          .icon {
+            margin-bottom: 10px;
+          }
+          .text {
+            .typo_content_title_small();
+          }
+        }
+        li:not(:last-child) {
+          margin-right: 0px;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 600px) {
+  .banner {
+    .left a {
+      .center_vertical();
+      left: 20px;
+    }
+    .right a {
+      .center_vertical();
+      right: 20px;
+    }
+  }
+
+  .section--corporation {
+    .contents {
+      .item {
+        .center_center {
+          width: 95%;
+          height: 90%;
+          align-items: center;
+  
+          h2 {
+            .typo_content_title();
+            margin-bottom: 10px;
+          }
+          p {
+            .typo_content();
+            .typo_content__lh();
+            margin-bottom: 0px;
+            width: 80%;
+          }
+          ul {
+            margin-top: -10px;
+            li {
+              .icon {
+                margin-bottom: -10px;
+              }
+              .text {
+                .typo_content();
+                font-family: @typo_sans_serif;
+              }
+            }
+          }
+          ul li:not(:last-child) {
+            margin-right: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+.section--corporation--last {
+  margin-top: -1px;
+}

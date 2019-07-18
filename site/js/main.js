@@ -34,44 +34,19 @@ $(document).ready(function() {
 
   new fullpage("#fullpage", {
     //options here
-    autoScrolling: true,
-    scrollHorizontally: true,
     scrollOverflow: true,
-    responsiveWidth: 600,
-    onLeave: function(origin, destination, direction) {
-      if (isMobile) { // 모바일에서는 동작하지 않음. 
-        return;
-      }
-      if (origin.index === 0 && direction === "down") {
-        if (corporationSlideNum === 0) {
-          $(".section--corporation .contents").css("left", "-100%");
-          corporationSlideNum = 1;
-          return false;
-        }
-      }
-      if (destination.index === 0 && direction === "up") {
-        $(".section--corporation .contents").css("left", "0");
-        corporationSlideNum = 0;
-      }
-    }
+    responsiveWidth: 900
   });
 
-  $("html").on("mousewheel DOMMouseScroll", function(e) {
-    if (isMobile) { // 모바일에서는 동작하지 않음. 
-      return;
-    }
-    var delta = e.originalEvent ? e.originalEvent.deltaY : e.deltaY;
-    var currentPage = Number($('.section.active').attr('data-pageindex'));
-    // 첫페이지로 들어가면 무조건 회사 소개는 첫번째 화면을 보여준다.
-    if ( delta <= 0) {
-      if (currentPage === 0) {
-        $(".section--corporation .contents").css("left", "0");
-        corporationSlideNum = 0;
-      }
-    } 
-  });
+  if (isMobileDevice) {
+    $('video').each(function() {
+      $(this).get(0).play();
+    });
+  }
 
   addEventListener();
+
+
 
   function addEventListener() {
     $window.on("resize", resizeHandler);

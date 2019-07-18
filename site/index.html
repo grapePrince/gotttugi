@@ -45,7 +45,7 @@
   <script src="js/jquery-3.4.1.min.js"></script>
   <!-- <script src="js/jquery-ui-1.12.1.min.js"></script> -->
   <script src="js/jquery.bxslider.js"></script>
-  <script src="js/fullpage.extensions.min.js"></script>
+  <script src="js/fullpage.min.js"></script>
   <script src="js/scrolloverflow.min.js"></script>
   <script src="js/all.min.js"></script>
   <script src="js/modernizr-custom.js"></script>
@@ -56,115 +56,115 @@
 
 <body class="main">
   <div id="fullpage">
-    <div class="section fp-auto-height-responsive" data-pageindex="0">
+    <div class="section fp-auto-height">
       <header class="container">
-        <div class="upper_nav">
-          <h1>
-            <a href="#" class="sprites logo" data-locale="header.logo">로고</a>
-          </h1>
-          <span class="circle_icon menu">
-            <span class="sprites icon" data-locale="header.menu">메뉴</span>
-          </span>
-          <span class="circle_icon option">
-            <span class="sprites icon" data-locale="header.option">환경설정</span>
-          </span>
-          <div class="option_content">
-            <span class="circle_icon search">
-              <span class="sprites icon" data-locale="header.search">검색</span>
-              <span class="text">검색하기</span>
+          <div class="upper_nav">
+            <h1>
+              <a href="#" class="sprites logo" data-locale="header.logo">로고</a>
+            </h1>
+            <span class="circle_icon menu">
+              <span class="sprites icon" data-locale="header.menu">메뉴</span>
             </span>
-            <span class="circle_icon help">
-              <span class="sprites icon" data-locale="header.help">고객센터</span>
-              <span class="text">고객센터</span>
+            <span class="circle_icon option">
+              <span class="sprites icon" data-locale="header.option">환경설정</span>
             </span>
-            <span class="circle_icon locale dropdown_menu">
-              <span class="sprites icon" data-locale="header.locale">언어변경</span>
-              <span class="window">
-                <span class="text">언어변경</span>
-                <span class="arrow"><i class="fas fa-sort"></i></span>
+            <div class="option_content">
+              <span class="circle_icon search">
+                <span class="sprites icon" data-locale="header.search">검색</span>
+                <span class="text">검색하기</span>
               </span>
-              <ul class="dropdown_content">
-                <li>한글</li>
-                <li>ENG</li>
-              </ul>
-            </span>
+              <span class="circle_icon help">
+                <span class="sprites icon" data-locale="header.help">고객센터</span>
+                <span class="text">고객센터</span>
+              </span>
+              <span class="circle_icon locale dropdown_menu">
+                <span class="sprites icon" data-locale="header.locale">언어변경</span>
+                <span class="window">
+                  <span class="text">언어변경</span>
+                  <span class="arrow"><i class="fas fa-sort"></i></span>
+                </span>
+                <ul class="dropdown_content">
+                  <li>한글</li>
+                  <li>ENG</li>
+                </ul>
+              </span>
+            </div>
+            <a href="" class="sprites shoplink" data-locale="header.goto_mall">오뚜기 몰로 가기</a>
+            <div class="search_input">
+              <input type="text" />
+              <span></span>
+              <input type="button" class="sprites search_button" value="검색" />
+            </div>
           </div>
-          <a href="" class="sprites shoplink" data-locale="header.goto_mall">오뚜기 몰로 가기</a>
-          <div class="search_input">
-            <input type="text" />
-            <span></span>
-            <input type="button" class="sprites search_button" value="검색" />
-          </div>
-        </div>
-        <nav>
-          <ul class="clearfix">
-            <li data-class="corporation">
-              <a href="#" data-locale="nav.introduce">오뚜기소개</a>
-              <ul>
-                <li>
-                  <a href="" data-locale="nav.introduce.ottugi">(주)오뚜기</a>
-                </li>
-                <li>
-                  <a href="" data-locale="nav.introduce.ottugi">인재채용</a>
-                </li>
-                <li>
-                  <a href="" data-locale="nav.introduce.ottugi">투자정보</a>
-                </li>
-                <li>
-                  <a href="" data-locale="nav.introduce.ottugi">찾아오시는길</a>
-                </li>
-              </ul>
-            </li>
-            <li data-class="products">
-              <a href="#" data-locale="nav.products">제품정보</a>
-              <ul>
-                <li><a href="" data-locale="nav.products.source">소스류</a></li>
-                <li>
-                  <a href="" data-locale="nav.products.powder">분말/건조</a>
-                </li>
-                <li>
-                  <a href="" data-locale="nav.products.retort">레토르트/간편식</a>
-                </li>
-                <li>
-                  <a href="" data-locale="nav.products.freeze">냉장/냉동식품</a>
-                </li>
-                <li>
-                  <a href="" data-locale="nav.products.enrich_marine">농/축/수산</a>
-                </li>
-                <li><a href="" data-locale="nav.products.tea">차종류</a></li>
-                <li><a href="" data-locale="nav.products.oil">버터/식용유</a></li>
-                <li><a href="" data-locale="nav.products.spice">향신료</a></li>
-                <li><a href="" data-locale="nav.products.ramens">라면류</a></li>
-                <li><a href="" data-locale="nav.products.cereal">곡류가공</a></li>
-              </ul>
-            </li>
-            <li data-class="recipe">
-              <a href="" data-locale="nav.recipe">요리마당</a>
-              <ul>
-                <li>
-                  <a href="#" data-locale="nav.media.media_main">오뚜기레시피</a>
-                </li>
-              </ul>
-            </li>
-            <li data-class="media">
-              <a href="#" data-locale="nav.media">알리미</a>
-              <ul>
-                <li>
-                  <a href="#" data-locale="nav.media.media_main">미디어속오뚜기</a>
-                </li>
-                <li>
-                  <a href="#" data-locale="nav.media.excursion">공장견학신청</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <div class="background">
-            <img class="corporation" src="images/header_corporation.png" alt="header_corporation" />
-            <img class="products" src="images/header_products.png" alt="header_products" />
-            <img class="media" src="images/header_media.png" alt="header_media" />
-            <div class="sprites close">닫기</div>
-          </div>
-        </nav>
+          <nav>
+            <ul class="clearfix">
+              <li data-class="corporation">
+                <a href="#" data-locale="nav.introduce">오뚜기소개</a>
+                <ul>
+                  <li>
+                    <a href="" data-locale="nav.introduce.ottugi">(주)오뚜기</a>
+                  </li>
+                  <li>
+                    <a href="" data-locale="nav.introduce.ottugi">인재채용</a>
+                  </li>
+                  <li>
+                    <a href="" data-locale="nav.introduce.ottugi">투자정보</a>
+                  </li>
+                  <li>
+                    <a href="" data-locale="nav.introduce.ottugi">찾아오시는길</a>
+                  </li>
+                </ul>
+              </li>
+              <li data-class="products">
+                <a href="#" data-locale="nav.products">제품정보</a>
+                <ul>
+                  <li><a href="" data-locale="nav.products.source">소스류</a></li>
+                  <li>
+                    <a href="" data-locale="nav.products.powder">분말/건조</a>
+                  </li>
+                  <li>
+                    <a href="" data-locale="nav.products.retort">레토르트/간편식</a>
+                  </li>
+                  <li>
+                    <a href="" data-locale="nav.products.freeze">냉장/냉동식품</a>
+                  </li>
+                  <li>
+                    <a href="" data-locale="nav.products.enrich_marine">농/축/수산</a>
+                  </li>
+                  <li><a href="" data-locale="nav.products.tea">차종류</a></li>
+                  <li><a href="" data-locale="nav.products.oil">버터/식용유</a></li>
+                  <li><a href="" data-locale="nav.products.spice">향신료</a></li>
+                  <li><a href="" data-locale="nav.products.ramens">라면류</a></li>
+                  <li><a href="" data-locale="nav.products.cereal">곡류가공</a></li>
+                </ul>
+              </li>
+              <li data-class="recipe">
+                <a href="" data-locale="nav.recipe">요리마당</a>
+                <ul>
+                  <li>
+                    <a href="#" data-locale="nav.media.media_main">오뚜기레시피</a>
+                  </li>
+                </ul>
+              </li>
+              <li data-class="media">
+                <a href="#" data-locale="nav.media">알리미</a>
+                <ul>
+                  <li>
+                    <a href="#" data-locale="nav.media.media_main">미디어속오뚜기</a>
+                  </li>
+                  <li>
+                    <a href="#" data-locale="nav.media.excursion">공장견학신청</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <div class="background">
+              <img class="corporation" src="images/header_corporation.png" alt="header_corporation" />
+              <img class="products" src="images/header_products.png" alt="header_products" />
+              <img class="media" src="images/header_media.png" alt="header_media" />
+              <div class="sprites close">닫기</div>
+            </div>
+          </nav>
       </header>
       <section class="banner">
         <div class="sliderWrap">
@@ -176,11 +176,13 @@
         <div class="left"></div>
         <div class="right"></div>
       </section>
+    </div>
+    <div class="section fp-auto-height">
       <section class="section--corporation">
-        <video data-autoplay muted loop poster="images/corporation_thumnail.jpg">
-          <source src="videos/corporation.ogv" type="video/ogv" />
-          <source src="videos/corporation.mp4" type="video/mp4" />
-          <source src="videos/corporation.webm" type="video/webm" />
+        <video data-autoplay muted loop poster="images/corporation_thumnail_1.jpg">
+          <source src="videos/corporation_1.ogv" type="video/ogv" />
+          <source src="videos/corporation_1.mp4" type="video/mp4" />
+          <source src="videos/corporation_1.webm" type="video/webm" />
           <span>이 브라우저는 video요소를 지원하지 않습니다.</span>
         </video>
         <div class="contents">
@@ -208,42 +210,54 @@
                 </ul>
               </div>
             </div>
-          </div>
-          <div class="item ideology">
-            <div class="center_center">
-              <h2>오뚜기이념</h2>
-              <p>
-                오뚜기는 <em>기쁨</em>과 <em>만족</em>으로 인류 식생활에
-                이바지합니다.
-              </p>
-              <ul>
-                <li class="quality" data-locale="corporation.operation.quality">
-                  <div class="icon sprites">아이콘</div>
-                  <div class="text">좋은품질</div>
-                </li>
-                <li class="nutrition" data-locale="corporation.operation.nutrition">
-                  <div class="icon sprites">아이콘</div>
-                  <div class="text">높은영양</div>
-                </li>
-                <li class="products" data-locale="corporation.operation.products">
-                  <div class="icon sprites">아이콘</div>
-                  <div class="text">앞선식품</div>
-                </li>
-              </ul>
-            </div>
-          </div>
+          </div>          
         </div>
       </section>
     </div>
-    <div class="section fp-auto-height-responsive" data-pageindex="1">
+    <div class="section fp-auto-height ">
+        <section class="section--corporation section--corporation--last">
+          <video data-autoplay muted loop poster="images/corporation_thumnail_2.jpg">
+            <source src="videos/corporation_2.ogv" type="video/ogv" />
+            <source src="videos/corporation_2.mp4" type="video/mp4" />
+            <source src="videos/corporation_2.webm" type="video/webm" />
+            <span>이 브라우저는 video요소를 지원하지 않습니다.</span>
+          </video>
+          <div class="contents">
+            <div class="item ideology">
+              <div class="center_center">
+                <h2>오뚜기이념</h2>
+                <p>
+                  오뚜기는 <em>기쁨</em>과 <em>만족</em>으로 인류 식생활에
+                  이바지합니다.
+                </p>
+                <ul>
+                  <li class="quality" data-locale="corporation.operation.quality">
+                    <div class="icon sprites">아이콘</div>
+                    <div class="text">좋은품질</div>
+                  </li>
+                  <li class="nutrition" data-locale="corporation.operation.nutrition">
+                    <div class="icon sprites">아이콘</div>
+                    <div class="text">높은영양</div>
+                  </li>
+                  <li class="products" data-locale="corporation.operation.products">
+                    <div class="icon sprites">아이콘</div>
+                    <div class="text">앞선식품</div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    <div class="section">
       <section class="new_product">
-        <div class="new_product_section row--between row--base container">
-          <h2 class="typo_title_small typo_title_small__lh title--line_from_left">
+        <div class="new_product_section row--between row--base layout_row--product container">
+          <h2 class="typo_title_small typo_title_small__lh title--line_from_left layout_row--product__title">
             산초와 매운 고추를 원료로 한
             <span class="highlight--main">사천식 훠궈 마라탕 소스</span>
           </h2>
-          <img src="images/newproduct_main.png" alt="훠궈 마라탕소스" />
-          <div class="detail">
+          <div class="layout_row--product__image"><img src="images/newproduct_main.png" alt="훠궈 마라탕소스" /></div>
+          <div class="detail layout_row--product__detail">
             <p class="typo_content_title_small typo_content_title_small__lh bold">
               중량 : 70g (2~3인분)<br />
               분류 : 조미소스 / 식품<br />
@@ -253,22 +267,24 @@
             <a class="btn--square" href=""><span class="sprites sprites__shoplink--small">몰로바로가기</span></a>
           </div>
         </div>
-        <div class="new_product_section row--between container line_background">
-          <div class="gallery--item_fit">
-            <p class="typo_content_title typo_content_title__lh type--light gallery--item_fit__text">
-              훠궈, 마라탕 뿐만 아니라<br />
-              마라샹궈, 마라새우, 마파두부 등<br />
-              다양한 사천식 요리에도 어울리는<br />
-              훠궈 마라탕 소스입니다.
-            </p>
-            <img class="gallery--item_fit__image" src="images/newproduct_desc_left.jpg" alt="맛있는 마라탕" />
-          </div>
-          <div class="gallery--item_fit">
-            <blockquote class="typo_content_title typo_content_title__lh type--light gallery--item_fit__text">
-              소스 하나로 사천 요리가<br />
-              가까워진 느낌이에요.
-            </blockquote>
-            <img class="gallery--item_fit__image" src="images/newproduct_desc_right.jpg" alt="맛있는 마라국수" />
+        <div class="new_product_section line_background">
+          <div class="row--between layout_row--desc container">
+            <div class="gallery--item_fit layout_row--desc__item">
+              <p class="typo_content_title typo_content_title__lh type--light gallery--item_fit__text">
+                훠궈, 마라탕 뿐만 아니라<br />
+                마라샹궈, 마라새우, 마파두부 등<br />
+                다양한 사천식 요리에도 어울리는<br />
+                훠궈 마라탕 소스입니다.
+              </p>
+              <img class="gallery--item_fit__image" src="images/newproduct_desc_left.jpg" alt="맛있는 마라탕" />
+            </div>
+            <div class="gallery--item_fit layout_row--desc__item">
+              <blockquote class="typo_content_title typo_content_title__lh type--light gallery--item_fit__text">
+                소스 하나로 사천 요리가<br />
+                가까워진 느낌이에요.
+              </blockquote>
+              <img class="gallery--item_fit__image" src="images/newproduct_desc_right.jpg" alt="맛있는 마라국수" />
+            </div>
           </div>
         </div>
         <div class="new_product_section new_product_section--more row--center layout--5column container">
@@ -277,29 +293,37 @@
               <h3 class="layout--5column__title">신제품 목록 더보기</h3>
             </div>
           </div>
-          <div class="thumnail_item layout--5column__col square">
-            <a href="#"><img src="images/newproduct_1.png" alt="" /></a>
-            <a href="#">
-              <h4 class="thumnail_item--title">훠궈 마라탕소스</h4>
-            </a>
+          <div class="thumnail_item layout--5column__col layout-square">
+            <div class="layout-square--content">
+              <a href="#"><img src="images/newproduct_1.png" alt="" /></a>
+              <a href="#">
+                <h4 class="thumnail_item--title">훠궈 마라탕소스</h4>
+              </a>
+            </div>
           </div>
-          <div class="thumnail_item layout--5column__col square">
-            <a href="#"><img src="images/newproduct_2.png" alt="" /></a>
-            <a href="#">
-              <h4 class="thumnail_item--title">훠궈 해선탕소스</h4>
-            </a>
+          <div class="thumnail_item layout--5column__col layout-square">
+            <div class="layout-square--content">
+              <a href="#"><img src="images/newproduct_2.png" alt="" /></a>
+              <a href="#">
+                <h4 class="thumnail_item--title">훠궈 해선탕소스</h4>
+              </a>
+            </div>
           </div>
-          <div class="thumnail_item layout--5column__col square">
-            <a href="#"><img src="images/newproduct_3.png" alt="" /></a>
-            <a href="#">
-              <h4 class="thumnail_item--title">스페셜카레</h4>
-            </a>
+          <div class="thumnail_item layout--5column__col layout-square">
+            <div class="layout-square--content">
+              <a href="#"><img src="images/newproduct_3.png" alt="" /></a>
+              <a href="#">
+                <h4 class="thumnail_item--title">스페셜카레</h4>
+              </a>
+            </div>
           </div>
-          <div class="thumnail_item layout--5column__col square ">
-            <a href="#"><img src="images/newproduct_4.png" alt="" /></a>
-            <a href="#">
-              <h4 class="thumnail_item--title">궁중갈비찜 컵밥</h4>
-            </a>
+          <div class="thumnail_item layout--5column__col layout-square ">
+            <div class="layout-square--content">
+              <a href="#"><img src="images/newproduct_4.png" alt="" /></a>
+              <a href="#">
+                <h4 class="thumnail_item--title">궁중갈비찜 컵밥</h4>
+              </a>
+            </div>
           </div>
         </div>
       </section>
