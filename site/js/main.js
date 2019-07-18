@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   var $window = $(window);
   var $header = $("header");
   var $gnbMenuList = $("header nav > ul > li");
@@ -12,39 +12,88 @@ $(document).ready(function() {
   var CLASS_SETTING_OPENED = "open_setting";
   var CLASS_ACTIVE = "active";
 
-  $(".sliderWrap").bxSlider({
-    pager: false,
-    prevSelector: ".banner .left",
-    nextSelector: ".banner .right"
-  });
+  var bannerSlider;
+  var newsSlider;
+  var fullPage;
 
-  $(".slider__wrapper--news").bxSlider({
-    pager: true,
-    controls: false,
-    pagerSelector: ".slider__controls--news",
-    minSlides: 1,
-    maxSlides: 3,
-    moveSlides: 1,
-    slideWidth: 600,
-    slideMargin: 50,
-    auto: true,
-    pause: 3000,
-    scrollBar:true
-  });
-
-  new fullpage("#fullpage", {
-    //options here
-    scrollOverflow: true,
-    responsiveWidth: 900
-  });
-
-  if (isMobileDevice) {
-    $('video').each(function() {
-      $(this).get(0).play();
+  if (isMobileDevice()) { // 모바일 디바이스인 경우에는 fullpage.js 를 로드하지 않는다. 
+    if (!bannerSlider) {
+      bannerSlider = $(".sliderWrap").bxSlider({
+        pager: false,
+        prevSelector: ".banner .left",
+        nextSelector: ".banner .right",
+        onSliderLoad: function () {
+          if (!newsSlider) {
+            newsSlider = $(".slider__wrapper--news").bxSlider({
+              pager: true,
+              controls: false,
+              pagerSelector: ".slider__controls--news",
+              minSlides: 1,
+              maxSlides: 3,
+              moveSlides: 1,
+              slideWidth: 600,
+              slideMargin: 50,
+              auto: true,
+              pause: 3000,
+              scrollBar: true,
+              onSliderLoad: function () {
+                $('video').each(function () {
+                  $(this).get(0).play();
+                });
+                addEventListener();
+              }
+            });
+          }
+        }
+      });
+    }    
+  } else {
+    fullPage = new fullpage("#fullpage", {
+      //options here
+      scrollOverflow: true,
+      responsiveWidth: 900,
+      afterRender: function () {
+        if (!bannerSlider) {
+          bannerSlider = $(".sliderWrap").bxSlider({
+            pager: false,
+            prevSelector: ".banner .left",
+            nextSelector: ".banner .right",
+            onSliderLoad: function () {
+              if (!newsSlider) {
+                newsSlider = $(".slider__wrapper--news").bxSlider({
+                  pager: true,
+                  controls: false,
+                  pagerSelector: ".slider__controls--news",
+                  minSlides: 1,
+                  maxSlides: 3,
+                  moveSlides: 1,
+                  slideWidth: 600,
+                  slideMargin: 50,
+                  auto: true,
+                  pause: 3000,
+                  scrollBar: true,
+                  onSliderLoad: function () {
+                    addEventListener();
+                    fullpage_api.reBuild();   // bxSlider 가 로드되어 높이가 정리된 후엔 rebuild 
+                  }
+                });
+              }
+            }
+          });
+        }
+      },
+      afterReBuild: function () {
+        if ($('.fp-scrollable').length < 1) {
+          // fullPage.js 에서 scrollOverflow:true , fp-auto-height-responsive 를 함께 썼을 때
+          // window resize를 통해 모바일 구간에서 pc 구간으로 이동하는 경우 
+          // 처음 한번은 스크롤 엘리먼트가 제대로 들어오지 않는 이슈 대응.
+          setTimeout(function () {
+            $(window).resize();
+          }, 500);
+        }
+      }
     });
   }
-
-  addEventListener();
 
 
 
@@ -147,28 +196,30 @@ $(document).ready(function() {
   }
 
   function resizeHandler(e) {
-    if ($(window).outerWidth() > 600 && isMobile) {
+    var width = $(window).outerWidth();
+    if (width > 600 && isMobile) {
       // pc
       isMobile = false;
       // 값이 바뀔 때 한 번만 header 안의 class를 정리해준다.
       $header.removeClass(
         CLASS_SEARCH_OPENED +
-          " " +
-          CLASS_SUB_OPENED +
-          " " +
-          CLASS_SETTING_OPENED
+        " " +
+        CLASS_SUB_OPENED +
+        " " +
+        CLASS_SETTING_OPENED
       );
-    } else if ($(window).outerWidth() <= 600 && isMobile) {
+    } else if (width <= 600 && isMobile) {
       // mobile
       isMobile = true;
       $header.removeClass(
         CLASS_SEARCH_OPENED +
-          " " +
-          CLASS_SUB_OPENED +
-          " " +
-          CLASS_SETTING_OPENED
+        " " +
+        CLASS_SUB_OPENED +
+        " " +
+        CLASS_SETTING_OPENED
       );
     }
+    fullpage_api.reBuild(); // 화면 높이, 너비 등등이 바뀌고 나면 풀페이지 라이브러리 재로드. 
   }
 
   function navMouseEntered() {
@@ -203,10 +254,10 @@ $(document).ready(function() {
   }
 
   function isMobileDevice() {
-      if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
-        return true;
-      } else {
-        return false;
-      }
+    if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }); // end of file
