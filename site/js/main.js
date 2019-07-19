@@ -50,8 +50,8 @@ $(document).ready(function () {
   } else {
     fullPage = new fullpage("#fullpage", {
       //options here
-      scrollOverflow: true,
       responsiveWidth: 900,
+      scrollOverflow: true,
       afterRender: function () {
         if (!bannerSlider) {
           bannerSlider = $(".sliderWrap").bxSlider({
@@ -71,10 +71,14 @@ $(document).ready(function () {
                   slideMargin: 50,
                   auto: true,
                   pause: 3000,
-                  scrollBar: true,
                   onSliderLoad: function () {
                     addEventListener();
-                    fullpage_api.reBuild();   // bxSlider 가 로드되어 높이가 정리된 후엔 rebuild 
+                    // bxSlider 가 로드되어 높이가 정리된 후엔 rebuild 하여 높이 재정리
+                    // setTimeout 사용하지 않을시 IE 에서 rebuild 함수 호출 오류 
+                    // 정의되지 않음 또는 null 참조인 'createScrollBarForAll' 속성을 가져올 수 없습니다. 확인 필요  
+                    setTimeout(function () {
+                      fullpage_api.reBuild();
+                    }, 100);                      
                   }
                 });
               }
@@ -83,7 +87,7 @@ $(document).ready(function () {
         }
       },
       afterReBuild: function () {
-        if ($('.fp-scrollable').length < 1) {
+        if ( $('.fp-responsive').length < 1) {
           // fullPage.js 에서 scrollOverflow:true , fp-auto-height-responsive 를 함께 썼을 때
           // window resize를 통해 모바일 구간에서 pc 구간으로 이동하는 경우 
           // 처음 한번은 스크롤 엘리먼트가 제대로 들어오지 않는 이슈 대응.
