@@ -112,16 +112,7 @@ $(document).ready(function() {
       }
     };
 
-    if (newsSlider) {
-      newsSlider.params.slidesPerView = config.slidesPerView;
-      // newsSlider.destroy();
-      // newsSlider = new Swiper(".slider__wrapper--news", config);
-    } else {
-      newsSlider = new Swiper(".swiper-container", config);
-    }
-
     newsSlider = new Swiper(".swiper-container", config);
-
   }
 
   function addEventListener() {

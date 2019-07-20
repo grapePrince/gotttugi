@@ -1,4 +1,13 @@
 /* ---------- TYPOGRAPHY  ---------- */
+.typo_title_big {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 300;
+  font-size: 55px;
+  letter-spacing: -0.05em;
+}
+.lh_title_big {
+  line-height: 67px;
+}
 .typo_title {
   font-family: "Noto Serif KR", serif;
   font-weight: 300;
@@ -180,6 +189,11 @@ a {
   height: 15px;
   background-position: -450px -80px;
 }
+.sprites.plus_more_black {
+  width: 13px;
+  height: 15px;
+  background-position: -580px 0px;
+}
 .banner .left a {
   display: inline-block;
   background: url(../images/sprite.png) no-repeat;
@@ -228,7 +242,7 @@ a {
   height: 150px;
   background-position: -750px -150px;
 }
-.sprites__shoplink--small {
+.sprites.shoplink--small {
   width: 20px;
   height: 19px;
   background-position: -450px 0px;
@@ -444,6 +458,110 @@ a {
   .circle_icon.dropdown_menu.active .icon {
     background-position-y: -30px;
   }
+}
+.m_button--square--border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 200px;
+  height: 40px;
+  border: 1px solid #cccccc;
+  text-align: center;
+  line-height: 40px;
+  font-family: "Noto Serif KR", serif;
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: -0.04em;
+  cursor: pointer;
+}
+.m_button--square--border:hover {
+  color: #004796;
+  font-weight: 700;
+  border: 1px solid #666666;
+}
+.m_button--square--border:hover .sprites {
+  background-position-y: -30px;
+}
+.m_button--square--border:hover .m_button--square--border__icon--shoplink {
+  background-position-y: -30px;
+}
+.m_button--square--border__icon--more {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 13px;
+  height: 15px;
+  background-position: -580px 0px;
+  margin-left: 15px;
+}
+.m_button--square--border__icon--shoplink {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 20px;
+  height: 19px;
+  background-position: -450px 0px;
+}
+.layout--5column {
+  display: flex;
+  justify-content: space-between;
+}
+.layout--5column .layout--5column__col {
+  width: 25%;
+}
+.layout--5column .layout--5column__title__back {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  background: #cccccc;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.layout--5column .layout--5column__title {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 300;
+  font-size: 26px;
+  letter-spacing: -0.05em;
+  width: 130px;
+  text-align: right;
+}
+.layout-square {
+  position: relative;
+}
+.layout-square .layout-square--content {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.layout-square:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+.thumnail_item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e3e3e3;
+  margin-left: -1px;
+}
+.thumnail_item .thumnail_item--title {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  font-family: "Noto Serif KR", serif;
+  font-weight: 700;
+  margin-top: 15px;
 }
 /* ------------ FLEX 지원 안할 때 대체 CSS ----------- */
 /* ---------- HEADER - LAYOUT  ---------- */
@@ -843,40 +961,6 @@ header.open_sub nav .background {
   right: 50px;
   box-shadow: 3px 3px 3px rgba(227, 227, 227, 0.25);
 }
-/* ------------ NEWS ---------- */
-.layout--news {
-  text-align: center;
-  background: #ffec48;
-  padding: 50px 0;
-}
-.layout--news .layout--news__title {
-  margin-bottom: 15px;
-}
-.layout--news .layout--news__title--sub {
-  font-weight: 700;
-  font-family: "Noto Serif KR", serif;
-  margin-bottom: 20px;
-}
-.swiper-container {
-  padding: 20px 0;
-}
-.swiper-container .swiper-slide-active {
-  transform: scale(1.1);
-}
-.slider__wrapper {
-  margin-top: 20px;
-}
-.slider__wrapper .slider__wrapper__slide {
-  display: flex;
-  transition: transform 0.5s;
-  width: 600px;
-  height: 300px;
-  background: #fff;
-  box-shadow: 0px 3px 3px rgba(102, 102, 102, 0.5);
-}
-.slider__wrapper .slider__wrapper__slide.swiper-slide-active {
-  transform: scale(1.1);
-}
 /* ---------- CORPORATION  ---------- */
 .section--corporation {
   position: relative;
@@ -1177,68 +1261,14 @@ blockquote:after {
   z-index: -1;
   right: 0;
 }
-.layout--5column .layout--5column__col {
-  width: 25%;
-}
-.layout--5column .layout--5column__title__back {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  background: #cccccc;
-  padding: 20px;
-  box-sizing: border-box;
-}
-.layout--5column .layout--5column__title {
-  font-family: "Noto Serif KR", serif;
-  font-weight: 300;
-  font-size: 26px;
-  letter-spacing: -0.05em;
-  width: 130px;
-  text-align: right;
-}
-.layout-square {
-  position: relative;
-}
-.layout-square .layout-square--content {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.layout-square:after {
-  content: "";
-  display: block;
-  padding-bottom: 100%;
-}
-.thumnail_item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #e3e3e3;
-  margin-left: -1px;
-}
-.thumnail_item .thumnail_item--title {
-  font-family: "Noto Sans KR", sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  letter-spacing: -0.02em;
-  font-family: "Noto Serif KR", serif;
-  font-weight: 700;
-  margin-top: 15px;
-}
 .new_product {
   position: relative;
 }
 .new_product .new_product_section {
-  margin-bottom: 100px;
+  margin-bottom: 0px;
 }
 .new_product .new_product_section--more {
-  margin-top: 200px;
+  margin-top: 100px;
 }
 .new_product .gallery--item_fit:first-child {
   margin-top: 100px;
@@ -1322,4 +1352,202 @@ blockquote:after {
     margin-right: 30px;
     margin-left: 30px;
   }
+}
+/* ------------ NEWS ---------- */
+.layout--news {
+  text-align: center;
+  background: #ffec48;
+  padding: 50px 0;
+}
+.layout--news .layout--news__title {
+  margin-bottom: 15px;
+}
+.layout--news .layout--news__title--sub {
+  font-weight: 700;
+  font-family: "Noto Serif KR", serif;
+  margin-bottom: 20px;
+}
+.swiper-container {
+  padding: 0 0 70px;
+}
+.swiper-container .swiper-slide-active {
+  transform: scale(1.1);
+}
+.swiper-container .swiper-pagination {
+  left: 50%;
+  width: auto;
+  transform: translateX(-50%);
+  background: rgba(204, 204, 204, 0.5);
+  border-radius: 999px;
+  display: flex;
+  padding: 5px;
+}
+.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+  background: #fff;
+  opacity: 0.5;
+}
+.swiper-container .swiper-pagination .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+.slider__wrapper {
+  margin-top: 20px;
+}
+.slider__wrapper .slider__wrapper__slide {
+  display: flex;
+  transition: transform 0.5s;
+  width: 600px;
+  height: 300px;
+  background: #fff;
+  box-shadow: 0px 3px 3px rgba(102, 102, 102, 0.5);
+}
+.slider__wrapper .slider__wrapper__slide--text {
+  width: 650px;
+}
+.slider__wrapper .slider__wrapper__slide.swiper-slide-active {
+  transform: scale(1.1);
+}
+.slider__wrapper__slide__container {
+  padding: 30px 40px;
+  text-align: left;
+}
+.slider_item--news__title {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 300;
+  font-size: 26px;
+  letter-spacing: -0.05em;
+  color: black;
+  font-weight: 700;
+  margin-bottom: 15px;
+  width: 570px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.slider_item--news__date {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  color: #999999;
+  margin-bottom: 30px;
+}
+.slider_item--news__content {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  line-height: 1.688em;
+  width: 530px;
+  height: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 30px;
+}
+.module_link--more--noborder {
+  display: flex;
+  align-items: center;
+}
+.module_link--more--noborder .module_link--more--noborder__text {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  color: black;
+  font-weight: 700;
+  font-family: "Noto Serif KR", serif;
+}
+.module_link--more--noborder .module_link--more--noborder__icon {
+  margin-left: 15px;
+}
+.popular {
+  padding: 200px 0;
+}
+.popular__main {
+  background: url(../images/popular_background.jpg) no-repeat center / cover;
+  padding: 100px 0;
+  margin-bottom: 54px;
+}
+.popular__main__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.popular__main__image {
+  position: relative;
+}
+.popular__main__image .popular__main__image__ramen {
+  position: absolute;
+  left: 150px;
+  top: 400px;
+}
+.popular_main_details .l_title_sub_desc__title {
+  margin-bottom: 27px;
+}
+.popular_main_details .l_title_sub_desc__sub {
+  margin-bottom: 81px;
+}
+.popular_main_details .m_title_sub_desc__title {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 300;
+  font-size: 55px;
+  letter-spacing: -0.05em;
+  font-weight: 700;
+  line-height: 67px;
+}
+.popular_main_details .m_title_sub_desc__title__em {
+  color: #e0393d;
+}
+.popular_main_details .m_title_sub_desc__sub {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 300;
+  font-size: 34px;
+  letter-spacing: -0.05em;
+  letter-spacing: 0em;
+  font-weight: 700;
+  color: black;
+}
+.popular_main_details .m_title_sub_desc__desc {
+  width: 450px;
+  font-family: "Noto Serif KR", serif;
+  font-weight: 300;
+  font-size: 26px;
+  letter-spacing: -0.05em;
+  line-height: 1.44em;
+  font-family: "Noto Sans KR", sans-serif;
+}
+.l_popular__details {
+  display: flex;
+}
+.m_popular__details {
+  border: 1px solid #e3e3e3;
+  box-sizing: border-box;
+}
+.l_popular__details__attr {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 54px 0;
+}
+.l_popular__details__attr .l_popular__details__attr__text {
+  margin-bottom: 27px;
+}
+.l_popular__details__attr .l_popular__details__attr__button {
+  margin-bottom: 15px;
+}
+.m_popular__details__attr__text {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  line-height: 1.688em;
+  font-family: "Noto Serif KR", serif;
+  font-weight: 700;
+}
+.m_popular__details__video {
+  width: 635px;
+}
+.popular__more {
+  margin-top: -1px;
 }
