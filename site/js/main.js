@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   var $window = $(window);
   var $header = $("header");
   var $gnbMenuList = $("header nav > ul > li");
@@ -20,100 +20,108 @@ $(document).ready(function () {
   var fullPage;
   var firstRebuild = false;
 
-  if (isMobileDevice()) { // 모바일 디바이스인 경우에는 fullpage.js 를 아예 로드하지 않는다. 
+  if (isMobileDevice()) {
+    // 모바일 디바이스인 경우에는 fullpage.js 를 아예 로드하지 않는다.
     if (!bannerSlider) {
       bannerSlider = $(".sliderWrap").bxSlider({
         pager: false,
         prevSelector: ".banner .left",
         nextSelector: ".banner .right",
-        onSliderLoad: function () {
+        onSliderLoad: function() {
           if (!newsSlider) {
-            loadNewsSlider();        
+            loadNewsSlider();
           }
         }
       });
-    }    
+    }
   } else {
     fullPage = new fullpage("#fullpage", {
       //options here
       responsiveWidth: FULLPAGE_WIDTH,
       scrollOverflow: true,
-      afterRender: function () {
+      afterRender: function() {
         if (!bannerSlider) {
           bannerSlider = $(".sliderWrap").bxSlider({
             pager: false,
             prevSelector: ".banner .left",
             nextSelector: ".banner .right",
-            onSliderLoad: function () {
+            onSliderLoad: function() {
               if (!newsSlider) {
-                loadNewsSlider();                
+                loadNewsSlider();
               }
             }
           });
         }
       },
-      afterReBuild: function () {
+      afterReBuild: function() {
         if (
-          firstRebuild 
-          ||  
-          ($(window).outerWidth() > FULLPAGE_WIDTH && $('.fp-scrollable').length < 1)
-          ) {
+          firstRebuild ||
+          ($(window).outerWidth() > FULLPAGE_WIDTH &&
+            $(".fp-scrollable").length < 1)
+        ) {
           // fullPage.js 에서 scrollOverflow:true , fp-auto-height-responsive 를 함께 썼을 때
-          // window resize를 통해 모바일 구간에서 pc 구간으로 이동하는 경우 
+          // window resize를 통해 모바일 구간에서 pc 구간으로 이동하는 경우
           // 처음 한번은 스크롤 엘리먼트가 제대로 들어오지 않는 이슈 대응.
-          console.log('rebuild');
-          setTimeout(function () {
+          console.log("rebuild");
+          setTimeout(function() {
             $(window).resize();
           }, 500);
           firstRebuild = false;
         }
       }
     });
+
   }
 
   function loadNewsSlider() {
     var config = {
-      pager: true,
-      controls: false,
-      pagerSelector: ".slider__controls--news",
-      minSlides: 3,
-      maxSlides: 3,
-      moveSlides: 1,
-      slideWidth: 600,
-      slideMargin: 500,
-      auto: true,
-      pause: 10000,
-      scrollBar: true,
-      infiniteLoop: false,
-      onSliderLoad: function () {
-        if (isMobile) {
-          $('video').each(function () {
-            $(this).get(0).play();
-          });
-        }
-        addEventListener();          
-        if (!isMobileDevice()) { // 모바일 디바이스인 경우 풀페이지를 로드하지 않는다. 
-        // bxSlider 가 로드되어 높이가 정리된 후엔 rebuild 하여 높이 재정리
-        // setTimeout 사용하지 않을시 IE 에서 rebuild 함수 호출 오류 
-        // 정의되지 않음 또는 null 참조인 'createScrollBarForAll' 속성을 가져올 수 없습니다. 확인 필요  
-          setTimeout(function () {
-            firstRebuild = true;
-            fullpage_api.reBuild();
-          }, 100);   
-        }
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      },
+      slidesPerView: 'auto',
+      loopedSlides: 5,
+      spaceBetween: 50,
+      speed: 500,
+      loop: true,
+      centeredSlides: true,
+      autoplay: {
+        delay: 10000
+      },
+      on: {
+        init: function () {
+          if (isMobile) {
+            $("video").each(function() {
+              $(this)
+                .get(0)
+                .play();
+            });
+          }
+          addEventListener();
+          if (!isMobileDevice()) {
+            // 모바일 디바이스인 경우 풀페이지를 로드하지 않는다.
+            // bxSlider 가 로드되어 높이가 정리된 후엔 rebuild 하여 높이 재정리
+            // setTimeout 사용하지 않을시 IE 에서 rebuild 함수 호출 오류
+            // 정의되지 않음 또는 null 참조인 'createScrollBarForAll' 속성을 가져올 수 없습니다. 확인 필요
+            setTimeout(function() {
+              firstRebuild = true;
+              fullpage_api.reBuild();
+            }, 100);
+          }
+        },
       }
+    };
+
+    if (newsSlider) {
+      newsSlider.params.slidesPerView = config.slidesPerView;
+      // newsSlider.destroy();
+      // newsSlider = new Swiper(".slider__wrapper--news", config);
+    } else {
+      newsSlider = new Swiper(".swiper-container", config);
     }
 
-    if ($(window).outerWidth() > NEWS_SLIDER_WIDTH) {
-      config.maxSlides = 3;
-    } else {
-      config.maxSlides = 1;
-    }
-    if(newsSlider) {
-      newsSlider.reloadSlider(config);
-    } else {      
-      newsSlider = $(".slider__wrapper--news").bxSlider(config);
-    }
+    newsSlider = new Swiper(".swiper-container", config);
+
   }
 
   function addEventListener() {
@@ -222,34 +230,34 @@ $(document).ready(function () {
       // 값이 바뀔 때 한 번만 header 안의 class를 정리해준다.
       $header.removeClass(
         CLASS_SEARCH_OPENED +
-        " " +
-        CLASS_SUB_OPENED +
-        " " +
-        CLASS_SETTING_OPENED
+          " " +
+          CLASS_SUB_OPENED +
+          " " +
+          CLASS_SETTING_OPENED
       );
     } else if (width <= 600 && isMobile) {
       // mobile
       isMobile = true;
       $header.removeClass(
         CLASS_SEARCH_OPENED +
-        " " +
-        CLASS_SUB_OPENED +
-        " " +
-        CLASS_SETTING_OPENED
+          " " +
+          CLASS_SUB_OPENED +
+          " " +
+          CLASS_SETTING_OPENED
       );
     }
 
-    // NEWS_SLIDER_WIDTH 경계로 슬라이더 옵션을 변경해서 재로드한다. 
+    // NEWS_SLIDER_WIDTH 경계로 슬라이더 옵션을 변경해서 재로드한다.
     if (width > NEWS_SLIDER_WIDTH && underSliderWidth) {
       underSliderWidth = false;
       loadNewsSlider();
     } else if (width <= NEWS_SLIDER_WIDTH && !underSliderWidth) {
       underSliderWidth = true;
       loadNewsSlider();
-    } 
+    }
 
-    if(fullpage_api) {
-      fullpage_api.reBuild(); // 화면 높이, 너비 등등이 바뀌고 나면 풀페이지 라이브러리 재로드. 
+    if (fullpage_api) {
+      fullpage_api.reBuild(); // 화면 높이, 너비 등등이 바뀌고 나면 풀페이지 라이브러리 재로드.
     }
   }
 
@@ -285,7 +293,10 @@ $(document).ready(function () {
   }
 
   function isMobileDevice() {
-    if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
+    if (
+      /Mobi/i.test(navigator.userAgent) ||
+      /Android/i.test(navigator.userAgent)
+    ) {
       return true;
     } else {
       return false;
