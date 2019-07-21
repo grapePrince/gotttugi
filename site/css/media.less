@@ -1,0 +1,150 @@
+
+.l_media {
+  padding: 190px 0;
+}
+
+.s_media {
+  background: @color_grey25;
+}
+
+.m_tab__container {
+  margin-bottom: 70px;
+}
+
+.m_tab__headers {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.m_tab__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 25px;
+  padding: 0 20px 3px;
+
+  height: 50px;
+  border-radius: 5px;
+}
+
+.m_tab__header--1 {
+  background: @color_yellow_text;
+}
+
+.m_tab__header--2 {
+  background: @color_red;
+}
+
+.m_tab__header--3 {
+  background: @color_blue;
+}
+
+.m_tab__header__icon {
+  margin-right: 12px;
+  .sprites();
+}
+.m_tab__header__icon--heart {
+  .sprites--heart();
+}
+.m_tab__header__icon--ramen {
+  .sprites--ramen();
+}
+.m_tab__header__icon--tabasco {
+  .sprites--tabasco();
+}
+
+.m_tab__header__text {
+  .typo_content_title_small();
+  color: @color_white;
+}
+
+.m_tab__content {
+  position: relative;
+  box-sizing: border-box;
+  .z_index_high();
+  margin-top: -5px;
+  padding: 120px 35px;
+  width: 100%;
+  background: @color_white;
+  .shadow();
+}
+
+.l_media_contents {
+  display: flex;
+  justify-content: space-between;
+}
+
+.l_media_item {
+  display: table;
+  width: 1%;
+}
+
+.l_media_item__image {
+  position:relative;
+  display: block;
+  margin-bottom: 40px;
+}
+
+.l_media_item__image__hover {
+  .fill_parent();
+  .z_index_high();
+}
+
+.s_media_item__image__hover {
+  background: rgba(0,0,0,0.5);
+}
+
+.l_media_item__image__hover__content {
+  display: flex;
+  align-items: center;
+}
+
+.s_media_item__image__hover__content {
+  .center_center();
+  .typo_content_title();
+  color: @color_white;
+}
+
+.l_media_item__image__hover__icon {
+  margin-left: 7px;
+}
+
+.s_media_item__image__hover__icon {
+  .sprites();
+  .sprites--plus--white();
+}
+
+.s_media_item__text {
+  .typo_content();
+  .typo_content__lh();
+  font-family: @typo_sans_serif;
+}
+
+.l_media_social {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.s_media_social__item {
+  position: relative;
+  width: 45px;
+  height: 45px;
+  border: 1px solid @color_grey;
+  background: @color_white;
+  margin-left: 20px;
+  border-radius: 999px;
+}
+.s_media_social__item:after {
+  content: '';
+  .center_center();
+  .sprites();
+}
+.s_media_social__item--facebook:after {
+  .sprites--facebook();
+}
+.s_media_social__item--twitter:after {
+  .sprites--twitter();
+}
+.s_media_social__item--youtube:after {
+  .sprites--youtube();
+}

@@ -199,6 +199,41 @@ a {
   height: 20px;
   background-position: -600px 0px;
 }
+.sprites--plus--white {
+  width: 14px;
+  height: 16px;
+  background-position: -630px 0px;
+}
+.sprites--heart {
+  width: 20px;
+  height: 20px;
+  background-position: -720px 0px;
+}
+.sprites--ramen {
+  width: 22px;
+  height: 22px;
+  background-position: -690px 0px;
+}
+.sprites--tabasco {
+  width: 20px;
+  height: 20px;
+  background-position: -660px 0px;
+}
+.sprites--facebook {
+  width: 13px;
+  height: 26px;
+  background-position: -800px -400px;
+}
+.sprites--twitter {
+  width: 24px;
+  height: 21px;
+  background-position: -700px -400px;
+}
+.sprites--youtube {
+  width: 25px;
+  height: 20px;
+  background-position: -600px -400px;
+}
 .banner .left a {
   display: inline-block;
   background: url(../images/sprite.png) no-repeat;
@@ -1887,4 +1922,172 @@ blockquote:after {
   font-size: 26px;
   letter-spacing: -0.05em;
   font-weight: 700;
+}
+.l_media {
+  padding: 190px 0;
+}
+.s_media {
+  background: #f8f8f8;
+}
+.m_tab__container {
+  margin-bottom: 70px;
+}
+.m_tab__headers {
+  display: flex;
+  justify-content: flex-start;
+}
+.m_tab__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 25px;
+  padding: 0 20px 3px;
+  height: 50px;
+  border-radius: 5px;
+}
+.m_tab__header--1 {
+  background: #ffda21;
+}
+.m_tab__header--2 {
+  background: #e0393d;
+}
+.m_tab__header--3 {
+  background: #004796;
+}
+.m_tab__header__icon {
+  margin-right: 12px;
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+}
+.m_tab__header__icon--heart {
+  width: 20px;
+  height: 20px;
+  background-position: -720px 0px;
+}
+.m_tab__header__icon--ramen {
+  width: 22px;
+  height: 22px;
+  background-position: -690px 0px;
+}
+.m_tab__header__icon--tabasco {
+  width: 20px;
+  height: 20px;
+  background-position: -660px 0px;
+}
+.m_tab__header__text {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+.m_tab__content {
+  position: relative;
+  box-sizing: border-box;
+  z-index: 3;
+  margin-top: -5px;
+  padding: 120px 35px;
+  width: 100%;
+  background: #fff;
+  box-shadow: 3px 3px 3px rgba(227, 227, 227, 0.25);
+}
+.l_media_contents {
+  display: flex;
+  justify-content: space-between;
+}
+.l_media_item {
+  display: table;
+  width: 1%;
+}
+.l_media_item__image {
+  position: relative;
+  display: block;
+  margin-bottom: 40px;
+}
+.l_media_item__image__hover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+}
+.s_media_item__image__hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+.l_media_item__image__hover__content {
+  display: flex;
+  align-items: center;
+}
+.s_media_item__image__hover__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Noto Serif KR", serif;
+  font-weight: 300;
+  font-size: 26px;
+  letter-spacing: -0.05em;
+  color: #fff;
+}
+.l_media_item__image__hover__icon {
+  margin-left: 7px;
+}
+.s_media_item__image__hover__icon {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 14px;
+  height: 16px;
+  background-position: -630px 0px;
+}
+.s_media_item__text {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  line-height: 1.688em;
+  font-family: "Noto Serif KR", serif;
+}
+.l_media_social {
+  display: flex;
+  justify-content: flex-end;
+}
+.s_media_social__item {
+  position: relative;
+  width: 45px;
+  height: 45px;
+  border: 1px solid #e3e3e3;
+  background: #fff;
+  margin-left: 20px;
+  border-radius: 999px;
+}
+.s_media_social__item:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+}
+.s_media_social__item--facebook:after {
+  width: 13px;
+  height: 26px;
+  background-position: -800px -400px;
+}
+.s_media_social__item--twitter:after {
+  width: 24px;
+  height: 21px;
+  background-position: -700px -400px;
+}
+.s_media_social__item--youtube:after {
+  width: 25px;
+  height: 20px;
+  background-position: -600px -400px;
 }
