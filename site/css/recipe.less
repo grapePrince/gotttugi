@@ -1,0 +1,123 @@
+
+.l_recipe {
+  margin-bottom: 160px;
+}
+
+.l_recipe_title {
+  margin-bottom: 33px;
+}
+
+.l_recipe_title_sub {
+  margin-bottom: @line_3line;
+}
+
+.s_recipe_title {
+  .typo_content_title();
+  text-align: center;
+  font-weight: 700;
+}
+
+.s_recipe_title_sub {
+  .typo_content_title_small();
+  .typo_content_title_small__lh();
+  text-align: center;
+}
+
+.l_recipe__main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: @line_2line;
+}
+
+.s_recipe__main__image {
+  width: 477px;
+  height: 317px;
+}
+
+.l_recipe__main__details {
+  .l_recipe__main__ingredients {
+    text-align: center;
+    padding: @line_1line 0;
+    margin-bottom:  @line_1line;
+    .l_recipe__main__ingredients__title {
+      margin-bottom: @line_1line;
+    }
+  }
+  .l_recipe__main__products {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+.s_recipe__main__details {
+  width: 350px;
+  .s_recipe__main__ingredients {
+    border: 1px solid @color_grey;
+    .s_recipe__main__ingredients__title {
+      .typo_content_title_small();
+      font-weight: 700;
+    }
+  }
+  
+  .s_recipe__main__product {
+    .s_recipe__main__product__image {
+      margin-bottom: 10px;
+    }
+    .s_recipe__main__product__button {
+      width: 140px;
+    }
+  }
+}
+
+.l_recipe__process {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 110px;
+}
+
+.l_recipe__process__item {
+  position: relative;
+  .l_receipe__process__item__detail {
+    position: absolute;
+    top: 184px;
+  }  
+}
+
+
+.s_recipe__process__item {
+  width: 160px;
+  height: 160px;
+  border: 1px solid @color_grey;
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  .s_receipe__process__item__title {
+    .typo_content_title_small();
+    .typo_content_title_small__lh();
+  }
+  .s_receipe__process__item__detail {
+    .typo_content_title_small();
+    .typo_content_title_small__lh();
+    width: 250px;
+    opacity: 0;
+    transition: 0.5s;
+  }
+}
+
+.s_recipe__process__item:hover {
+  border: 2px solid @color_yellow_border;
+
+  .s_receipe__process__item__detail { 
+    opacity: 1;
+  }
+}
+
+
+

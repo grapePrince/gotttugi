@@ -1,0 +1,138 @@
+
+.l_factory {
+  text-align: center;
+}
+
+.s_factory {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    height: 353px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(to top,  #ffda21 0%, rgba(255,218,33, 0) 50%);
+  }
+}
+
+.l_factory_title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 70px;
+
+  .l_factory_title__category {
+    margin-bottom: @line_1line;
+  }
+  
+  .l_factory_title__icon1 {
+    position: absolute;
+    top: 20px;
+    left: calc(100% + 20px);
+  }
+  
+  .l_factory_title__icon2 {
+    position: absolute;
+    top: calc(100% - 40px);
+    left: -30px;
+  }
+}
+
+
+.s_factory_title {
+  .s_factory_title__category {
+    .typo_content();
+    padding: 5px 30px;
+    box-sizing: border-box;
+    color: @color_white;
+    background: @color_orange;
+    border-radius: 999px;
+    display:inline-block;
+  }
+  
+  .s_factory_title__sub {
+    .typo_title_small();
+    .typo_title_small__lh();
+    font-weight: 700;
+    color: @color_yellow_text;
+  }
+
+  .s_factory_title__main {
+    .typo_title();
+    .typo_title__lh();
+    font-weight: 700;
+  }
+
+  .s_factory_title_em {
+    color: @color_red;
+  }
+
+  .s_factory_title__icon1 {
+    .sprites();
+    .sprites--robot();
+  }
+
+  .s_factory_title__icon2 {
+    .sprites();
+    .sprites--gear();
+  }
+}
+
+
+.l_factory_features {
+  display: flex;
+  justify-content: space-between;
+  width: 450px;
+  margin: 0 auto 64px;
+  .l_factory_feature {
+    text-align: center;
+    .l_factory_feature__icon {
+      position: relative;
+      margin-bottom: 15px; 
+      &:after {
+        content: '';
+        .center_center();
+      }
+    }
+  }  
+}
+
+.s_factory_feature {
+  .s_factory_feature__icon {
+    width: @line_3line;
+    height: @line_3line;
+    border-radius: 999px;
+    border: 1px solid @color_grey;
+    &:after {
+      .sprites();
+    }
+  }
+  .s_factory_feature__icon--1:after {
+    .sprites--factory1();
+  }
+  .s_factory_feature__icon--2:after {
+    .sprites--factory2();
+  }
+  .s_factory_feature__icon--3:after {
+    .sprites--factory3();
+  }
+  .s_factory_feature__icon--4:after {
+    .sprites--factory4();
+  }
+  
+  .s_factory_feature__text {
+    .typo_content();
+    font-family: @typo_sans_serif;
+  }
+}
+
+.l_factory_button {
+  margin: 0 auto;
+}
+
+.s_factory_button {
+  .typo_content_title();
+  font-weight: 700;
+}
+
