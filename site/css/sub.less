@@ -49,6 +49,7 @@
 
 .l_product_banner {
   padding-bottom: 162px;
+  margin-bottom: @line_2line;
 }
 
 .l_product_banner__container {
@@ -65,8 +66,7 @@
 }
 
 .l_product_banner__details {
-  display: flex;
-  flex-direction: column;
+  .flex_column();
   align-items: flex-start;
   margin: @line_3line 100px 20px;
 }
@@ -104,45 +104,184 @@
 
 /* -------- 필터 UI -------- */
 
-.s_product_filter_button__icon--1 {
+.l_product_filter {
+  .flex_column();
+}
+
+.l_product_filter_buttons {
+  display: flex;
+  width: 845px;
+  justify-content: space-between;
+  margin-bottom: 60px;
+}
+
+.l_product_filter_button {  
+  .flex_column();
+}
+
+.l_product_filter_button__circle {
+  .flex_center_center();
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.s_product_filter_button {
+  display:flex;
+  align-items: center;
+  cursor: pointer;
+}
+.s_product_filter_button:hover {
+  .s_product_filter_button__text {
+    color: @color_red;
+  }
+  .s_product_filter_button__icon { 
+    background-position-y: -550px;
+  }
+}
+
+.s_product_filter_button__circle {   
+  border: 1px solid @color_grey;
+  border-radius: 999px;
+}
+
+.s_product_filter_button__title,
+.s_product_filter_button__text {
+  .typo_content_small();
+  font-family: @typo_sans_serif;
+}
+
+.s_product_filter_button__icon  {
   .sprites();
+}
+
+.s_product_filter_button__icon--1 {
   .sprites--filtericon--1();
 }
 .s_product_filter_button__icon--2 {
-  .sprites();
   .sprites--filtericon--2();
 }
 .s_product_filter_button__icon--3 {
-  .sprites();
   .sprites--filtericon--3();
 }
 .s_product_filter_button__icon--4 {
-  .sprites();
   .sprites--filtericon--4();
 }
 .s_product_filter_button__icon--5 {
-  .sprites();
   .sprites--filtericon--5();
 }
 .s_product_filter_button__icon--6 {
-  .sprites();
   .sprites--filtericon--6();
 }
 .s_product_filter_button__icon--7 {
-  .sprites();
   .sprites--filtericon--7();
 }
 .s_product_filter_button__icon--8 {
-  .sprites();
   .sprites--filtericon--8();
 }
 .s_product_filter_button__icon--9 {
-  .sprites();
   .sprites--filtericon--9();
 }
 .s_product_filter_button__icon--10 {
-  .sprites();
   .sprites--filtericon--10();
 }
 
 
+
+.l_product_filter__search {
+  margin-bottom: @line_2line;
+}
+.s_product_filter__search__input {
+  width: 400px;
+}
+.s_product_filter__search__input__input {
+  width:  380px;
+}
+.s_product_filter__search__input__line {
+  width: 400px;
+}
+
+
+/* -------- 목록 헤더-------- */
+
+.l_product_list__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: @line_1line;
+}
+
+.s_product_list__header__desc {
+  .typo_content_title_small();
+  font-family: @typo_sans_serif;
+}
+.s_product_list__header__desc__em {
+  color: @color_red;
+  font-weight: 700;
+}
+
+
+.l_product_list__header__sort {
+  display: flex;
+  justify-content: space-between;
+}
+.l_product_list__header__sort__button {
+  margin-left: @line_1line;
+}
+
+
+.s_product_list__header__sort__button {  
+  border-radius: 999px;
+  padding: 7px 15px;
+  box-sizing: border-box;
+  border: 1px solid @color_grey;
+  .typo_content_small();
+  font-family: @typo_sans_serif;
+  cursor: pointer;
+}
+.s_product_list__header__sort__button.is-active {
+  background: @color_yellow_border;
+}
+
+
+/* -------- 목록 아이템들-------- */
+
+.l_product_list__list {
+  display:flex;
+  flex-wrap: wrap;
+}
+.l_product_list__item {
+  .flex_center_center();
+  flex-direction: column;
+}
+
+.l_product_list__item__contents__image {
+  margin-bottom: @line_1line;
+}
+
+.s_product_list__item {
+  width: 276px;
+  height: 276px;
+  border: 1px solid @color_grey;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.s_product_list__item__contents__title {
+  .typo_content_title_small();
+}
+.product_list__item:hover .s_product_list__item__contents__title {
+  font-weight: 700;
+}
+
+.product_list__item.is-big.s_product_list__item {
+  width: 552px;
+  height: 552px;
+}
+
+
+.l_product_list_loading {
+  .flex_center_center;
+}
+
+.s_product_list_loading__image {
+  width: @line_3line;
+}

@@ -13,7 +13,7 @@
       content="오뚜기 식품에서는 다양한 종류의 식료품들을 취급합니다. "
     />
     <meta name="robots" content="index,follow" />
-    <title>오뚜기 메인 페이지</title>
+    <title>오뚜기 제품목록 페이지</title>
 
     <!-- favicon -->
     <link
@@ -128,172 +128,154 @@
 
   <body class="sub">
     <header class="container">
-        <div class="upper_nav">
-          <h1>
-            <a href="#" class="sprites logo" data-locale="header.logo"
-              >로고</a
-            >
-          </h1>
-          <span class="circle_icon menu">
-            <span class="sprites icon" data-locale="header.menu">메뉴</span>
+      <div class="upper_nav">
+        <h1>
+          <a href="#" class="sprites logo" data-locale="header.logo">로고</a>
+        </h1>
+        <span class="circle_icon menu">
+          <span class="sprites icon" data-locale="header.menu">메뉴</span>
+        </span>
+        <span class="circle_icon option">
+          <span class="sprites icon" data-locale="header.option">환경설정</span>
+        </span>
+        <div class="option_content">
+          <span class="circle_icon search">
+            <span class="sprites icon" data-locale="header.search">검색</span>
+            <span class="text">검색하기</span>
           </span>
-          <span class="circle_icon option">
-            <span class="sprites icon" data-locale="header.option"
-              >환경설정</span
-            >
+          <span class="circle_icon help">
+            <span class="sprites icon" data-locale="header.help">고객센터</span>
+            <span class="text">고객센터</span>
           </span>
-          <div class="option_content">
-            <span class="circle_icon search">
-              <span class="sprites icon" data-locale="header.search"
-                >검색</span
-              >
-              <span class="text">검색하기</span>
+          <span class="circle_icon locale dropdown_menu">
+            <span class="sprites icon" data-locale="header.locale"
+              >언어변경</span
+            >
+            <span class="window">
+              <span class="text">언어변경</span>
+              <span class="arrow"><i class="fas fa-sort"></i></span>
             </span>
-            <span class="circle_icon help">
-              <span class="sprites icon" data-locale="header.help"
-                >고객센터</span
-              >
-              <span class="text">고객센터</span>
-            </span>
-            <span class="circle_icon locale dropdown_menu">
-              <span class="sprites icon" data-locale="header.locale"
-                >언어변경</span
-              >
-              <span class="window">
-                <span class="text">언어변경</span>
-                <span class="arrow"><i class="fas fa-sort"></i></span>
-              </span>
-              <ul class="dropdown_content">
-                <li>한글</li>
-                <li>ENG</li>
-              </ul>
-            </span>
-          </div>
-          <a href="" class="sprites shoplink" data-locale="header.goto_mall">오뚜기 몰로 가기</a>
-          <div class="search_input">
-            <input type="text" />
-            <span></span>
-            <input type="button" class="sprites search_button" value="검색" />
-          </div>
+            <ul class="dropdown_content">
+              <li>한글</li>
+              <li>ENG</li>
+            </ul>
+          </span>
         </div>
-        <nav>
-          <ul class="clearfix">
-            <li data-class="corporation">
-              <a href="#" data-locale="nav.introduce">오뚜기소개</a>
-              <ul>
-                <li>
-                  <a href="" data-locale="nav.introduce.ottugi">(주)오뚜기</a>
-                </li>
-                <li>
-                  <a href="" data-locale="nav.introduce.ottugi">인재채용</a>
-                </li>
-                <li>
-                  <a href="" data-locale="nav.introduce.ottugi">투자정보</a>
-                </li>
-                <li>
-                  <a href="" data-locale="nav.introduce.ottugi"
-                    >찾아오시는길</a
-                  >
-                </li>
-              </ul>
-            </li>
-            <li data-class="products">
-              <a href="#" data-locale="nav.products">제품정보</a>
-              <ul>
-                <li>
-                  <a href="" data-locale="nav.products.source">소스류</a>
-                </li>
-                <li>
-                  <a href="" data-locale="nav.products.powder">분말/건조</a>
-                </li>
-                <li>
-                  <a href="" data-locale="nav.products.retort"
-                    >레토르트/간편식</a
-                  >
-                </li>
-                <li>
-                  <a href="" data-locale="nav.products.freeze"
-                    >냉장/냉동식품</a
-                  >
-                </li>
-                <li>
-                  <a href="" data-locale="nav.products.enrich_marine"
-                    >농/축/수산</a
-                  >
-                </li>
-                <li><a href="" data-locale="nav.products.tea">차종류</a></li>
-                <li>
-                  <a href="" data-locale="nav.products.oil">버터/식용유</a>
-                </li>
-                <li>
-                  <a href="" data-locale="nav.products.spice">향신료</a>
-                </li>
-                <li>
-                  <a href="" data-locale="nav.products.ramens">라면류</a>
-                </li>
-                <li>
-                  <a href="" data-locale="nav.products.cereal">곡류가공</a>
-                </li>
-              </ul>
-            </li>
-            <li data-class="recipe">
-              <a href="" data-locale="nav.recipe">요리마당</a>
-              <ul>
-                <li>
-                  <a href="#" data-locale="nav.media.media_main"
-                    >오뚜기레시피</a
-                  >
-                </li>
-              </ul>
-            </li>
-            <li data-class="media">
-              <a href="#" data-locale="nav.media">알리미</a>
-              <ul>
-                <li>
-                  <a href="#" data-locale="nav.media.media_main"
-                    >미디어속오뚜기</a
-                  >
-                </li>
-                <li>
-                  <a href="#" data-locale="nav.media.excursion"
-                    >공장견학신청</a
-                  >
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <div class="background">
-            <img
-              class="corporation"
-              src="images/header_corporation.png"
-              alt="header_corporation"
-            />
-            <img
-              class="products"
-              src="images/header_products.png"
-              alt="header_products"
-            />
-            <img
-              class="media"
-              src="images/header_media.png"
-              alt="header_media"
-            />
-            <div class="sprites close">닫기</div>
-          </div>
-        </nav>
+        <a href="" class="sprites shoplink" data-locale="header.goto_mall"
+          >오뚜기 몰로 가기</a
+        >
+        <div class="search_input">
+          <input type="text" />
+          <span></span>
+          <input type="button" class="sprites search_button" value="검색" />
+        </div>
+      </div>
+      <nav>
+        <ul class="clearfix">
+          <li data-class="corporation">
+            <a href="#" data-locale="nav.introduce">오뚜기소개</a>
+            <ul>
+              <li>
+                <a href="" data-locale="nav.introduce.ottugi">(주)오뚜기</a>
+              </li>
+              <li>
+                <a href="" data-locale="nav.introduce.ottugi">인재채용</a>
+              </li>
+              <li>
+                <a href="" data-locale="nav.introduce.ottugi">투자정보</a>
+              </li>
+              <li>
+                <a href="" data-locale="nav.introduce.ottugi">찾아오시는길</a>
+              </li>
+            </ul>
+          </li>
+          <li data-class="products">
+            <a href="#" data-locale="nav.products">제품정보</a>
+            <ul>
+              <li>
+                <a href="" data-locale="nav.products.source">소스류</a>
+              </li>
+              <li>
+                <a href="" data-locale="nav.products.powder">분말/건조</a>
+              </li>
+              <li>
+                <a href="" data-locale="nav.products.retort">레토르트/간편식</a>
+              </li>
+              <li>
+                <a href="" data-locale="nav.products.freeze">냉장/냉동식품</a>
+              </li>
+              <li>
+                <a href="" data-locale="nav.products.enrich_marine"
+                  >농/축/수산</a
+                >
+              </li>
+              <li><a href="" data-locale="nav.products.tea">차종류</a></li>
+              <li>
+                <a href="" data-locale="nav.products.oil">버터/식용유</a>
+              </li>
+              <li>
+                <a href="" data-locale="nav.products.spice">향신료</a>
+              </li>
+              <li>
+                <a href="" data-locale="nav.products.ramens">라면류</a>
+              </li>
+              <li>
+                <a href="" data-locale="nav.products.cereal">곡류가공</a>
+              </li>
+            </ul>
+          </li>
+          <li data-class="recipe">
+            <a href="" data-locale="nav.recipe">요리마당</a>
+            <ul>
+              <li>
+                <a href="#" data-locale="nav.media.media_main">오뚜기레시피</a>
+              </li>
+            </ul>
+          </li>
+          <li data-class="media">
+            <a href="#" data-locale="nav.media">알리미</a>
+            <ul>
+              <li>
+                <a href="#" data-locale="nav.media.media_main"
+                  >미디어속오뚜기</a
+                >
+              </li>
+              <li>
+                <a href="#" data-locale="nav.media.excursion">공장견학신청</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <div class="background">
+          <img
+            class="corporation"
+            src="images/header_corporation.png"
+            alt="header_corporation"
+          />
+          <img
+            class="products"
+            src="images/header_products.png"
+            alt="header_products"
+          />
+          <img class="media" src="images/header_media.png" alt="header_media" />
+          <div class="sprites close">닫기</div>
+        </div>
+      </nav>
     </header>
     <section class="s_breadscrum breadscrum">
       <div class="l_breadscrum__items container">
         <div class="l_breadscrum__item s_breadscrum__item">
           <div class="s_breadscrum__item__icon--home">
             홈으로
-          </div> 
+          </div>
         </div>
         <div class="l_breadscrum__item s_breadscrum__item">
           <div class="breadscrum__item__text">
             제품정보
           </div>
-          <div class="l_breadscrum__item__icon--down s_breadscrum__item__icon--down">
+          <div
+            class="l_breadscrum__item__icon--down s_breadscrum__item__icon--down"
+          >
             펼치기
           </div>
         </div>
@@ -301,7 +283,9 @@
           <div class="breadscrum__item__text">
             전체
           </div>
-          <div class="l_breadscrum__item__icon--down s_breadscrum__item__icon--down">
+          <div
+            class="l_breadscrum__item__icon--down s_breadscrum__item__icon--down"
+          >
             펼치기
           </div>
         </div>
@@ -309,62 +293,271 @@
     </section>
     <section class="l_product_banner s_product_banner">
       <div class="l_product_banner__container container">
-        <img class="l_product_banner__main" src="images/product_banner.png" alt="" >
+        <img
+          class="l_product_banner__main"
+          src="images/product_banner.png"
+          alt=""
+        />
         <div class="l_product_banner__details">
           <h2 class="l_product_banner__title s_product_banner__title">
-            50년간 깊어진 맛,<br>
+            50년간 깊어진 맛,<br />
             오뚜기 3일 숙성카레
           </h2>
           <p class="l_product_banner__desc s_product_banner__desc">
-            숙성카레는 3일간 정성껏 숙성시킨 소스와<br>
-            은은항 향이 잘 조화된 숙성카레분을 이용한<br>
+            숙성카레는 3일간 정성껏 숙성시킨 소스와<br />
+            은은항 향이 잘 조화된 숙성카레분을 이용한<br />
             고급 카레입니다.
           </p>
           <div class="l_product_banner_buttons">
-            <div class="l_product_banner_button s_product_banner_button m_button--square--border">
+            <div
+              class="l_product_banner_button s_product_banner_button m_button--square--border"
+            >
               상품 더보기
               <div class="m_button--square--border__icon--more">
                 +
               </div>
             </div>
-            <div class="l_product_banner_button s_product_banner_button m_button--square--border">
+            <div
+              class="l_product_banner_button s_product_banner_button m_button--square--border"
+            >
               <div class="m_button--square--border__icon--shoplink">
                 샵 바로가기
               </div>
             </div>
           </div>
         </div>
-      </div>      
+      </div>
     </section>
-    <section class="product_filter">
+    <section class="product_filter l_product_filter">
       <div class="l_product_filter_buttons">
-        <div class="l_product_filter_button">
-          <div class="l_product_filter_button__icon s_product_filter_button__icon">전체아이콘</div>
-          <h4 class="s_product_filter_button__text">전체</h4>
+        <div class="l_product_filter_button s_product_filter_button">
+          <div
+            class="l_product_filter_button__circle s_product_filter_button__circle"
+          >
+            <div class="s_product_filter_button__text">ALL</div>
+          </div>
+          <h4 class="s_product_filter_button__title">전체</h4>
         </div>
-        <div class="l_product_filter_button">
-          <div class="l_product_filter_button__icon s_product_filter_button__icon s_product_filter_button__icon--1">소스아이콘</div>
-          <h4 class="s_product_filter_button__text">소스</h4>
+        <div class="l_product_filter_button s_product_filter_button">
+          <div
+            class="l_product_filter_button__circle s_product_filter_button__circle"
+          >
+            <div
+              class="s_product_filter_button__icon s_product_filter_button__icon--1"
+            >
+              소스아이콘
+            </div>
+          </div>
+          <h4 class="s_product_filter_button__title">소스</h4>
         </div>
-        <div class="l_product_filter_button">
-          <div class="l_product_filter_button__icon s_product_filter_button__icon s_product_filter_button__icon--2">분말/건조아이콘</div>
-          <h4 class="s_product_filter_button__text">분말/건조</h4>
+        <div class="l_product_filter_button s_product_filter_button">
+          <div
+            class="l_product_filter_button__circle s_product_filter_button__circle"
+          >
+            <div
+              class="s_product_filter_button__icon s_product_filter_button__icon--2"
+            >
+              분말/건조아이콘
+            </div>
+          </div>
+          <h4 class="s_product_filter_button__title">분말/건조</h4>
         </div>
-        <div class="l_product_filter_button">
-          <div class="l_product_filter_button__icon s_product_filter_button__icon s_product_filter_button__icon--3">레토르트아이콘</div>
-          <h4 class="s_product_filter_button__text">레토르트</h4>
+        <div class="l_product_filter_button s_product_filter_button">
+          <div
+            class="l_product_filter_button__circle s_product_filter_button__circle"
+          >
+            <div
+              class="s_product_filter_button__icon s_product_filter_button__icon--3"
+            >
+              레토르트아이콘
+            </div>
+          </div>
+          <h4 class="s_product_filter_button__title">레토르트</h4>
+        </div>
+        <div class="l_product_filter_button s_product_filter_button">
+          <div
+            class="l_product_filter_button__circle s_product_filter_button__circle"
+          >
+            <div
+              class="s_product_filter_button__icon s_product_filter_button__icon--4"
+            >
+              냉장/냉동아이콘
+            </div>
+          </div>
+          <h4 class="s_product_filter_button__title">냉장/냉동</h4>
+        </div>
+        <div class="l_product_filter_button s_product_filter_button">
+          <div
+            class="l_product_filter_button__circle s_product_filter_button__circle"
+          >
+            <div
+              class="s_product_filter_button__icon s_product_filter_button__icon--5"
+            >
+              농/축/수산아이콘
+            </div>
+          </div>
+          <h4 class="s_product_filter_button__title">농/축/수산</h4>
+        </div>
+        <div class="l_product_filter_button s_product_filter_button">
+          <div
+            class="l_product_filter_button__circle s_product_filter_button__circle"
+          >
+            <div
+              class="s_product_filter_button__icon s_product_filter_button__icon--6"
+            >
+              차종류아이콘
+            </div>
+          </div>
+          <h4 class="s_product_filter_button__title">차종류</h4>
+        </div>
+        <div class="l_product_filter_button s_product_filter_button">
+          <div
+            class="l_product_filter_button__circle s_product_filter_button__circle"
+          >
+            <div
+              class="s_product_filter_button__icon s_product_filter_button__icon--7"
+            >
+              버터/식용유아이콘
+            </div>
+          </div>
+          <h4 class="s_product_filter_button__title">버터/식용유</h4>
+        </div>
+        <div class="l_product_filter_button s_product_filter_button">
+          <div
+            class="l_product_filter_button__circle s_product_filter_button__circle"
+          >
+            <div
+              class="s_product_filter_button__icon s_product_filter_button__icon--8"
+            >
+              향신료아이콘
+            </div>
+          </div>
+          <h4 class="s_product_filter_button__title">향신료</h4>
+        </div>
+        <div class="l_product_filter_button s_product_filter_button">
+          <div
+            class="l_product_filter_button__circle s_product_filter_button__circle"
+          >
+            <div
+              class="s_product_filter_button__icon s_product_filter_button__icon--9"
+            >
+              라면아이콘
+            </div>
+          </div>
+          <h4 class="s_product_filter_button__title">라면</h4>
+        </div>
+        <div class="l_product_filter_button s_product_filter_button">
+          <div
+            class="l_product_filter_button__circle s_product_filter_button__circle"
+          >
+            <div
+              class="s_product_filter_button__icon s_product_filter_button__icon--10"
+            >
+              곡류아이콘
+            </div>
+          </div>
+          <h4 class="s_product_filter_button__title">곡류</h4>
         </div>
       </div>
-      <div class="product_filter_search">
-        <div class="search_input">
-          <input type="text" placeholder="검색어를 입력하세요">
-          <span></span>
-          <input type="button" class="sprites search_button" value="검색">
+      <div class="product_filter__search l_product_filter__search">
+        <div class="m_search_input s_product_filter__search__input">
+          <input class="m_search_input__input s_product_filter__search__input__input" type="text" placeholder="검색어를 입력하세요" />
+          <span class="m_search_input__line s_product_filter__search__input__line"></span>
+          <input class="m_search_input__button" type="button" class=" search_button" value="검색" />
         </div>
       </div>
     </section>
+    <section class="product_list container">
+      <div class="l_product_list__header">
+        <div class="s_product_list__header__desc">
+          총 <em class="s_product_list__header__desc__em">757</em>건의 제품이 있습니다.
+        </div>
+        <div class="l_product_list__header__sort">
+          <div class="l_product_list__header__sort__button s_product_list__header__sort__button is-active">인기상품</div>
+          <div class="l_product_list__header__sort__button s_product_list__header__sort__button">최신순</div>
+          <div class="l_product_list__header__sort__button s_product_list__header__sort__button">조회순</div>
+        </div>
+      </div>
+      <div class="l_product_list__list s_product_list__list">
+        <div class="product_list__item l_product_list__item s_product_list__item">
+          <img src="images/product_list_thum_1.png" alt="토마토케찹" class="l_product_list__item__contents__image s_product_list__item__contents__image">
+          <h4 class="s_product_list__item__contents__title">
+            토마토케찹
+          </h4>
+        </div>
+        <div class="product_list__item l_product_list__item s_product_list__item">
+          <img src="images/product_list_thum_1.png" alt="토마토케찹" class="l_product_list__item__contents__image s_product_list__item__contents__image">
+          <h4 class="s_product_list__item__contents__title">
+            토마토케찹
+          </h4>
+        </div>
+        <div class="product_list__item l_product_list__item s_product_list__item">
+          <img src="images/product_list_thum_1.png" alt="토마토케찹" class="l_product_list__item__contents__image s_product_list__item__contents__image">
+          <h4 class="s_product_list__item__contents__title">
+            토마토케찹
+          </h4>
+        </div>
+        <div class="product_list__item l_product_list__item s_product_list__item">
+          <img src="images/product_list_thum_1.png" alt="토마토케찹" class="l_product_list__item__contents__image s_product_list__item__contents__image">
+          <h4 class="s_product_list__item__contents__title">
+            토마토케찹
+          </h4>
+        </div>
+        <div class="product_list__item l_product_list__item s_product_list__item is-big">
+          <img src="images/product_list_thum_1.png" alt="토마토케찹" class="l_product_list__item__contents__image s_product_list__item__contents__image">
+          <h4 class="s_product_list__item__contents__title">
+            토마토케찹
+          </h4>
+        </div>
+        <div class="product_list__item l_product_list__item s_product_list__item">
+          <img src="images/product_list_thum_1.png" alt="토마토케찹" class="l_product_list__item__contents__image s_product_list__item__contents__image">
+          <h4 class="s_product_list__item__contents__title">
+            토마토케찹
+          </h4>
+        </div>
+        <div class="product_list__item l_product_list__item s_product_list__item">
+          <img src="images/product_list_thum_1.png" alt="토마토케찹" class="l_product_list__item__contents__image s_product_list__item__contents__image">
+          <h4 class="s_product_list__item__contents__title">
+            토마토케찹
+          </h4>
+        </div>
+        <div class="product_list__item l_product_list__item s_product_list__item">
+          <img src="images/product_list_thum_1.png" alt="토마토케찹" class="l_product_list__item__contents__image s_product_list__item__contents__image">
+          <h4 class="s_product_list__item__contents__title">
+            토마토케찹
+          </h4>
+        </div>
+        <div class="product_list__item l_product_list__item s_product_list__item">
+          <img src="images/product_list_thum_1.png" alt="토마토케찹" class="l_product_list__item__contents__image s_product_list__item__contents__image">
+          <h4 class="s_product_list__item__contents__title">
+            토마토케찹
+          </h4>
+        </div>
+        <div class="product_list__item l_product_list__item s_product_list__item">
+          <img src="images/product_list_thum_1.png" alt="토마토케찹" class="l_product_list__item__contents__image s_product_list__item__contents__image">
+          <h4 class="s_product_list__item__contents__title">
+            토마토케찹
+          </h4>
+        </div>
+        <div class="product_list__item l_product_list__item s_product_list__item">
+          <img src="images/product_list_thum_1.png" alt="토마토케찹" class="l_product_list__item__contents__image s_product_list__item__contents__image">
+          <h4 class="s_product_list__item__contents__title">
+            토마토케찹
+          </h4>
+        </div>
+        
+      </div>
+      <div class="l_product_list_loading">
+        <img src="images/loading.gif" alt="" class="s_product_list_loading__image">
+      </div>
+    </section>
+
     <footer>
-      <a class="m_scroll_down hidden_text" href="" data-locale="footer.scroll_down">
+      <a
+        class="m_scroll_down hidden_text"
+        href=""
+        data-locale="footer.scroll_down"
+      >
         스크롤아래로
         <div class="m_scroll_down__icon">마우스</div>
         <div class="m_scroll_down__circle hidden_text">동그라미</div>
