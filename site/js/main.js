@@ -20,58 +20,67 @@ $(document).ready(function() {
   var fullPage;
   var firstRebuild = false;
 
-  if (isMobileDevice()) {
-    // 모바일 디바이스인 경우에는 fullpage.js 를 아예 로드하지 않는다.
-    if (!bannerSlider) {
-      bannerSlider = $(".sliderWrap").bxSlider({
-        pager: false,
-        prevSelector: ".banner .left",
-        nextSelector: ".banner .right",
-        onSliderLoad: function() {
-          if (!newsSlider) {
-            loadNewsSlider();
+  if ($(document.body).hasClass('main')) {
+    initMain();
+  } else {
+    addEventListener();
+  }
+
+
+  function initMain() {
+    if (isMobileDevice()) {
+      // 모바일 디바이스인 경우에는 fullpage.js 를 아예 로드하지 않는다.
+      if (!bannerSlider) {
+        bannerSlider = $(".sliderWrap").bxSlider({
+          pager: false,
+          prevSelector: ".banner .left",
+          nextSelector: ".banner .right",
+          onSliderLoad: function() {
+            if (!newsSlider) {
+              loadNewsSlider();
+            }
+          }
+        });
+      }
+    } else {
+      fullPage = new fullpage("#fullpage", {
+        //options here
+        responsiveWidth: FULLPAGE_WIDTH,
+        scrollOverflow: true,
+        afterRender: function() {
+          if (!bannerSlider) {
+            bannerSlider = $(".sliderWrap").bxSlider({
+              pager: false,
+              prevSelector: ".banner .left",
+              nextSelector: ".banner .right",
+              onSliderLoad: function() {
+                if (!newsSlider) {
+                  loadNewsSlider();
+                }
+              }
+            });
+          }
+        },
+        afterReBuild: function() {
+          if (
+            firstRebuild ||
+            ($(window).outerWidth() > FULLPAGE_WIDTH &&
+              $(".fp-scrollable").length < 1)
+          ) {
+            // fullPage.js 에서 scrollOverflow:true , fp-auto-height-responsive 를 함께 썼을 때
+            // window resize를 통해 모바일 구간에서 pc 구간으로 이동하는 경우
+            // 처음 한번은 스크롤 엘리먼트가 제대로 들어오지 않는 이슈 대응.
+            console.log("rebuild");
+            setTimeout(function() {
+              $(window).resize();
+            }, 500);
+            firstRebuild = false;
           }
         }
-      });
+      });  
     }
-  } else {
-    fullPage = new fullpage("#fullpage", {
-      //options here
-      responsiveWidth: FULLPAGE_WIDTH,
-      scrollOverflow: true,
-      afterRender: function() {
-        if (!bannerSlider) {
-          bannerSlider = $(".sliderWrap").bxSlider({
-            pager: false,
-            prevSelector: ".banner .left",
-            nextSelector: ".banner .right",
-            onSliderLoad: function() {
-              if (!newsSlider) {
-                loadNewsSlider();
-              }
-            }
-          });
-        }
-      },
-      afterReBuild: function() {
-        if (
-          firstRebuild ||
-          ($(window).outerWidth() > FULLPAGE_WIDTH &&
-            $(".fp-scrollable").length < 1)
-        ) {
-          // fullPage.js 에서 scrollOverflow:true , fp-auto-height-responsive 를 함께 썼을 때
-          // window resize를 통해 모바일 구간에서 pc 구간으로 이동하는 경우
-          // 처음 한번은 스크롤 엘리먼트가 제대로 들어오지 않는 이슈 대응.
-          console.log("rebuild");
-          setTimeout(function() {
-            $(window).resize();
-          }, 500);
-          firstRebuild = false;
-        }
-      }
-    });
-
   }
+  
 
   function loadNewsSlider() {
     var config = {

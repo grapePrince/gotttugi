@@ -192,27 +192,6 @@ header.open_sub {
 }
 
 
-/* ----------- Sub Page ---------------- */
-
-.sub header {
-    .upper_nav {
-        position: relative;
-        padding: 20px 0;
-        align-items: center;
-
-        /* 순서 및 보이고 안보이고 조정 */
-        .search_input { display: none; }
-        .option_content .search { display: flex; }
-
-        .shoplink {
-            position: absolute;
-            top: 100%;
-            right: 0;
-        }
-    }
-
-}
-
 
 /* ----------- TABLET ----------------- */
 
@@ -420,4 +399,48 @@ header.open_sub {
             padding: 15px;
         }
     }
+}
+
+
+
+/* ----------- Sub Page ---------------- */
+
+.sub header {
+  position:relative;
+  .upper_nav {
+      position: relative;
+      padding: 0;
+      align-items: center;
+      height: 80px;
+
+      /* 순서 및 보이고 안보이고 조정 */
+      h1 {
+        order: 1;
+        position: static;
+        transform: none;
+      }
+      .search_input { display: none; }
+      .option_content .search { display: flex; }
+
+      .shoplink {
+          position: absolute;
+          top: 100%;
+          right: 0;
+      }
+  }
+  nav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .sub header {
+    .upper_nav {
+        padding: 15px;
+    }
+}
 }

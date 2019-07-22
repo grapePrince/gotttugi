@@ -317,6 +317,16 @@ a {
   height: 44px;
   background-position: -300px -400px;
 }
+.sprites--scroll_down {
+  width: 23px;
+  height: 70px;
+  background-position: 0px -300px;
+}
+.sprites--go_top {
+  width: 37px;
+  height: 39px;
+  background-position: -900px -400px;
+}
 @media all and (max-width: 600px) {
   .section--corporation .item .quality .icon {
     width: 100px;
@@ -668,6 +678,73 @@ a {
   font-weight: 700;
   margin-top: 15px;
 }
+.m_scroll_down {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0px;
+  width: 77px;
+  height: 97px;
+  background: rgba(51, 51, 51, 0.5);
+}
+.m_scroll_down__icon {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 23px;
+  height: 70px;
+  background-position: 0px -300px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 8px;
+}
+.m_scroll_down__circle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  background: #fff;
+  top: 58px;
+  border-radius: 999px;
+}
+.m_back_to_top {
+  position: fixed;
+  right: 120px;
+  bottom: 20px;
+  width: 77px;
+  height: 97px;
+  background: rgba(51, 51, 51, 0.5);
+  text-align: center;
+}
+.m_back_to_top__icon {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 37px;
+  height: 39px;
+  background-position: -900px -400px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20px;
+}
+.m_back_to_top__text {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  font-family: "Noto Serif KR", serif;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  white-space: nowrap;
+}
 /* ------------ FLEX 지원 안할 때 대체 CSS ----------- */
 /* ---------- HEADER - LAYOUT  ---------- */
 header {
@@ -854,24 +931,6 @@ header.open_sub nav > ul > li:hover > a:after {
 header.open_sub nav .background {
   height: 450px;
 }
-/* ----------- Sub Page ---------------- */
-.sub header .upper_nav {
-  position: relative;
-  padding: 20px 0;
-  align-items: center;
-  /* 순서 및 보이고 안보이고 조정 */
-}
-.sub header .upper_nav .search_input {
-  display: none;
-}
-.sub header .upper_nav .option_content .search {
-  display: flex;
-}
-.sub header .upper_nav .shoplink {
-  position: absolute;
-  top: 100%;
-  right: 0;
-}
 /* ----------- TABLET ----------------- */
 @media all and (max-width: 1110px) {
   header .upper_nav {
@@ -1044,6 +1103,45 @@ header.open_sub nav .background {
   header.open_setting .upper_nav .option_content .circle_icon {
     transform: translateX(0px);
   }
+  .sub header .upper_nav {
+    padding: 15px;
+  }
+}
+/* ----------- Sub Page ---------------- */
+.sub header {
+  position: relative;
+}
+.sub header .upper_nav {
+  position: relative;
+  padding: 0;
+  align-items: center;
+  height: 80px;
+  /* 순서 및 보이고 안보이고 조정 */
+}
+.sub header .upper_nav h1 {
+  order: 1;
+  position: static;
+  transform: none;
+}
+.sub header .upper_nav .search_input {
+  display: none;
+}
+.sub header .upper_nav .option_content .search {
+  display: flex;
+}
+.sub header .upper_nav .shoplink {
+  position: absolute;
+  top: 100%;
+  right: 0;
+}
+.sub header nav {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+@media all and (max-width: 600px) {
   .sub header .upper_nav {
     padding: 15px;
   }
