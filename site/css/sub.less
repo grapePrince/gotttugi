@@ -285,3 +285,227 @@
 .s_product_list_loading__image {
   width: @line_3line;
 }
+
+
+
+
+
+/* -------- 목록 디테일 틀 -------- */
+
+.l_product_details {
+  position: relative;
+  margin-top: 100px;
+  padding: 136px 80px 90px;
+}
+.s_product_details {
+  border: 1px solid @color_grey;
+}
+
+.l_product_details__back {
+  .center_horizontal();
+  top: -87px;
+  .flex_center_center();
+}
+
+.s_product_details_back {
+  width: 170px;
+  height: 170px;
+  background: @color_grey50;
+  border-radius: 999px;
+}
+
+.s_product_details_back__icon {
+  .sprites();
+  .sprites--product--logo();
+}
+
+/* -------- 목록 디테일 헤더 -------- */
+
+.l_product_details__header {
+  text-align: center;
+  margin-bottom: @line_2line;
+}
+
+.l_product_details__header__title {
+  margin-bottom: 33px;
+}
+
+.l_product_details__header__line {
+  margin-bottom: 33px;
+}
+
+.s_product_details__header__title {
+  .typo_title_small();
+  font-weight: 700;
+}
+.s_product_details__header__line {
+  width: 40px;
+  height: 1px;
+  background: @color_red;
+}
+.s_product_details__header__breadcrums {
+  .typo_content_small();
+  font-family: @typo_sans_serif;
+}
+
+/* -------- 목록 디테일 메인 왼쪽 -------- */
+
+.l_product_details__main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.l_product_details__main__left {
+  position: relative;
+  .flex_center_center();
+}
+
+.l_product_details__main__left__desc {
+  display: flex;
+  position: absolute;
+  right: 35px;
+  bottom: @line_1line;
+}
+.l_product_details__main__left__text {
+  margin-right: 18px;
+}
+
+.s_product_details__main__left {
+  width: 445px;
+  height: 445px;
+  border: 1px solid @color_grey;
+}
+.s_product_details__main__left__text {
+  .typo_content_title();
+}
+.s_product_details__main__left__icon {
+  .sprites();
+  .sprites--product--rotate();
+}
+
+
+/* -------- 목록 디테일 메인 오른쪽 -------- */
+
+.l_product_details__main__right {
+  display: flex;
+  flex-direction: column;
+  width: 430px;
+}
+
+.l__product_details__main__right__desc {
+  margin-bottom: @line_1line;
+}
+
+.l__product_details__main__right__attrs {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 390px;
+  margin-bottom: 50px;
+}
+.l__product_details__main__right__attr {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.l__product_details__main__right__attr__text {
+  margin-top: 12px;
+}
+
+.s__product_details__main__right__desc {
+  .typo_content();
+  .typo_content__lh();
+  em {
+    font-weight: 700;
+  }
+}
+
+.s__product_details__main__right__attr__icon--weight {
+  .sprites();
+  .sprites--product--weight();
+}
+.s__product_details__main__right__attr__icon--kcal {
+  .sprites();
+  .sprites--product--kcal();
+}
+.s__product_details__main__right__attr__icon--calendar {
+  .sprites();
+  .sprites--product--calendar();
+}
+
+.s__product_details__main__right__attr__text {
+  .typo_content();
+  font-family: @typo_sans_serif;
+}
+
+.l__product_details__main__right__origin__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+}
+.s__product_details__main__right__origin__header {
+  background: @color_yellow_border;
+}
+.s__product_details__main__right__origin__header__title {
+  .typo_content();
+  font-family: @typo_sans_serif;
+}
+.s__product_details__main__right__origin__header__icon {
+  .sprites();
+  .sprites--downarrow();
+}
+
+.l__product_details__main__right__origin__contents {
+  padding: @line_1line 30px;
+}
+.l__product_details__main__right__origin__content {
+  overflow-y: scroll;
+  height: 112px;
+}
+.s__product_details__main__right__origin__contents {
+  border: 1px solid @color_yellow_border;
+}
+.s__product_details__main__right__origin__content {
+  .typo_content();
+}
+
+
+
+/* -------- 목록 디테일 표 -------- */
+
+
+.l_product_details__nutrition {
+
+}
+
+
+/* -------- 목록 디테일 비디오 -------- */
+
+.s_product_details__video {
+  width: 918px;
+}
+
+/* -------- 목록 디테일 기타 -------- */
+
+.l_product_others__container {
+  padding: 100px 0;
+}
+.l_product_others__title {
+  margin-bottom: 70px;
+}
+
+.s_product_others {
+  background: @color_grey25;
+}
+
+.s_product_others__title {
+  .typo_title_small();
+  font-weight: 700;
+}
+
+.product_others__item {
+  margin-right: 100px;
+  cursor: pointer;
+}

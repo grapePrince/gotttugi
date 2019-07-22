@@ -310,6 +310,31 @@ a {
   height: 50px;
   background-position: -450px -500px;
 }
+.sprites--product--logo {
+  width: 116px;
+  height: 111px;
+  background-position: 0px -600px;
+}
+.sprites--product--weight {
+  width: 50px;
+  height: 50px;
+  background-position: -150px -600px;
+}
+.sprites--product--kcal {
+  width: 83px;
+  height: 46px;
+  background-position: -250px -600px;
+}
+.sprites--product--calendar {
+  width: 49px;
+  height: 56px;
+  background-position: -350px -600px;
+}
+.sprites--product--rotate {
+  width: 29px;
+  height: 29px;
+  background-position: -550px -500px;
+}
 .banner .left a {
   display: inline-block;
   background: url(../images/sprite.png) no-repeat;
@@ -2614,4 +2639,243 @@ blockquote:after {
 }
 .s_product_list_loading__image {
   width: 81px;
+}
+/* -------- 목록 디테일 틀 -------- */
+.l_product_details {
+  position: relative;
+  margin-top: 100px;
+  padding: 136px 80px 90px;
+}
+.s_product_details {
+  border: 1px solid #e3e3e3;
+}
+.l_product_details__back {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -87px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.s_product_details_back {
+  width: 170px;
+  height: 170px;
+  background: #f1f1f1;
+  border-radius: 999px;
+}
+.s_product_details_back__icon {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 116px;
+  height: 111px;
+  background-position: 0px -600px;
+}
+/* -------- 목록 디테일 헤더 -------- */
+.l_product_details__header {
+  text-align: center;
+  margin-bottom: 54px;
+}
+.l_product_details__header__title {
+  margin-bottom: 33px;
+}
+.l_product_details__header__line {
+  margin-bottom: 33px;
+}
+.s_product_details__header__title {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 300;
+  font-size: 34px;
+  letter-spacing: -0.05em;
+  font-weight: 700;
+}
+.s_product_details__header__line {
+  width: 40px;
+  height: 1px;
+  background: #e0393d;
+}
+.s_product_details__header__breadcrums {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  font-family: "Noto Serif KR", serif;
+}
+/* -------- 목록 디테일 메인 왼쪽 -------- */
+.l_product_details__main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.l_product_details__main__left {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.l_product_details__main__left__desc {
+  display: flex;
+  position: absolute;
+  right: 35px;
+  bottom: 27px;
+}
+.l_product_details__main__left__text {
+  margin-right: 18px;
+}
+.s_product_details__main__left {
+  width: 445px;
+  height: 445px;
+  border: 1px solid #e3e3e3;
+}
+.s_product_details__main__left__text {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 300;
+  font-size: 26px;
+  letter-spacing: -0.05em;
+}
+.s_product_details__main__left__icon {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 29px;
+  height: 29px;
+  background-position: -550px -500px;
+}
+/* -------- 목록 디테일 메인 오른쪽 -------- */
+.l_product_details__main__right {
+  display: flex;
+  flex-direction: column;
+  width: 430px;
+}
+.l__product_details__main__right__desc {
+  margin-bottom: 27px;
+}
+.l__product_details__main__right__attrs {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 390px;
+  margin-bottom: 50px;
+}
+.l__product_details__main__right__attr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.l__product_details__main__right__attr__text {
+  margin-top: 12px;
+}
+.s__product_details__main__right__desc {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  line-height: 1.688em;
+}
+.s__product_details__main__right__desc em {
+  font-weight: 700;
+}
+.s__product_details__main__right__attr__icon--weight {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 50px;
+  height: 50px;
+  background-position: -150px -600px;
+}
+.s__product_details__main__right__attr__icon--kcal {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 83px;
+  height: 46px;
+  background-position: -250px -600px;
+}
+.s__product_details__main__right__attr__icon--calendar {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 49px;
+  height: 56px;
+  background-position: -350px -600px;
+}
+.s__product_details__main__right__attr__text {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  font-family: "Noto Serif KR", serif;
+}
+.l__product_details__main__right__origin__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+}
+.s__product_details__main__right__origin__header {
+  background: #FFEC48;
+}
+.s__product_details__main__right__origin__header__title {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  font-family: "Noto Serif KR", serif;
+}
+.s__product_details__main__right__origin__header__icon {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 8px;
+  height: 4px;
+  background-position: -780px 0px;
+}
+.l__product_details__main__right__origin__contents {
+  padding: 27px 30px;
+}
+.l__product_details__main__right__origin__content {
+  overflow-y: scroll;
+  height: 112px;
+}
+.s__product_details__main__right__origin__contents {
+  border: 1px solid #FFEC48;
+}
+.s__product_details__main__right__origin__content {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+}
+/* -------- 목록 디테일 표 -------- */
+/* -------- 목록 디테일 비디오 -------- */
+.s_product_details__video {
+  width: 918px;
+}
+/* -------- 목록 디테일 기타 -------- */
+.l_product_others__container {
+  padding: 100px 0;
+}
+.l_product_others__title {
+  margin-bottom: 70px;
+}
+.s_product_others {
+  background: #f8f8f8;
+}
+.s_product_others__title {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 300;
+  font-size: 34px;
+  letter-spacing: -0.05em;
+  font-weight: 700;
+}
+.product_others__item {
+  margin-right: 100px;
+  cursor: pointer;
 }
