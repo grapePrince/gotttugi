@@ -412,6 +412,7 @@ header.open_sub {
       padding: 0;
       align-items: center;
       height: 80px;
+      border-bottom: none;
 
       /* 순서 및 보이고 안보이고 조정 */
       h1 {
@@ -423,9 +424,10 @@ header.open_sub {
       .option_content .search { display: flex; }
 
       .shoplink {
-          position: absolute;
-          top: 100%;
-          right: 0;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        .sprites.shoplink--big();
       }
   }
   nav {
@@ -434,6 +436,9 @@ header.open_sub {
     bottom: 0;
     left: 0;
     right: 0;
+    .background {
+      border-top: none;
+    }
   }
 }
 

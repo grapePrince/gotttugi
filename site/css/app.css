@@ -149,6 +149,11 @@ a {
   height: 40px;
   background-position: 0px 0px;
 }
+.sprites.shoplink--big {
+  width: 176px;
+  height: 54px;
+  background-position: -500px -100px;
+}
 .sprites.logo {
   width: 125px;
   height: 120px;
@@ -233,6 +238,66 @@ a {
   width: 25px;
   height: 20px;
   background-position: -600px -400px;
+}
+.sprites--home {
+  width: 23px;
+  height: 17px;
+  background-position: -750px 0px;
+}
+.sprites--downarrow {
+  width: 8px;
+  height: 4px;
+  background-position: -780px 0px;
+}
+.sprites--filtericon--1 {
+  width: 50px;
+  height: 50px;
+  background-position: 0px -500px;
+}
+.sprites--filtericon--2 {
+  width: 50px;
+  height: 50px;
+  background-position: -50px -500px;
+}
+.sprites--filtericon--3 {
+  width: 50px;
+  height: 50px;
+  background-position: -100px -500px;
+}
+.sprites--filtericon--4 {
+  width: 50px;
+  height: 50px;
+  background-position: -150px -500px;
+}
+.sprites--filtericon--5 {
+  width: 50px;
+  height: 50px;
+  background-position: -200px -500px;
+}
+.sprites--filtericon--6 {
+  width: 50px;
+  height: 50px;
+  background-position: -250px -500px;
+}
+.sprites--filtericon--7 {
+  width: 50px;
+  height: 50px;
+  background-position: -300px -500px;
+}
+.sprites--filtericon--8 {
+  width: 50px;
+  height: 50px;
+  background-position: -350px -500px;
+}
+.sprites--filtericon--9 {
+  width: 50px;
+  height: 50px;
+  background-position: -400px -500px;
+}
+.sprites--filtericon--10 {
+  width: 50px;
+  height: 50px;
+  background-position: -450px -500px;
 }
 .banner .left a {
   display: inline-block;
@@ -1116,6 +1181,7 @@ header.open_sub nav .background {
   padding: 0;
   align-items: center;
   height: 80px;
+  border-bottom: none;
   /* 순서 및 보이고 안보이고 조정 */
 }
 .sub header .upper_nav h1 {
@@ -1133,6 +1199,9 @@ header.open_sub nav .background {
   position: absolute;
   top: 100%;
   right: 0;
+  width: 176px;
+  height: 54px;
+  background-position: -500px -100px;
 }
 .sub header nav {
   position: absolute;
@@ -1140,6 +1209,9 @@ header.open_sub nav .background {
   bottom: 0;
   left: 0;
   right: 0;
+}
+.sub header nav .background {
+  border-top: none;
 }
 @media all and (max-width: 600px) {
   .sub header .upper_nav {
@@ -2188,4 +2260,194 @@ blockquote:after {
   width: 25px;
   height: 20px;
   background-position: -600px -400px;
+}
+/* -------- 브레드스크럼 -------- */
+.s_breadscrum {
+  background: #f1f1f1;
+}
+.l_breadscrum__items {
+  display: flex;
+  justify-content: flex-start;
+}
+.l_breadscrum__item {
+  display: flex;
+  align-items: center;
+  margin-right: -1px;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+.l_breadscrum__item__icon--down {
+  margin-left: 10px;
+}
+.s_breadscrum__item {
+  height: 54px;
+  border-left: 1px solid #e3e3e3;
+  border-right: 1px solid #e3e3e3;
+  cursor: pointer;
+}
+.s_breadscrum__item:hover .s_breadscrum__item__icon--home,
+.s_breadscrum__item:hover .s_breadscrum__item__icon--down {
+  background-position-y: -30px;
+}
+.s_breadscrum__item__icon--home {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 23px;
+  height: 17px;
+  background-position: -750px 0px;
+}
+.s_breadscrum__item__icon--down {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 8px;
+  height: 4px;
+  background-position: -780px 0px;
+}
+/* -------- 서브 배너 -------- */
+.l_product_banner {
+  padding-bottom: 162px;
+}
+.l_product_banner__container {
+  display: flex;
+  position: relative;
+  justify-content: flex-end;
+  align-items: center;
+}
+.l_product_banner__main {
+  position: absolute;
+  left: 40px;
+  top: 40px;
+}
+.l_product_banner__details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 81px 100px 20px;
+}
+.l_product_banner__title {
+  margin-bottom: 27px;
+}
+.l_product_banner__desc {
+  margin-bottom: 54px;
+}
+.l_product_banner_buttons {
+  display: flex;
+}
+.l_product_banner_button {
+  margin-right: 40px;
+}
+.s_product_banner {
+  background: url(../images/product_banner_back.jpg) no-repeat bottom;
+}
+.s_product_banner__title {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 300;
+  font-size: 34px;
+  letter-spacing: -0.05em;
+  line-height: 1.273em;
+}
+.s_product_banner__desc {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: -0.04em;
+  line-height: 1.5em;
+}
+.s_product_banner_button {
+  width: 200px;
+}
+/* -------- 필터 UI -------- */
+.s_product_filter_button__icon--1 {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 50px;
+  height: 50px;
+  background-position: 0px -500px;
+}
+.s_product_filter_button__icon--2 {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 50px;
+  height: 50px;
+  background-position: -50px -500px;
+}
+.s_product_filter_button__icon--3 {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 50px;
+  height: 50px;
+  background-position: -100px -500px;
+}
+.s_product_filter_button__icon--4 {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 50px;
+  height: 50px;
+  background-position: -150px -500px;
+}
+.s_product_filter_button__icon--5 {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 50px;
+  height: 50px;
+  background-position: -200px -500px;
+}
+.s_product_filter_button__icon--6 {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 50px;
+  height: 50px;
+  background-position: -250px -500px;
+}
+.s_product_filter_button__icon--7 {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 50px;
+  height: 50px;
+  background-position: -300px -500px;
+}
+.s_product_filter_button__icon--8 {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 50px;
+  height: 50px;
+  background-position: -350px -500px;
+}
+.s_product_filter_button__icon--9 {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 50px;
+  height: 50px;
+  background-position: -400px -500px;
+}
+.s_product_filter_button__icon--10 {
+  display: inline-block;
+  background: url(../images/sprite.png) no-repeat;
+  text-indent: -9999em;
+  outline: none;
+  width: 50px;
+  height: 50px;
+  background-position: -450px -500px;
 }
