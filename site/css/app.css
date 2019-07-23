@@ -2749,6 +2749,7 @@ blockquote:after {
   display: flex;
   flex-direction: column;
   width: 430px;
+  margin-bottom: 54px;
 }
 .l__product_details__main__right__desc {
   margin-bottom: 27px;
@@ -2827,6 +2828,7 @@ blockquote:after {
   font-size: 16px;
   letter-spacing: -0.02em;
   font-family: "Noto Serif KR", serif;
+  font-weight: 700;
 }
 .s__product_details__main__right__origin__header__icon {
   display: inline-block;
@@ -2847,6 +2849,9 @@ blockquote:after {
 .s__product_details__main__right__origin__contents {
   border: 1px solid #FFEC48;
 }
+.s__product_details__main__right__origin__contents em {
+  font-weight: 700;
+}
 .s__product_details__main__right__origin__content {
   font-family: "Noto Sans KR", sans-serif;
   font-weight: 300;
@@ -2854,6 +2859,30 @@ blockquote:after {
   letter-spacing: -0.02em;
 }
 /* -------- 목록 디테일 표 -------- */
+.l_product_details__nutrition .s_product_details__nutrition__table {
+  border-collapse: separate;
+  border-spacing: 4px;
+}
+.l_product_details__nutrition .s_product_details__nutrition__table th {
+  font-weight: 700;
+  background: #f1f1f1;
+}
+.l_product_details__nutrition .s_product_details__nutrition__table th,
+.l_product_details__nutrition .s_product_details__nutrition__table td {
+  width: 5%;
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
+}
+.l_product_details__nutrition .s_product_details__nutrition__table tbody th {
+  width: 6%;
+}
+.l_product_details__nutrition__desc {
+  margin: 13px 0 54px;
+}
+.s_product_details__nutrition__desc {
+  font-weight: 700;
+}
 /* -------- 목록 디테일 비디오 -------- */
 .s_product_details__video {
   width: 918px;

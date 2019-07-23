@@ -391,6 +391,7 @@
   display: flex;
   flex-direction: column;
   width: 430px;
+  margin-bottom: @line_2line;
 }
 
 .l__product_details__main__right__desc {
@@ -451,6 +452,7 @@
 .s__product_details__main__right__origin__header__title {
   .typo_content();
   font-family: @typo_sans_serif;
+  font-weight: 700;
 }
 .s__product_details__main__right__origin__header__icon {
   .sprites();
@@ -466,6 +468,9 @@
 }
 .s__product_details__main__right__origin__contents {
   border: 1px solid @color_yellow_border;
+  em {
+    font-weight: 700;
+  }
 }
 .s__product_details__main__right__origin__content {
   .typo_content();
@@ -474,12 +479,35 @@
 
 
 /* -------- 목록 디테일 표 -------- */
+.l_product_details__nutrition .s_product_details__nutrition__table{
+  border-collapse: separate;
+  border-spacing: 4px;
+  th {
+    font-weight: 700;
+    background: @color_grey50;
+  }
+  th, td {
+    width: 5%;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+  }
 
+  th:first-child {
 
-.l_product_details__nutrition {
+  }
 
+  tbody th {
+    width: 6%;
+  }
 }
 
+.l_product_details__nutrition__desc {
+  margin: 13px 0 @line_2line;
+}
+.s_product_details__nutrition__desc {
+  font-weight: 700;
+}
 
 /* -------- 목록 디테일 비디오 -------- */
 
