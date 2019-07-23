@@ -256,7 +256,7 @@ $(document).ready(function() {
       loadNewsSlider();
     }
 
-    if (fullpage_api) {
+    if (typeof fullpage_api !== "undefiend") {
       fullpage_api.reBuild(); // 화면 높이, 너비 등등이 바뀌고 나면 풀페이지 라이브러리 재로드.
     }
   }
