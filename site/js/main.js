@@ -1,24 +1,40 @@
 $(document).ready(function() {
   var $window = $(window);
-  var $header = $("header");
-  var $gnbMenuList = $("header nav > ul > li");
-  var $menuBtn = $("header .upper_nav .menu");
+  var $header = $('header');
+  var $gnbMenuList = $('header nav > ul > li');
+  var $menuBtn = $('header .upper_nav .menu');
+  var $scrollDown = $('.m_scroll_down');
+  var $goTop = $('.m_back_to_top');
+  var $recipeFixedImage = $('.recipe__main__image--fixed__container');
 
-  var isMobile = $(window).outerWidth() <= 600 ? true : false;
-  var underSliderWidth = $(window).outerWidth() <= 1100 ? true : false;
-  var corporationSlideNum = 0;
 
   var CLASS_SEARCH_OPENED = "open_search";
   var CLASS_SUB_OPENED = "open_sub";
   var CLASS_SETTING_OPENED = "open_setting";
   var CLASS_ACTIVE = "active";
+  var MOBILE_WIDTH = 600;
   var FULLPAGE_WIDTH = 900;
-  var NEWS_SLIDER_WIDTH = 1110;
+  var TABLET_WIDTH = 1110;
+
+  var SECTION_BANNER = 0;
+  var SECTION_CORP1 = 1;
+  var SECTION_CORP2 = 2;
+  var SECTION_NEW = 3;
+  var SECTION_NEWS = 4;
+  var SECTION_POPULAR = 5;
+  var SECTION_RECIPE = 6;
+  var SECTION_FACTORY = 7;
+  var SECTION_MEDIA = 8;
 
   var bannerSlider;
   var newsSlider;
   var fullPage;
   var firstRebuild = false;
+
+  var isMobile = $(window).outerWidth() <= MOBILE_WIDTH ? true : false;
+  var underSliderWidth = $(window).outerWidth() <= TABLET_WIDTH ? true : false;
+
+
 
   if ($(document.body).hasClass('main')) {
     initMain();
@@ -71,12 +87,29 @@ $(document).ready(function() {
             // fullPage.js 에서 scrollOverflow:true , fp-auto-height-responsive 를 함께 썼을 때
             // window resize를 통해 모바일 구간에서 pc 구간으로 이동하는 경우
             // 처음 한번은 스크롤 엘리먼트가 제대로 들어오지 않는 이슈 대응.
-            console.log("rebuild");
             setTimeout(function() {
               $(window).resize();
             }, 500);
             firstRebuild = false;
           }
+        },
+        onLeave: function(origin, destination, direction) {
+          if (
+            destination.index === SECTION_NEWS 
+            || 
+            destination.index === SECTION_MEDIA
+          ) {
+            $scrollDown.hide();
+          } else {
+            $scrollDown.show();
+          } 
+          
+          if(destination.index === SECTION_RECIPE) {
+            $recipeFixedImage.addClass('js-visible');
+          } else {
+            $recipeFixedImage.removeClass('js-visible');
+          }
+
         }
       });  
     }
@@ -224,7 +257,7 @@ $(document).ready(function() {
 
   function resizeHandler(e) {
     var width = $(window).outerWidth();
-    if (width > 600 && isMobile) {
+    if (width > MOBILE_WIDTH && isMobile) {
       // pc
       isMobile = false;
       // 값이 바뀔 때 한 번만 header 안의 class를 정리해준다.
@@ -235,7 +268,7 @@ $(document).ready(function() {
           " " +
           CLASS_SETTING_OPENED
       );
-    } else if (width <= 600 && isMobile) {
+    } else if (width <= MOBILE_WIDTH && isMobile) {
       // mobile
       isMobile = true;
       $header.removeClass(
@@ -247,11 +280,11 @@ $(document).ready(function() {
       );
     }
 
-    // NEWS_SLIDER_WIDTH 경계로 슬라이더 옵션을 변경해서 재로드한다.
-    if (width > NEWS_SLIDER_WIDTH && underSliderWidth) {
+    // TABLET_WIDTH 경계로 슬라이더 옵션을 변경해서 재로드한다.
+    if (width > TABLET_WIDTH && underSliderWidth) {
       underSliderWidth = false;
       loadNewsSlider();
-    } else if (width <= NEWS_SLIDER_WIDTH && !underSliderWidth) {
+    } else if (width <= TABLET_WIDTH && !underSliderWidth) {
       underSliderWidth = true;
       loadNewsSlider();
     }
