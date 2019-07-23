@@ -117,6 +117,11 @@ $(document).ready(function() {
             $recipeFixedImage.removeClass('js-visible');
           }
 
+          if(destination.index === SECTION_FACTORY) {
+            $('.l_factory_feature').addClass('js-active');
+            $('.factory__image').addClass('js-active');
+          }
+
         }
       });  
     }
