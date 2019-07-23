@@ -22,6 +22,7 @@ $(document).ready(function() {
 
   if ($(document.body).hasClass('main')) {
     initMain();
+    addEventListener();
   } else {
     addEventListener();
   }
@@ -106,7 +107,6 @@ $(document).ready(function() {
                 .play();
             });
           }
-          addEventListener();
           if (!isMobileDevice()) {
             // 모바일 디바이스인 경우 풀페이지를 로드하지 않는다.
             // bxSlider 가 로드되어 높이가 정리된 후엔 rebuild 하여 높이 재정리

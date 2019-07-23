@@ -163,7 +163,7 @@ a {
 .sprites.shoplink--big {
   width: 176px;
   height: 54px;
-  background-position: -500px -100px;
+  background-position: -500px -80px;
 }
 .sprites.logo {
   width: 125px;
@@ -721,29 +721,6 @@ a {
   background-position: -600px 0px;
   margin-left: 15px;
 }
-.layout--5column {
-  display: flex;
-  justify-content: space-between;
-}
-.layout--5column .layout--5column__col {
-  width: 25%;
-}
-.layout--5column .layout--5column__title__back {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  background: #cccccc;
-  padding: 20px;
-  box-sizing: border-box;
-}
-.layout--5column .layout--5column__title {
-  font-family: "Noto Serif KR", serif;
-  font-weight: 300;
-  font-size: 26px;
-  letter-spacing: -0.05em;
-  width: 130px;
-  text-align: right;
-}
 .layout-square {
   position: relative;
 }
@@ -778,6 +755,40 @@ a {
   font-family: "Noto Serif KR", serif;
   font-weight: 700;
   margin-top: 15px;
+}
+.layout--5column {
+  display: flex;
+  justify-content: space-between;
+}
+.layout--5column .layout--5column__col {
+  position: relative;
+  width: 25%;
+}
+.layout--5column .layout--5column__triangle {
+  position: absolute;
+  border-style: solid;
+  border-width: 20px;
+  border-color: transparent #fff transparent transparent;
+  top: 10px;
+  right: -1px;
+  height: 0px;
+  z-index: 3;
+}
+.layout--5column .layout--5column__title__back {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  background: #cccccc;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.layout--5column .layout--5column__title {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 300;
+  font-size: 26px;
+  letter-spacing: -0.05em;
+  width: 130px;
+  text-align: right;
 }
 .m_scroll_down {
   position: fixed;
@@ -1175,7 +1186,6 @@ header.open_sub nav .background {
     position: absolute;
     top: 65px;
     z-index: 3;
-    overflow: hidden;
     width: 100px;
     right: 10px;
     display: flex;
@@ -1260,6 +1270,7 @@ header.open_sub nav .background {
 }
 .sub header .upper_nav {
   position: relative;
+  z-index: 3;
   padding: 0;
   align-items: center;
   height: 80px;
@@ -1283,7 +1294,7 @@ header.open_sub nav .background {
   right: 0;
   width: 176px;
   height: 54px;
-  background-position: -500px -100px;
+  background-position: -500px -80px;
 }
 .sub header nav {
   position: absolute;
