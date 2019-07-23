@@ -111,7 +111,7 @@
 .s_recipe__process__item {
   width: 160px;
   height: 160px;
-  border: 1px solid @color_grey;
+  border: 1px solid @color_grey50;
   border-radius: 999px;
   display: flex;
   justify-content: center;
@@ -132,10 +132,21 @@
     transition: 0.5s;
   }
 }
+.s_recipe__process__line {
+  position: absolute;
+  width: 160px;
+  circle {
+    fill: none;
+    stroke: @color_yellow_border;
+    stroke-width: 3;
+    stroke-dashoffset: 900;
+    stroke-dasharray: 900;  
+    transform: rotate(-90deg);
+    transform-origin: center;
+  }
+}
 
 .s_recipe__process__item:hover {
-  border: 2px solid @color_yellow_border;
-
   .s_receipe__process__item__detail { 
     opacity: 1;
   }

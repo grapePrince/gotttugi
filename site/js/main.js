@@ -6,6 +6,9 @@ $(document).ready(function() {
   var $scrollDown = $('.m_scroll_down');
   var $goTop = $('.m_back_to_top');
   var $recipeFixedImage = $('.recipe__main__image--fixed__container');
+  var $recipeProcessCircles = $('.recipe__process__line circle');
+  var $recipeProcessDetails = $('.receipe__process__item__detail');
+  var $recipeProcessItems = $('.recipe__process__item');
 
 
   var CLASS_SEARCH_OPENED = "open_search";
@@ -32,9 +35,9 @@ $(document).ready(function() {
   var firstRebuild = false;
 
   var isMobile = $(window).outerWidth() <= MOBILE_WIDTH ? true : false;
-  var underSliderWidth = $(window).outerWidth() <= TABLET_WIDTH ? true : false;
+  var underTabletWidth = $(window).outerWidth() <= TABLET_WIDTH ? true : false;
 
-
+  var ing_recipeProcess = true;
 
   if ($(document.body).hasClass('main')) {
     initMain();
@@ -45,6 +48,10 @@ $(document).ready(function() {
 
 
   function initMain() {
+
+    // 레시피 자동으로 채워지는 부분
+    lineFillNext(0);
+
     if (isMobileDevice()) {
       // 모바일 디바이스인 경우에는 fullpage.js 를 아예 로드하지 않는다.
       if (!bannerSlider) {
@@ -115,6 +122,43 @@ $(document).ready(function() {
     }
   }
   
+  function lineFillNext(index) {
+    resetRecipeAnimation();
+
+    // TABLETWIDTH 이하거나 ing 중이 아니면 동작하지 않음. 
+    if(underTabletWidth || !ing_recipeProcess) { 
+      return;
+    }
+
+    resetRecipeAnimation();
+    $recipeProcessDetails.eq(index).stop().animate({
+      opacity: 1
+    });
+    $recipeProcessCircles.eq(index).stop().animate({
+      'stroke-dashoffset': 0
+    }, 2000, function() {
+      lineFillNext((index+1)%($recipeProcessCircles.length));
+    });
+  }
+
+  function lineFillOnce(index) {
+    resetRecipeAnimation();
+    $recipeProcessDetails.eq(index).stop().animate({
+      opacity: 1
+    });
+    $recipeProcessCircles.eq(index).stop().animate({
+      'stroke-dashoffset': 0
+    }, 2000);
+  }
+
+  function resetRecipeAnimation() {
+    $recipeProcessCircles.stop().css({
+      'stroke-dashoffset': 900
+    });
+    $recipeProcessDetails.stop().animate({
+      opacity: 0
+    });
+  }
 
   function loadNewsSlider() {
     var config = {
@@ -168,7 +212,24 @@ $(document).ready(function() {
       .on("mouseenter", gnbListMouseEntered)
       .on("mouseleave", gnbListMouseLeaved);
 
+    $recipeProcessItems
+      .on('mouseenter', recipeMouseEntered)
+      .on('mouseleave', recipeMouseLeaved);
+
+
     addClassRelated();
+  }
+
+  function recipeMouseEntered() {
+    var index = $(this).index();
+    ing_recipeProcess = false;
+    lineFillOnce(index);
+  }
+
+  function recipeMouseLeaved() {
+    var index = $(this).index();
+    ing_recipeProcess = true;
+    lineFillNext((index+1)%($recipeProcessCircles.length));
   }
 
   function addClassRelated() {
@@ -281,11 +342,11 @@ $(document).ready(function() {
     }
 
     // TABLET_WIDTH 경계로 슬라이더 옵션을 변경해서 재로드한다.
-    if (width > TABLET_WIDTH && underSliderWidth) {
-      underSliderWidth = false;
+    if (width > TABLET_WIDTH && underTabletWidth) {
+      underTabletWidth = false;
       loadNewsSlider();
-    } else if (width <= TABLET_WIDTH && !underSliderWidth) {
-      underSliderWidth = true;
+    } else if (width <= TABLET_WIDTH && !underTabletWidth) {
+      underTabletWidth = true;
       loadNewsSlider();
     }
 
