@@ -220,9 +220,31 @@ $(document).ready(function() {
     $recipeProcessItems
       .on('mouseenter', recipeMouseEntered)
       .on('mouseleave', recipeMouseLeaved);
+    
+    $('.m_tab__header').on('click', mediaTabClicked);  
 
+    $('.m_scroll_down').on('click', scrollDownClicked);
+    $('.m_back_to_top').on('click', toTopClicked); 
 
     addClassRelated();
+  }
+
+  function scrollDownClicked(e) {
+    e.preventDefault();
+    fullpage_api.moveSectionDown();
+  }
+
+  function toTopClicked(e) {
+    e.preventDefault();
+    fullpage_api.silentMoveTo(1);
+  }
+
+  function mediaTabClicked() {
+    var className = $(this).get(0).classList[$(this).get(0).classList.length-1];
+    $('.l_media').removeClass('js-happy');
+    $('.l_media').removeClass('js-ramen');
+    $('.l_media').removeClass('js-tabasco');
+    $('.l_media').addClass(className);
   }
 
   function recipeMouseEntered() {
@@ -402,3 +424,43 @@ $(document).ready(function() {
     }
   }
 }); // end of file
+
+
+
+
+
+
+
+
+$.getJSON('./data/content.json', initGallery);
+
+    function initGallery(data){
+        //모든 리스트를 alldata 저장
+        $allData = data;    
+        
+        //첫번째 10개 표시
+        addItems();
+
+        $loadMoreBtn.click(addItems);
+    }//initGallery
+
+    function addItems(){
+        var elements = [],  
+            slicedData = $allData.slice($added, $added + $addItemCount);
+
+        $.each(slicedData, function(i, item){
+            var itemHtml = 
+            '<li class="gallery-item">' + item.title + '</li>';
+            elements.push($(itemHtml).get(0));
+            $container.append(elements);
+        });//slicedData item 마다 할일
+
+        $added += $addItemCount;
+
+        if($added < $allData.length){
+            $loadMoreBtn.show();
+        }else{
+            $loadMoreBtn.hide();
+        }
+
+    }

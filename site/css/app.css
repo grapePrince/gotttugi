@@ -2368,6 +2368,7 @@ blockquote:after {
   padding: 0 20px 3px;
   height: 50px;
   border-radius: 5px;
+  cursor: pointer;
 }
 .m_tab__header--1 {
   background: #ffda21;
@@ -2437,6 +2438,12 @@ blockquote:after {
   left: 0;
   right: 0;
   z-index: 3;
+  opacity: 0;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.l_media_item__image__hover:hover {
+  opacity: 1;
 }
 .s_media_item__image__hover {
   background: rgba(0, 0, 0, 0.5);
@@ -2488,6 +2495,11 @@ blockquote:after {
   background: #fff;
   margin-left: 20px;
   border-radius: 999px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.s_media_social__item:hover {
+  border: 1px solid #e0393d;
 }
 .s_media_social__item:after {
   content: '';
@@ -2514,6 +2526,45 @@ blockquote:after {
   width: 25px;
   height: 20px;
   background-position: -600px -400px;
+}
+.l_media_contents {
+  display: none;
+}
+.l_media.js-happy .m_tab__header--1 {
+  background: #fff;
+}
+.l_media.js-happy .m_tab__header--1 .m_tab__header__text {
+  color: #333333;
+}
+.l_media.js-happy .m_tab__header--1 .m_tab__header__icon {
+  background-position-y: -30px;
+}
+.l_media.js-ramen .m_tab__header--2 {
+  background: #fff;
+}
+.l_media.js-ramen .m_tab__header--2 .m_tab__header__text {
+  color: #333333;
+}
+.l_media.js-ramen .m_tab__header--2 .m_tab__header__icon {
+  background-position-y: -30px;
+}
+.l_media.js-tabasco .m_tab__header--3 {
+  background: #fff;
+}
+.l_media.js-tabasco .m_tab__header--3 .m_tab__header__text {
+  color: #333333;
+}
+.l_media.js-tabasco .m_tab__header--3 .m_tab__header__icon {
+  background-position-y: -30px;
+}
+.l_media.js-happy .l_media_contents.js-happy {
+  display: flex;
+}
+.l_media.js-ramen .l_media_contents.js-ramen {
+  display: flex;
+}
+.l_media.js-tabasco .l_media_contents.js-tabasco {
+  display: flex;
 }
 /* -------- 브레드스크럼 -------- */
 .s_breadscrum {
@@ -2800,7 +2851,7 @@ blockquote:after {
 .product_list__item:hover .s_product_list__item__contents__title {
   font-weight: 700;
 }
-.product_list__item.is-big.s_product_list__item {
+.product_list__item.js-big.s_product_list__item {
   width: 552px;
   height: 552px;
 }
