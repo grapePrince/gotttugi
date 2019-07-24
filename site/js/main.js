@@ -43,6 +43,7 @@ $(document).ready(function() {
     initMain();
     addEventListener();
   } else {
+    initSub();
     addEventListener();
   }
 
@@ -423,44 +424,78 @@ $(document).ready(function() {
       return false;
     }
   }
-}); // end of file
 
 
 
+/* ------------------SUB---------------- */
 
 
+var PAGE_PROJECT_LIST = 'js-project_list';
+
+var galleryData = [];
+var currentIndex = 0;
+var addItemCount = 10;
+
+function initSub() {
+  if($('.' + PAGE_PROJECT_LIST)) { // PROJECT LIST 페이지인 경우 
+    $.getJSON('../data/content.json', initGallery);
+  }  
+}
+
+function initGallery(data){
+  setTimeout(function() {
+    //모든 리스트를 alldata 저장  
+    galleryData = data;    
+    addItems();
+    $(window).on('scroll', galleryScroll);
+  }, 1000);
+}
 
 
+function galleryScroll(e) {
+  if($(window).scrollTop() === $(document).height() - $(window).height() ) {
+    addItems();
+  }  
+}
 
-$.getJSON('./data/content.json', initGallery);
 
-    function initGallery(data){
-        //모든 리스트를 alldata 저장
-        $allData = data;    
-        
-        //첫번째 10개 표시
-        addItems();
+function addItems(){
+    var elements = [],  
+        slicedData = galleryData.slice(currentIndex, currentIndex += addItemCount);
 
-        $loadMoreBtn.click(addItems);
-    }//initGallery
-
-    function addItems(){
-        var elements = [],  
-            slicedData = $allData.slice($added, $added + $addItemCount);
-
+    if(slicedData.length > 0) {
+      $('.l_product_list_loading').show();
+      setTimeout(function() {
         $.each(slicedData, function(i, item){
-            var itemHtml = 
-            '<li class="gallery-item">' + item.title + '</li>';
-            elements.push($(itemHtml).get(0));
-            $container.append(elements);
-        });//slicedData item 마다 할일
+          var itemHtml = 
+          '<div class="product_list__item l_product_list__item s_product_list__item ' + (item['js-big'] ? 'js-big' : '') + '">' +
+            '<img src="' + item.image + '" alt="' + item.title + '" class="l_product_list__item__contents__image s_product_list__item__contents__image">' +
+            '<h4 class="s_product_list__item__contents__title">' +
+            item.title +
+            '</h4>' +
+          '</div>';
+          elements.push($(itemHtml).get(0));
+        }); //slicedData item 마다 할일
+    
+        $('.product_list__list').append(elements);
+    
+        $('.l_product_list_loading').hide();
+      }, 2000);
+    }    
+}
 
-        $added += $addItemCount;
 
-        if($added < $allData.length){
-            $loadMoreBtn.show();
-        }else{
-            $loadMoreBtn.hide();
-        }
 
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+  }); // end of file    

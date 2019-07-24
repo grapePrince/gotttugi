@@ -2784,6 +2784,9 @@ blockquote:after {
   width: 400px;
 }
 /* -------- 목록 헤더-------- */
+.product_list {
+  margin-bottom: 150px;
+}
 .l_product_list__header {
   display: flex;
   justify-content: space-between;
@@ -2847,6 +2850,7 @@ blockquote:after {
   font-weight: 300;
   font-size: 18px;
   letter-spacing: -0.04em;
+  font-weight: 700;
 }
 .product_list__item:hover .s_product_list__item__contents__title {
   font-weight: 700;
