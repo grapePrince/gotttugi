@@ -378,7 +378,7 @@ $(document).ready(function() {
       loadNewsSlider();
     }
 
-    if (typeof fullpage_api !== "undefiend") {
+    if (typeof fullpage_api !== "undefined") {
       fullpage_api.reBuild(); // 화면 높이, 너비 등등이 바뀌고 나면 풀페이지 라이브러리 재로드.
     }
   }
@@ -436,6 +436,10 @@ var galleryData = [];
 var currentIndex = 0;
 var addItemCount = 10;
 
+var currentFilterArray = [];
+
+var $grid;
+
 function initSub() {
   if($('.' + PAGE_PROJECT_LIST)) { // PROJECT LIST 페이지인 경우 
     $.getJSON('../data/content.json', initGallery);
@@ -443,12 +447,23 @@ function initSub() {
 }
 
 function initGallery(data){
+  shuffleArray(data);
+  $('.s_product_list__header__desc__em').text(data.length);
   setTimeout(function() {
     //모든 리스트를 alldata 저장  
     galleryData = data;    
     addItems();
     $(window).on('scroll', galleryScroll);
   }, 1000);
+}
+
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+  }
 }
 
 
@@ -468,7 +483,7 @@ function addItems(){
       setTimeout(function() {
         $.each(slicedData, function(i, item){
           var itemHtml = 
-          '<div class="product_list__item l_product_list__item s_product_list__item ' + (item['js-big'] ? 'js-big' : '') + '">' +
+          '<div class="product_list__item l_product_list__item s_product_list__item ' + (item['js-big'] ? 'js-big ' : '') + item.sortingClass  +  '" data-popular="'+ item.popular +'" data-recent="'+ item.recent +'" data-views="'+ item.views +'">' +
             '<img src="' + item.image + '" alt="' + item.title + '" class="l_product_list__item__contents__image s_product_list__item__contents__image">' +
             '<h4 class="s_product_list__item__contents__title">' +
             item.title +
@@ -477,13 +492,74 @@ function addItems(){
           elements.push($(itemHtml).get(0));
         }); //slicedData item 마다 할일
     
-        $('.product_list__list').append(elements);
+        // 맨 처음에는 아이템을 넣어두고 isotope를 돌린다.
+        if (!$grid) {
+          $('.product_list__list').append(elements);
+          $grid = $('.product_list__list').isotope({
+            itemSelector: '.product_list__item',
+            masonry: {
+              columnWidth: 276
+            },
+            getSortData: {
+              popular: '[data-popular]',
+              views: '[data-views]',
+              recent: '[data-recent]'
+            }
+          });
+
+          // 필터 버튼들은 아이템 로드가 끝난 다음 누를 수 있다. 
+          $('.product_filter_button').on('click', filterButtonClicked);
+          $('.product_list__header__sort__button').on('click', sortButtonClicked);
+
+        } else { // 이미 isotope 가 있는 경우 append 메소드를 사용. 
+          $('.product_list__list').append(elements);
+          $grid.isotope( 'appended', elements );
+        }
     
         $('.l_product_list_loading').hide();
-      }, 2000);
+      }, 500);
     }    
 }
 
+function filterButtonClicked() {
+  var filter = $(this).attr('data-filter');
+  
+  // all 을 누른 경우 
+  if(filter === '.all') {
+    if ( !$(this).hasClass('js-active')) {
+      currentFilterArray = [];
+      $('.product_filter_button').removeClass('js-active');
+      $(this).addClass('js-active'); 
+      $grid.isotope({ filter: '*' });
+    } else {
+      $(this).removeClass('js-active'); 
+    }
+    return;
+  }
+
+  $('.product_filter_button[data-filter=".all"]').removeClass('js-active'); 
+
+  if (currentFilterArray.indexOf(filter) === -1) { // 필터를 새롭게 추가.
+    $(this).addClass('js-active'); 
+    currentFilterArray.push(filter);
+    
+  } else { // 기존 필터에서 삭제 
+    $(this).removeClass('js-active'); 
+    var index = currentFilterArray.indexOf(filter);
+    currentFilterArray.splice(index, 1);
+  }
+
+  $grid.isotope({ filter: currentFilterArray.join(', ') });
+  
+}
+
+function sortButtonClicked() {
+  var sort = $(this).attr('data-sort-value');
+  $('.product_list__header__sort__button').removeClass('js-active');
+  $(this).addClass('js-active');
+  $grid.isotope({ sortBy: sort });
+
+}
 
 
 

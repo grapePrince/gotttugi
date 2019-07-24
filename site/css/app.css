@@ -2703,6 +2703,12 @@ blockquote:after {
 .s_product_filter_button:hover .s_product_filter_button__icon {
   background-position-y: -550px;
 }
+.s_product_filter_button.js-active .s_product_filter_button__text {
+  color: #e0393d;
+}
+.s_product_filter_button.js-active .s_product_filter_button__icon {
+  background-position-y: -550px;
+}
 .s_product_filter_button__circle {
   border: 1px solid #e3e3e3;
   border-radius: 999px;
@@ -2821,7 +2827,7 @@ blockquote:after {
   font-family: "Noto Serif KR", serif;
   cursor: pointer;
 }
-.s_product_list__header__sort__button.is-active {
+.s_product_list__header__sort__button.js-active {
   background: #FFEC48;
 }
 /* -------- 목록 아이템들-------- */

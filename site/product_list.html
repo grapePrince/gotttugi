@@ -121,6 +121,7 @@
     <script src="js/fullpage.min.js"></script>
     <!-- <script src="js/all.min.js"></script> -->
     <script src="js/modernizr-custom.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
 
     <script src="js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
@@ -330,7 +331,7 @@
     </section>
     <section class="product_filter l_product_filter">
       <div class="l_product_filter_buttons">
-        <div class="l_product_filter_button s_product_filter_button">
+        <div class="product_filter_button l_product_filter_button s_product_filter_button" data-filter=".all">
           <div
             class="l_product_filter_button__circle s_product_filter_button__circle"
           >
@@ -338,7 +339,7 @@
           </div>
           <h4 class="s_product_filter_button__title">전체</h4>
         </div>
-        <div class="l_product_filter_button s_product_filter_button">
+        <div class="product_filter_button l_product_filter_button s_product_filter_button" data-filter=".source">
           <div
             class="l_product_filter_button__circle s_product_filter_button__circle"
           >
@@ -350,7 +351,7 @@
           </div>
           <h4 class="s_product_filter_button__title">소스</h4>
         </div>
-        <div class="l_product_filter_button s_product_filter_button">
+        <div class="product_filter_button l_product_filter_button s_product_filter_button" data-filter=".condiment">
           <div
             class="l_product_filter_button__circle s_product_filter_button__circle"
           >
@@ -362,7 +363,7 @@
           </div>
           <h4 class="s_product_filter_button__title">분말/건조</h4>
         </div>
-        <div class="l_product_filter_button s_product_filter_button">
+        <div class="product_filter_button l_product_filter_button s_product_filter_button" data-filter=".retort">
           <div
             class="l_product_filter_button__circle s_product_filter_button__circle"
           >
@@ -374,7 +375,7 @@
           </div>
           <h4 class="s_product_filter_button__title">레토르트</h4>
         </div>
-        <div class="l_product_filter_button s_product_filter_button">
+        <div class="product_filter_button l_product_filter_button s_product_filter_button" data-filter=".fridge">
           <div
             class="l_product_filter_button__circle s_product_filter_button__circle"
           >
@@ -386,7 +387,7 @@
           </div>
           <h4 class="s_product_filter_button__title">냉장/냉동</h4>
         </div>
-        <div class="l_product_filter_button s_product_filter_button">
+        <div class="product_filter_button l_product_filter_button s_product_filter_button" data-filter=".agriculture">
           <div
             class="l_product_filter_button__circle s_product_filter_button__circle"
           >
@@ -398,7 +399,7 @@
           </div>
           <h4 class="s_product_filter_button__title">농/축/수산</h4>
         </div>
-        <div class="l_product_filter_button s_product_filter_button">
+        <div class="product_filter_button l_product_filter_button s_product_filter_button" data-filter=".tea">
           <div
             class="l_product_filter_button__circle s_product_filter_button__circle"
           >
@@ -410,7 +411,7 @@
           </div>
           <h4 class="s_product_filter_button__title">차종류</h4>
         </div>
-        <div class="l_product_filter_button s_product_filter_button">
+        <div class="product_filter_button l_product_filter_button s_product_filter_button" data-filter=".butter">
           <div
             class="l_product_filter_button__circle s_product_filter_button__circle"
           >
@@ -422,7 +423,7 @@
           </div>
           <h4 class="s_product_filter_button__title">버터/식용유</h4>
         </div>
-        <div class="l_product_filter_button s_product_filter_button">
+        <div class="product_filter_button l_product_filter_button s_product_filter_button" data-filter=".flavor">
           <div
             class="l_product_filter_button__circle s_product_filter_button__circle"
           >
@@ -433,8 +434,8 @@
             </div>
           </div>
           <h4 class="s_product_filter_button__title">향신료</h4>
-        </div>
-        <div class="l_product_filter_button s_product_filter_button">
+        </div> 
+        <div class="product_filter_button l_product_filter_button s_product_filter_button" data-filter=".ramen">
           <div
             class="l_product_filter_button__circle s_product_filter_button__circle"
           >
@@ -446,7 +447,7 @@
           </div>
           <h4 class="s_product_filter_button__title">라면</h4>
         </div>
-        <div class="l_product_filter_button s_product_filter_button">
+        <div class="product_filter_button l_product_filter_button s_product_filter_button" data-filter=".wheat">
           <div
             class="l_product_filter_button__circle s_product_filter_button__circle"
           >
@@ -473,9 +474,9 @@
           총 <em class="s_product_list__header__desc__em">757</em>건의 제품이 있습니다.
         </div>
         <div class="l_product_list__header__sort">
-          <div class="l_product_list__header__sort__button s_product_list__header__sort__button is-active">인기상품</div>
-          <div class="l_product_list__header__sort__button s_product_list__header__sort__button">최신순</div>
-          <div class="l_product_list__header__sort__button s_product_list__header__sort__button">조회순</div>
+          <div class="product_list__header__sort__button l_product_list__header__sort__button s_product_list__header__sort__button" data-sort-value="popular">인기상품</div>
+          <div class="product_list__header__sort__button l_product_list__header__sort__button s_product_list__header__sort__button" data-sort-value="recent">최신순</div>
+          <div class="product_list__header__sort__button l_product_list__header__sort__button s_product_list__header__sort__button" data-sort-value="views">조회순</div>
         </div>
       </div>
       <div class="product_list__list l_product_list__list s_product_list__list">
