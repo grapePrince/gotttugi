@@ -168,9 +168,41 @@
   opacity: 0;
   transition: 1s;
   transition-delay: 0.6s;
+  width: 100%;
+  max-width: 483px;
 }
 
 .factory__image.js-active {      
   transform:translateY(0px);
   opacity: 1;
+}
+
+
+@media all and (max-width: 1110px) {
+  .l_recipe__main__image {
+    display:none;
+  }
+  .l_recipe__main__image--fixed__container.js-visible {
+    display: block;
+  }
+
+  .js-mobile {
+    .l_factory_features {
+      .l_factory_feature {
+        transform:translateY(0px);
+        opacity: 1;
+      }
+    }  
+    .factory__image {   
+      transform:translateY(0px);   
+      opacity: 1;
+    }
+  }
+}
+
+@media all and (max-width: 600px) {
+  .l_factory_title .l_factory_title__icon1 {
+    top: calc(100% - 45px);
+    left: calc(100% - 20px);
+  }
 }

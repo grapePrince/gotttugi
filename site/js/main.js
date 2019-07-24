@@ -1,3 +1,5 @@
+
+
 $(document).ready(function() {
   var $window = $(window);
   var $header = $('header');
@@ -29,8 +31,6 @@ $(document).ready(function() {
   var SECTION_FACTORY = 7;
   var SECTION_MEDIA = 8;
 
-
-
   var PAGE_PROJECT_LIST = 'js-project_list';
   var PAGE_PROJECT_DETAIL = 'js-project_detail';
 
@@ -42,9 +42,9 @@ $(document).ready(function() {
 
   var $grid;
 
-
   var bannerSlider;
   var newsSlider;
+
   var fullPage;
   var firstRebuild = false;
 
@@ -63,26 +63,12 @@ $(document).ready(function() {
     addEventListener();
   }
 
-
   function initMain() {
-
     // 레시피 자동으로 채워지는 부분
     lineFillNext(0);
 
     if (isMobileDevice()) {
-      // 모바일 디바이스인 경우에는 fullpage.js 를 아예 로드하지 않는다.
-      if (!bannerSlider) {
-        bannerSlider = $(".sliderWrap").bxSlider({
-          pager: false,
-          prevSelector: ".banner .left",
-          nextSelector: ".banner .right",
-          onSliderLoad: function() {
-            if (!newsSlider) {
-              loadNewsSlider();
-            }
-          }
-        });
-      }
+      initMobileDevice();      
     } else {
       fullPage = new fullpage("#fullpage", {
         //options here
@@ -143,6 +129,23 @@ $(document).ready(function() {
       });  
     }
   }
+
+  function initMobileDevice() {
+  // 모바일 디바이스인 경우에는 fullpage.js 를 아예 로드하지 않는다.
+    if (!bannerSlider) {
+      bannerSlider = $(".sliderWrap").bxSlider({
+        pager: false,
+        prevSelector: ".banner .left",
+        nextSelector: ".banner .right",
+        onSliderLoad: function() {
+          if (!newsSlider) {
+            loadNewsSlider();
+          }
+        }
+      });
+    }
+    $(document.body).addClass('js-mobile');
+  }
   
   function lineFillNext(index) {
     resetRecipeAnimation();
@@ -174,12 +177,18 @@ $(document).ready(function() {
   }
 
   function resetRecipeAnimation() {
-    $recipeProcessCircles.stop().css({
-      'stroke-dashoffset': 900
-    });
-    $recipeProcessDetails.stop().animate({
-      opacity: 0
-    });
+    if(underTabletWidth) {
+      $recipeProcessDetails.stop().css({
+        opacity: 1
+      });
+    } else {
+      $recipeProcessCircles.stop().css({
+        'stroke-dashoffset': 900
+      });
+      $recipeProcessDetails.stop().animate({
+        opacity: 0
+      });
+    }
   }
 
   function loadNewsSlider() {
@@ -189,10 +198,16 @@ $(document).ready(function() {
         clickable: true
       },
       slidesPerView: 'auto',
-      loopedSlides: 5,
+      breakpoints: {
+        1110: {
+          slidesPerView: 1
+        }
+      },
+      loopedSlides: 30,
       spaceBetween: 50,
       speed: 500,
       loop: true,
+
       centeredSlides: true,
       autoplay: {
         delay: 10000
@@ -220,7 +235,14 @@ $(document).ready(function() {
       }
     };
 
-    newsSlider = new Swiper(".swiper-container", config);
+    if(underTabletWidth) {
+      config.slidesPerView = 1;
+    }
+
+    if(!newsSlider) {
+      newsSlider = new Swiper(".swiper-container", config);
+    }
+     
   }
 
   function addEventListener() {
@@ -393,9 +415,11 @@ $(document).ready(function() {
     if (width > TABLET_WIDTH && underTabletWidth) {
       underTabletWidth = false;
       loadNewsSlider();
+      lineFillNext(0);
     } else if (width <= TABLET_WIDTH && !underTabletWidth) {
       underTabletWidth = true;
       loadNewsSlider();
+      resetRecipeAnimation();
     }
 
     if (typeof fullpage_api !== "undefined") {
@@ -450,32 +474,7 @@ function initSub() {
     $.getJSON('../data/content.json', initGallery);
   }
   if($('.' + PAGE_PROJECT_DETAIL).length > 0) {
-    $('.product_details__main__left__icon').on('click', function() {
-      if($('.cube').hasClass('js-active')) {
-        $('.cube').removeClass('js-active');
-        $('.l_product_details__main__left__text').text('돌리려면클릭');
-      } else {
-        $('.cube').addClass('js-active');
-        $('.l_product_details__main__left__text').text('멈추려면클릭');
-      }
-    });
-
-    var waypoint = new Waypoint({
-      element: $('.product_details__main__right__attr'),
-      handler: function(direction) {
-        $('.product_details__main__right__attr').each(function(i, item) {
-          var number = $(item).attr('data-number');
-          $(item).animateNumber({ 
-            number: number 
-          }, {
-            duration: 1000
-          } );
-        });
-      },
-      offset: '100%'
-    })
-
-
+    initProjectDetail();
   } 
 }
 
@@ -594,10 +593,44 @@ function sortButtonClicked() {
 
 }
 
+function initProjectDetail() {
+  $('.product_details__main__left__icon').on('click', function() {
+    if($('.cube').hasClass('js-active')) {
+      $('.cube').removeClass('js-active');
+      $('.l_product_details__main__left__text').text('돌리려면클릭');
+    } else {
+      $('.cube').addClass('js-active');
+      $('.l_product_details__main__left__text').text('멈추려면클릭');
+    }
+  });
 
+  var waypoint = new Waypoint({
+    element: $('.product_details__main__right__attr'),
+    handler: function(direction) {
+      $('.product_details__main__right__attr').each(function(i, item) {
+        var number = $(item).attr('data-number');
+        $(item).animateNumber({ 
+          number: number 
+        }, {
+          duration: 1000
+        } );
+      });
+    },
+    offset: '100%'
+  });
 
+  $('.l__product_details__main__right__origin__header').on('click', clickProductIngredients);
+}
 
-
+function clickProductIngredients() {
+  if($('.l__product_details__main__right__origin').hasClass('js-active')) {
+    $('.l__product_details__main__right__origin').removeClass('js-active')
+    $('.l__product_details__main__right__origin__contents').hide('slide', {direction: 'up'}, 500);
+  } else {
+    $('.l__product_details__main__right__origin').addClass('js-active')
+    $('.l__product_details__main__right__origin__contents').show('slide', {direction: 'up'}, 500);
+  }  
+}
 
 
 

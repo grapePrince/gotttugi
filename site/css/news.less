@@ -95,6 +95,30 @@
 }
 
 
+@media all and (max-width: 1110px) {
+  .swiper-container {
+    width:100%;
+    max-width: 600px;
+  }
+  .slider__wrapper {
+    .slider__wrapper__slide {
+      position: relative;
+      overflow:hidden;
+      img {
+        .center_center();
+      }
+    }
+  }
+  .slider__wrapper .slider__wrapper__slide.swiper-slide-active {
+    transform: none;
+  }
+
+  .slider_item--news__title {
+    width: 550px;
+  }
+
+}
+
 .module_link--more--noborder {
   display: flex;
   align-items: center;

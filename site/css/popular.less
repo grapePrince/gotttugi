@@ -9,6 +9,13 @@
   margin-bottom: @line_2line;
 }
 
+@media all and (-webkit-min-device-pixel-ratio: 2) {
+  .popular__main {
+    background-image: url('../images/popular_background@2x.jpg');
+    background-size: 1000px 762px;
+  }
+}
+
 .popular__main__container {
   display: flex;
   justify-content: space-between;
@@ -99,12 +106,13 @@
 
 
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 960px) {
   .popular__main__container {
     flex-direction: column;
   }
   .popular__main__image {
     width: 70%;
+    max-width: 500px;
     img {
       width: 100%;
     }

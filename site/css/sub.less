@@ -1,4 +1,3 @@
-
 /* -------- 브레드스크럼 -------- */
 
 
@@ -84,7 +83,15 @@
 }
 
 .s_product_banner {
-  background: url(../images/product_banner_back.jpg) no-repeat bottom;
+  background-image: url('../images/product_banner_back.jpg');
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+@media all and (-webkit-min-device-pixel-ratio: 2) {
+  .s_product_banner {
+    background-image: url('../images/product_banner_back@2x.jpg');
+    background-size: 1920px 162px;
+  }
 }
 
 .s_product_banner__title {
@@ -460,11 +467,14 @@
   font-weight: 700;
 }
 
+
+
 .l__product_details__main__right__origin__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 8px 10px;
+  cursor: pointer;
 }
 .s__product_details__main__right__origin__header {
   background: @color_yellow_border;
@@ -479,9 +489,15 @@
   .sprites--downarrow();
 }
 
+.l__product_details__main__right__origin.js-active .s__product_details__main__right__origin__header__icon { 
+  background-position-y: -30px;
+}
+
 .l__product_details__main__right__origin__contents {
   padding: @line_1line 30px;
+  display:none;
 }
+
 .l__product_details__main__right__origin__content {
   overflow-y: scroll;
   height: 112px;

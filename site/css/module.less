@@ -301,6 +301,11 @@
 
 @media all and (max-width: 600px) {
   .layout--5column {
+    .layout--5column__col {
+      margin-left: 100px;
+      margin-right: 100px;
+    }
+
     .layout--5column__triangle {
       display: none;
     }
@@ -406,4 +411,23 @@
   transform: translate(-7px, -7px);
   border: none;
   cursor: pointer;
+}
+
+.skip_navigation span {
+  text-align: center;
+  position:fixed;
+  z-index: 999; 
+  top: -999px;
+  height: 50px;
+  left: 0;
+  right: 0;
+  background: @color_blue;
+  color: @color_white;
+  box-sizing: border-box;
+  .typo_content_title();
+  padding: 10px;
+}
+
+.skip_navigation:focus span{
+  top: 0;
 }

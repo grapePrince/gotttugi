@@ -2,7 +2,7 @@
 <html lang="ko" class="">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta
       name="keywords"
@@ -106,30 +106,15 @@
     />
     <meta property="og:url" content="http://www.ottogi.co.kr" />
 
-    <!-- css library -->
-    <link rel="stylesheet" href="css/swiper.min.css" />
-    <link rel="stylesheet" href="css/fullpage.min.css" />
+
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/app.css" />
-
-    <!-- js library -->
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <!-- <script src="js/jquery-ui-1.12.1.min.js"></script> -->
-    <script src="js/jquery.bxslider.js"></script>
-    <script src="js/swiper.min.js"></script>
-    <script src="js/scrolloverflow.min.js"></script>
-    <script src="js/fullpage.min.js"></script>
-    <!-- <script src="js/all.min.js"></script> -->
-    <script src="js/modernizr-custom.js"></script>
-    <script src="js/jquery.smooth-scroll.min.js"></script>
-    <script src="js/jquery.animateNumber.min.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-
-    <script src="js/main.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    
   </head>
 
   <body class="sub js-project_detail">
+      <a href="#content" class="skip_navigation"><span>상품검색 바로가기</span></a>
+      
     <header class="container">
       <div class="upper_nav">
         <h1>
@@ -142,15 +127,17 @@
           <span class="sprites icon" data-locale="header.option">환경설정</span>
         </span>
         <div class="option_content">
-          <span class="circle_icon search">
+          <div class="circle_icon search option_content__item">
             <span class="sprites icon" data-locale="header.search">검색</span>
             <span class="text">검색하기</span>
-          </span>
-          <span class="circle_icon help">
-            <span class="sprites icon" data-locale="header.help">고객센터</span>
+          </div>
+          <div class="circle_icon help option_content__item">
+            <span class="sprites icon" data-locale="header.help"
+              >고객센터</span
+            >
             <span class="text">고객센터</span>
-          </span>
-          <span class="circle_icon locale dropdown_menu">
+          </div>
+          <div class="circle_icon locale dropdown_menu option_content__item">
             <span class="sprites icon" data-locale="header.locale"
               >언어변경</span
             >
@@ -162,7 +149,7 @@
               <li>한글</li>
               <li>ENG</li>
             </ul>
-          </span>
+          </div>
         </div>
         <a href="" class="sprites shoplink" data-locale="header.goto_mall"
           >오뚜기 몰로 가기</a
@@ -266,6 +253,7 @@
       </nav>
     </header>
     <section class="s_breadscrum breadscrum">
+        <h2 class="hidden">현재경로</h2>
       <div class="l_breadscrum__items container">
         <div class="l_breadscrum__item s_breadscrum__item">
           <div class="s_breadscrum__item__icon--home">
@@ -331,7 +319,7 @@
         </div>
       </div>
     </section>
-    <section class="product_filter l_product_filter">
+    <section id="content" class="product_filter l_product_filter">
       <div class="l_product_filter_buttons">
         <div class="l_product_filter_button s_product_filter_button">
           <div
@@ -466,7 +454,7 @@
         <div class="m_search_input s_product_filter__search__input">
           <input class="m_search_input__input s_product_filter__search__input__input" type="text" placeholder="검색어를 입력하세요" />
           <span class="m_search_input__line s_product_filter__search__input__line"></span>
-          <input class="m_search_input__button" type="button" class=" search_button" value="검색" />
+          <input class="m_search_input__button search_button" type="button" value="검색" />
         </div>
       </div>
     </section>
@@ -485,20 +473,19 @@
             <div class="perspective">
               <div class="cube">
                 <div class="front">
-                  <img src="images/product_main_1.png">
+                  <img src="images/product_main_1.png" alt="진라면앞모습">
                 </div>
                 <div class="back">
-                  <img src="images/product_main_3.png">
+                  <img src="images/product_main_3.png" alt="진라면옆모습">
                 </div>
                 <div class="left side">
-                  <img src="images/product_main_2.png">
+                  <img src="images/product_main_2.png" alt="진라면왼쪽모습">
                 </div>
                 <div class="right side">
-                  <img src="images/product_main_4.png">
+                  <img src="images/product_main_4.png" alt="진라면오른쪽모습">
                 </div>
               </div>
             </div>
-            <!-- <img src="images/product_main_1.png" alt="진라면앞모습"> -->
           </div>
           <div class="l_product_details__main__left__desc">
             <div class="l_product_details__main__left__text s_product_details__main__left__text">돌리려면클릭</div>
@@ -648,9 +635,27 @@
         <div class="m_back_to_top__text">위로가기</div>
       </a>
     </footer>
-    <link
-      href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,700|Noto+Serif+KR:200,600&display=swap"
-      rel="stylesheet"
-    />
+
+    
+    <!-- css library -->
+    <link rel="stylesheet" href="css/swiper.min.css" />
+    <link rel="stylesheet" href="css/fullpage.min.css" />
+
+    <!-- js library -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery.bxslider.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/scrolloverflow.min.js"></script>
+    <script src="js/fullpage.min.js"></script>
+    <!-- <script src="js/all.min.js"></script> -->
+    <script src="js/modernizr-custom.js"></script>
+    <script src="js/jquery.smooth-scroll.min.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery-ui-1.12.1.min.js"></script>
+    <script src="js/retina.min.js"></script>
+
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/font.css">
   </body>
 </html>

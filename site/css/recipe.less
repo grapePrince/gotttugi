@@ -179,13 +179,26 @@
   .s_recipe__process__item .s_receipe__process__item__detail{
     opacity: 1;
   }
+
+  .s_recipe__main__image--fixed__container {
+    width: 100%;
+  }
 }
+
+
+
+@media all and (max-width: 900px) {
+  .l_recipe {
+    padding-top: 150px;
+  }
+}
+
+
 
 
 /* js-visible 이 있으면 fixed 이미지를 보여준다. 
    js-visible 은 recipe 섹션으로 갈 때 js 를 통해 들어온다. 
    1110 이상일 때는 무조건 안보여줌 (resize 고려 필요 X) */
-
 
 @media all and (max-width: 1110px) {
   .l_recipe__main__image {
@@ -193,5 +206,28 @@
   }
   .l_recipe__main__image--fixed__container.js-visible {
     display: block;
+  }
+
+  .js-mobile {
+    .l_recipe {
+      padding-top: 0px;
+    }
+    .l_recipe__main__image {
+      display:block;
+    }
+    .l_recipe__main__image--fixed__container.js-visible {
+      display: none;
+    }
+    .recipe__process__line {
+      display: none;
+    }
+
+    .s_recipe__process__item .s_receipe__process__item__detail {
+      opacity: 1 !important;
+    }
+
+    .recipe__process__item {
+      border: 1px solid @color_grey;
+    }
   }
 }
