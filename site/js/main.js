@@ -29,6 +29,20 @@ $(document).ready(function() {
   var SECTION_FACTORY = 7;
   var SECTION_MEDIA = 8;
 
+
+
+  var PAGE_PROJECT_LIST = 'js-project_list';
+  var PAGE_PROJECT_DETAIL = 'js-project_detail';
+
+  var galleryData = [];
+  var currentIndex = 0;
+  var addItemCount = 10;
+
+  var currentFilterArray = [];
+
+  var $grid;
+
+
   var bannerSlider;
   var newsSlider;
   var fullPage;
@@ -36,6 +50,7 @@ $(document).ready(function() {
 
   var isMobile = $(window).outerWidth() <= MOBILE_WIDTH ? true : false;
   var underTabletWidth = $(window).outerWidth() <= TABLET_WIDTH ? true : false;
+  var isSub = false;
 
   var ing_recipeProcess = true;
 
@@ -43,6 +58,7 @@ $(document).ready(function() {
     initMain();
     addEventListener();
   } else {
+    isSub = true;
     initSub();
     addEventListener();
   }
@@ -237,7 +253,11 @@ $(document).ready(function() {
 
   function toTopClicked(e) {
     e.preventDefault();
-    fullpage_api.silentMoveTo(1);
+    if (isSub) {
+      $('html,body').animate({scrollTop: 0}, 500);
+    } else {
+      fullpage_api.silentMoveTo(1);
+    }
   }
 
   function mediaTabClicked() {
@@ -425,25 +445,38 @@ $(document).ready(function() {
     }
   }
 
-
-
-/* ------------------SUB---------------- */
-
-
-var PAGE_PROJECT_LIST = 'js-project_list';
-
-var galleryData = [];
-var currentIndex = 0;
-var addItemCount = 10;
-
-var currentFilterArray = [];
-
-var $grid;
-
 function initSub() {
-  if($('.' + PAGE_PROJECT_LIST)) { // PROJECT LIST 페이지인 경우 
+  if($('.' + PAGE_PROJECT_LIST).length > 0) { // PROJECT LIST 페이지인 경우 
     $.getJSON('../data/content.json', initGallery);
-  }  
+  }
+  if($('.' + PAGE_PROJECT_DETAIL).length > 0) {
+    $('.product_details__main__left__icon').on('click', function() {
+      if($('.cube').hasClass('js-active')) {
+        $('.cube').removeClass('js-active');
+        $('.l_product_details__main__left__text').text('돌리려면클릭');
+      } else {
+        $('.cube').addClass('js-active');
+        $('.l_product_details__main__left__text').text('멈추려면클릭');
+      }
+    });
+
+    var waypoint = new Waypoint({
+      element: $('.product_details__main__right__attr'),
+      handler: function(direction) {
+        $('.product_details__main__right__attr').each(function(i, item) {
+          var number = $(item).attr('data-number');
+          $(item).animateNumber({ 
+            number: number 
+          }, {
+            duration: 1000
+          } );
+        });
+      },
+      offset: '100%'
+    })
+
+
+  } 
 }
 
 function initGallery(data){
