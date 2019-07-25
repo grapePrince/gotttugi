@@ -315,6 +315,11 @@ $(document).ready(function() {
 
   function hrefHandler() {
     var href = $(this).attr('data-href');
+    if(href[0] === 'h') {
+      location.href = href;
+    } else {
+      href = '/gotttugi/' + href;
+    }
     location.href = href;
   }
 
@@ -528,7 +533,7 @@ $(document).ready(function() {
 function initSub() {
   
   if($('.' + PAGE_PROJECT_LIST).length > 0) { // PROJECT LIST 페이지인 경우 
-    $.getJSON('../data/content.json', initGallery);
+    $.getJSON('data/content.json', initGallery);
   }
   if($('.' + PAGE_PROJECT_DETAIL).length > 0) {
     initProjectDetail();
