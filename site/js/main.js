@@ -145,10 +145,21 @@ $(document).ready(function() {
     imageLeft,
     imageTop;
 
+  
     if($(window).outerWidth() < FULLPAGE_WIDTH) {
-      $('.section--corporation video').width('100%');
+      imageWidth = '100%';
+      imageLeft = 0;
+      imageHeight =  'auto';    
+      imageTop =  0;  
+      $container.css({
+        width: imageWidth,
+        height: imageHeight,
+        left: imageLeft + 'px',
+        top: imageTop + 'px',
+      });
       return;
     } 
+
 
     if (imageRatio > browserRatio) { // 이미지 가로가 더 길 때는 높이가 브라우저와 같아진다. 
         imageHeight = windowHeight;
@@ -479,9 +490,7 @@ $(document).ready(function() {
       resetRecipeAnimation();
     }
 
-      fitVideo();
-
-
+    fitVideo();
 
     if (typeof fullpage_api !== "undefined") {
       fullpage_api.reBuild(); // 화면 높이, 너비 등등이 바뀌고 나면 풀페이지 라이브러리 재로드.

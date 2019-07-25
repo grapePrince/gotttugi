@@ -3030,9 +3030,11 @@ blockquote:after {
   .l_media_contents {
     justify-content: center;
     align-items: center;
+    width: 360px;
+    margin: 0 auto;
   }
   .m_tab__content {
-    padding: 0px 35px 100px;
+    padding: 0px 0px 100px;
   }
 }
 /* -------- 브레드스크럼 -------- */
