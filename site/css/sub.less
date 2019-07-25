@@ -52,7 +52,7 @@
 }
 
 
-@media all and (max-width: 1110px) {
+@media all and (max-width: 600px) {
   .s_breadscrum .shoplink {
     top:100%;
   }
@@ -285,7 +285,7 @@
     justify-content: flex-start;
   }
 
-  .product_filter_button {
+  .l_product_filter_button {
     margin: 10px 30px;
   }
 
@@ -297,8 +297,8 @@
     width: 300px;
     justify-content: center;
   }
-  .product_filter_button {
-    margin: 10px 10px;
+  .l_product_filter_button {
+    margin: 10px 30px;
   }
   .s_product_filter__search__input {
     width: 300px;
@@ -312,8 +312,6 @@
 
 
 }
-
-
 
 
 /* -------- 목록 헤더-------- */
@@ -447,17 +445,15 @@
 
 
 
-
-
-
-
-
 /* -------- 상품  디테일 틀 -------- */
 
 .l_product_details {
   position: relative;
   margin-top: 100px;
   padding: 136px 80px 90px;
+  box-sizing: border-box;
+  margin: 50px 30px 0;
+  width: auto;
 }
 .s_product_details {
   border: 1px solid @color_grey;
@@ -480,6 +476,13 @@
   .sprites();
   .sprites--product--logo();
 }
+
+@media all and (max-width: 900px) {
+  .l_product_details {
+    padding: 136px 0px 90px;
+  }
+}
+
 
 /* -------- 목록 디테일 헤더 -------- */
 
@@ -654,6 +657,15 @@
 }
 
 
+@media all and (max-width: 1110px) {
+  .l_product_details__main__right {
+    margin-top: 30px;
+  }
+}
+
+
+
+
 
 /* -------- 목록 디테일 표 -------- */
 .l_product_details__nutrition .s_product_details__nutrition__table{
@@ -670,10 +682,6 @@
     vertical-align: middle;
   }
 
-  th:first-child {
-
-  }
-
   tbody th {
     width: 6%;
   }
@@ -686,6 +694,22 @@
   font-weight: 700;
 }
 
+
+@media all and (max-width: 900px) {
+  .l_product_details__nutrition .s_product_details__nutrition__table {
+    th, td {
+      width: 200px;
+    }
+    tbody th {
+      width: 200px;
+    }
+  }
+
+
+}
+
+
+
 /* -------- 목록 디테일 비디오 -------- */
 
 .s_product_details__video {
@@ -695,7 +719,7 @@
 /* -------- 목록 디테일 기타 -------- */
 
 .l_product_others__container {
-  padding: 100px 0;
+  padding: 100px 30px;
 }
 .l_product_others__title {
   margin-bottom: 70px;
@@ -710,16 +734,43 @@
   font-weight: 700;
 }
 
+.l_product_others__items {
+  display:flex;
+  justify-content: flex-start;
+}
+
 .product_others__item {
   margin-right: 100px;
   cursor: pointer;
 }
 
 
+.l_product_others__image {
+  width: 20%;
+  max-width: 284px;
+  margin-right: 30px;
+}
+
+.l_product_others__container img {
+  width: 100%;
+}
+
+
+
+@media all and (max-width: 1110px) {
+  .l_product_details__main {
+    flex-direction: column;
+  }
+
+}
+
+
+
 .perspective {
   perspective-origin: center center;
   transform-origin: center center;
 }
+
 
 .cube {
   position: relative;

@@ -668,6 +668,9 @@ function initProjectDetail() {
   });
 
   $('.l__product_details__main__right__origin__header').on('click', clickProductIngredients);
+
+  $('video').get(0).play();
+
 }
 
 function clickProductIngredients() {

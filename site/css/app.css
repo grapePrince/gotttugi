@@ -3090,7 +3090,7 @@ blockquote:after {
   height: 54px;
   background-position: -500px -80px;
 }
-@media all and (max-width: 1110px) {
+@media all and (max-width: 600px) {
   .s_breadscrum .shoplink {
     top: 100%;
   }
@@ -3319,7 +3319,7 @@ blockquote:after {
     width: 500px;
     justify-content: flex-start;
   }
-  .product_filter_button {
+  .l_product_filter_button {
     margin: 10px 30px;
   }
 }
@@ -3328,8 +3328,8 @@ blockquote:after {
     width: 300px;
     justify-content: center;
   }
-  .product_filter_button {
-    margin: 10px 10px;
+  .l_product_filter_button {
+    margin: 10px 30px;
   }
   .s_product_filter__search__input {
     width: 300px;
@@ -3455,6 +3455,9 @@ blockquote:after {
   position: relative;
   margin-top: 100px;
   padding: 136px 80px 90px;
+  box-sizing: border-box;
+  margin: 50px 30px 0;
+  width: auto;
 }
 .s_product_details {
   border: 1px solid #e3e3e3;
@@ -3482,6 +3485,11 @@ blockquote:after {
   width: 116px;
   height: 111px;
   background-position: 0px -600px;
+}
+@media all and (max-width: 900px) {
+  .l_product_details {
+    padding: 136px 0px 90px;
+  }
 }
 /* -------- 목록 디테일 헤더 -------- */
 .l_product_details__header {
@@ -3681,6 +3689,11 @@ blockquote:after {
   font-size: 16px;
   letter-spacing: -0.02em;
 }
+@media all and (max-width: 1110px) {
+  .l_product_details__main__right {
+    margin-top: 30px;
+  }
+}
 /* -------- 목록 디테일 표 -------- */
 .l_product_details__nutrition .s_product_details__nutrition__table {
   border-collapse: separate;
@@ -3706,13 +3719,22 @@ blockquote:after {
 .s_product_details__nutrition__desc {
   font-weight: 700;
 }
+@media all and (max-width: 900px) {
+  .l_product_details__nutrition .s_product_details__nutrition__table th,
+  .l_product_details__nutrition .s_product_details__nutrition__table td {
+    width: 200px;
+  }
+  .l_product_details__nutrition .s_product_details__nutrition__table tbody th {
+    width: 200px;
+  }
+}
 /* -------- 목록 디테일 비디오 -------- */
 .s_product_details__video {
   width: 918px;
 }
 /* -------- 목록 디테일 기타 -------- */
 .l_product_others__container {
-  padding: 100px 0;
+  padding: 100px 30px;
 }
 .l_product_others__title {
   margin-bottom: 70px;
@@ -3727,9 +3749,26 @@ blockquote:after {
   letter-spacing: -0.05em;
   font-weight: 700;
 }
+.l_product_others__items {
+  display: flex;
+  justify-content: flex-start;
+}
 .product_others__item {
   margin-right: 100px;
   cursor: pointer;
+}
+.l_product_others__image {
+  width: 20%;
+  max-width: 284px;
+  margin-right: 30px;
+}
+.l_product_others__container img {
+  width: 100%;
+}
+@media all and (max-width: 1110px) {
+  .l_product_details__main {
+    flex-direction: column;
+  }
 }
 .perspective {
   perspective-origin: center center;
