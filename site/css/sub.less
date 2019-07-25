@@ -3,6 +3,7 @@
 
 .s_breadscrum {
   background: @color_grey50;
+  position: relative;
 }
 
 .l_breadscrum__items {
@@ -42,6 +43,21 @@
   .sprites();
   .sprites--downarrow();
 }
+
+.s_breadscrum .shoplink {
+  position: absolute;
+  right: 0;
+  top: 0;
+  .sprites.shoplink--big();
+}
+
+
+@media all and (max-width: 1110px) {
+  .s_breadscrum .shoplink {
+    top:100%;
+  }
+}
+
 
 
 /* -------- 서브 배너 -------- */
@@ -107,6 +123,48 @@
 .s_product_banner_button {
   width: 200px;
 }
+
+
+@media all and (max-width: 1110px) {
+  .l_product_banner {
+    margin-top: 20px;
+  }
+  .l_product_banner__details {
+
+    text-align: center;
+  }
+
+  .l_product_banner__details {
+    align-items: center;
+  }
+
+  .l_product_banner_button {
+    margin-right: 0;
+  }
+}
+
+@media all and (max-width: 900px) {
+  .l_product_banner__container {
+    flex-direction: column;
+  }
+  .l_product_banner__details {
+    margin: 81px 0px 20px;
+  }
+  .l_product_banner__main {
+    position:static;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .l_product_banner {
+    margin-top: 100px;
+  }
+  .l_product_banner_buttons {
+    flex-direction: column;
+  }
+}
+
+
 
 
 /* -------- 필터 UI -------- */
@@ -218,6 +276,46 @@
 }
 
 
+
+@media all and (max-width: 900px) {
+
+  .l_product_filter_buttons {
+    flex-wrap: wrap;
+    width: 500px;
+    justify-content: flex-start;
+  }
+
+  .product_filter_button {
+    margin: 10px 30px;
+  }
+
+}
+
+
+@media all and (max-width: 600px) {
+  .l_product_filter_buttons {
+    width: 300px;
+    justify-content: center;
+  }
+  .product_filter_button {
+    margin: 10px 10px;
+  }
+  .s_product_filter__search__input {
+    width: 300px;
+  }
+  .s_product_filter__search__input__input {
+    width:  280px;
+  }
+  .s_product_filter__search__input__line {
+    width: 300px;
+  }
+
+
+}
+
+
+
+
 /* -------- 목록 헤더-------- */
 
 .product_list  {
@@ -268,6 +366,7 @@
 .l_product_list__list {
   display:flex;
   flex-wrap: wrap;
+  margin: 0 auto;
 }
 .l_product_list__item {
   .flex_center_center();
@@ -309,9 +408,51 @@
 
 
 
+@media all and (max-width: 600px) {
+
+  .l_product_list__header {
+    flex-direction: column;
+  }
+
+  .s_product_list__header__desc {
+    text-align: center;
+  }
+
+  .l_product_list__header__sort {
+    margin-top: 15px;
+    justify-content: center;
+  }
+
+  .product_list__header__sort__button {
+    margin-left: 0;
+    margin-right: 10px;
+  }
+
+  .s_product_list__item {
+    img {
+      max-width: 50%;
+      max-height: 50%;
+    }
+  }
+
+  
+  .product_list__item.js-big.s_product_list__item {
+    width: 276px;
+    height: 276px;
+  }
+
+}
 
 
-/* -------- 목록 디테일 틀 -------- */
+
+
+
+
+
+
+
+
+/* -------- 상품  디테일 틀 -------- */
 
 .l_product_details {
   position: relative;

@@ -116,6 +116,16 @@ a {
   color: @color_black75;
 }
 
+::-moz-selection { /* Code for Firefox */
+  color: @color_red;
+  background: @color_yellow;
+}
+
+::selection {
+  color: @color_red;
+  background: @color_yellow;
+}
+
 /* ---------- LAYOUT  ---------- */
 @line_1line: 27px;
 @line_2line: 54px;
@@ -125,6 +135,14 @@ a {
   width: 1110px;
   margin: 0 auto;
 }
+
+@media all and (max-width: 1110px) {
+  .container {
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+} 
 
 .clearfix:after {
   content: "";
@@ -209,7 +227,12 @@ body {
   right: 0;
 }
 
-
+.m_validate_ok {
+  text-align: right;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
 
 
 /* ------------ FLEX 지원 안할 때 대체 CSS ----------- */

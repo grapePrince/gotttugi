@@ -12,7 +12,6 @@ $(document).ready(function() {
   var $recipeProcessDetails = $('.receipe__process__item__detail');
   var $recipeProcessItems = $('.recipe__process__item');
 
-
   var CLASS_SEARCH_OPENED = "open_search";
   var CLASS_SUB_OPENED = "open_sub";
   var CLASS_SETTING_OPENED = "open_setting";
@@ -70,6 +69,10 @@ $(document).ready(function() {
     if (isMobileDevice()) {
       initMobileDevice();      
     } else {
+
+      // fit video
+      fitVideo();
+
       fullPage = new fullpage("#fullpage", {
         //options here
         responsiveWidth: FULLPAGE_WIDTH,
@@ -130,6 +133,43 @@ $(document).ready(function() {
     }
   }
 
+  function fitVideo() {
+    var $container = $('.full-bg');
+    var wind = $(this),
+    windowWidth = $(window).width(),
+    windowHeight = $(window).height(),
+    imageRatio = 1920 / 1080,
+    browserRatio = windowWidth / windowHeight,
+    imageWidth,
+    imageHeight,
+    imageLeft,
+    imageTop;
+
+    if($(window).outerWidth() < FULLPAGE_WIDTH) {
+      $('.section--corporation video').width('100%');
+      return;
+    } 
+
+    if (imageRatio > browserRatio) { // 이미지 가로가 더 길 때는 높이가 브라우저와 같아진다. 
+        imageHeight = windowHeight;
+        imageTop = 0;
+        imageWidth = imageRatio * imageHeight;   
+        imageLeft =  (windowWidth - imageWidth) / 2;            
+    } else { // 브라우저 가로가 더 길 때는 가로가 브라우저와 같아진다.          
+        imageWidth = windowWidth;
+        imageLeft = 0;
+        imageHeight =  imageWidth / imageRatio;    
+        imageTop =  (windowHeight - imageHeight) / 2;   
+    }
+
+    $container.css({
+        width: imageWidth + 'px',
+        height: imageHeight + 'px',
+        left: imageLeft + 'px',
+        top: imageTop + 'px',
+    })
+  }
+
   function initMobileDevice() {
   // 모바일 디바이스인 경우에는 fullpage.js 를 아예 로드하지 않는다.
     if (!bannerSlider) {
@@ -145,6 +185,8 @@ $(document).ready(function() {
       });
     }
     $(document.body).addClass('js-mobile');
+    $('.m_scroll_down').hide();
+    $('.m_back_to_top').hide();
   }
   
   function lineFillNext(index) {
@@ -422,6 +464,10 @@ $(document).ready(function() {
       resetRecipeAnimation();
     }
 
+      fitVideo();
+
+
+
     if (typeof fullpage_api !== "undefined") {
       fullpage_api.reBuild(); // 화면 높이, 너비 등등이 바뀌고 나면 풀페이지 라이브러리 재로드.
     }
@@ -470,6 +516,7 @@ $(document).ready(function() {
   }
 
 function initSub() {
+  
   if($('.' + PAGE_PROJECT_LIST).length > 0) { // PROJECT LIST 페이지인 경우 
     $.getJSON('../data/content.json', initGallery);
   }
@@ -530,7 +577,8 @@ function addItems(){
           $grid = $('.product_list__list').isotope({
             itemSelector: '.product_list__item',
             masonry: {
-              columnWidth: 276
+              columnWidth: 276,
+              isFitWidth: true
             },
             getSortData: {
               popular: '[data-popular]',
