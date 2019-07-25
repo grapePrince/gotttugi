@@ -477,7 +477,7 @@
   .sprites--product--logo();
 }
 
-@media all and (max-width: 900px) {
+@media all and (max-width: 1110px) {
   .l_product_details {
     padding: 136px 0px 90px;
   }
@@ -548,6 +548,13 @@
   .sprites();
   .sprites--product--rotate();
   cursor: pointer;
+}
+
+@media all and (max-width: 600px) {
+  .s_product_details__main__left {
+    width: 300px;
+    height: 450px;
+  }
 }
 
 
@@ -660,9 +667,27 @@
 @media all and (max-width: 1110px) {
   .l_product_details__main__right {
     margin-top: 30px;
+    padding: 0 10px;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 
+
+@media all and (max-width: 600px) {
+  .l__product_details__main__right__attrs {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .l__product_details__main__right__attr {
+    margin-bottom: 20px;
+  }
+  .l__product_details__main__right__attr__text {
+    margin-top: 5px;
+  }  
+}
 
 
 
@@ -688,7 +713,7 @@
 }
 
 .l_product_details__nutrition__desc {
-  margin: 13px 0 @line_2line;
+  margin: 13px 10px @line_2line;
 }
 .s_product_details__nutrition__desc {
   font-weight: 700;
@@ -697,23 +722,38 @@
 
 @media all and (max-width: 900px) {
   .l_product_details__nutrition .s_product_details__nutrition__table {
+    margin: 0 auto;
     th, td {
-      width: 200px;
+      display:block;
+      width: auto;
+      height: auto;
+      padding: 7px;
     }
     tbody th {
-      width: 200px;
+      display: block;
+      width: auto;
+    }
+    tr {
+      display:table-cell;
     }
   }
-
-
+  .l_product_details__nutrition__desc {
+    text-align: center;
+  }
 }
 
 
 
 /* -------- 목록 디테일 비디오 -------- */
 
+.l_product_details__video {
+ display:flex;
+ justify-content: center;
+}
+
 .s_product_details__video {
-  width: 918px;
+  width: 80%;
+  max-width: 918px;
 }
 
 /* -------- 목록 디테일 기타 -------- */

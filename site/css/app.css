@@ -3486,7 +3486,7 @@ blockquote:after {
   height: 111px;
   background-position: 0px -600px;
 }
-@media all and (max-width: 900px) {
+@media all and (max-width: 1110px) {
   .l_product_details {
     padding: 136px 0px 90px;
   }
@@ -3562,6 +3562,12 @@ blockquote:after {
   height: 29px;
   background-position: -550px -500px;
   cursor: pointer;
+}
+@media all and (max-width: 600px) {
+  .s_product_details__main__left {
+    width: 300px;
+    height: 450px;
+  }
 }
 /* -------- 목록 디테일 메인 오른쪽 -------- */
 .l_product_details__main__right {
@@ -3692,6 +3698,22 @@ blockquote:after {
 @media all and (max-width: 1110px) {
   .l_product_details__main__right {
     margin-top: 30px;
+    padding: 0 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+@media all and (max-width: 600px) {
+  .l__product_details__main__right__attrs {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .l__product_details__main__right__attr {
+    margin-bottom: 20px;
+  }
+  .l__product_details__main__right__attr__text {
+    margin-top: 5px;
   }
 }
 /* -------- 목록 디테일 표 -------- */
@@ -3714,23 +3736,41 @@ blockquote:after {
   width: 6%;
 }
 .l_product_details__nutrition__desc {
-  margin: 13px 0 54px;
+  margin: 13px 10px 54px;
 }
 .s_product_details__nutrition__desc {
   font-weight: 700;
 }
 @media all and (max-width: 900px) {
+  .l_product_details__nutrition .s_product_details__nutrition__table {
+    margin: 0 auto;
+  }
   .l_product_details__nutrition .s_product_details__nutrition__table th,
   .l_product_details__nutrition .s_product_details__nutrition__table td {
-    width: 200px;
+    display: block;
+    width: auto;
+    height: auto;
+    padding: 7px;
   }
   .l_product_details__nutrition .s_product_details__nutrition__table tbody th {
-    width: 200px;
+    display: block;
+    width: auto;
+  }
+  .l_product_details__nutrition .s_product_details__nutrition__table tr {
+    display: table-cell;
+  }
+  .l_product_details__nutrition__desc {
+    text-align: center;
   }
 }
 /* -------- 목록 디테일 비디오 -------- */
+.l_product_details__video {
+  display: flex;
+  justify-content: center;
+}
 .s_product_details__video {
-  width: 918px;
+  width: 80%;
+  max-width: 918px;
 }
 /* -------- 목록 디테일 기타 -------- */
 .l_product_others__container {

@@ -288,6 +288,9 @@ $(document).ready(function() {
   }
 
   function addEventListener() {
+    
+    $('.js-href').on('click', hrefHandler);
+
     $window.on("resize", resizeHandler);
 
     $("nav")
@@ -308,6 +311,11 @@ $(document).ready(function() {
     $('.m_back_to_top').on('click', toTopClicked); 
 
     addClassRelated();
+  }
+
+  function hrefHandler() {
+    var href = $(this).attr('data-href');
+    location.href = href;
   }
 
   function scrollDownClicked(e) {
@@ -410,8 +418,6 @@ $(document).ready(function() {
    */
 
   function handleClass(e) {
-    e.preventDefault();
-
     var target = $(this);
     var className = CLASS_ACTIVE;
     var func = "toggle";
@@ -426,6 +432,10 @@ $(document).ready(function() {
     } else {
       target.toggleClass(className);
     }
+
+    if($('.open_sub').length > 0 && $(window).outerWidth() <= 600) {
+      e.preventDefault();
+    } 
   }
 
   function resizeHandler(e) {
@@ -562,9 +572,9 @@ function addItems(){
       setTimeout(function() {
         $.each(slicedData, function(i, item){
           var itemHtml = 
-          '<div class="product_list__item l_product_list__item s_product_list__item ' + (item['js-big'] ? 'js-big ' : '') + item.sortingClass  +  '" data-popular="'+ item.popular +'" data-recent="'+ item.recent +'" data-views="'+ item.views +'">' +
+          '<div data-href="product_detail.html" class="js-href product_list__item l_product_list__item s_product_list__item ' + (item['js-big'] ? 'js-big ' : '') + item.sortingClass  +  '" data-popular="'+ item.popular +'" data-recent="'+ item.recent +'" data-views="'+ item.views +'">' +
             '<img src="' + item.image + '" alt="' + item.title + '" class="l_product_list__item__contents__image s_product_list__item__contents__image">' +
-            '<h4 class="s_product_list__item__contents__title">' +
+            '<h4 class=" s_product_list__item__contents__title">' +
             item.title +
             '</h4>' +
           '</div>';
@@ -595,6 +605,8 @@ function addItems(){
           $('.product_list__list').append(elements);
           $grid.isotope( 'appended', elements );
         }
+
+        $(elements).on('click', hrefHandler);
     
         $('.l_product_list_loading').hide();
       }, 500);
