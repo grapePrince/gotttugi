@@ -319,6 +319,11 @@
   }
 }
 
+footer {
+  position: relative;
+  z-index: 10;
+}
+
 .m_scroll_down {
   position: fixed;
   left: 50%; transform: translateX(-50%);
@@ -343,6 +348,14 @@
   background: @color_white;
   top: 58px;
   border-radius: 999px;
+}
+
+
+
+@media all and (max-width: 900px) {
+  .m_scroll_down {
+    display: none;
+  }
 }
 
 

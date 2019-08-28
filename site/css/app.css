@@ -840,6 +840,10 @@ body {
     display: none;
   }
 }
+footer {
+  position: relative;
+  z-index: 10;
+}
 .m_scroll_down {
   position: fixed;
   left: 50%;
@@ -871,6 +875,11 @@ body {
   background: #fff;
   top: 58px;
   border-radius: 999px;
+}
+@media all and (max-width: 900px) {
+  .m_scroll_down {
+    display: none;
+  }
 }
 .m_back_to_top {
   position: fixed;
@@ -2226,13 +2235,13 @@ blockquote:after {
 .popular__more {
   margin-top: -1px;
 }
-@media all and (max-width: 960px) {
+@media all and (max-width: 1110px) {
   .popular__main__container {
     flex-direction: column;
   }
   .popular__main__image {
     width: 70%;
-    max-width: 500px;
+    max-width: 400px;
   }
   .popular__main__image img {
     width: 100%;
@@ -2298,7 +2307,7 @@ blockquote:after {
     flex-direction: column;
   }
   .popular {
-    padding: 0;
+    padding: 150px 0 0;
   }
 }
 .l_recipe {
@@ -2339,19 +2348,6 @@ blockquote:after {
 }
 .s_recipe__main__image--fixed {
   width: 100%;
-}
-.l_recipe__main__image--fixed__container {
-  display: none;
-  position: fixed;
-  top: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding-top: 50px;
-}
-.s_recipe__main__image--fixed__container {
-  width: 80%;
-  background: #fff;
-  max-width: 550px;
 }
 .l_recipe__main__details .l_recipe__main__ingredients {
   text-align: center;
@@ -2445,7 +2441,7 @@ blockquote:after {
 @media all and (max-width: 1110px) {
   .l_recipe {
     position: relative;
-    padding: 500px 0 150px;
+    padding: 0px 0 150px;
   }
   .l_recipe__main {
     flex-direction: column;
@@ -2478,24 +2474,9 @@ blockquote:after {
     padding-top: 150px;
   }
 }
-/* js-visible 이 있으면 fixed 이미지를 보여준다. 
-   js-visible 은 recipe 섹션으로 갈 때 js 를 통해 들어온다. 
-   1110 이상일 때는 무조건 안보여줌 (resize 고려 필요 X) */
 @media all and (max-width: 1110px) {
-  .l_recipe__main__image {
-    display: none;
-  }
-  .l_recipe__main__image--fixed__container.js-visible {
-    display: block;
-  }
   .js-mobile .l_recipe {
     padding-top: 0px;
-  }
-  .js-mobile .l_recipe__main__image {
-    display: block;
-  }
-  .js-mobile .l_recipe__main__image--fixed__container.js-visible {
-    display: none;
   }
   .js-mobile .recipe__process__line {
     display: none;
@@ -2698,12 +2679,6 @@ blockquote:after {
   opacity: 1;
 }
 @media all and (max-width: 1110px) {
-  .l_recipe__main__image {
-    display: none;
-  }
-  .l_recipe__main__image--fixed__container.js-visible {
-    display: block;
-  }
   .js-mobile .l_factory_features .l_factory_feature {
     transform: translateY(0px);
     opacity: 1;
