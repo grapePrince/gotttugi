@@ -22,6 +22,7 @@ $(document).ready(function() {
   var galleryData = [];
   var currentIndex = 0;
   var addItemCount = 10;
+  var sectionOffset;
 
   var currentFilterArray = [];
 
@@ -69,6 +70,8 @@ $(document).ready(function() {
       initCorporation();
       initFactory();
       initScrollDown();
+      resetSectionOffset();
+      initPopular();
       
     }
   }
@@ -244,19 +247,43 @@ $(document).ready(function() {
     location.href = href;
   }
 
+
+
+  function resetSectionOffset() {
+    sectionOffset = {
+      "0": 0,
+      "1": $('.section_corporation1 ').offset().top,
+      "2": $('.section_corporation2 ').offset().top,
+      "3": $('section.new_product').offset().top,
+      "4": $('section.section--news').offset().top - $('section.section--news').height()/2,
+      "5": $('section.popular').offset().top,
+      "6": $('section.recipe').offset().top - 100,
+      "7": $('section.factory').offset().top - 100,
+      "8": $('section.media').offset().top,
+    }
+  }
+
   function scrollDownClicked(e) {
     e.preventDefault();
+    var currentScroll = $(window).scrollTop();
+    var currentSection = "0";
+    for( var key in sectionOffset ) {
+      var offset = sectionOffset[key];
+      if(currentScroll >= offset) {
+        currentSection = key;
+      }
+    }
 
-    // [TODO] 다음 섹션으로 이동한다. 
+    if(currentSection < 8) {
+      $('html,body').animate({ 
+        scrollTop: sectionOffset[Number(currentSection) + 1] + 10
+      });
+    }
   }
 
   function toTopClicked(e) {
     e.preventDefault();
-    if (isSub) {
-      $('html,body').animate({scrollTop: 0}, 500);
-    } else {
-      // [TODO] 첫번째 섹션으로 이동한다. 
-    }
+    $('html,body').animate({scrollTop: 0}, 500);
   }
 
   function mediaTabClicked() {
@@ -401,6 +428,8 @@ $(document).ready(function() {
     initCorporation();
     initFactory();
     initScrollDown();
+    resetSectionOffset();
+    initPopular();
 
     loadNewsSlider();
 
@@ -701,7 +730,13 @@ function playVideo(video) {
     video.currentTime = 0;
     video.play();
   } else {
-    videoQue.push(video);
+    if(videoQue && videoQue.length > 0) {
+      videoQue.push(video);
+    } else {
+      videoQue = [];
+      videoQue.push(video);
+    }
+    
   }
 }
 
@@ -722,6 +757,9 @@ function stopVideo(video) {
     video.pause();
     video.currentTime = 0;
   } else {
+    if(!videoQue) {
+      return;
+    }
     for(var i = 0; i < videoQue.length ; i++) {
       var item = videoQue[i];
       if(item === video) {
@@ -770,6 +808,35 @@ function initScrollDown() {
 }
 
 
+function initPopular() {   
+  if (!popular1) {
+    var popular1 = new Waypoint({
+      element: $('section.popular .popular__details'),
+      handler: function(direction) {
+        if(direction === "up") {
+          stopVideo($('.m_popular__details__video')[0]);
+        } else {
+          playVideo($('.m_popular__details__video')[0]);
+        }
+      },
+      offset: '90%'
+    });
+
+    var popular2 = new Waypoint({
+      element: $('.popular__more'),
+      handler: function(direction) {
+        if(direction === "up") {
+          playVideo($('.m_popular__details__video')[0]);
+        } else {
+          stopVideo($('.m_popular__details__video')[0]);
+        }
+      },
+      offset: '20%'
+    });
+  }     
+}
 
 
-  }); // end of file    
+
+
+}); // end of file    
