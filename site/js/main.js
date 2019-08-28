@@ -731,7 +731,9 @@ function playVideo(video) {
     video.play();
   } else {
     if(videoQue && videoQue.length > 0) {
-      videoQue.push(video);
+      if(indexOfVideo(video) == -1) {
+        videoQue.push(video);
+      }      
     } else {
       videoQue = [];
       videoQue.push(video);
@@ -750,6 +752,16 @@ setInterval(function() {
     }
   }
 }, 500);
+
+function indexOfVideo(video) {
+  for(var i = 0; i < videoQue.length ; i++) {
+    var item = videoQue[i];
+    if(item == video) {
+      return i;
+    }
+  }
+  return -1;
+}
 
 
 function stopVideo(video) {
