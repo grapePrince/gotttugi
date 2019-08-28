@@ -1,5 +1,3 @@
-
-
 $(document).ready(function() {
   var $window = $(window);
   var $header = $('header');
@@ -82,6 +80,9 @@ $(document).ready(function() {
         });
       }
 
+      initCorporation();
+
+
       // [TODO]
       // 맨 끝에 다다르면 scroll down 버튼을 안보이게 한다. 
 
@@ -107,6 +108,7 @@ $(document).ready(function() {
       
     }
   }
+
 
   function fitVideo() {
     var $container = $('.full-bg');
@@ -439,6 +441,8 @@ $(document).ready(function() {
       resetRecipeAnimation();
     }
 
+    initCorporation();
+
   }
 
   function navMouseEntered() {
@@ -653,7 +657,90 @@ function clickProductIngredients() {
   }  
 }
 
+function initCorporation() {
+  var corporation1_up;
+  var corporation1_down;
+  var corporation2_up;
+  var corporation2_down;
 
+  if($(window).outerWidth() > MOBILE_WIDTH) {
+    if(!corporation1_up) {
+      // 회사소개 - 위쪽경계
+      corporation1_up = new Waypoint({
+        element: $('.section_corporation1'),
+        handler: function(direction) {
+          if(direction === "up") {
+            $('.section_corporation1').find('video')[0].pause();
+            $('.section_corporation1').find('video')[0].currentTime = 0;
+          } else {
+            $('.section_corporation1').find('video')[0].currentTime = 0;
+            $('.section_corporation1').find('video')[0].play();
+          }
+        },
+        offset: '50%'
+      });
+
+        // 회사소개 - 아래쪽경계
+      corporation1_down = new Waypoint({
+        element: $('.section_corporation1'),
+        handler: function(direction) {
+          if(direction === "up") {
+            $('.section_corporation1').find('video')[0].currentTime = 0;
+            $('.section_corporation1').find('video')[0].play();          
+          } else {
+            $('.section_corporation1').find('video')[0].pause();
+            $('.section_corporation1').find('video')[0].currentTime = 0;
+          }
+        },
+        offset: '-50%'
+      });
+
+      // 회사이념 - 위쪽경계
+      corporation2_up = new Waypoint({
+        element: $('.section_corporation2'),
+        handler: function(direction) {
+          if(direction === "up") {
+            $('.section_corporation2').find('video')[0].pause();
+            $('.section_corporation2').find('video')[0].currentTime = 0;
+          } else {
+            $('.section_corporation2').find('video')[0].currentTime = 0;
+            $('.section_corporation2').find('video')[0].play();
+          }
+        },
+        offset: '50%'
+      });
+
+        // 회사이념 - 아래쪽경계
+      corporation2_down = new Waypoint({
+        element: $('.section_corporation2'),
+        handler: function(direction) {
+          if(direction === "up") {
+            $('.section_corporation2').find('video')[0].currentTime = 0;
+            $('.section_corporation2').find('video')[0].play();          
+          } else {
+            $('.section_corporation2').find('video')[0].pause();
+            $('.section_corporation2').find('video')[0].currentTime = 0;
+          }
+        },
+        offset: '-50%'
+      });
+    }
+  } else {
+    if(corporation1_up) {
+      corporation1_up.destroy();
+      corporation1_up = null;
+      corporation1_down.destroy();
+      corporation1_down = null;
+      corporation2_up.destroy();
+      corporation2_up = null;
+      corporation2_down.destroy();
+      corporation2_down = null;
+    }
+    $('.section_corporation1').find('video')[0].play();
+    $('.section_corporation2').find('video')[0].play();
+  }
+  
+}
 
 
 
