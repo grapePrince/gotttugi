@@ -787,6 +787,7 @@ function initFactory() {
 
 function initScrollDown() {
   if($(window).outerWidth() > MOBILE_WIDTH) {
+    $scrollDown.show();
     var scrollDown = new Waypoint({
       element: $('section.media'),
       handler: function(direction) {
@@ -804,6 +805,7 @@ function initScrollDown() {
       scrollDown.destroy();
       scrollDown = null;
     }
+    $scrollDown.hide();
   }
 }
 
