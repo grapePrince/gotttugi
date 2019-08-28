@@ -69,67 +69,42 @@ $(document).ready(function() {
     if (isMobileDevice()) {
       initMobileDevice();      
     } else {
-
-      // fit video
-      fitVideo();
-
-      fullPage = new fullpage("#fullpage", {
-        //options here
-        responsiveWidth: FULLPAGE_WIDTH,
-        scrollOverflow: true,
-        afterRender: function() {
-          if (!bannerSlider) {
-            bannerSlider = $(".sliderWrap").bxSlider({
-              pager: false,
-              prevSelector: ".banner .left",
-              nextSelector: ".banner .right",
-              onSliderLoad: function() {
-                if (!newsSlider) {
-                  loadNewsSlider();
-                }
-              }
-            });
+      if (!bannerSlider) {
+        bannerSlider = $(".sliderWrap").bxSlider({
+          pager: false,
+          prevSelector: ".banner .left",
+          nextSelector: ".banner .right",
+          onSliderLoad: function() {
+            if (!newsSlider) {
+              loadNewsSlider();
+            }
           }
-        },
-        afterReBuild: function() {
-          if (
-            firstRebuild ||
-            ($(window).outerWidth() > FULLPAGE_WIDTH &&
-              $(".fp-scrollable").length < 1)
-          ) {
-            // fullPage.js 에서 scrollOverflow:true , fp-auto-height-responsive 를 함께 썼을 때
-            // window resize를 통해 모바일 구간에서 pc 구간으로 이동하는 경우
-            // 처음 한번은 스크롤 엘리먼트가 제대로 들어오지 않는 이슈 대응.
-            setTimeout(function() {
-              $(window).resize();
-            }, 500);
-            firstRebuild = false;
-          }
-        },
-        onLeave: function(origin, destination, direction) {
-          if (
-            destination.index === SECTION_NEWS 
-            || 
-            destination.index === SECTION_MEDIA
-          ) {
-            $scrollDown.hide();
-          } else {
-            $scrollDown.show();
-          } 
-          
-          if(destination.index === SECTION_RECIPE) {
-            $recipeFixedImage.addClass('js-visible');
-          } else {
-            $recipeFixedImage.removeClass('js-visible');
-          }
+        });
+      }
 
-          if(destination.index === SECTION_FACTORY) {
-            $('.l_factory_feature').addClass('js-active');
-            $('.factory__image').addClass('js-active');
-          }
+      // [TODO]
+      // 맨 끝에 다다르면 scroll down 버튼을 안보이게 한다. 
 
-        }
-      });  
+      // [TODO]
+      // 레시피 구간에 들어가면 할일 
+      /*
+      if(destination.index === SECTION_RECIPE) {
+        $recipeFixedImage.addClass('js-visible');
+      } else {
+        $recipeFixedImage.removeClass('js-visible');
+      }
+      */
+
+      // [TODO]
+      // 공장 구간 들어가면 할 일 
+      /*
+      if(destination.index === SECTION_FACTORY) {
+        $('.l_factory_feature').addClass('js-active');
+        $('.factory__image').addClass('js-active');
+      }
+      */
+
+      
     }
   }
 
@@ -144,22 +119,6 @@ $(document).ready(function() {
     imageHeight,
     imageLeft,
     imageTop;
-
-  
-    if($(window).outerWidth() < FULLPAGE_WIDTH) {
-      imageWidth = '100%';
-      imageLeft = 0;
-      imageHeight =  'auto';    
-      imageTop =  0;  
-      $container.css({
-        width: imageWidth,
-        height: imageHeight,
-        left: imageLeft + 'px',
-        top: imageTop + 'px',
-      });
-      return;
-    } 
-
 
     if (imageRatio > browserRatio) { // 이미지 가로가 더 길 때는 높이가 브라우저와 같아진다. 
         imageHeight = windowHeight;
@@ -182,7 +141,6 @@ $(document).ready(function() {
   }
 
   function initMobileDevice() {
-  // 모바일 디바이스인 경우에는 fullpage.js 를 아예 로드하지 않는다.
     if (!bannerSlider) {
       bannerSlider = $(".sliderWrap").bxSlider({
         pager: false,
@@ -274,16 +232,6 @@ $(document).ready(function() {
                 .play();
             });
           }
-          if (!isMobileDevice()) {
-            // 모바일 디바이스인 경우 풀페이지를 로드하지 않는다.
-            // bxSlider 가 로드되어 높이가 정리된 후엔 rebuild 하여 높이 재정리
-            // setTimeout 사용하지 않을시 IE 에서 rebuild 함수 호출 오류
-            // 정의되지 않음 또는 null 참조인 'createScrollBarForAll' 속성을 가져올 수 없습니다. 확인 필요
-            setTimeout(function() {
-              firstRebuild = true;
-              fullpage_api.reBuild();
-            }, 100);
-          }
         },
       }
     };
@@ -336,7 +284,8 @@ $(document).ready(function() {
 
   function scrollDownClicked(e) {
     e.preventDefault();
-    fullpage_api.moveSectionDown();
+
+    // [TODO] 다음 섹션으로 이동한다. 
   }
 
   function toTopClicked(e) {
@@ -344,7 +293,7 @@ $(document).ready(function() {
     if (isSub) {
       $('html,body').animate({scrollTop: 0}, 500);
     } else {
-      fullpage_api.silentMoveTo(1);
+      // [TODO] 첫번째 섹션으로 이동한다. 
     }
   }
 
@@ -490,11 +439,6 @@ $(document).ready(function() {
       resetRecipeAnimation();
     }
 
-    fitVideo();
-
-    if (typeof fullpage_api !== "undefined") {
-      fullpage_api.reBuild(); // 화면 높이, 너비 등등이 바뀌고 나면 풀페이지 라이브러리 재로드.
-    }
   }
 
   function navMouseEntered() {
