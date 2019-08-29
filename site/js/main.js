@@ -71,9 +71,9 @@ $(document).ready(function() {
       initFactory();
       initScrollDown();
       resetSectionOffset();
-      initPopular();
-      
+      initPopular(); 
     }
+    initNews();
   }
 
 
@@ -145,11 +145,11 @@ $(document).ready(function() {
         clickable: true
       },
       slidesPerView: 'auto',
-      breakpoints: {
-        1110: {
-          slidesPerView: 1
-        }
-      },
+      // breakpoints: {
+      //   1110: {
+      //     slidesPerView: 1
+      //   }
+      // },
       loopedSlides: 30,
       spaceBetween: 50,
       speed: 500,
@@ -173,7 +173,7 @@ $(document).ready(function() {
     };
 
     if(!newsSlider) {
-      newsSlider = new Swiper(".swiper-container", config);
+     newsSlider = new Swiper(".swiper-container", config);
     } else {
       newsSlider.update();
     }
@@ -207,20 +207,27 @@ $(document).ready(function() {
 
     $('.video__container').on('click', videoClicked);
 
+    $('a[href="#"]').on('click', function(e) { e.preventDefault(); });
+
     addClassRelated();
   }
 
   function hrefHandler() {
     var href = $(this).attr('data-href');
-    if(href[0] === 'h') {
-      location.href = href;
+    var home_url; 
+
+    if(location.href.indexOf('rahata.dothome.co.kr') !== -1) {
+      home_url = location.origin + '/gotttugi';
+    } else if (location.href.indexOf('file') !== -1) {
+      var home_urls = location.href.split('/');
+      home_urls = home_urls.splice(0, home_urls.length - 1);
+      home_url = home_urls.join('/');
     } else {
-      href = '/gotttugi/' + href;
+      var home_url = location.origin;
     }
-    location.href = href;
+
+    location.href = home_url + href;
   }
-
-
 
   function resetSectionOffset() {
     sectionOffset = {
@@ -404,6 +411,7 @@ $(document).ready(function() {
     initScrollDown();
     resetSectionOffset();
     initPopular();
+    initNews();
     loadNewsSlider();
     
 
@@ -498,7 +506,7 @@ function addItems(){
       setTimeout(function() {
         $.each(slicedData, function(i, item){
           var itemHtml = 
-          '<div data-href="product_detail.html" class="js-href product_list__item l_product_list__item s_product_list__item ' + (item['js-big'] ? 'js-big ' : '') + item.sortingClass  +  '" data-popular="'+ item.popular +'" data-recent="'+ item.recent +'" data-views="'+ item.views +'">' +
+          '<div data-href="/product_detail.html" class="js-href product_list__item l_product_list__item s_product_list__item ' + (item['js-big'] ? 'js-big ' : '') + item.sortingClass  +  '" data-popular="'+ item.popular +'" data-recent="'+ item.recent +'" data-views="'+ item.views +'">' +
             '<img src="' + item.image + '" alt="' + item.title + '" class="l_product_list__item__contents__image s_product_list__item__contents__image">' +
             '<h4 class=" s_product_list__item__contents__title">' +
             item.title +
@@ -872,6 +880,16 @@ function fitVideo($video) {
   })
 }
 
+
+function initNews() {
+  if($(window).outerWidth() < 650) {
+    $('.news_image_2').attr('src', "images/event_2_mobile.jpg");
+    $('.news_image_3').attr('src', "images/event_3_mobile.jpg");
+  } else {
+    $('.news_image_2').attr('src', "images/event_2.jpg");
+    $('.news_image_3').attr('src', "images/event_3.jpg");
+  }
+}
 
 
 
