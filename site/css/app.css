@@ -369,6 +369,11 @@ body {
   height: 29px;
   background-position: -550px -500px;
 }
+.sprites--close {
+  width: 21px;
+  height: 21px;
+  background-position: -800px 0px;
+}
 .banner .left a {
   display: inline-block;
   background: url(../images/sprite.png) no-repeat;
@@ -982,6 +987,64 @@ footer {
 }
 .skip_navigation:focus span {
   top: 0;
+}
+.video__container {
+  position: relative;
+  cursor: pointer;
+}
+.video__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 10;
+}
+.video__background {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.video__container:hover .video__icon,
+.video__container:hover .video__background {
+  display: block;
+}
+.video__container.js-active {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+}
+.video__container.js-active .video__background {
+  background: #333333;
+  display: block;
+}
+.video__container.js-active video {
+  position: relative;
+  width: 100%;
+  z-index: 3;
+}
+.video__container.js-active:hover {
+  width: 100%;
+  max-width: none;
+}
+.video__container.js-active:hover .video__background {
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+}
+.video__container.js-active:hover .video__icon {
+  width: 21px;
+  height: 21px;
+  background-position: -800px 0px;
+}
+video {
+  width: 100%;
 }
 /* ---------- HEADER - LAYOUT  ---------- */
 header {

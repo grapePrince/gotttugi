@@ -77,37 +77,6 @@ $(document).ready(function() {
   }
 
 
-  function fitVideo() {
-    var $container = $('.full-bg');
-    var wind = $(this),
-    windowWidth = $(window).width(),
-    windowHeight = $(window).height(),
-    imageRatio = 1920 / 1080,
-    browserRatio = windowWidth / windowHeight,
-    imageWidth,
-    imageHeight,
-    imageLeft,
-    imageTop;
-
-    if (imageRatio > browserRatio) { // 이미지 가로가 더 길 때는 높이가 브라우저와 같아진다. 
-        imageHeight = windowHeight;
-        imageTop = 0;
-        imageWidth = imageRatio * imageHeight;   
-        imageLeft =  (windowWidth - imageWidth) / 2;            
-    } else { // 브라우저 가로가 더 길 때는 가로가 브라우저와 같아진다.          
-        imageWidth = windowWidth;
-        imageLeft = 0;
-        imageHeight =  imageWidth / imageRatio;    
-        imageTop =  (windowHeight - imageHeight) / 2;   
-    }
-
-    $container.css({
-        width: imageWidth + 'px',
-        height: imageHeight + 'px',
-        left: imageLeft + 'px',
-        top: imageTop + 'px',
-    })
-  }
 
   function initMobileDevice() {
     if (!bannerSlider) {
@@ -215,7 +184,9 @@ $(document).ready(function() {
     
     $('.js-href').on('click', hrefHandler);
 
-    $window.on("resize", resizeHandler);
+    if($(document.body).hasClass('main')) {
+      $window.on("resize", resizeHandler);
+    }
 
     $("nav")
       .on("mouseenter", navMouseEntered)
@@ -233,6 +204,8 @@ $(document).ready(function() {
 
     $('.m_scroll_down').on('click', scrollDownClicked);
     $('.m_back_to_top').on('click', toTopClicked); 
+
+    $('.video__container').on('click', videoClicked);
 
     addClassRelated();
   }
@@ -425,13 +398,14 @@ $(document).ready(function() {
       resetRecipeAnimation();
     }
 
+
     initCorporation();
     initFactory();
     initScrollDown();
     resetSectionOffset();
     initPopular();
-
     loadNewsSlider();
+    
 
   }
 
@@ -848,6 +822,54 @@ function initPopular() {
       offset: '20%'
     });
   }     
+}
+
+var resizeVideo; 
+
+function videoClicked() {
+  var $video = $(this).find('video');
+  if($(this).hasClass('js-active')) {
+    $(this).removeClass('js-active');
+    $window.off('resize', resizeVideo);
+    $video.attr('style', '');
+  } else {
+    $(this).addClass('js-active');
+    fitVideo( $video);
+    resizeVideo = $window.on("resize", function() {
+      fitVideo($video);
+    });
+  }
+}
+
+
+function fitVideo($video) {
+  var windowWidth = $(window).width(),
+  windowHeight = $(window).height(),
+  videoRatio = 1920 / 1080,
+  browserRatio = windowWidth / windowHeight,
+  videoWidth,
+  videoHeight,
+  videoLeft,
+  videoTop;
+
+  if (videoRatio > browserRatio) { // 비디오 가로가 더 길 때는 높이가 브라우저와 같아진다. 
+    videoHeight = windowHeight;
+    videoTop = 0;
+    videoWidth = videoRatio * videoHeight;   
+    videoLeft =  (windowWidth - videoWidth) / 2;            
+  } else { // 브라우저 가로가 더 길 때는 비디오 가로가 브라우저와 같아진다.          
+    videoWidth = windowWidth;
+    videoLeft = 0;
+    videoHeight =  videoWidth / videoRatio;    
+    videoTop =  (windowHeight - videoHeight) / 2;   
+  }
+
+  $video.css({
+      width: videoWidth + 'px',
+      height: videoHeight + 'px',
+      left: videoLeft + 'px',
+      top: videoTop + 'px',
+  })
 }
 
 

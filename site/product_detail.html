@@ -589,19 +589,22 @@
         <p class="l_product_details__nutrition__desc s_product_details__nutrition__desc">% 영양성분 기준치 : 1일 영양성분 기준치에 대한 비율</p>
       </div>
       <div class="l_product_details__video">
-        <video
-          class="s_product_details__video"
-          data-autoplay
-          muted
-          loop
-          poster="images/corporation_thumnail_2.jpg"
-        >
-          <source src="https://res.cloudinary.com/dsgbmcrq7/video/upload/v1564031413/corporation_2_tngco7.ogv" type="video/ogv" />
-          <source src="https://res.cloudinary.com/dsgbmcrq7/video/upload/v1564031419/corporation_2_b7uhyr.mp4" type="video/mp4" />
-          <source src="https://res.cloudinary.com/dsgbmcrq7/video/upload/v1564031485/corporation_2_mkwplr.webm" type="video/webm" />
-          
-          <span>이 브라우저는 video요소를 지원하지 않습니다.</span>
-        </video>
+        <div class="s_product_details__video video__container">
+          <video
+            data-autoplay
+            muted
+            loop
+            poster="images/corporation_thumnail_2.jpg"
+          >
+            <source src="https://res.cloudinary.com/dsgbmcrq7/video/upload/v1564031413/corporation_2_tngco7.ogv" type="video/ogv" />
+            <source src="https://res.cloudinary.com/dsgbmcrq7/video/upload/v1564031419/corporation_2_b7uhyr.mp4" type="video/mp4" />
+            <source src="https://res.cloudinary.com/dsgbmcrq7/video/upload/v1564031485/corporation_2_mkwplr.webm" type="video/webm" />
+            
+            <span>이 브라우저는 video요소를 지원하지 않습니다.</span>
+          </video>
+          <div class="video__background hidden_text">마우스오버배경</div>
+          <span class="video__icon sprites search_button">크게보기아이콘</span>
+        </div>
       </div>
     </section>
     <section class="product_others s_product_others">
@@ -643,10 +646,6 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/jquery.bxslider.js"></script>
     <script src="js/swiper.min.js"></script>
-    <script src="js/scrolloverflow.min.js"></script>
-    <script src="js/fullpage.min.js"></script>
-    <!-- <script src="js/all.min.js"></script> -->
-    <script src="js/modernizr-custom.js"></script>
     <script src="js/jquery.smooth-scroll.min.js"></script>
     <script src="js/jquery.animateNumber.min.js"></script>
     <script src="js/jquery.waypoints.min.js"></script>
