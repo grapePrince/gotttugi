@@ -210,7 +210,7 @@ $(document).ready(function() {
 
     $gnbMenuList.on("click", gnbMenuClicked);
 
-    $("nav > ul > li")
+    $("nav > ul ul li")
       .on("mouseenter", gnbListMouseEntered)
       .on("mouseleave", gnbListMouseLeaved);
 
@@ -470,7 +470,7 @@ $(document).ready(function() {
   function gnbListMouseEntered() {
     if ($header.hasClass(CLASS_SUB_OPENED) && !isMobile) {
       // 서브메뉴가 열려있는 동안만 이미지를 보여준다.
-      var className = $(this).attr("data-class");
+      var className = $(this).parent().parent().attr("data-class");
       var $img = $("header nav .background img").filter("." + className);
       $img
         .stop()
@@ -480,7 +480,7 @@ $(document).ready(function() {
   }
 
   function gnbListMouseLeaved() {
-    var className = $(this).attr("data-class");
+    var className = $(this).parent().parent().attr("data-class");
     var $img = $("header nav .background img").filter("." + className);
     $img.stop().hide();
   }

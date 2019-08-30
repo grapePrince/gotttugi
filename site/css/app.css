@@ -3278,7 +3278,7 @@ blockquote:after {
 }
 .l_product_banner__main {
   position: absolute;
-  left: 40px;
+  left: 100px;
   top: 40px;
 }
 .l_product_banner__details {
@@ -3596,6 +3596,22 @@ blockquote:after {
 .s_product_list_loading__image {
   width: 81px;
 }
+@media all and (max-width: 1100px) {
+  .l_product_list__header {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+}
+@media all and (max-width: 1100px) {
+  .s_product_list__item img {
+    max-width: 50%;
+    max-height: 50%;
+  }
+  .product_list__item.js-big.s_product_list__item {
+    width: 276px;
+    height: 276px;
+  }
+}
 @media all and (max-width: 600px) {
   .l_product_list__header {
     flex-direction: column;
@@ -3611,14 +3627,6 @@ blockquote:after {
     margin-left: 0;
     margin-right: 10px;
   }
-  .s_product_list__item img {
-    max-width: 50%;
-    max-height: 50%;
-  }
-  .product_list__item.js-big.s_product_list__item {
-    width: 276px;
-    height: 276px;
-  }
 }
 /* -------- 상품  디테일 틀 -------- */
 .l_product_details {
@@ -3626,8 +3634,9 @@ blockquote:after {
   margin-top: 100px;
   padding: 136px 80px 90px;
   box-sizing: border-box;
-  margin: 50px 30px 0;
+  margin: 150px auto;
   width: auto;
+  max-width: 1110px;
 }
 .s_product_details {
   border: 1px solid #e3e3e3;
@@ -3702,6 +3711,7 @@ blockquote:after {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 50px;
 }
 .l_product_details__main__left__desc {
   display: flex;
@@ -3869,8 +3879,15 @@ blockquote:after {
   .l_product_details__main__right {
     margin-top: 30px;
     padding: 0 10px;
-    width: 100%;
+    width: 60%;
+    max-width: 570px;
     box-sizing: border-box;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  .l__product_details__main__right__origin {
+    width: 550px;
   }
 }
 @media all and (max-width: 600px) {
@@ -3884,6 +3901,14 @@ blockquote:after {
   }
   .l__product_details__main__right__attr__text {
     margin-top: 5px;
+  }
+  .l__product_details__main__right__origin {
+    width: 450px;
+  }
+}
+@media all and (max-width: 450px) {
+  .l__product_details__main__right__origin {
+    width: 300px;
   }
 }
 /* -------- 목록 디테일 표 -------- */
@@ -3969,7 +3994,8 @@ blockquote:after {
 }
 .l_product_others__image {
   width: 20%;
-  max-width: 284px;
+  max-width: 150px;
+  min-width: 90px;
   margin-right: 30px;
 }
 .l_product_others__container img {
