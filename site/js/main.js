@@ -786,7 +786,9 @@ function initScrollDown() {
       element: $('section.media'),
       handler: function(direction) {
         if(direction === "up") {
-          $scrollDown.show();  
+          if($(window).outerWidth() > MOBILE_WIDTH) {
+            $scrollDown.show();  
+          }
         } else {
           $scrollDown.hide();
         }
