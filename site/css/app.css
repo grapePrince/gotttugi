@@ -1442,6 +1442,7 @@ header.open_sub nav .background {
   justify-content: space-between;
   align-items: center;
   height: 80px;
+  padding: 0 20px;
 }
 .sub header .upper_nav_dummy {
   width: 132px;
@@ -1453,7 +1454,7 @@ header.open_sub nav .background {
   align-items: center;
   height: 80px;
   border-bottom: none;
-  right: 0;
+  right: 20px;
   top: 0;
   bottom: 0;
 }
@@ -1475,6 +1476,55 @@ header.open_sub nav .background {
 .sub header nav .background {
   border-top: none;
   top: 50px;
+}
+.sub header.open_search .upper_nav .search_input {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+  position: fixed;
+  transform: translateX(-50%);
+  z-index: 3;
+  left: 50%;
+  top: 120px;
+  width: 400px;
+}
+.sub header.open_search .upper_nav .search_input input[type="text"] {
+  width: 400px;
+}
+.sub header.open_search .upper_nav .search_input span {
+  width: 400px;
+}
+.sub header.open_search .upper_nav .search {
+  width: 120px;
+  padding: 5px 15px;
+  border: 1px solid #fef100;
+  box-shadow: none;
+}
+.sub header.open_search .upper_nav .search .icon {
+  background-position-y: -30px;
+  position: static;
+  top: auto;
+  left: auto;
+  transform: none;
+}
+.sub header.open_search .upper_nav .search .text,
+.sub header.open_search .upper_nav .search .arrow {
+  right: 15px;
+  margin-left: 7px;
+  opacity: 1;
+  color: #666666;
+}
+.sub header.open_search nav .background {
+  height: 120px;
+}
+.sub header.open_search nav .background .close {
+  position: absolute;
+  display: block;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -100%);
+  margin-left: 250px;
+  cursor: pointer;
 }
 @media all and (max-width: 900px) {
   .sub header nav {

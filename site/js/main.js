@@ -16,6 +16,9 @@ $(document).ready(function() {
   var MOBILE_WIDTH = 600;
   var TABLET_WIDTH = 1110;
 
+  var isMobile = $(window).outerWidth() <= MOBILE_WIDTH ? true : false;
+  var underTabletWidth = $(window).outerWidth() <= TABLET_WIDTH ? true : false;
+
   var PAGE_PROJECT_LIST = 'js-project_list';
   var PAGE_PROJECT_DETAIL = 'js-project_detail';
 
@@ -30,13 +33,6 @@ $(document).ready(function() {
 
   var bannerSlider;
   var newsSlider;
-
-  var fullPage;
-  var firstRebuild = false;
-
-  var isMobile = $(window).outerWidth() <= MOBILE_WIDTH ? true : false;
-  var underTabletWidth = $(window).outerWidth() <= TABLET_WIDTH ? true : false;
-  var isSub = false;
 
   var ing_recipeProcess = true;
 
@@ -161,6 +157,10 @@ $(document).ready(function() {
       },
       on: {
         init: function () {
+          
+          isMobile = $(window).outerWidth() <= MOBILE_WIDTH ? true : false;
+          underTabletWidth = $(window).outerWidth() <= TABLET_WIDTH ? true : false;
+          
           if (isMobile) {
             $("video").each(function() {
               $(this)
@@ -180,17 +180,35 @@ $(document).ready(function() {
      
   }
 
-  function addEventListener() {
-    
+  function bodyClicked(e) {
+    if(!$('nav > ul').find(e.target).length > 0) {
+      if (!isMobile) {
+        $header.removeClass(CLASS_SUB_OPENED);
+      }
+    } 
+  }
+
+  function addEventListener() {    
     $('.js-href').on('click', hrefHandler);
 
     if($(document.body).hasClass('main')) {
       $window.on("resize", resizeHandler);
     }
 
-    $("nav")
+    if(isMobileDevice) {
+      $('nav > ul > li')
+      .on('click', navClicked);
+       
+      $('body')
+      .on('click', bodyClicked);
+     
+    } else {
+      $("nav")
       .on("mouseenter", navMouseEntered)
       .on("mouseleave", navMouseLeaved);
+    }
+
+    $gnbMenuList.on("click", gnbMenuClicked);
 
     $("nav > ul > li")
       .on("mouseenter", gnbListMouseEntered)
@@ -341,7 +359,6 @@ $(document).ready(function() {
       handleClass
     );
 
-    $gnbMenuList.on("click", handleClass);
   }
 
   /*
@@ -370,6 +387,13 @@ $(document).ready(function() {
     if($('.open_sub').length > 0 && $(window).outerWidth() <= 600) {
       e.preventDefault();
     } 
+  }
+
+  function gnbMenuClicked(e) {
+    if(! $('ul  ul').find(e.target).length > 0 ) {
+      $(this).toggleClass("active");
+    } 
+
   }
 
   function resizeHandler(e) {
@@ -427,6 +451,19 @@ $(document).ready(function() {
   function navMouseLeaved() {
     if (!isMobile) {
       $header.removeClass(CLASS_SUB_OPENED);
+    }
+  }
+
+  function navClicked() {
+    if($header.hasClass(CLASS_SUB_OPENED)) {
+      if (!isMobile) {
+        $header.removeClass(CLASS_SUB_OPENED);
+      }
+    } else {
+      if (!$header.hasClass(CLASS_SEARCH_OPENED)) {
+        // 검색창을 열어놓은 경우에는 서브메뉴가 열리지 않는다.
+        $header.addClass(CLASS_SUB_OPENED);
+      }
     }
   }
 
