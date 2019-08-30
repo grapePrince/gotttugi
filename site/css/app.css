@@ -4006,6 +4006,21 @@ blockquote:after {
     flex-direction: column;
   }
 }
+@media all and (max-width: 600px) {
+  .product_details {
+    margin-bottom: 100px;
+  }
+  .s_product_others__title {
+    font-family: "Noto Serif KR", serif;
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+  }
+  .l_product_others__container {
+    padding: 50px 30px;
+  }
+}
 .perspective {
   perspective-origin: center center;
   transform-origin: center center;
