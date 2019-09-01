@@ -23,6 +23,13 @@
   font-size: 34px;
   letter-spacing: -0.05em;
 }
+.typo_title_small_bold {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 300;
+  font-size: 34px;
+  letter-spacing: -0.05em;
+  font-weight: 800;
+}
 .typo_title_small__lh {
   line-height: 1.273em;
 }
@@ -40,6 +47,13 @@
   font-weight: 300;
   font-size: 18px;
   letter-spacing: -0.04em;
+}
+.typo_content_title_small_bold {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: -0.04em;
+  font-weight: 800;
 }
 .typo_content_title_small__lh {
   line-height: 1.5em;
@@ -78,6 +92,9 @@ a {
   text-decoration: none;
 }
 /* --------- COLOR ------------ */
+.color_red {
+  color: #e0393d;
+}
 .type--light {
   color: #666666;
 }
@@ -4071,4 +4088,15 @@ blockquote:after {
 }
 .cube .right {
   transform: translateX(205px) rotateY(90deg);
+}
+.sub_factory__process__container {
+  display: flex;
+  border: 1px solid #cccccc;
+}
+.sub_factory_category__form {
+  border-top: 1px solid #e0393d;
+  border-bottom: 1px solid #cccccc;
+}
+.sub_factory__process.js-active {
+  color: #e0393d;
 }
