@@ -49,9 +49,16 @@
 
 .s_breadscrum .shoplink {
   position: absolute;
-  right: 0;
+  right: 50%; transform: translateX(555px);
   top: 0;
   .sprites.shoplink--big();
+}
+
+@media all and (max-width: 1110px) {
+  .s_breadscrum .shoplink {
+    right: 0;
+    transform: none;
+  }
 }
 
 

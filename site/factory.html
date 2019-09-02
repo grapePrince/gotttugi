@@ -112,7 +112,7 @@
   
 </head>
 
-<body class="sub js-project_detail">
+<body class="sub js-factory">
 <a href="#content" class="skip_navigation"><span>상품검색 바로가기</span></a>
 <header class="container">
   <h1>
@@ -286,72 +286,29 @@
   <a href="#" class="sprites shoplink" data-locale="header.goto_mall"
   >오뚜기 몰로 가기</a>
 </section>
-<section class="l_product_banner s_product_banner">
-  <div class="l_product_banner__container container">
-    <img
-      class="l_product_banner__main"
-      src="images/product_banner.png"
-      alt=""
-    />
-    <div class="l_product_banner__details">
-      <h2 class="l_product_banner__title s_product_banner__title">
-        50년간 깊어진 맛,<br />
-        오뚜기 3일 숙성카레
-      </h2>
-      <p class="l_product_banner__desc s_product_banner__desc">
-        숙성카레는 3일간 정성껏 숙성시킨 소스와<br />
-        은은항 향이 잘 조화된 숙성카레분을 이용한<br />
-        고급 카레입니다.
-      </p>
-      <div class="l_product_banner_buttons">
-        <div
-          class="l_product_banner_button s_product_banner_button m_button--square--border js-href" data-href="/product_detail.html" 
-        >
-          상품 더보기
-          <div class="m_button--square--border__icon--more">
-            +
-          </div>
-        </div>
-        <div
-          class="l_product_banner_button s_product_banner_button m_button--square--border"
-        >
-          <div class="m_button--square--border__icon--shoplink">
-            샵 바로가기
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="sub_factory">
-  <h2 class="sub_factory__title typo_title_small_bold">오뚜기 공장체험</h2>
+<section class="sub_factory container js-factory-category">
+  <h2 class="sub_factory__title typo_content_title_bold">오뚜기 공장체험</h2>
   <ul class="sub_factory__process__container">
-    <li class="sub_factory__process typo_content_title_small_bold js-active">
+    <li class="sub_factory__process__item typo_content_title_small_bold js-factory-process--category">
       견학 분류 선택
     </li>
-    <li class="sub_factory__process__arrow">
+    <li class="sub_factory__process__item sprites sprites--right_arrow ">
       오른쪽화살표
     </li>
-    <li class="sub_factory__process typo_content_title_small_bold">
+    <li class="sub_factory__process__item typo_content_title_small_bold js-factory-process--date">
       날짜선택
     </li>
-    <li class="sub_factory__process__arrow">
+    <li class="sub_factory__process__item sprites sprites--right_arrow">
       오른쪽화살표
     </li>
-    <li class="sub_factory__process typo_content_title_small_bold">
+    <li class="sub_factory__process__item typo_content_title_small_bold js-factory-process--form">
       정보입력
     </li>
-    <li class="sub_factory__process__arrow">
+    <li class="sub_factory__process__item sprites sprites--right_arrow">
       오른쪽화살표
     </li>
-    <li class="sub_factory__process typo_content_title_small_bold">
-      정보확인
-    </li>
-    <li class="sub_factory__process__arrow">
-      오른쪽화살표
-    </li>
-    <li class="sub_factory__process typo_content_title_small_bold">
+    <li class="sub_factory__process__item typo_content_title_small_bold js-factory-process--complete">
       신청완료
     </li>
   </ul>
@@ -360,55 +317,330 @@
       <h3 class="sub_factory_category__form__title typo_content_title_small_bold">견학분류</h3>
       <input id="sub_factory_category__form__input--groups"  class="sub_factory_category__form__radio m_input_radio" type="radio" name="factory_form_category">
       <label for="sub_factory_category__form__input--groups" class="sub_factory_category__form__label m_input_label">
-        <span class="sub_factory_category__form__label__icon m_input_radio_icon">아이콘</span>
-        <span class="sub_factory_category__form__label__text m_input_radio_text ">단체견학</span>
+        <span class="sub_factory_category__form__label__icon m_input_radio_icon ">아이콘</span>
+        <span class="sub_factory_category__form__label__text m_input_radio_text typo_content">단체견학</span>
       </label>
-      <input id="sub_factory_category__form__input--individuals" class="sub_factory_category__form__radio" type="radio" name="factory_form_category">
-      <label for="sub_factory_category__form__input--individuals" class="sub_factory_category__form__label">
-        <span class="sub_factory_category__form__label__icon">아이콘</span>
-        <span class="sub_factory_category__form__label__text">개인견학</span>
+      <input id="sub_factory_category__form__input--individuals" class="sub_factory_category__form__radio m_input_radio" type="radio" name="factory_form_category">
+      <label for="sub_factory_category__form__input--individuals" class="sub_factory_category__form__label m_input_label">
+        <span class="sub_factory_category__form__label__icon m_input_radio_icon ">아이콘</span>
+        <span class="sub_factory_category__form__label__text m_input_radio_text typo_content">개인견학</span>
       </label>
     </div>
-    <div class="sub_factory_category__desc">
-      <div class="sub_factory_category__desc__groups">
-        <h3 class="sub_factory_category__desc__title">단체견학</h3>
-        <p class="sub_factory_category__desc__paragraph">미니버스 또는 버스를 이용하는 10명 이상의 단체 견학자</p>
+    <div class="sub_factory_category__desc__container">
+      <div class="sub_factory_category__desc sub_factory_category__desc__groups">
+        <h3 class="sub_factory_category__desc__title typo_content_title_small_bold">단체견학</h3>
+        <p class="sub_factory_category__desc__paragraph typo_content">미니버스 또는 버스를 이용하는 10명 이상의 단체 견학자</p>
       </div>
-      <div class="sub_factory_category__desc__individuals">
-        <h3 class="sub_factory_category__desc__title">개인견학</h3>
-        <p class="sub_factory_category__desc__paragraph">견학을 희망하는 소수의 견학자</p>
+      <div class="sub_factory_category__desc sub_factory_category__desc__individuals">
+        <h3 class="sub_factory_category__desc__title typo_content_title_small_bold">개인견학</h3>
+        <p class="sub_factory_category__desc__paragraph typo_content">견학을 희망하는 소수의 견학자</p>
       </div>
     </div>  
   </div>
+  <div class="sub_factory__content--date">
+    <div class="sub_factory__date__controls">
+      <div class="sub_factory__date__controls__arrow">
+        <span class="sprites sprites--left_arrow">왼쪽화살표</span>
+      </div>     
+      <div class="sub_factory__date__controls__dates">
+        <span class="sub_factory__date__controls__text_month typo_content">July</span>
+        <span class="sub_factory__date__controls__text_date typo_content_title_bold">2019.7</span>
+      </div>
+      <div class="sub_factory__date__controls__arrow">
+        <span class="sprites sprites--right_arrow">오른쪽화살표</span>
+      </div>   
+    </div>
+    <div class="sub_factory__date__dates">
+      <ul class="sub_factory__date__dates__header__container">
+        <li class="sub_factory__date__dates__header__day typo_content_title_small_sans_bold color_red">
+          SUN
+        </li>
+        <li class="sub_factory__date__dates__header__day typo_content_title_small_sans_bold">
+          MON
+        </li>
+        <li class="sub_factory__date__dates__header__day typo_content_title_small_sans_bold">
+          TUE
+        </li>
+        <li class="sub_factory__date__dates__header__day typo_content_title_small_sans_bold">
+          WED
+        </li>
+        <li class="sub_factory__date__dates__header__day typo_content_title_small_sans_bold">
+          THU
+        </li>
+        <li class="sub_factory__date__dates__header__day typo_content_title_small_sans_bold">
+          FRI
+        </li>
+        <li class="sub_factory__date__dates__header__day typo_content_title_small_sans_bold color_blue">
+          SAT
+        </li>
+      </ul>
+      <div class="sub_factory__date__dates__content">
+        <ul class="sub_factory__date__dates__content__week">
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value color_red">1</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value">2</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value">3</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value">4</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value">5</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value">6</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value color_blue">7</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+        </ul>
+        <ul class="sub_factory__date__dates__content__week">
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value color_red">8</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value">9</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value">10</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value">11</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value">12</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value">13</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value color_blue">14</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+        </ul>
+        <ul class="sub_factory__date__dates__content__week">
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value color_red">15</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value">16</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value">17</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value">18</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value">19</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value">20</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value color_blue">21</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+        </ul>
+        <ul class="sub_factory__date__dates__content__week">
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value color_red">22</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value">23</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value">24</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value">25</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value">26</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value">27</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value color_blue">28</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+        </ul>
+        <ul class="sub_factory__date__dates__content__week">
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value color_red">29</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day">
+            <span class="sub_factory__date__dates__content__day__value">30</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>         
+          <li class="sub_factory__date__dates__content__day js-blank">
+            <span class="sub_factory__date__dates__content__day__value">30</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>         
+          <li class="sub_factory__date__dates__content__day js-blank">
+            <span class="sub_factory__date__dates__content__day__value">30</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>         
+          <li class="sub_factory__date__dates__content__day js-blank">
+            <span class="sub_factory__date__dates__content__day__value">30</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>         
+          <li class="sub_factory__date__dates__content__day js-blank">
+            <span class="sub_factory__date__dates__content__day__value">30</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>         
+          <li class="sub_factory__date__dates__content__day js-blank">
+            <span class="sub_factory__date__dates__content__day__value">30</span>
+            <span class="sub_factory__date__dates__content__day__weather__text">25도 ~ 29도</span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>         
+        </ul>
+      </div>
+    </div>
+    <div class="sub_factory__date__form">
+      <h3 class="sub_factory__date__form__title typo_content_title_small_bold">날짜선택</h3>
+      <select id="sub_factory__date__form__month" class="sub_factory__date__form__month"> 
+        <option>9</option>
+        <option>10</option> 
+      </select>
+      <span class="sub_factory__date__form__text">월</span>
+      <select id="sub_factory__date__form__day" class="sub_factory__date__form__day">
+        <option>1</option>
+        <option>1</option>
+        <option>1</option>
+      </select>
+      <span class="sub_factory__date__form__text">일</span>
+    </div>
+  </div>
+  <div class="sub_factory__content--form">
+    <div class="sub_factory__form__applicant">
+      <h3 class="sub_factory__form__applicant__title typo_content_title_small_bold">신청자정보</h3>
+      <div class="sub_factory__form__applicant__name">
+        <h4 class="sub_factory__form__applicant__name__title">이름</h4>
+        <input id="sub_factory__form__applicant__name__input" class="sub_factory__form__applicant__name__input" type="text">
+      </div>
+      <div class="sub_factory__form__applicant__phone">
+        <h4 class="sub_factory__form__applicant__phone__title">휴대폰번호</h4>
+        <input class="sub_factory__form__applicant__phone__input1" type="text">
+        <span class="sub_factory__form__applicant__phone__hyphen">-</span>
+        <input class="sub_factory__form__applicant__phone__input2" type="text">
+        <span class="sub_factory__form__applicant__phone__hyphen">-</span>
+        <input class="sub_factory__form__applicant__phone__input3" type="text">
+      </div>
+      <div>
+        <h4>이메일</h4>
+        <input type="text">
+      </div>
+    </div>
+    <div>
+      <h3>견학분류</h3>
+      <span>개인견학</span>
+    </div>
+    <div>
+      <h3>방문일자</h3>
+      <span>2019년 9월 2일</span>
+    </div>
+    <div>
+      <h3>요청사항</h3>
+      <textarea></textarea>
+    </div>
+  </div>
   <div class="sub_factory_buttons">
-    <span class="sub_factory_button">다음</span>
+    <span class="sub_factory_button--prev m_button--round--grey typo_content_title_small">이전</span>
+    <span class="sub_factory_button--next m_button--round--red typo_content_title_small color_white">다음</span>
+    <span class="sub_factory_button--cancel m_button--round--grey typo_content_title_small">취소</span>
   </div>
   <div class="sub_factory_admin">
-    <div class="sub_factory_admin__logo">
-      <span class="sub_">로고</span>
+    <div class="sub_factory_admin__logo__container">
+      <span class="sub_factory_admin__logo sprites sprites--logo--89">로고</span>
     </div>    
     <div class="sub_factory_admin__titles">
       <ul class="sub_factory_admin__title_container">
-        <li class="sub_factory_admin__title">
+        <li class="sub_factory_admin__title typo_content_serif_bold">
           주소
         </li>
-        <li class="sub_factory_admin__title">
+        <li class="sub_factory_admin__title typo_content_serif_bold">
           문의처
         </li>
-        <li class="sub_factory_admin__title">
+        <li class="sub_factory_admin__title typo_content_serif_bold">
           담당자 이메일
         </li>
       </ul>
     </div>
     <div class="sub_factory_admin__contents">
       <ul class="sub_factory_admin__content__container">
-        <li class="sub_factory_admin__content">
+        <li class="sub_factory_admin__content color_black75">
           (14060) 경기도 안양시 동안구 흥안대로 405 (평촌동 160)
         </li>
-        <li class="sub_factory_admin__content">
+        <li class="sub_factory_admin__content color_black75">
           000-000-0000
         </li>
-        <li class="sub_factory_admin__content">
+        <li class="sub_factory_admin__content color_black75">
           damdangja&commat;gotttugi.email
         </li>
       </ul>

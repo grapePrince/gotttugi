@@ -19,8 +19,9 @@ $(document).ready(function() {
   var isMobile = $(window).outerWidth() <= MOBILE_WIDTH ? true : false;
   var underTabletWidth = $(window).outerWidth() <= TABLET_WIDTH ? true : false;
 
-  var PAGE_PROJECT_LIST = 'js-project_list';
-  var PAGE_PROJECT_DETAIL = 'js-project_detail';
+  var PAGE_PRODUCT_LIST = 'js-product_list';
+  var PAGE_PRODUCT_DETAIL = 'js-product_detail';
+  var PAGE_FACTORY = 'js-factory';
 
   var galleryData = [];
   var currentIndex = 0;
@@ -35,6 +36,12 @@ $(document).ready(function() {
   var newsSlider;
 
   var ing_recipeProcess = true;
+
+  var factoryEventRegistered = false;
+  var resizeVideo; 
+  var videoQue = [];
+
+
 
   if ($(document.body).hasClass('main')) {
     initMain();
@@ -496,14 +503,16 @@ $(document).ready(function() {
     }
   }
 
-function initSub() {
-  
-  if($('.' + PAGE_PROJECT_LIST).length > 0) { // PROJECT LIST 페이지인 경우 
+function initSub() {  
+  if($('.' + PAGE_PRODUCT_LIST).length > 0) { // PROJECT LIST 페이지인 경우 
     $.getJSON('data/content.json', initGallery);
   }
-  if($('.' + PAGE_PROJECT_DETAIL).length > 0) {
+  if($('.' + PAGE_PRODUCT_DETAIL).length > 0) {
     initProjectDetail();
   } 
+  if($('.' + PAGE_FACTORY).length > 0) {
+    initFactoryPage();
+  }
 }
 
 function initGallery(data){
@@ -742,7 +751,6 @@ function initCorporation() {
   
 }
 
-var videoQue = [];
 
 function playVideo(video) {
   if(video.readyState === 4) {
@@ -871,7 +879,7 @@ function initPopular() {
   }     
 }
 
-var resizeVideo; 
+
 
 function videoClicked() {
   var $video = $(this).find('video');
@@ -930,6 +938,65 @@ function initNews() {
   }
 }
 
+
+
+function initFactoryPage() {
+  $('.sub_factory')
+  .removeClass('js-factory-date js-factory-form')
+  .addClass('js-factory-category');
+
+  $('.sub_factory_button--next').show();
+  $('.sub_factory_button--prev').hide();
+  $('.sub_factory_button--cancel').hide();
+  
+  $('.sub_factory_category__form__label__text:last-child').click();
+
+  if(!factoryEventRegistered) {
+    $('.sub_factory_button--next').on('click', factoryNextButton);
+    $('.sub_factory_button--prev').on('click', factoryPrevButton);
+    $('.sub_factory_button--cancel').on('click', factoryCancelButton);
+    factoryEventRegistered = true;
+  }
+
+}
+
+function factoryNextButton() {
+  if($('.sub_factory').hasClass('js-factory-category')) {
+    $('.sub_factory')
+    .removeClass('js-factory-category')
+    .addClass('js-factory-date');
+    $('.sub_factory_button--prev').show();
+    $('.sub_factory_button--cancel').show();
+  } else if ($('.sub_factory').hasClass('js-factory-date')) {
+    $('.sub_factory')
+    .removeClass('js-factory-date')
+    .addClass('js-factory-form');
+  } else if ($('.sub_factory').hasClass('js-factory-form')) {
+    $('.sub_factory')
+    .removeClass('js-factory-form')
+    .addClass('js-factory-complete');
+    $('.sub_factory_button--next').hide();
+    $('.sub_factory_button--prev').hide();
+    $('.sub_factory_button--cancel').hide();
+  }
+}
+
+function factoryPrevButton() {
+  if ($('.sub_factory').hasClass('js-factory-date')) {
+    $('.sub_factory')
+    .removeClass('js-factory-date')
+    .addClass('js-factory-category');
+    $('.sub_factory_button--prev').hide();
+  } else if ($('.sub_factory').hasClass('js-factory-form')) {
+    $('.sub_factory')
+    .removeClass('js-factory-form')
+    .addClass('js-factory-date');
+  }
+}
+
+function factoryCancelButton() {
+  initFactoryPage();
+}
 
 
 }); // end of file    
