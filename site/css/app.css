@@ -4193,7 +4193,8 @@ blockquote:after {
   transform: translateX(205px) rotateY(90deg);
 }
 .sub_factory__content--category,
-.sub_factory__content--date {
+.sub_factory__content--date,
+.sub_factory__content--form {
   display: none;
 }
 .sub_factory.js-factory-category .sub_factory__content--category,
