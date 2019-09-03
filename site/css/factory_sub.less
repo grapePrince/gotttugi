@@ -1,7 +1,9 @@
 
 .sub_factory__content--category,
 .sub_factory__content--date,
-.sub_factory__content--form {
+.sub_factory__content--form,
+.sub_factory__content--complete
+ {
   display: none;
 }
 
@@ -286,14 +288,15 @@
   background: url(http://openweathermap.org/img/w/10d.png);
 }
 
+
 .sub_factory__date__form {
   display: flex;
   align-items: center;
   margin: 50px 0;
-  padding: 60px 70px;
-
-  border-top: 1px solid @color_red;
+  padding: 60px 70px;  
+  
   border-bottom: 1px solid @color_black25;
+  border-top: 1px solid @color_red;
 }
 
 .sub_factory__date__form__title {
@@ -314,3 +317,84 @@
   margin-left: 20px;
 }
 
+
+// 정보 입력
+
+.sub_factory__content--form {
+  margin-bottom: 50px;
+}
+
+.sub_factory__form__container {
+  padding: 60px 70px;
+  border-bottom: 1px solid #cccccc;
+}
+
+
+.sub_factory__form__applicant {
+  border-top: 1px solid #e0393d;
+}
+
+.sub_factory__form__bigtitle {
+  .typo_content_title_bold();
+  font-size: 21px;
+  margin-bottom: 30px;
+}
+
+.sub_factory__form__item__container {
+  display: flex;
+  align-items: center;
+  padding: 15px 15px;
+}
+
+.sub_factory__form__title {
+  .typo_content_serif_bold();
+  width: 80px;
+  margin-right: 160px;
+}
+
+.sub_factory__form__applicant__name__input,
+.sub_factory__form__applicant__email__input {
+  width: 386px;
+  height: 44px;
+}
+
+.sub_factory__form__applicant__phone__input1,
+.sub_factory__form__applicant__phone__input2,
+.sub_factory__form__applicant__phone__input3
+ {
+  width: 105px;
+  height: 44px;
+}
+
+.sub_factory__form__applicant__phone__hyphen {
+  margin: 0 15px;
+}
+
+.sub_factory__form__category {
+  padding: 60px 70px;
+  border-bottom: 1px solid #cccccc;  
+}
+
+.sub_factory__form__category__text,
+.sub_factory__form__date__text {
+  padding: 25px 30px;
+
+  border: 1px solid @color_black25;
+}
+
+.sub_factory__form__require__textarea {
+  width: 100%;
+  height: 450px; 
+}
+
+
+// 신청 완료 
+
+.sub_factory__content--complete {
+  margin: 110px  0 110px;
+  text-align: center;
+}
+
+.sub_factory_complete__title {
+  margin-bottom: 52px;
+}

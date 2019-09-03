@@ -287,7 +287,7 @@
   >오뚜기 몰로 가기</a>
 </section>
 
-<section class="sub_factory container js-factory-category">
+<section class="sub_factory container">
   <h2 class="sub_factory__title typo_content_title_bold">오뚜기 공장체험</h2>
   <ul class="sub_factory__process__container">
     <li class="sub_factory__process__item typo_content_title_small_bold js-factory-process--category">
@@ -578,38 +578,46 @@
     </div>
   </div>
   <div class="sub_factory__content--form">
-    <div class="sub_factory__form__applicant">
-      <h3 class="sub_factory__form__applicant__title typo_content_title_small_bold">신청자정보</h3>
-      <div class="sub_factory__form__applicant__name">
-        <h4 class="sub_factory__form__applicant__name__title">이름</h4>
-        <input id="sub_factory__form__applicant__name__input" class="sub_factory__form__applicant__name__input" type="text">
+    <div class="sub_factory__form__container sub_factory__form__applicant">
+      <h3 class="sub_factory__form__bigtitle sub_factory__form__applicant__title ">신청자정보</h3>
+      <div class="sub_factory__form__item__container sub_factory__form__applicant__name">
+        <h4 class="sub_factory__form__title sub_factory__form__applicant__name__title ">이름</h4>
+        <input id="sub_factory__form__applicant__name__input" class="sub_factory__form__applicant__name__input m_input_text" type="text">
       </div>
-      <div class="sub_factory__form__applicant__phone">
-        <h4 class="sub_factory__form__applicant__phone__title">휴대폰번호</h4>
-        <input class="sub_factory__form__applicant__phone__input1" type="text">
+      <div class="sub_factory__form__item__container sub_factory__form__applicant__phone">
+        <h4 class="sub_factory__form__title sub_factory__form__applicant__phone__title">휴대폰번호</h4>
+        <input class="m_input_text sub_factory__form__applicant__phone__input1 " type="text">
         <span class="sub_factory__form__applicant__phone__hyphen">-</span>
-        <input class="sub_factory__form__applicant__phone__input2" type="text">
+        <input class="m_input_text sub_factory__form__applicant__phone__input2 " type="text">
         <span class="sub_factory__form__applicant__phone__hyphen">-</span>
-        <input class="sub_factory__form__applicant__phone__input3" type="text">
+        <input class="m_input_text sub_factory__form__applicant__phone__input3 " type="text">
       </div>
-      <div class="sub_factory__form__applicant__email">
-        <h4 class="sub_factory__form__applicant__email__title">이메일</h4>
-        <input class="sub_factory__form__applicant__email__input" type="text">
+      <div class="sub_factory__form__item__container sub_factory__form__applicant__email">
+        <h4 class="sub_factory__form__title sub_factory__form__applicant__email__title">이메일</h4>
+        <input class="m_input_text sub_factory__form__applicant__email__input" type="text">
       </div>
     </div>
-    <div class="sub_factory__form__applicant__category">
-      <h3 class="sub_factory__form__applicant__category__title">견학분류</h3>
-      <span class="sub_factory__form__applicant__category__text">개인견학</span>
+    <div class="sub_factory__form__container sub_factory__form__category">
+      <h3 class="sub_factory__form__bigtitle sub_factory__form__category__title">견학분류</h3>
+      <p class="sub_factory__form__category__text">개인견학</p>
     </div>
-    <div class="sub_factory__form__applicant__date">
-      <h3 class="sub_factory__form__applicant__date__title">방문일자</h3>
-      <span class="sub_factory__form__applicant__date__text">2019년 9월 2일</span>
+    <div class="sub_factory__form__container sub_factory__form__date">
+      <h3 class=" sub_factory__form__bigtitle sub_factory__form__date__title">방문일자</h3>
+      <p class="sub_factory__form__date__text">2019년 9월 2일</p>
     </div>
-    <div class="sub_factory__form__applicant__require">
-      <h3 class="sub_factory__form__applicant__require__title">요청사항</h3>
-      <textarea class="sub_factory__form__applicant__require__textarea"></textarea>
+    <div class="sub_factory__form__container sub_factory__form__require">
+      <h3 class="sub_factory__form__bigtitle sub_factory__form__require__title">요청사항</h3>
+      <textarea class="m_input_textarea sub_factory__form__require__textarea"></textarea>
     </div>
   </div>
+  <div class="sub_factory__content--complete">
+    <h2 class="typo_title_small_bold sub_factory_complete__title color_red">신청이 완료되었습니다.</h2>
+    <p class="sub_factory_complete__desc color_black75">
+      수 일 내에 입력하신 연락처로 연락 드리겠습니다.<br>
+      감사합니다.
+    </p>
+  </div>
+
   <div class="sub_factory_buttons">
     <span class="sub_factory_button--prev m_button--round--grey typo_content_title_small">이전</span>
     <span class="sub_factory_button--next m_button--round--red typo_content_title_small color_white">다음</span>

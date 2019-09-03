@@ -944,7 +944,7 @@ function initFactoryPage() {
   $('.sub_factory')
   .removeClass('js-factory-date js-factory-form')
   .addClass('js-factory-category');
-
+  
   $('.sub_factory_button--next').show();
   $('.sub_factory_button--prev').hide();
   $('.sub_factory_button--cancel').hide();
