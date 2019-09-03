@@ -976,14 +976,34 @@ function initWeatherInfo() {
 function decodeWeatherData(data) {
   /*
   weatherData = {
-    "0903" : {
+    "3" : {
       maxTemp : 23.5,
       minTemp : 24.5,
       iconUrl : 'http://openweathermap.org/img/w/10d.png'
     }
   }
   */
+  var now = new moment();
+  weatherData = {};
+  for(var i = 0 ; i < data.list.length ; i++) {
+    var item = data.list[i];
+    var time = new moment(item.dt);
+    if(time.day() > now.day()) {
+      if(time.hour() === 15) {
+        var data = {};
+        var key = "" + time.day();
+        var maxTemp = item.main.temp_max;
+        var minTemp = item.main.temp_min;
+        data.
+      }
+    }
+  }
+  console.log(data.list);
 }
+
+function convertToF(f) {
+  return (f - 32) * 5 / 9;
+ }
 
 function drawDateHtml() {
   
