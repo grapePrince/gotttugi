@@ -41,7 +41,7 @@ $(document).ready(function() {
   var resizeVideo; 
   var videoQue = [];
 
-
+  var weatherData = {};
 
   if ($(document.body).hasClass('main')) {
     initMain();
@@ -956,8 +956,37 @@ function initFactoryPage() {
     $('.sub_factory_button--prev').on('click', factoryPrevButton);
     $('.sub_factory_button--cancel').on('click', factoryCancelButton);
     factoryEventRegistered = true;
+
+    // 페이지 로딩 처음 한 번만 
+    initWeatherInfo();
   }
 
+}
+
+function initWeatherInfo() {
+  $.ajax({
+    url: "http://api.openweathermap.org/data/2.5/forecast?id=1835848&appid=c9d13b23d0a6283ec7f0171d6e5dbb53",
+    context: document.body
+  }).done(function(data) {
+    decodeWeatherData(data);
+    drawDateHtml();
+  });
+}
+
+function decodeWeatherData(data) {
+  /*
+  weatherData = {
+    "0903" : {
+      maxTemp : 23.5,
+      minTemp : 24.5,
+      iconUrl : 'http://openweathermap.org/img/w/10d.png'
+    }
+  }
+  */
+}
+
+function drawDateHtml() {
+  
 }
 
 function factoryNextButton() {
