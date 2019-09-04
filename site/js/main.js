@@ -939,7 +939,6 @@ function initNews() {
 }
 
 
-
 function initFactoryPage() {
   $('.sub_factory')
   .removeClass('js-factory-date js-factory-form')
@@ -955,17 +954,39 @@ function initFactoryPage() {
     $('.sub_factory_button--next').on('click', factoryNextButton);
     $('.sub_factory_button--prev').on('click', factoryPrevButton);
     $('.sub_factory_button--cancel').on('click', factoryCancelButton);
+
+    $('#sub_factory__form__applicant__name__input').on('change', factoryFormChange);
+    $('#sub_factory__form__applicant__phone__input1').on('change', factoryFormChange);
+    $('#sub_factory__form__applicant__phone__input2').on('change', factoryFormChange);
+    $('#sub_factory__form__applicant__phone__input3').on('change', factoryFormChange);
+    $('#sub_factory__form__applicant__email__input').on('change', factoryFormChange);
+
     factoryEventRegistered = true;
 
     // 페이지 로딩 처음 한 번만 
     initWeatherInfo();
+
+    initDateOption();
   }
 
 }
 
+function factoryFormChange() {
+  $('.sub_factory__form__applicant__validate').removeClass('js-invalid');
+}
+
+function initDateOption() {
+  var optionHtml = '';
+  var now = moment();
+  for(var i = now.date() + 1 ; i <= 30 ; i++) {
+    optionHtml += '<option>' + i + '</option>'
+  }
+  $('#sub_factory__date__form__day').html(optionHtml);
+}
+
 function initWeatherInfo() {
   $.ajax({
-    url: "http://api.openweathermap.org/data/2.5/forecast?id=1835848&appid=c9d13b23d0a6283ec7f0171d6e5dbb53",
+    url: "http://api.openweathermap.org/data/2.5/forecast?id=1835848&appid=c9d13b23d0a6283ec7f0171d6e5dbb53&units=metric",
     context: document.body
   }).done(function(data) {
     decodeWeatherData(data);
@@ -974,39 +995,44 @@ function initWeatherInfo() {
 }
 
 function decodeWeatherData(data) {
-  /*
-  weatherData = {
-    "3" : {
-      maxTemp : 23.5,
-      minTemp : 24.5,
-      iconUrl : 'http://openweathermap.org/img/w/10d.png'
-    }
-  }
-  */
   var now = new moment();
   weatherData = {};
   for(var i = 0 ; i < data.list.length ; i++) {
     var item = data.list[i];
-    var time = new moment(item.dt);
-    if(time.day() > now.day()) {
-      if(time.hour() === 15) {
-        var data = {};
-        var key = "" + time.day();
+    var time = new moment(item.dt * 1000);
+    if(time.date() > now.date()) {
+      var key = "" + time.date();
+      if(weatherData[key]) {
+        var maxTemp = Math.max(weatherData[key].maxTemp, item.main.temp_max);
+        var minTemp = Math.min(weatherData[key].minTemp, item.main.temp_min);
+      } else {
         var maxTemp = item.main.temp_max;
         var minTemp = item.main.temp_min;
-        data.
+      }
+      if(time.hour() === 15) {
+        var iconUrl = 'http://openweathermap.org/img/w/' + item.weather[0].icon + '.png';
+      }
+
+      weatherData[key] = {
+        maxTemp: maxTemp,
+        minTemp: minTemp,
+        iconUrl: iconUrl
       }
     }
   }
-  console.log(data.list);
 }
 
-function convertToF(f) {
-  return (f - 32) * 5 / 9;
- }
-
 function drawDateHtml() {
-  
+  for(var key in weatherData) {
+    var $el = $('.sub_factory__date__dates__content__day[data-day=' + key + ']');
+    var data = weatherData[key];
+    var text = Math.floor(data.minTemp) + '도 ~ ' + Math.floor(data.maxTemp) + '도';
+    $el.find('.sub_factory__date__dates__content__day__weather__text').text(text);
+    $el.find('.sub_factory__date__dates__content__day__weather__icon')
+    .css({
+      'background': 'url(' + data.iconUrl + ')'
+    })
+  }
 }
 
 function factoryNextButton() {
@@ -1020,13 +1046,40 @@ function factoryNextButton() {
     $('.sub_factory')
     .removeClass('js-factory-date')
     .addClass('js-factory-form');
+
+    if($('#sub_factory_category__form__input--groups').prop('checked')) {
+      $('.sub_factory__form__category__text').text('단체견학');
+    } else {
+      $('.sub_factory__form__category__text').text('개인견학');
+    }
+
+    $('.sub_factory__form__date__text').text('2019년 ' + $('#sub_factory__date__form__month').val() + '월 ' + $('#sub_factory__date__form__day').val() + '일');
+
   } else if ($('.sub_factory').hasClass('js-factory-form')) {
-    $('.sub_factory')
-    .removeClass('js-factory-form')
-    .addClass('js-factory-complete');
-    $('.sub_factory_button--next').hide();
-    $('.sub_factory_button--prev').hide();
-    $('.sub_factory_button--cancel').hide();
+    if(!$('#sub_factory__form__applicant__name__input').val()) {
+      $('.sub_factory__form__applicant__validate').addClass('js-invalid');
+      $('.sub_factory__form__applicant__name__input').focus();
+    } else if(!$('#sub_factory__form__applicant__phone__input1').val()) {
+      $('.sub_factory__form__applicant__validate').addClass('js-invalid');
+      $('.sub_factory__form__applicant__phone__input1').focus();
+    } else if(!$('#sub_factory__form__applicant__phone__input2').val()) {
+      $('.sub_factory__form__applicant__validate').addClass('js-invalid');
+      $('.sub_factory__form__applicant__phone__input2').focus();
+    } else if(!$('#sub_factory__form__applicant__phone__input3').val()) {
+      $('.sub_factory__form__applicant__validate').addClass('js-invalid');
+      $('.sub_factory__form__applicant__phone__input3').focus();
+    } else if(!$('#sub_factory__form__applicant__email__input').val()) {
+      $('.sub_factory__form__applicant__validate').addClass('js-invalid');
+      $('.sub_factory__form__applicant__email__input').focus();
+    } else {
+      $('.sub_factory')
+      .removeClass('js-factory-form')
+      .addClass('js-factory-complete');
+      $('.sub_factory_button--next').hide();
+      $('.sub_factory_button--prev').hide();
+      $('.sub_factory_button--cancel').hide();
+    }
+
   }
 }
 
