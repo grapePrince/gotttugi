@@ -1055,6 +1055,8 @@ function factoryNextButton() {
 
     $('.sub_factory__form__date__text').text('2019년 ' + $('#sub_factory__date__form__month').val() + '월 ' + $('#sub_factory__date__form__day').val() + '일');
 
+    $('#sub_factory__form__applicant__name__input').focus();
+
   } else if ($('.sub_factory').hasClass('js-factory-form')) {
     if(!$('#sub_factory__form__applicant__name__input').val()) {
       $('.sub_factory__form__applicant__validate').addClass('js-invalid');

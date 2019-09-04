@@ -91,6 +91,12 @@
   letter-spacing: -0.02em;
   font-weight: 800;
 }
+.typo_content_serif {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+}
 .typo_content_serif_bold {
   font-family: "Noto Serif KR", serif;
   font-weight: 300;
@@ -103,6 +109,12 @@
 }
 .typo_content_small {
   font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+}
+.typo_content_small_serif {
+  font-family: "Noto Serif KR", serif;
   font-weight: 300;
   font-size: 14px;
   letter-spacing: -0.01em;
@@ -3059,7 +3071,7 @@ blockquote:after {
   cursor: pointer;
 }
 .m_tab__header--1 {
-  background: #ffda21;
+  background: #fbaf4d;
 }
 .m_tab__header--2 {
   background: #e0393d;
@@ -3068,7 +3080,7 @@ blockquote:after {
   background: #004796;
 }
 .m_tab__header__icon {
-  margin-right: 12px;
+  margin: 0px 12px 5px 0;
   display: inline-block;
   background: url(../images/sprite.png) no-repeat;
   text-indent: -9999em;
@@ -3108,7 +3120,7 @@ blockquote:after {
 }
 .l_media_contents {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   transition: opacity 0.5s;
   position: absolute;
   left: 0;
@@ -3117,12 +3129,17 @@ blockquote:after {
   visibility: hidden;
 }
 .l_media_item {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 23%;
 }
 .l_media_item__image {
   position: relative;
-  display: block;
+  width: 100%;
   margin-bottom: 40px;
+}
+.l_media_item__image_image {
+  width: 100%;
 }
 .l_media_item__image__hover {
   position: absolute;
@@ -3273,6 +3290,7 @@ blockquote:after {
     margin-right: 3px;
   }
   .l_media_item {
+    width: 30%;
     margin-right: 10px;
     margin-left: 20px;
   }
@@ -3289,13 +3307,22 @@ blockquote:after {
 }
 @media all and (max-width: 760px) {
   .m_tab__header {
-    padding: 10px 4px;
+    padding: 13px 10px;
     justify-content: space-between;
-    margin-right: 7px;
+    margin-right: 0px;
     height: auto;
+  }
+  .l_media_container .m_tab__header__text {
+    font-family: "Noto Serif KR", serif;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: -0.02em;
   }
   .m_tab__headers {
     flex-wrap: wrap;
+  }
+  .l_media_item {
+    width: 40%;
   }
   .l_media_item:nth-child(2n+1) {
     margin-left: 3%;
@@ -3335,14 +3362,17 @@ blockquote:after {
     color: #333333;
   }
   .l_media_item {
+    width: 80%;
     margin-left: 0;
     margin-right: 0;
   }
   .l_media_contents {
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 360px;
-    margin: 0 auto;
+    margin: 0px auto;
+    padding-top: 30px;
   }
   .m_tab__content {
     padding: 0px 0px 100px;
