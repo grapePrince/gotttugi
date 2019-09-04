@@ -1063,6 +1063,12 @@ body {
   bottom: 10px;
   white-space: nowrap;
 }
+@media all and (max-width: 650px) {
+  .m_back_to_top {
+    right: 0px;
+    bottom: 0px;
+  }
+}
 .m_search_input {
   position: relative;
   width: 250px;

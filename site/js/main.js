@@ -94,7 +94,6 @@ $(document).ready(function() {
     }
     $(document.body).addClass('js-mobile');
     $('.m_scroll_down').hide();
-    $('.m_back_to_top').hide();
   }
   
   function lineFillNext(index) {
