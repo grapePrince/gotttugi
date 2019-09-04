@@ -742,3 +742,21 @@ header.open_sub {
     }
   }
 }
+
+
+@media all and (max-width: 600px) {
+  .sub header.open_sub nav > ul > li > ul {
+    display: block;
+    visibility: hidden;
+    transform-origin: center top;
+    transform:scaleY(0);
+    transition: transform 0.5s;
+  }
+
+  .sub header.open_sub nav > ul > li.active > ul {
+    visibility: visible;
+    position: static;
+    transform:scaleY(1);
+    margin-top: @line_1line;
+  }
+}
