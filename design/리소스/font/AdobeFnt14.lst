@@ -1,0 +1,95 @@
+%!Adobe-FontList 1.14
+%Locale:0x412
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:CID
+FontName:NotoSansKR-Bold
+FamilyName:Noto Sans KR Bold
+StyleName:Regular
+FullName:Noto Sans KR Bold
+MenuName:Noto Sans KR Bold
+StyleBits:0
+FamilyNameNative:
+StyleNameNative:Regular
+FullNameNative:
+WritingScript:Korean
+OutlineFileName:D:\dev_yeji\gotttugi\design\리소스\Font\NotoSansKR-Bold.otf
+DataFormat:sfntData
+isCFF:yes
+FileLength:2332432
+FileModTime:1562723917
+WeightClass:700
+WidthClass:5
+AngleClass:0
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:CID
+FontName:NotoSansKR-Light
+FamilyName:Noto Sans KR Light
+StyleName:Regular
+FullName:Noto Sans KR Light
+MenuName:Noto Sans KR Light
+StyleBits:0
+FamilyNameNative:
+StyleNameNative:Regular
+FullNameNative:
+WritingScript:Korean
+OutlineFileName:D:\dev_yeji\gotttugi\design\리소스\Font\NotoSansKR-Light.otf
+DataFormat:sfntData
+isCFF:yes
+FileLength:2244000
+FileModTime:1562723917
+WeightClass:300
+WidthClass:5
+AngleClass:0
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:CID
+FontName:NotoSerifKR-Light
+FamilyName:Noto Serif KR Light
+StyleName:Regular
+FullName:Noto Serif KR Light
+MenuName:Noto Serif KR Light
+StyleBits:0
+FamilyNameNative:
+StyleNameNative:Regular
+FullNameNative:
+WritingScript:Korean
+OutlineFileName:D:\dev_yeji\gotttugi\design\리소스\Font\NotoSerifKR-Light.otf
+DataFormat:sfntData
+isCFF:yes
+FileLength:7382564
+FileModTime:1562723917
+WeightClass:300
+WidthClass:5
+AngleClass:0
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:CID
+FontName:NotoSerifKR-SemiBold
+FamilyName:Noto Serif KR SemiBold
+StyleName:Regular
+FullName:Noto Serif KR SemiBold
+MenuName:Noto Serif KR SemiBold
+StyleBits:0
+FamilyNameNative:
+StyleNameNative:Regular
+FullNameNative:
+WritingScript:Korean
+OutlineFileName:D:\dev_yeji\gotttugi\design\리소스\Font\NotoSerifKR-SemiBold.otf
+DataFormat:sfntData
+isCFF:yes
+FileLength:7397560
+FileModTime:1562723918
+WeightClass:600
+WidthClass:5
+AngleClass:0
+%EndFont
+

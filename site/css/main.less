@@ -14,3 +14,147 @@
   }
 }
 
+.footer {
+  margin-bottom: 50px;
+}
+
+.footer_links__container {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 100px;
+
+  border-top: 1px solid @color_black25;
+  border-bottom: 1px solid @color_black25;
+}
+
+.footer_links--menu {
+  display: flex;
+}
+
+.footer_links--menu__item {
+  margin-right: 30px;
+}
+.footer_links--menu__item:last-child {
+  margin-right: 0px;
+}
+
+.footer_down__container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.footer_infos {
+  margin-left: 30px;
+  width: 60%;
+}
+
+.footer_info {
+  display: inline-block;
+}
+
+.footer_info:after {
+  content: ' | '; 
+}
+
+.footer_info:last-child:after {
+  content: '';
+}
+
+
+.s_media_social__item {
+  position: relative;
+  width: 45px;
+  height: 45px;
+  border: 1px solid @color_grey;
+  background: @color_white;
+  margin-left: 20px;
+  border-radius: 999px;
+  cursor:pointer;
+  transition: 0.5s;
+}
+.s_media_social__item:first-child {
+  margin-left: 0;
+}
+.s_media_social__item:hover {
+  border: 1px solid @color_red;
+}
+
+.s_media_social__item:after {
+  content: '';
+  .center_center();
+  .sprites();
+}
+.s_media_social__item--facebook:after {
+  .sprites--facebook();
+}
+.s_media_social__item--twitter:after {
+  .sprites--twitter();
+}
+.s_media_social__item--youtube:after {
+  .sprites--youtube();
+}
+
+
+
+@media all and (max-width: 1110px) {
+  .footer_down__container {
+    width: 90%;
+    margin: 40px auto 0px;
+  }
+}
+
+@media all and (max-width: 850px) {
+  .footer_links__container {
+    flex-direction: column;
+  }
+  .footer_links--menu {
+    margin: 20px 0;
+  }
+  .footer_links--social {
+    margin-bottom: 20px;
+  }
+  .footer_down__container {
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .footer_infos {
+    width: 50%;
+  }
+}
+
+@media all and (max-width: 650px) {
+  .footer_links__container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .footer_links--menu {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .footer_links--menu__item {
+    margin: 10px 0 0;
+  }
+
+  .footer_links--social {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+  }
+
+  .footer_down__container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer_infos {
+    width: 80%;
+    margin: 40px 0 20px;
+  }
+}
