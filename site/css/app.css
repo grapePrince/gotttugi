@@ -3854,7 +3854,7 @@ blockquote:after {
   margin-top: 100px;
   padding: 136px 80px 90px;
   box-sizing: border-box;
-  margin: 150px auto;
+  margin: 150px auto 0px;
   width: auto;
   max-width: 1110px;
 }
@@ -4190,10 +4190,10 @@ blockquote:after {
 }
 /* -------- 목록 디테일 기타 -------- */
 .l_product_others__container {
-  padding: 100px 30px;
+  padding: 50px;
 }
 .l_product_others__title {
-  margin-bottom: 70px;
+  margin-bottom: 40px;
 }
 .s_product_others {
   background: #f8f8f8;
@@ -4201,7 +4201,7 @@ blockquote:after {
 .s_product_others__title {
   font-family: "Noto Serif KR", serif;
   font-weight: 300;
-  font-size: 34px;
+  font-size: 24px;
   letter-spacing: -0.05em;
   font-weight: 700;
 }
@@ -4217,7 +4217,7 @@ blockquote:after {
   width: 20%;
   max-width: 150px;
   min-width: 90px;
-  margin-right: 30px;
+  margin-right: 40px;
 }
 .l_product_others__container img {
   width: 100%;
@@ -4240,6 +4240,9 @@ blockquote:after {
   }
   .l_product_others__container {
     padding: 50px 30px;
+  }
+  .l_product_others__image {
+    margin-right: 20px;
   }
 }
 .perspective {
