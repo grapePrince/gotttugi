@@ -3470,6 +3470,9 @@ blockquote:after {
   height: 54px;
   background-position: -500px -80px;
 }
+.l_breadscrum__item:hover .breadscrum__item__text {
+  color: #e0393d;
+}
 @media all and (max-width: 1110px) {
   .s_breadscrum .shoplink {
     right: 0;
