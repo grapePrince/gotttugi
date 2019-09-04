@@ -288,7 +288,6 @@
 
 
 @media all and (max-width: 900px) {
-
   .l_product_filter_buttons {
     flex-wrap: wrap;
     width: 500px;
@@ -304,11 +303,11 @@
 
 @media all and (max-width: 600px) {
   .l_product_filter_buttons {
-    width: 300px;
+    width: 90%;
     justify-content: center;
   }
   .l_product_filter_button {
-    margin: 10px 30px;
+    margin: 10px 15px;
   }
   .s_product_filter__search__input {
     width: 300px;
@@ -400,10 +399,18 @@
   font-weight: 700;
 }
 
-.product_list__item.js-big.s_product_list__item {
-  width: 552px;
-  height: 552px;
+.s_product_list__item {
+  img {
+    max-width: 50%;
+    max-height: 50%;
+  }
 }
+
+.product_list__item.js-big.s_product_list__item {
+  width: 276px;
+  height: 276px;
+}
+
 
 
 .l_product_list_loading {

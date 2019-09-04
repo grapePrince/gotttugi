@@ -14,6 +14,12 @@
   font-size: 43px;
   letter-spacing: -0.05em;
 }
+.typo_title_littlesmall {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 300;
+  font-size: 36px;
+  letter-spacing: -0.05em;
+}
 .typo_title__lh {
   line-height: 1.227em;
 }
@@ -33,6 +39,12 @@
 .typo_title_small__lh {
   line-height: 1.273em;
 }
+.typo_title_small_smaller {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 300;
+  font-size: 28px;
+  letter-spacing: -0.05em;
+}
 .typo_content_title {
   font-family: "Noto Serif KR", serif;
   font-weight: 300;
@@ -48,6 +60,18 @@
 }
 .typo_content_title__lh {
   line-height: 1.44em;
+}
+.typo_content_title_littlesmall {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 300;
+  font-size: 24px;
+  letter-spacing: -0.05em;
+}
+.typo_content_title_littlesmaller {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 300;
+  font-size: 21px;
+  letter-spacing: -0.05em;
 }
 .typo_content_title_small {
   font-family: "Noto Serif KR", serif;
@@ -80,6 +104,12 @@
 }
 .typo_content {
   font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+}
+.typo_content_serif {
+  font-family: "Noto Serif KR", serif;
   font-weight: 300;
   font-size: 16px;
   letter-spacing: -0.02em;
@@ -941,7 +971,10 @@ body {
     display: block;
   }
   .layout--5column .layout--5column__col {
-    width: 200px;
+    width: 70%;
+  }
+  .layout--5column__col__image {
+    width: 70%;
   }
 }
 @media all and (max-width: 400px) {
@@ -1329,8 +1362,9 @@ header nav > ul > li > a {
   position: relative;
   font-family: "Noto Serif KR", serif;
   font-weight: 300;
-  font-size: 26px;
-  letter-spacing: -0.05em;
+  font-size: 18px;
+  letter-spacing: -0.04em;
+  font-size: 21px;
   font-weight: 600;
 }
 header nav > ul > li > a:after {
@@ -1805,6 +1839,8 @@ header.open_sub nav .background {
     height: auto;
   }
   .sub header h1 {
+    position: relative;
+    z-index: 10;
     margin: 10px 0 15px 13px;
   }
   .sub header .upper_nav_dummy {
@@ -1936,14 +1972,14 @@ header.open_sub nav .background {
 .section--corporation .contents .item h2 {
   font-family: "Noto Serif KR", serif;
   font-weight: 300;
-  font-size: 43px;
+  font-size: 34px;
   letter-spacing: -0.05em;
   margin-bottom: 50px;
 }
 .section--corporation .contents .item p {
   font-family: "Noto Serif KR", serif;
   font-weight: 300;
-  font-size: 26px;
+  font-size: 21px;
   letter-spacing: -0.05em;
   margin-bottom: 120px;
 }
@@ -1957,7 +1993,7 @@ header.open_sub nav .background {
 .section--corporation .contents .item ul li {
   font-family: "Noto Serif KR", serif;
   font-weight: 300;
-  font-size: 26px;
+  font-size: 21px;
   letter-spacing: -0.05em;
 }
 .section--corporation .contents .item ul li .icon {
@@ -2483,18 +2519,18 @@ blockquote:after {
   top: 260px;
 }
 .popular_main_details .l_title_sub_desc__title {
-  margin-bottom: 27px;
+  margin-bottom: 21px;
 }
 .popular_main_details .l_title_sub_desc__sub {
-  margin-bottom: 81px;
+  margin-bottom: 54px;
 }
 .popular_main_details .m_title_sub_desc__title {
   font-family: "Noto Serif KR", serif;
   font-weight: 300;
-  font-size: 55px;
+  font-size: 43px;
   letter-spacing: -0.05em;
   font-weight: 700;
-  line-height: 67px;
+  line-height: 1.227em;
 }
 .popular_main_details .m_title_sub_desc__title__em {
   color: #e0393d;
@@ -2502,7 +2538,7 @@ blockquote:after {
 .popular_main_details .m_title_sub_desc__sub {
   font-family: "Noto Serif KR", serif;
   font-weight: 300;
-  font-size: 34px;
+  font-size: 28px;
   letter-spacing: -0.05em;
   letter-spacing: 0em;
   font-weight: 700;
@@ -2512,7 +2548,7 @@ blockquote:after {
   width: 360px;
   font-family: "Noto Serif KR", serif;
   font-weight: 300;
-  font-size: 26px;
+  font-size: 21px;
   letter-spacing: -0.05em;
   line-height: 1.44em;
   font-family: "Noto Sans KR", sans-serif;
@@ -3675,11 +3711,11 @@ blockquote:after {
 }
 @media all and (max-width: 600px) {
   .l_product_filter_buttons {
-    width: 300px;
+    width: 90%;
     justify-content: center;
   }
   .l_product_filter_button {
-    margin: 10px 30px;
+    margin: 10px 15px;
   }
   .s_product_filter__search__input {
     width: 300px;
@@ -3764,9 +3800,13 @@ blockquote:after {
 .product_list__item:hover .s_product_list__item__contents__title {
   font-weight: 700;
 }
+.s_product_list__item img {
+  max-width: 50%;
+  max-height: 50%;
+}
 .product_list__item.js-big.s_product_list__item {
-  width: 552px;
-  height: 552px;
+  width: 276px;
+  height: 276px;
 }
 .l_product_list_loading {
   display: flex;

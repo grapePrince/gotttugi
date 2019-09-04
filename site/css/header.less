@@ -99,7 +99,8 @@ header {
                 position: relative;
                 > a {
                     position: relative;
-                    .typo_content_title();
+                    .typo_content_title_small();
+                    font-size: 21px;
                     font-weight: 600;
                     &:after {
                         content: '';
@@ -653,6 +654,8 @@ header.open_sub {
   }
 
   .sub header h1 {
+    position: relative;
+    z-index: 10;
     margin: 10px 0 15px 13px;
   }
 
