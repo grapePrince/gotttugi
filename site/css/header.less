@@ -442,12 +442,6 @@ header.open_sub {
   }
   nav {
     width: 1000px;
-    ul {
-      padding: 0 100px;
-      li {
-        width: auto;
-      }
-    }
     .background {
       border-top: none;
       top: 50px;
@@ -516,11 +510,19 @@ header.open_sub {
 }    
 
 
+@media all and (max-width: 1110px) {
+
+  .sub header nav {
+    margin-left: 20px;
+    width: 70%;
+  }
+
+  .sub header nav > ul{
+    padding: 0px;
+  }
+}
 
 @media all and (max-width: 900px) {
-  .sub header nav {
-    width: 100%;
-  }
   .sub header nav ul {
     padding: 0 20px;
   }
