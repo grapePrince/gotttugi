@@ -180,6 +180,19 @@
 
 
 @media all and (max-width: 600px) {
+
+  .js-factory-category .js-factory-process--category,
+  .js-factory-date .js-factory-process--date,
+  .js-factory-form .js-factory-process--form,
+  .js-factory-complete .js-factory-process--complete {
+    display: block;
+    color: @color_black;
+  }
+
+  .sub_factory__title {
+    margin: 100px 0 20px;  
+    text-align: center;
+  }
   .sub_factory__process__container {
     margin-left: 20px;
     margin-right: 20px;
@@ -316,6 +329,32 @@
 }
 
 
+
+
+@media all and (max-width: 1110px) {
+  .sub_factory__date__dates__content {
+    width: 100%;
+  }
+}
+
+
+@media all and (max-width: 600px) {
+  .sub_factory__date__controls,
+  .sub_factory__date__dates {
+    display: none;
+  }
+
+  .sub_factory__date__form{
+    flex-direction: column;
+    align-items: center;
+  }
+  .sub_factory__date__form__title {
+    margin: 0px 0px 40px;
+  }
+}
+
+
+
 // 정보 입력
 
 .sub_factory__content--form {
@@ -393,6 +432,45 @@
 }
 
 
+@media all and (max-width: 900px) {
+  .sub_factory__form__container {
+    padding: 30px 10px;
+  }
+  .sub_factory__form__title {
+    margin-right: 25px;
+  }
+}
+
+
+@media all and (max-width: 600px) {
+  .sub_factory__form__item__container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 0px 20px;
+  }
+
+  .sub_factory__form__title {
+    margin-bottom: 15px;
+  }
+
+  .sub_factory__form__applicant__name__input,
+  .sub_factory__form__applicant__email__input {
+    width: 100%;
+  }
+
+  .sub_factory__form__applicant__phone__input1,
+  .sub_factory__form__applicant__phone__input2,
+  .sub_factory__form__applicant__phone__input3 {
+    width: 24%;
+  }
+  
+}
+
+
+
+
+
+
 // 신청 완료 
 
 .sub_factory__content--complete {
@@ -403,3 +481,13 @@
 .sub_factory_complete__title {
   margin-bottom: 52px;
 }
+
+@media all and (max-width: 600px) { 
+  .sub_factory__content--complete {
+    margin: 80px  0  0px;
+  }
+  .sub_factory_complete__title {
+    .typo_content_title_bold();
+  }
+}
+

@@ -1184,6 +1184,12 @@ video {
   border: 1px solid #cccccc;
   cursor: pointer;
 }
+@media all and (max-width: 600px) {
+  .m_button--round--red,
+  .m_button--round--grey {
+    padding: 8px 15px;
+  }
+}
 .m_input_text {
   border: 1px solid #cccccc;
   padding: 10px;
@@ -4361,6 +4367,17 @@ blockquote:after {
   }
 }
 @media all and (max-width: 600px) {
+  .js-factory-category .js-factory-process--category,
+  .js-factory-date .js-factory-process--date,
+  .js-factory-form .js-factory-process--form,
+  .js-factory-complete .js-factory-process--complete {
+    display: block;
+    color: #333333;
+  }
+  .sub_factory__title {
+    margin: 100px 0 20px;
+    text-align: center;
+  }
   .sub_factory__process__container {
     margin-left: 20px;
     margin-right: 20px;
@@ -4473,6 +4490,24 @@ blockquote:after {
 .sub_factory_button--cancel {
   margin-left: 20px;
 }
+@media all and (max-width: 1110px) {
+  .sub_factory__date__dates__content {
+    width: 100%;
+  }
+}
+@media all and (max-width: 600px) {
+  .sub_factory__date__controls,
+  .sub_factory__date__dates {
+    display: none;
+  }
+  .sub_factory__date__form {
+    flex-direction: column;
+    align-items: center;
+  }
+  .sub_factory__date__form__title {
+    margin: 0px 0px 40px;
+  }
+}
 .sub_factory__content--form {
   margin-bottom: 50px;
 }
@@ -4539,10 +4574,49 @@ blockquote:after {
 .sub_factory__form__applicant__validate.js-invalid {
   display: block;
 }
+@media all and (max-width: 900px) {
+  .sub_factory__form__container {
+    padding: 30px 10px;
+  }
+  .sub_factory__form__title {
+    margin-right: 25px;
+  }
+}
+@media all and (max-width: 600px) {
+  .sub_factory__form__item__container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 0px 20px;
+  }
+  .sub_factory__form__title {
+    margin-bottom: 15px;
+  }
+  .sub_factory__form__applicant__name__input,
+  .sub_factory__form__applicant__email__input {
+    width: 100%;
+  }
+  .sub_factory__form__applicant__phone__input1,
+  .sub_factory__form__applicant__phone__input2,
+  .sub_factory__form__applicant__phone__input3 {
+    width: 24%;
+  }
+}
 .sub_factory__content--complete {
   margin: 110px  0 110px;
   text-align: center;
 }
 .sub_factory_complete__title {
   margin-bottom: 52px;
+}
+@media all and (max-width: 600px) {
+  .sub_factory__content--complete {
+    margin: 80px  0  0px;
+  }
+  .sub_factory_complete__title {
+    font-family: "Noto Serif KR", serif;
+    font-weight: 300;
+    font-size: 26px;
+    letter-spacing: -0.05em;
+    font-weight: 800;
+  }
 }
