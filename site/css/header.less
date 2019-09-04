@@ -359,7 +359,11 @@ header.open_sub {
             > li {
                 width: 100%;                       
                 > ul {
-                    display:none;
+                  display: block;
+                  visibility: hidden;
+                  transform-origin: center top;
+                  transform:scaleY(0);
+                  transition: transform 0.5s;
                 }
             }
 
@@ -369,9 +373,9 @@ header.open_sub {
                     border: 1px solid @color_red;
                 }
                 > ul {
-                    display: block;
+                    visibility: visible;
                     position: static;
-                    transform: none;
+                    transform:scaleY(1);
                     margin-top: @line_1line;
                 }
             }

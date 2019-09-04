@@ -1600,16 +1600,20 @@ header.open_sub nav .background {
     width: 100%;
   }
   header.open_sub nav > ul > li > ul {
-    display: none;
+    display: block;
+    visibility: hidden;
+    transform-origin: center top;
+    transform: scaleY(0);
+    transition: transform 0.5s;
   }
   header.open_sub nav > ul > li.active > a:after {
     width: 100%;
     border: 1px solid #e0393d;
   }
   header.open_sub nav > ul > li.active > ul {
-    display: block;
+    visibility: visible;
     position: static;
-    transform: none;
+    transform: scaleY(1);
     margin-top: 27px;
   }
   header.open_sub nav > ul > li:not(:last-child) {

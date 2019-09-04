@@ -415,7 +415,7 @@ $(document).ready(function() {
           " " +
           CLASS_SETTING_OPENED
       );
-    } else if (width <= MOBILE_WIDTH && isMobile) {
+    } else if (width <= MOBILE_WIDTH && !isMobile) {
       // mobile
       isMobile = true;
       $header.removeClass(
