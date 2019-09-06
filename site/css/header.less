@@ -79,7 +79,7 @@ header {
             }
 
             input[type="text"]:focus ~ span {
-                border-bottom: 1px solid @color_yellow;
+                border-bottom: 1px solid @color_yellow_text;
                 .shadow();
             }
         }
@@ -197,6 +197,13 @@ header.open_sub {
             .shadow_dark();
         }
     }
+
+    .menu {
+      border: 1px solid @color_yellow_text;
+      .icon{
+        background-position-y: -30px;
+      }
+    }
 }
 
 
@@ -256,7 +263,7 @@ header.open_sub {
             .search {
                 width: 120px;
                 padding: 5px 15px;
-                border: 1px solid @color_yellow;
+                border: 1px solid @color_yellow_text;
                 .no_shadow(); 
             
                 .icon {
@@ -395,7 +402,7 @@ header.open_sub {
 
     header.open_setting {        
         .circle_icon.option {
-            border: 1px solid @color_yellow;
+            border: 1px solid @color_yellow_text;
             .icon {            
                 background-position-y: -30px;
             }
@@ -480,7 +487,7 @@ header.open_sub {
       .search {
           width: 120px;
           padding: 5px 15px;
-          border: 1px solid @color_yellow;
+          border: 1px solid @color_yellow_text;
           .no_shadow(); 
       
           .icon {
@@ -629,7 +636,7 @@ header.open_sub {
 
   .sub header.open_setting {        
       .circle_icon.option {
-          border: 1px solid @color_yellow;
+          border: 1px solid @color_yellow_text;
           .icon {            
               background-position-y: -30px;
           }
@@ -737,7 +744,7 @@ header.open_sub {
   }
 
   .sub header .circle_icon.dropdown_menu.active {
-    border: 1px solid @color_yellow;
+    border: 1px solid @color_yellow_text;
     .icon {
       background-position-y: -30px;
     }

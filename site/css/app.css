@@ -663,7 +663,7 @@ body {
 .circle_icon:hover {
   width: 120px;
   padding: 5px 15px;
-  border: 1px solid #fef100;
+  border: 1px solid #ffda21;
   box-shadow: 3px 3px 3px rgba(227, 227, 227, 0.25);
 }
 .circle_icon:hover .icon {
@@ -708,7 +708,7 @@ body {
   text-align: center;
   top: calc(100% + 1px);
   width: inherit;
-  border: 1px solid #fef100;
+  border: 1px solid #ffda21;
   box-sizing: border-box;
   box-shadow: 3px 3px 3px rgba(227, 227, 227, 0.25);
   z-index: 3;
@@ -1091,7 +1091,7 @@ body {
 }
 .m_search_input__input:focus ~ .m_search_input__line {
   background-position-y: -30px;
-  border-bottom: 1px solid #fef100;
+  border-bottom: 1px solid #ffda21;
   box-shadow: 3px 3px 3px rgba(227, 227, 227, 0.25);
 }
 .m_search_input__line {
@@ -1351,7 +1351,7 @@ header .upper_nav .search_input span {
   border-bottom: 1px solid #e3e3e3;
 }
 header .upper_nav .search_input input[type="text"]:focus ~ span {
-  border-bottom: 1px solid #fef100;
+  border-bottom: 1px solid #ffda21;
   box-shadow: 3px 3px 3px rgba(227, 227, 227, 0.25);
 }
 header nav {
@@ -1455,6 +1455,12 @@ header.open_sub nav .background {
   height: 450px;
   box-shadow: 0px 3px 3px rgba(102, 102, 102, 0.5);
 }
+header.open_sub .menu {
+  border: 1px solid #ffda21;
+}
+header.open_sub .menu .icon {
+  background-position-y: -30px;
+}
 /* ----------- TABLET ----------------- */
 @media all and (max-width: 1110px) {
   header {
@@ -1500,7 +1506,7 @@ header.open_sub nav .background {
   header.open_search .upper_nav .search {
     width: 120px;
     padding: 5px 15px;
-    border: 1px solid #fef100;
+    border: 1px solid #ffda21;
     box-shadow: none;
   }
   header.open_search .upper_nav .search .icon {
@@ -1624,7 +1630,7 @@ header.open_sub nav .background {
     display: none;
   }
   header.open_setting .circle_icon.option {
-    border: 1px solid #fef100;
+    border: 1px solid #ffda21;
   }
   header.open_setting .circle_icon.option .icon {
     background-position-y: -30px;
@@ -1696,7 +1702,7 @@ header.open_sub nav .background {
 .sub header.open_search .upper_nav .search {
   width: 120px;
   padding: 5px 15px;
-  border: 1px solid #fef100;
+  border: 1px solid #ffda21;
   box-shadow: none;
 }
 .sub header.open_search .upper_nav .search .icon {
@@ -1827,7 +1833,7 @@ header.open_sub nav .background {
     display: none;
   }
   .sub header.open_setting .circle_icon.option {
-    border: 1px solid #fef100;
+    border: 1px solid #ffda21;
   }
   .sub header.open_setting .circle_icon.option .icon {
     background-position-y: -30px;
@@ -1922,7 +1928,7 @@ header.open_sub nav .background {
     width: 34px;
   }
   .sub header .circle_icon.dropdown_menu.active {
-    border: 1px solid #fef100;
+    border: 1px solid #ffda21;
   }
   .sub header .circle_icon.dropdown_menu.active .icon {
     background-position-y: -30px;
