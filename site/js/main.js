@@ -195,6 +195,11 @@ $(document).ready(function() {
   }
 
   function addEventListener() {    
+
+    $('.layer_notice__close').on('click', function() {
+      $('.layer_notice').fadeOut();
+    });
+
     $('.js-href').on('click', hrefHandler);
 
     if($(document.body).hasClass('main')) {

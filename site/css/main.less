@@ -189,3 +189,20 @@
 .layer_notice__text {
   margin-bottom: 40px;
 }
+
+@media all and (max-width: 600px) {
+  .layer_notice {
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+  }
+  .layer_notice__close {
+    float: none;
+    position: absolute;
+    left: 50%; 
+    transform: translateX(-50%);
+  }
+  .layer_notice__title {
+    margin-top: 40px;
+  }
+}
