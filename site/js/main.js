@@ -38,7 +38,6 @@ $(document).ready(function() {
   var ing_recipeProcess = true;
 
   var factoryEventRegistered = false;
-  var resizeVideo; 
   var videoQue = [];
 
   var weatherData = {};
@@ -195,7 +194,6 @@ $(document).ready(function() {
   }
 
   function addEventListener() {    
-
     $('.layer_notice__close').on('click', function() {
       $('.layer_notice').fadeOut();
     });
@@ -890,14 +888,20 @@ function videoClicked() {
   if($(this).hasClass('js-active')) {
     $(this).removeClass('js-active');
     $window.off('resize', resizeVideo);
+    $video.css({
+      'width' : '',
+      'height' : ''
+    });
     $video.attr('style', '');
   } else {
     $(this).addClass('js-active');
     fitVideo( $video);
-    resizeVideo = $window.on("resize", function() {
-      fitVideo($video);
-    });
+    $window.on("resize", resizeVideo);
   }
+}
+
+function resizeVideo() {
+  fitVideo($video);
 }
 
 
