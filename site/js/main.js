@@ -41,6 +41,7 @@ $(document).ready(function() {
   var videoQue = [];
 
   var weatherData = {};
+  var now = moment();
 
   if ($(document.body).hasClass('main')) {
     initMain();
@@ -962,6 +963,7 @@ function initFactoryPage() {
     $('.sub_factory_button--next').on('click', factoryNextButton);
     $('.sub_factory_button--prev').on('click', factoryPrevButton);
     $('.sub_factory_button--cancel').on('click', factoryCancelButton);
+    $('#sub_factory__date__form__month').on('change', factoryDateMonthChange);
 
     $('#sub_factory__form__applicant__name__input').on('change', factoryFormChange);
     $('#sub_factory__form__applicant__phone__input1').on('change', factoryFormChange);
@@ -972,27 +974,50 @@ function initFactoryPage() {
     factoryEventRegistered = true;
 
     // 페이지 로딩 처음 한 번만 
-    initWeatherInfo();
-
-    initDateOption();
+    initWeatherInfo(now);
+    initDateOptionMonth();
+    initDateOption(now);
   }
 
+}
+
+function factoryDateMonthChange(e) {
+  initDateOption(now.month(this.value - 1));
 }
 
 function factoryFormChange() {
   $('.sub_factory__form__applicant__validate').removeClass('js-invalid');
 }
 
-function initDateOption() {
+function initDateOption(date) {
   var optionHtml = '';
-  var now = moment();
-  for(var i = now.date() + 1 ; i <= 30 ; i++) {
+  var i;
+  var startDate = 0;
+
+  if(now.month() !== date.month()) {
+    startDate = 1;
+  } else {
+    startDate = now.date() + 1;
+  }
+
+  for(var i = startDate ; i <= date.endOf("month").date() ; i++) {
     optionHtml += '<option>' + i + '</option>'
   }
   $('#sub_factory__date__form__day').html(optionHtml);
 }
 
-function initWeatherInfo() {
+function initDateOptionMonth() {
+  var optionHtml = '';
+  var i;
+  for(i = now.month() + 1; i <= now.month() + 2 ; i++ ) {
+    optionHtml += '<option>' + i + '</option>'
+  }
+  $('#sub_factory__date__form__month').html(optionHtml);
+}
+
+
+function initWeatherInfo(date) {
+  drawMonthCalendar(date);
   $.ajax({
     url: "http://api.openweathermap.org/data/2.5/forecast?id=1835848&appid=c9d13b23d0a6283ec7f0171d6e5dbb53&units=metric",
     context: document.body
@@ -1002,8 +1027,52 @@ function initWeatherInfo() {
   });
 }
 
+
+function drawMonthCalendar(date) {
+  
+  /*
+  <ul class="sub_factory__date__dates__content__week">
+          <li class="sub_factory__date__dates__content__day" data-day="1">
+            <span class="sub_factory__date__dates__content__day__value color_red">1</span>
+            <span class="sub_factory__date__dates__content__day__weather__text"></span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day" data-day="2">
+            <span class="sub_factory__date__dates__content__day__value">2</span>
+            <span class="sub_factory__date__dates__content__day__weather__text"></span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day" data-day="3">
+            <span class="sub_factory__date__dates__content__day__value">3</span>
+            <span class="sub_factory__date__dates__content__day__weather__text"></span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day" data-day="4">
+            <span class="sub_factory__date__dates__content__day__value">4</span>
+            <span class="sub_factory__date__dates__content__day__weather__text"></span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day" data-day="5">
+            <span class="sub_factory__date__dates__content__day__value">5</span>
+            <span class="sub_factory__date__dates__content__day__weather__text"></span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day" data-day="6">
+            <span class="sub_factory__date__dates__content__day__value">6</span>
+            <span class="sub_factory__date__dates__content__day__weather__text"></span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+          <li class="sub_factory__date__dates__content__day" data-day="7">
+            <span class="sub_factory__date__dates__content__day__value color_blue">7</span>
+            <span class="sub_factory__date__dates__content__day__weather__text"></span>
+            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
+          </li>
+        </ul>
+        */
+}
+
+
 function decodeWeatherData(data) {
-  var now = new moment();
   weatherData = {};
   for(var i = 0 ; i < data.list.length ; i++) {
     var item = data.list[i];
