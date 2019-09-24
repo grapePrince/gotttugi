@@ -9,10 +9,10 @@ $(document).ready(function() {
   var $recipeProcessDetails = $('.receipe__process__item__detail');
   var $recipeProcessItems = $('.recipe__process__item');
 
-  var CLASS_SEARCH_OPENED = "open_search";
-  var CLASS_SUB_OPENED = "open_sub";
-  var CLASS_SETTING_OPENED = "open_setting";
-  var CLASS_ACTIVE = "active";
+  var CLASS_SEARCH_OPENED = 'open_search';
+  var CLASS_SUB_OPENED = 'open_sub';
+  var CLASS_SETTING_OPENED = 'open_setting';
+  var CLASS_ACTIVE = 'active';
   var MOBILE_WIDTH = 600;
   var TABLET_WIDTH = 1110;
 
@@ -41,7 +41,11 @@ $(document).ready(function() {
   var videoQue = [];
 
   var weatherData = {};
-  var now = moment();
+
+
+  if(typeof moment !== 'undefined') {
+    var now = moment();
+  }
 
   if ($(document.body).hasClass('main')) {
     initMain();
@@ -60,10 +64,10 @@ $(document).ready(function() {
       initMobileDevice();      
     } else {
       if (!bannerSlider) {
-        bannerSlider = $(".sliderWrap").bxSlider({
+        bannerSlider = $('.sliderWrap').bxSlider({
           pager: false,
-          prevSelector: ".banner .left",
-          nextSelector: ".banner .right"
+          prevSelector: '.banner .left',
+          nextSelector: '.banner .right'
         });        
       }
       if (!newsSlider) {
@@ -83,10 +87,10 @@ $(document).ready(function() {
 
   function initMobileDevice() {
     if (!bannerSlider) {
-      bannerSlider = $(".sliderWrap").bxSlider({
+      bannerSlider = $('.sliderWrap').bxSlider({
         pager: false,
-        prevSelector: ".banner .left",
-        nextSelector: ".banner .right"
+        prevSelector: '.banner .left',
+        nextSelector: '.banner .right'
       });
     }
     if (!newsSlider) {
@@ -143,7 +147,7 @@ $(document).ready(function() {
   function loadNewsSlider() {
     var config = {
       pagination: {
-        el: ".swiper-pagination",
+        el: '.swiper-pagination',
         clickable: true
       },
       slidesPerView: 'auto',
@@ -168,7 +172,7 @@ $(document).ready(function() {
           underTabletWidth = $(window).outerWidth() <= TABLET_WIDTH ? true : false;
           
           if (isMobile) {
-            $("video").each(function() {
+            $('video').each(function() {
               $(this)
                 .get(0)
                 .play();
@@ -179,7 +183,7 @@ $(document).ready(function() {
     };
 
     if(!newsSlider) {
-     newsSlider = new Swiper(".swiper-container", config);
+     newsSlider = new Swiper('.swiper-container', config);
     } else {
       newsSlider.update();
     }
@@ -905,7 +909,6 @@ function resizeVideo() {
   fitVideo($video);
 }
 
-
 function fitVideo($video) {
   var windowWidth = $(window).width(),
   windowHeight = $(window).height(),
@@ -947,7 +950,6 @@ function initNews() {
   }
 }
 
-
 function initFactoryPage() {
   $('.sub_factory')
   .removeClass('js-factory-date js-factory-form')
@@ -974,15 +976,15 @@ function initFactoryPage() {
     factoryEventRegistered = true;
 
     // 페이지 로딩 처음 한 번만 
-    initWeatherInfo(now);
+    initWeatherInfo(new moment(now));
     initDateOptionMonth();
-    initDateOption(now);
+    initDateOption(new moment(now));
   }
 
 }
 
 function factoryDateMonthChange(e) {
-  initDateOption(now.month(this.value - 1));
+  initDateOption(new moment(now).month(this.value - 1));
 }
 
 function factoryFormChange() {
@@ -1017,60 +1019,72 @@ function initDateOptionMonth() {
 
 
 function initWeatherInfo(date) {
-  drawMonthCalendar(date);
+  drawMonthCalendar(date);  
+}
+
+function drawMonthCalendar(date) {
+  var firstDay = date.startOf('month').day();
+  var lastDate = date.endOf('month').date();
+  var previousLastDate = date.subtract(1, 'months').endOf('month').date();
+  var currentDate = previousLastDate - firstDay - 1;
+  var ulTemplate = '';
+  var liTemplate = '<li class="sub_factory__date__dates__content__day" data-day="{{Date}}">' +
+                      '<span class="sub_factory__date__dates__content__day__value {{Color}}">{{Date}}</span>' +
+                      '<span class="sub_factory__date__dates__content__day__weather__text"></span>' +
+                      '<span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>' +
+                    '</li>';
+  var currentHtml = '';
+  var tempHtml = '';
+  var previuseMonth = true;                  
+  
+  for(var i = 0 ; i < 6 ; i++) {
+    if(i === 5 && currentDate < 9) {
+      break;
+    }
+
+    ulTemplate = '<ul class="sub_factory__date__dates__content__week">';    
+
+    for (var j = 0 ; j < 7 ; j++) {
+      currentHtml = '';
+      if(previuseMonth && j === firstDay) {
+        currentDate = 1;
+        previuseMonth = false;
+      }
+
+      currentHtml = liTemplate.replace(/{{Date}}/g , currentDate);
+
+      if(j === 0) {
+        currentHtml = currentHtml.replace('{{Color}}', 'color_red');
+      } else if(j === 6) {
+        currentHtml = currentHtml.replace('{{Color}}', 'color_blue');
+      } else {
+        currentHtml = currentHtml.replace('{{Color}}', '');
+      }
+
+      ulTemplate += currentHtml;
+
+      if(!previuseMonth && currentDate == lastDate) {
+        currentDate = 1;
+      } else {
+        currentDate++;
+      }
+    }
+
+    ulTemplate += '</ul>';
+
+    tempHtml += ulTemplate;
+  }
+
+  $('.sub_factory__date__dates__content').append(tempHtml);
+
   $.ajax({
-    url: "http://api.openweathermap.org/data/2.5/forecast?id=1835848&appid=c9d13b23d0a6283ec7f0171d6e5dbb53&units=metric",
+    url: 'http://api.openweathermap.org/data/2.5/forecast?id=1835848&appid=c9d13b23d0a6283ec7f0171d6e5dbb53&units=metric',
     context: document.body
   }).done(function(data) {
     decodeWeatherData(data);
     drawDateHtml();
-  });
+  });   
 }
-
-
-function drawMonthCalendar(date) {
-  
-  /*
-  <ul class="sub_factory__date__dates__content__week">
-          <li class="sub_factory__date__dates__content__day" data-day="1">
-            <span class="sub_factory__date__dates__content__day__value color_red">1</span>
-            <span class="sub_factory__date__dates__content__day__weather__text"></span>
-            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
-          </li>
-          <li class="sub_factory__date__dates__content__day" data-day="2">
-            <span class="sub_factory__date__dates__content__day__value">2</span>
-            <span class="sub_factory__date__dates__content__day__weather__text"></span>
-            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
-          </li>
-          <li class="sub_factory__date__dates__content__day" data-day="3">
-            <span class="sub_factory__date__dates__content__day__value">3</span>
-            <span class="sub_factory__date__dates__content__day__weather__text"></span>
-            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
-          </li>
-          <li class="sub_factory__date__dates__content__day" data-day="4">
-            <span class="sub_factory__date__dates__content__day__value">4</span>
-            <span class="sub_factory__date__dates__content__day__weather__text"></span>
-            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
-          </li>
-          <li class="sub_factory__date__dates__content__day" data-day="5">
-            <span class="sub_factory__date__dates__content__day__value">5</span>
-            <span class="sub_factory__date__dates__content__day__weather__text"></span>
-            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
-          </li>
-          <li class="sub_factory__date__dates__content__day" data-day="6">
-            <span class="sub_factory__date__dates__content__day__value">6</span>
-            <span class="sub_factory__date__dates__content__day__weather__text"></span>
-            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
-          </li>
-          <li class="sub_factory__date__dates__content__day" data-day="7">
-            <span class="sub_factory__date__dates__content__day__value color_blue">7</span>
-            <span class="sub_factory__date__dates__content__day__weather__text"></span>
-            <span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>
-          </li>
-        </ul>
-        */
-}
-
 
 function decodeWeatherData(data) {
   weatherData = {};
@@ -1078,7 +1092,7 @@ function decodeWeatherData(data) {
     var item = data.list[i];
     var time = new moment(item.dt * 1000);
     if(time.date() > now.date()) {
-      var key = "" + time.date();
+      var key = '' + time.date();
       if(weatherData[key]) {
         var maxTemp = Math.max(weatherData[key].maxTemp, item.main.temp_max);
         var minTemp = Math.min(weatherData[key].minTemp, item.main.temp_min);
