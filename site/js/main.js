@@ -41,10 +41,11 @@ $(document).ready(function() {
   var videoQue = [];
 
   var weatherData = {};
+  var factoryCalenderDate;
 
 
   if(typeof moment !== 'undefined') {
-    var now = moment();
+    var today = moment();
   }
 
   if ($(document.body).hasClass('main')) {
@@ -83,7 +84,17 @@ $(document).ready(function() {
     initNews();
   }
 
+  function getTodayMonth() {
+    return today.month();
+  }
 
+  function getTodayDate() {
+    return today.date();
+  }
+
+  function getNewMoment() {
+    return new moment();
+  }
 
   function initMobileDevice() {
     if (!bannerSlider) {
@@ -965,6 +976,7 @@ function initFactoryPage() {
     $('.sub_factory_button--next').on('click', factoryNextButton);
     $('.sub_factory_button--prev').on('click', factoryPrevButton);
     $('.sub_factory_button--cancel').on('click', factoryCancelButton);
+    $('.sub_factory__date__controls__arrow').on('click', factoryArrowClicked);
     $('#sub_factory__date__form__month').on('change', factoryDateMonthChange);
 
     $('#sub_factory__form__applicant__name__input').on('change', factoryFormChange);
@@ -976,15 +988,23 @@ function initFactoryPage() {
     factoryEventRegistered = true;
 
     // 페이지 로딩 처음 한 번만 
-    initWeatherInfo(new moment(now));
+    initWeatherInfo(getNewMoment());
     initDateOptionMonth();
-    initDateOption(new moment(now));
+    initDateOption(getNewMoment());
   }
 
 }
 
+function factoryArrowClicked(e) {
+  if($(this).hasClass('js-left')) {
+    initWeatherInfo(factoryCalenderDate.subtract(1, 'months'));
+  } else {
+    initWeatherInfo(factoryCalenderDate.add(1, 'months'));
+  }
+}
+
 function factoryDateMonthChange(e) {
-  initDateOption(new moment(now).month(this.value - 1));
+  initDateOption(getNewMoment().month(this.value - 1));
 }
 
 function factoryFormChange() {
@@ -996,10 +1016,10 @@ function initDateOption(date) {
   var i;
   var startDate = 0;
 
-  if(now.month() !== date.month()) {
+  if(getTodayMonth() !== date.month()) {
     startDate = 1;
   } else {
-    startDate = now.date() + 1;
+    startDate = getTodayDate() + 1;
   }
 
   for(var i = startDate ; i <= date.endOf("month").date() ; i++) {
@@ -1011,7 +1031,7 @@ function initDateOption(date) {
 function initDateOptionMonth() {
   var optionHtml = '';
   var i;
-  for(i = now.month() + 1; i <= now.month() + 2 ; i++ ) {
+  for(i = getTodayMonth() + 1; i <= getTodayMonth() + 2 ; i++ ) {
     optionHtml += '<option>' + i + '</option>'
   }
   $('#sub_factory__date__form__month').html(optionHtml);
@@ -1019,26 +1039,32 @@ function initDateOptionMonth() {
 
 
 function initWeatherInfo(date) {
+  factoryCalenderDate = new moment(date);
   drawMonthCalendar(date);  
 }
 
 function drawMonthCalendar(date) {
-  var firstDay = date.startOf('month').day();
-  var lastDate = date.endOf('month').date();
-  var previousLastDate = date.subtract(1, 'months').endOf('month').date();
+  var firstDay = new moment(date).startOf('month').day();
+  var lastDate = new moment(date).endOf('month').date();
+  var previousLastDate = new moment(date).subtract(1, 'months').endOf('month').date();
   var currentDate = previousLastDate - firstDay - 1;
+  var fullDate;
   var ulTemplate = '';
-  var liTemplate = '<li class="sub_factory__date__dates__content__day" data-day="{{Date}}">' +
+  var liTemplate = '<li class="sub_factory__date__dates__content__day" data-date="{{FullDate}}">' +
                       '<span class="sub_factory__date__dates__content__day__value {{Color}}">{{Date}}</span>' +
                       '<span class="sub_factory__date__dates__content__day__weather__text"></span>' +
                       '<span class="sub_factory__date__dates__content__day__weather__icon">아이콘</span>' +
                     '</li>';
   var currentHtml = '';
   var tempHtml = '';
-  var previuseMonth = true;                  
+  var previuseMonth = true;
+  var nextMonth = false;           
+
+  $('.sub_factory__date__controls__text_month').text(date.format('MMM'));
+  $('.sub_factory__date__controls__text_date').text(date.format('YYYY.MM'));
   
   for(var i = 0 ; i < 6 ; i++) {
-    if(i === 5 && currentDate < 9) {
+    if(i === 5 && nextMonth) {
       break;
     }
 
@@ -1051,7 +1077,16 @@ function drawMonthCalendar(date) {
         previuseMonth = false;
       }
 
-      currentHtml = liTemplate.replace(/{{Date}}/g , currentDate);
+      if(previuseMonth) {
+        fullDate = new moment(date).subtract(1, 'months').day(currentDate).format('YYYYMMDD');
+      } else if(nextMonth) {
+        fullDate = new moment(date).add(1, 'months').day(currentDate).format('YYYYMMDD');
+      } else {
+        fullDate = new moment(date).date(currentDate).format('YYYYMMDD');
+      }
+
+      currentHtml = liTemplate.replace(/{{Date}}/g , currentDate)
+                              .replace(/{{FullDate}}/g, fullDate);
 
       if(j === 0) {
         currentHtml = currentHtml.replace('{{Color}}', 'color_red');
@@ -1065,6 +1100,7 @@ function drawMonthCalendar(date) {
 
       if(!previuseMonth && currentDate == lastDate) {
         currentDate = 1;
+        nextMonth = true;
       } else {
         currentDate++;
       }
@@ -1075,7 +1111,7 @@ function drawMonthCalendar(date) {
     tempHtml += ulTemplate;
   }
 
-  $('.sub_factory__date__dates__content').append(tempHtml);
+  $('.sub_factory__date__dates__content').html(tempHtml);
 
   $.ajax({
     url: 'http://api.openweathermap.org/data/2.5/forecast?id=1835848&appid=c9d13b23d0a6283ec7f0171d6e5dbb53&units=metric',
@@ -1083,7 +1119,7 @@ function drawMonthCalendar(date) {
   }).done(function(data) {
     decodeWeatherData(data);
     drawDateHtml();
-  });   
+  });  
 }
 
 function decodeWeatherData(data) {
@@ -1091,8 +1127,8 @@ function decodeWeatherData(data) {
   for(var i = 0 ; i < data.list.length ; i++) {
     var item = data.list[i];
     var time = new moment(item.dt * 1000);
-    if(time.date() > now.date()) {
-      var key = '' + time.date();
+    if(time.date() > getTodayDate()) {
+      var key = '' + time.format('YYYYMMDD');
       if(weatherData[key]) {
         var maxTemp = Math.max(weatherData[key].maxTemp, item.main.temp_max);
         var minTemp = Math.min(weatherData[key].minTemp, item.main.temp_min);
@@ -1115,7 +1151,7 @@ function decodeWeatherData(data) {
 
 function drawDateHtml() {
   for(var key in weatherData) {
-    var $el = $('.sub_factory__date__dates__content__day[data-day=' + key + ']');
+    var $el = $('.sub_factory__date__dates__content__day[data-date=' + key + ']');
     var data = weatherData[key];
     var text = Math.floor(data.minTemp) + '도 ~ ' + Math.floor(data.maxTemp) + '도';
     $el.find('.sub_factory__date__dates__content__day__weather__text').text(text);

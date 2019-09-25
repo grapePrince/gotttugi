@@ -4681,6 +4681,7 @@ blockquote:after {
   height: 35px;
   border: 1px solid #cccccc;
   border-radius: 999px;
+  cursor: pointer;
 }
 .sub_factory__date__dates__header__container {
   display: flex;
